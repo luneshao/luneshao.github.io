@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>V on luneS&#39;s garden</title>
+    <link>https://luneshao.github.io/categories/v/</link>
+    <description>Recent content in V on luneS&#39;s garden</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://luneshao.github.io/categories/v/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>初次见面</title>
+      <link>https://luneshao.github.io/posts/dfamdnfnmansd/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/dfamdnfnmansd/</guid>
+      <description>介绍 初次见面，请多多关照。 &amp;ndash;来自萌新的问候。（≧∇≦）
+ （≧∇≦）
+ Skins （≧∇≦）
+来自萌新的问候 （≧∇≦）</description>
+    </item>
+    
+    <item>
+      <title>Creating a New Theme</title>
+      <link>https://luneshao.github.io/posts/dfamdnfnmansd/</link>
+      <pubDate>Wed, 23 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/dfamdnfnmansd/</guid>
+      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
+We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+    </item>
+    
+  </channel>
+</rss>
