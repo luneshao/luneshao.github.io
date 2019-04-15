@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on luneS&#39;s garden</title>
+    <title>luneS&#39;s garden</title>
     <link>https://luneshao.github.io/categories/</link>
-    <description>Recent content in Categories on luneS&#39;s garden</description>
+    <description>Recent content on luneS&#39;s garden</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 10 Apr 2019 00:00:00 +0000</lastBuildDate>
@@ -12,21 +12,14 @@
     
     
     <item>
-      <title></title>
-      <link>https://luneshao.github.io/categories/</link>
+      <title>初次见面</title>
+      <link>https://luneshao.github.io/posts/dfamdnfnmansd/</link>
       <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/categories/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>V</title>
-      <link>https://luneshao.github.io/categories/v/</link>
-      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://luneshao.github.io/categories/v/</guid>
-      <description></description>
+      <guid>https://luneshao.github.io/posts/dfamdnfnmansd/</guid>
+      <description>介绍 初次见面，请多多关照。 &amp;ndash;来自萌新的问候。（≧∇≦）
+ （≧∇≦）
+ 来自萌新的问候 （≧∇≦）</description>
     </item>
     
   </channel>
