@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://luneshao.github.io/posts/keyboard/</loc>
+    <lastmod>2019-05-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://luneshao.github.io/posts/</loc>
     <lastmod>2019-05-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -38,37 +43,24 @@
   </url>
   
   <url>
-    <loc>https://luneshao.github.io/categories/</loc>
-    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://luneshao.github.io/categories/</loc>
-    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://luneshao.github.io/categories/v/</loc>
-    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://luneshao.github.io/tags/start/</loc>
     <lastmod>2019-04-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://luneshao.github.io/posts/dfamdnfnmansd/</loc>
+    <loc>https://luneshao.github.io/posts/0415/</loc>
     <lastmod>2019-04-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luneshao.github.io/posts/dfamdnfnmansd/</loc>
+    <loc>https://luneshao.github.io/posts/my-first-post/</loc>
     <lastmod>2019-04-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luneshao.github.io/categories/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>
