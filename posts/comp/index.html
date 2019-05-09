@@ -59,13 +59,17 @@
 <p>1. addEventListen</p>
 </blockquote>
 
-<pre><code class="language-javascript">function addEvt (eTarget, eType, eHandle) {
+<pre><code class="language-javascript">function addEvt(eTarget, eType, eHandle) {
   if (eTarget.addEventListen) {
-    eTarget.addEventListen(eType, eHandle);
+    eTarget.addEventListen(eType, eHandle)
   } else {
     // ie 浏览器
-    eType = 'on' + eType;
-    eTarget.attachEvent (eType, eHandle)
+    if (eTarget.attachEvent) {
+      eType = 'on' + eType
+      eTarget.attachEvent(eType, eHandle)
+    } else {
+      eventTarget['on' + eventType] = eventHandler
+    }
   }
 }
 </code></pre>
@@ -91,10 +95,11 @@ const st = document.documentElement.scrollTop;
 <p><strong>兼容写法</strong>：</p>
 
 <pre><code class="language-javascript">// 因为 0 || undefine =&gt; undefined
-const st = document.pageYOffset.scrollTop 
-          || document.documentElement.scrollTop 
-          ||  document.body.scrollTop 
-          || 0;
+const st =
+  document.pageYOffset.scrollTop ||
+  document.documentElement.scrollTop ||
+  document.body.scrollTop ||
+  0
 </code></pre>
 
 <h3 id="css3">CSS3</h3>

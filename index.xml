@@ -27,8 +27,8 @@
       
       <guid>https://luneshao.github.io/posts/comp/</guid>
       <description>Javascript 相关  1. addEventListen
- function addEvt (eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget.addEventListen(eType, eHandle); } else { // ie 浏览器 eType = &#39;on&#39; + eType; eTarget.attachEvent (eType, eHandle) } }   2. scrollTop()
- // ie6/7/8 1. 没有 doctype 声明的页面： const st = document.body.scrollTop; 2. 声明 doctype 的页面： const st = document.documentElement.scrollTop; // safari const st = document.pageYOffset; // chrome、firefox const st = document.documentElement.scrollTop;  兼容写法：</description>
+ function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget.addEventListen(eType, eHandle) } else { // ie 浏览器 if (eTarget.attachEvent) { eType = &#39;on&#39; + eType eTarget.attachEvent(eType, eHandle) } else { eventTarget[&#39;on&#39; + eventType] = eventHandler } } }   2. scrollTop()
+ // ie6/7/8 1. 没有 doctype 声明的页面： const st = document.body.scrollTop; 2. 声明 doctype 的页面： const st = document.documentElement.scrollTop; // safari const st = document.</description>
     </item>
     
     <item>
