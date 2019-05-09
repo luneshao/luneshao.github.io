@@ -4,7 +4,7 @@
 
  <html class="no-js"> 
 <head>
-    <title>浏览器属性兼容性整理  &middot; luneS&#39;s garden </title>
+    <title>markdown 常用语法  &middot; luneS&#39;s garden </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="content-language" content="en-us" />
@@ -49,55 +49,42 @@
                     </time>
                     </h5>
                 </div>
-                <h1 class="page-title" itemprop="name headline">浏览器属性兼容性整理</h1>
+                <h1 class="page-title" itemprop="name headline">markdown 常用语法</h1>
                 <div itemprop="articleBody">
                     
 
-<h3 id="javascript-相关">Javascript 相关</h3>
+<h3 id="列表">列表</h3>
 
-<blockquote>
-<p>1. addEventListen</p>
-</blockquote>
+<pre><code class="language-txt">// 无序列表
+* txt txt txt
++ txt txt txt
+- txt txt txt
 
-<pre><code class="language-javascript">function addEvt (eTarget, eType, eHandle) {
-  if (eTarget.addEventListen) {
-    eTarget.addEventListen(eType, eHandle);
-  } else {
-    // ie 浏览器
-    eType = 'on' + eType;
-    eTarget.attachEvent (eType, eHandle)
-  }
-}
+// 有序列表
+1. txt txt txt
+2. txt txt txt
 </code></pre>
 
-<blockquote>
-<p>2. scrollTop()</p>
-</blockquote>
+<h3 id="引用">引用</h3>
 
-<pre><code class="language-javascript">// ie6/7/8
-1. 没有 doctype 声明的页面：
-const st = document.body.scrollTop;
-
-2. 声明 doctype 的页面：
-const st = document.documentElement.scrollTop;
-
-// safari
-const st = document.pageYOffset;
-
-// chrome、firefox
-const st = document.documentElement.scrollTop;
+<pre><code class="language-txt">&gt; txt txt txt
 </code></pre>
 
-<p><strong>兼容写法</strong>：</p>
+<h3 id="粗体-和-斜体">粗体 和 斜体</h3>
 
-<pre><code class="language-javascript">// 因为 0 || undefine =&gt; undefined
-const st = document.pageYOffset.scrollTop 
-          || document.documentElement.scrollTop 
-          ||  document.body.scrollTop 
-          || 0;
+<pre><code class="language-txt">// 粗体
+**txt**  /  __txt__
+
+// 斜体
+*txt*  /  _txt_
 </code></pre>
 
-<h3 id="css3">CSS3</h3>
+<h3 id="表格">表格</h3>
+
+<pre><code class="language-txt">| thead | thead | thead |
+| :---- | :---: | ----: |
+| 左对齐 |  居中  | 右对齐 |
+</code></pre>
                     
                 </div>
                 <div class="feat share">
@@ -115,13 +102,9 @@ const st = document.pageYOffset.scrollTop
 
     <div class="next-prev-arrows">
         
-            <a rel="next" href="https://luneshao.github.io/posts/markdown/" id="next">
-                &larr; <span class="nav-title nav-title-next">markdown 常用语法</span> 
-            </a>
         
-        
-            <a rel="prev" href="https://luneshao.github.io/posts/keyboard/" id="prev">
-                 <span class="nav-title nav-title-prev">Mac的快捷键</span> &rarr;
+            <a rel="prev" href="https://luneshao.github.io/posts/comp/" id="prev">
+                 <span class="nav-title nav-title-prev">浏览器属性兼容性整理</span> &rarr;
             </a>
         
     </div>
