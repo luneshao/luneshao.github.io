@@ -17,7 +17,7 @@
       <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://luneshao.github.io/posts/markdown/</guid>
-      <description> 列表 // 无序列表 * txt txt txt + txt txt txt - txt txt txt // 有序列表 1. txt txt txt 2. txt txt txt  引用 &amp;gt; txt txt txt  粗体 和 斜体 // 粗体 **txt** / __txt__ // 斜体 *txt* / _txt_  表格 | thead | thead | thead | | :---- | :---: | ----: | | 左对齐 | 居中 | 右对齐 |  </description>
+      <description> 列表 // 无序列表 * txt txt txt + txt txt txt - txt txt txt // 有序列表 1. txt txt txt 2. txt txt txt  引用 &amp;gt; txt txt txt  粗体 和 斜体 // 粗体 **txt** / __txt__ // 斜体 *txt* / _txt_  表格 | thead | thead | thead | | :---- | :---: | ----: | | 左对齐 | 居中 | 右对齐 |  分隔线 *** / - - - / * * *  </description>
     </item>
     
     <item>
