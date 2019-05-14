@@ -4,7 +4,7 @@
 
  <html class="no-js"> 
 <head>
-    <title>初次见面  &middot; luneS&#39;s garden </title>
+    <title>浏览器易混淆名词整理  &middot; luneS&#39;s garden </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="content-language" content="en-us" />
@@ -45,26 +45,53 @@
                 <div class="feat">
                     <h5 class="page-date">
                     <time datetime="" itemprop="datePublished">
-                    10 April 2019
+                    13 May 2019
                    
                     </time>
                     </h5>
                 </div>
-                <h1 class="page-title" itemprop="name headline">初次见面</h1>
+                <h1 class="page-title" itemprop="name headline">浏览器易混淆名词整理</h1>
                 <div itemprop="articleBody">
                     
 
-<h3 id="介绍"><strong>介绍</strong></h3>
+<h3 id="01-js-的-window-location-对象">01. JS 的 window.location 对象</h3>
 
-<p>初次见面，请多多关照。 &ndash;来自萌新的问候。（≧∇≦）</p>
+<p>包含有关文档及当前位置的信息。</p>
 
-<blockquote>
-<p>（≧∇≦）</p>
-</blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/location">MDN文档地址</a></p>
 
-<h3 id="来自萌新的问候">来自萌新的问候</h3>
+<ul>
+<li><p><code>location.origin</code>: 包含页面来源的域名的标准形式，当前页面的域名 + 端口。
+<br>eg: <code>https://www.baidu.com</code></p></li>
 
-<p>（≧∇≦）</p>
+<li><p><code>location.host</code>: 当前页面的域名，可能最后带有一个“：”和端口。
+<br>eg: www.baidu.com</p></li>
+
+<li><p><code>location.hostname</code>: 当前页面的域名。
+<br>eg: www.baidu.com</p></li>
+
+<li><p><code>location.protocol</code>: 当前页面的协议。
+<br>eg: https</p></li>
+
+<li><p><code>location.assign()</code>: 加载给定 URL 的内容到这个 Location对象所关联的对象上。</p></li>
+
+<li><p><code>location.reload(params)</code>: 重新加载当前页。params: t/f =&gt; 服务器请求资源/缓存。</p></li>
+
+<li><p><code>location.replace()</code>: 用给定的URL替换当前的资源，不会被保存历史。</p></li>
+</ul>
+
+<h3 id="10-ajax-请求头中的属性">10. ajax 请求头中的属性</h3>
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP">MDN文档地址</a></p>
+
+<ul>
+<li><p><code>Host</code>: 服务器的域名（对于虚拟主机来说），以及（可选的）服务器监听的TCP端口号。
+<a href="https://blog.csdn.net/netdxy/article/details/51195560">相关文章</a>一个IP可以部署众多网站，分别解析不同的域名，host 指示访问哪个虚拟主机。</p></li>
+
+<li><p><code>Origin</code>: 请求来自于哪个站点，该字段仅指示服务器名称，并不包含任何路径信息。</p></li>
+
+<li><p><code>Referer</code>: 当前请求页面的来源页面的地址。B -&gt; A, Referer: B.URL</p></li>
+</ul>
                     
                 </div>
                 <div class="feat share">
@@ -82,10 +109,14 @@
 
     <div class="next-prev-arrows">
         
-            <a rel="next" href="https://luneshao.github.io/posts/0415/" id="next">
-                &larr; <span class="nav-title nav-title-next">每天一集TED 20190415</span> 
+            <a rel="next" href="https://luneshao.github.io/posts/hugo-intro/" id="next">
+                &larr; <span class="nav-title nav-title-next">hugo 介绍</span> 
             </a>
         
+        
+            <a rel="prev" href="https://luneshao.github.io/posts/markdown/" id="prev">
+                 <span class="nav-title nav-title-prev">markdown 常用语法</span> &rarr;
+            </a>
         
     </div>
 

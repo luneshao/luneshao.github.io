@@ -13,10 +13,10 @@
     
     <item>
       <title>浏览器易混淆名词整理</title>
-      <link>https://luneshao.github.io/posts/browsernum/</link>
+      <link>https://luneshao.github.io/posts/browser-num/</link>
       <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/browsernum/</guid>
+      <guid>https://luneshao.github.io/posts/browser-num/</guid>
       <description> 01. JS 的 window.location 对象 包含有关文档及当前位置的信息。
 MDN文档地址
  location.origin: 包含页面来源的域名的标准形式，当前页面的域名 + 端口。 eg: https://www.baidu.com

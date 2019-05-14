@@ -6,17 +6,37 @@
     <description>Recent content in Posts on luneS&#39;s garden</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>USB 接口类型</title>
+      <link>https://luneshao.github.io/posts/usb-types/</link>
+      <pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/usb-types/</guid>
+      <description>USB: 通用串行总线（英语：Universal Serial Bus，缩写：USB）是连接计算机系统与外部设备的一种串口总线标准，也是一种输入输出接口的技术规范，
+文档地址
+   USB类型 对应图片     USB A-Type    USB B-Type    USB C-Type    Micro-USB A    Micro-USB B    USB Mini-b(5-pin)    USB Mini-b(4-pin)    USB 3.0 A-Type    USB 3.0 B-Type    USB 3.0 Micro B     </description>
+    </item>
+    
+    <item>
+      <title>hugo 介绍</title>
+      <link>https://luneshao.github.io/posts/hugo-intro/</link>
+      <pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/hugo-intro/</guid>
+      <description>Hugo 目录结构 ├── archetypes // 储存.md的模板文件 ├── content // 储存网站的所有内容 ├── data // 储存数据文件供模板调用 ├── layouts // 储存.html模板 ├── static // 储存图片,css,js等静态文件，该目录下的文件会直接拷贝到/public ├── theme // 储存主题 └── config.toml  原文连接</description>
+    </item>
+    
+    <item>
       <title>浏览器易混淆名词整理</title>
-      <link>https://luneshao.github.io/posts/browsernum/</link>
+      <link>https://luneshao.github.io/posts/browser-num/</link>
       <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/browsernum/</guid>
+      <guid>https://luneshao.github.io/posts/browser-num/</guid>
       <description> 01. JS 的 window.location 对象 包含有关文档及当前位置的信息。
 MDN文档地址
  location.origin: 包含页面来源的域名的标准形式，当前页面的域名 + 端口。 eg: https://www.baidu.com

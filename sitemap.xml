@@ -4,25 +4,47 @@
   
   <url>
     <loc>https://luneshao.github.io/posts/</loc>
-    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://luneshao.github.io/tags/</loc>
-    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://luneshao.github.io/posts/usb-types/</loc>
+    <lastmod>2019-05-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luneshao.github.io/posts/hugo-intro/</loc>
+    <lastmod>2019-05-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://luneshao.github.io/tags/lunes/</loc>
-    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://luneshao.github.io/</loc>
-    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://luneshao.github.io/tags/%E6%97%A5%E5%B8%B8/</loc>
+    <lastmod>2019-05-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://luneshao.github.io/tags/%E7%A1%AC%E4%BB%B6/</loc>
+    <lastmod>2019-05-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -33,7 +55,7 @@
   </url>
   
   <url>
-    <loc>https://luneshao.github.io/posts/browsernum/</loc>
+    <loc>https://luneshao.github.io/posts/browser-num/</loc>
     <lastmod>2019-05-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -50,12 +72,6 @@
   <url>
     <loc>https://luneshao.github.io/posts/keyboard/</loc>
     <lastmod>2019-05-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://luneshao.github.io/tags/%E6%97%A5%E5%B8%B8/</loc>
-    <lastmod>2019-05-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
