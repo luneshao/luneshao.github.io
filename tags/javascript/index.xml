@@ -13,13 +13,13 @@
     
     <item>
       <title>Javascript Date 对象</title>
-      <link>https://luneshao.github.io/posts/javascriptdateobj/</link>
+      <link>https://luneshao.github.io/posts/js-date/</link>
       <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/javascriptdateobj/</guid>
-      <description>常用方法
- MDN
-语法 new Date()： 返回一个 Date 对象
+      <guid>https://luneshao.github.io/posts/js-date/</guid>
+      <description>参考文献：MDN
+ 常用方法
+ 语法 new Date()： 返回一个 Date 对象
 new Date(value)：
 new Date(dateString)：
 new Date(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])：

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+<head>
+    <title>Javascript Date 对象  &middot; luneS&#39;s garden </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-language" content="en-us" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="luneS">
+    <meta name="description" content="高校生">
+    <meta name="generator" content="Hugo 0.55.0" />
+
+    <!-- Stylesheets -->
+    <link rel="shortcut icon" href="https://luneshao.github.io//favicon.ico">
+    <link rel="stylesheet" href="https://luneshao.github.io/css/smooth-scrollbar.css" />
+    <link rel="stylesheet" type="text/css" href="https://luneshao.github.io/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/tomorrow.min.css" />
+    
+
+    <style>
+        .posts li {
+            visibility: hidden;
+        }
+    </style> 
+</head>
+<body>
+    
+    
+
+    <header>	
+	<div class="h-wrap">
+		
+		<h1 class="title"><a href="https://luneshao.github.io/">luneS&#39;s garden</a></h1>
+		
+	</div>
+</header>
+    
+    <div class="site-wrapper" id="full-wrapper">
+        
+        <section class="single-wrap">
+            <article class="single-content" itemscope itemtype="//schema.org/BlogPosting">
+                <div class="feat">
+                    <h5 class="page-date">
+                    <time datetime="" itemprop="datePublished">
+                    23 May 2019
+                   
+                    </time>
+                    </h5>
+                </div>
+                <h1 class="page-title" itemprop="name headline">Javascript Date 对象</h1>
+                <div itemprop="articleBody">
+                    
+
+<p>参考文献：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date">MDN</a></p>
+
+<blockquote>
+<p>常用方法</p>
+</blockquote>
+
+<h4 id="语法">语法</h4>
+
+<p><strong>new Date()：</strong> 返回一个 Date 对象<br>
+<strong>new Date(value)：</strong><br>
+<strong>new Date(dateString)：</strong><br>
+<strong>new Date(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])：</strong><br></p>
+
+<p><strong>Date() :</strong> 以函数形式直接调用 Date()，返回一个字符串</p>
+
+<p><img src="/img/0522-ss-func1.png" alt="调用图片" /></p>
+
+<h5 id="new-date-参数">new Date() 参数</h5>
+
+<p><strong>(value)：</strong> 一个整数值，表示自1970年1月1日00:00:00 UTC（the Unix epoch）以来的毫秒数。<br></p>
+
+<p><strong>(dateString)：</strong> 表示日期的字符串值。<br></p>
+
+<p><strong>(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])：</strong><br></p>
+
+<p>year：表示年份的整数值。</p>
+
+<p>monthIndex：表示月份的整数值，从 0（1月）到 11（12月）。</p>
+
+<p>day：表示一个月中的第几天的整数值，从1开始。</p>
+
+<p>hours：小时数的整数值 (24小时制)。</p>
+
+<p>minutes：时间中分钟部分的整数值。</p>
+
+<p>seconds：时间中的秒部分的整数值。</p>
+
+<p>milliseconds：时间的毫秒部分的整数值。</p>
+
+<h4 id="方法">方法</h4>
+
+<p><strong>Date.now()：</strong> 返回自 1970-1-1 00:00:00  UTC（世界标准时间）至今所经过的毫秒数。</p>
+
+<p><strong>Date.parse()：</strong> 解析一个表示日期的字符串，并返回从 1970-1-1 00:00:00 所经过的毫秒数。</p>
+
+<p><strong>Date.UTC()：</strong> 接受和构造函数最长形式的参数相同的参数（从2到7），并返回从 1970-01-01 00:00:00 UTC 开始所经过的毫秒数。</p>
+
+<blockquote>
+<p>使用场景</p>
+</blockquote>
+
+<p><a href="http://www.alloyteam.com/2016/05/date-object/">示例1原文</a>
+<a href="https://www.jianshu.com/p/b4d058518575">示例2原文</a></p>
+
+<ul>
+<li><p>如果提供了至少两个参数，其余的参数均会默认设置为 1 或者 0。</p></li>
+
+<li><p>如果参数是负数，则向前推进相应的时间。</p></li>
+
+<li><p>new Date(year, month, 0) 可以获取到上个月最后一天。</p></li>
+</ul>
+
+<p>获取一个月有多少天</p>
+
+<ol>
+<li>Date 传参下一个月的数字，第三个参数传 0。 ❤️</li>
+</ol>
+
+<pre><code class="language-javascript">var date = new Date(2019, 5, 0)
+console.log(data.getDate())
+</code></pre>
+
+<ol>
+<li>Date 传参下一个月的数字，第三个参数传 1，减去 1 小时再获取日期。</li>
+</ol>
+
+<pre><code class="language-javascript">const date = new Date(2019, month + 1, 1)
+console(date.setHours(date.getHours() - 1).getDate())
+</code></pre>
+
+<p>第一种相对来说比较简单。😆</p>
+
+<p><img src="/img/0522-ss-tip1.jpg" alt="调用图片" /></p>
+
+<blockquote>
+<p>感谢各位大佬的分享🤣</p>
+</blockquote>
+                    
+                </div>
+                <div class="feat share">
+                </div>
+                
+                
+                
+            </article>
+        </section>
+
+        <footer>
+	
+</footer>
+    </div>
+
+    <div class="next-prev-arrows">
+        
+            <a rel="next" href="https://luneshao.github.io/posts/css-clip/" id="next">
+                &larr; <span class="nav-title nav-title-next">CSS 的 clip 属性</span> 
+            </a>
+        
+        
+            <a rel="prev" href="https://luneshao.github.io/posts/usb-types/" id="prev">
+                 <span class="nav-title nav-title-prev">USB 接口类型</span> &rarr;
+            </a>
+        
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://luneshao.github.io/js/scrollreveal.min.js"></script>
+<script type='application/javascript' src='https://luneshao.github.io/js/smooth-scrollbar.js'></script>
+<script src="https://luneshao.github.io/js/baffle.min.js"></script>
+<script src="https://luneshao.github.io/js/main.js"></script>
+
+
+
+
+
+<!-- Syntax highlighting -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

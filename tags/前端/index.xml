@@ -12,14 +12,32 @@
     
     
     <item>
-      <title>Javascript Date 对象</title>
-      <link>https://luneshao.github.io/posts/javascriptdateobj/</link>
+      <title>CSS 的 clip 属性</title>
+      <link>https://luneshao.github.io/posts/css-clip/</link>
       <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/javascriptdateobj/</guid>
-      <description>常用方法
- MDN
-语法 new Date()： 返回一个 Date 对象
+      <guid>https://luneshao.github.io/posts/css-clip/</guid>
+      <description>参考文献：MDN&amp;emsp; 张鑫旭前辈的文章
+ 介绍
+ 定义 clip 属性剪裁元素，属性仅应用于绝对定位元素，例如 position: absolute 或 position: fixed。
+属性值  auto：不剪裁。
+ &amp;lt;shape&amp;gt;：截取的形状，值的表示方式 rect(&amp;lt;top&amp;gt;, &amp;lt;right&amp;gt;, &amp;lt;bottom&amp;gt;, &amp;lt;left&amp;gt;)。
+  top &amp;amp; bottom 设置的是距离元素上边距的距离。left &amp;amp; right 设置的是距离元素左边距的距离。
+左侧使用了clip属性，左右容器和图片的尺寸都是200 * 200。 top、right、bottom、left 的值可以是 数值 或 auto 。
+tips：auto表示 If any side&amp;rsquo;s value is auto, the element is clipped to that side&amp;rsquo;s inside border edge. （文档） 截取到元素该边的内边界。
+ inherit：从父元素继承 clip 属性的值，不兼容 IE6。   实例
+ 看到 immutable官网 header 部分的划动效果很棒，有一种拉开序幕的感jio。</description>
+    </item>
+    
+    <item>
+      <title>Javascript Date 对象</title>
+      <link>https://luneshao.github.io/posts/js-date/</link>
+      <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/js-date/</guid>
+      <description>参考文献：MDN
+ 常用方法
+ 语法 new Date()： 返回一个 Date 对象
 new Date(value)：
 new Date(dateString)：
 new Date(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])：

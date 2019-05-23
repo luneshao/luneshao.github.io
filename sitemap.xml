@@ -3,13 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://luneshao.github.io/tags/css/</loc>
+    <lastmod>2019-05-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://luneshao.github.io/posts/css-clip/</loc>
+    <lastmod>2019-05-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://luneshao.github.io/tags/javascript/</loc>
     <lastmod>2019-05-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://luneshao.github.io/posts/javascriptdateobj/</loc>
+    <loc>https://luneshao.github.io/posts/js-date/</loc>
     <lastmod>2019-05-23T00:00:00+00:00</lastmod>
   </url>
   

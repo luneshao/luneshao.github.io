@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+<head>
+    <title>CSS 的 clip 属性  &middot; luneS&#39;s garden </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-language" content="en-us" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="luneS">
+    <meta name="description" content="高校生">
+    <meta name="generator" content="Hugo 0.55.0" />
+
+    <!-- Stylesheets -->
+    <link rel="shortcut icon" href="https://luneshao.github.io//favicon.ico">
+    <link rel="stylesheet" href="https://luneshao.github.io/css/smooth-scrollbar.css" />
+    <link rel="stylesheet" type="text/css" href="https://luneshao.github.io/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/tomorrow.min.css" />
+    
+
+    <style>
+        .posts li {
+            visibility: hidden;
+        }
+    </style> 
+</head>
+<body>
+    
+    
+
+    <header>	
+	<div class="h-wrap">
+		
+		<h1 class="title"><a href="https://luneshao.github.io/">luneS&#39;s garden</a></h1>
+		
+	</div>
+</header>
+    
+    <div class="site-wrapper" id="full-wrapper">
+        
+        <section class="single-wrap">
+            <article class="single-content" itemscope itemtype="//schema.org/BlogPosting">
+                <div class="feat">
+                    <h5 class="page-date">
+                    <time datetime="" itemprop="datePublished">
+                    23 May 2019
+                   
+                    </time>
+                    </h5>
+                </div>
+                <h1 class="page-title" itemprop="name headline">CSS 的 clip 属性</h1>
+                <div itemprop="articleBody">
+                    
+
+<p>参考文献：<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip">MDN</a>&emsp;
+<a href="https://www.zhangxinxu.com/wordpress/2012/07/codepen-jsfiddle/">张鑫旭前辈的文章</a></p>
+
+<blockquote>
+<p>介绍</p>
+</blockquote>
+
+<h4 id="定义">定义</h4>
+
+<p>clip 属性剪裁元素，属性仅应用于<strong>绝对定位</strong>元素，例如 <code>position: absolute</code> 或 <code>position: fixed</code>。</p>
+
+<h4 id="属性值">属性值</h4>
+
+<ul>
+<li><p>auto：不剪裁。</p></li>
+
+<li><p><code>&lt;shape&gt;</code>：截取的形状，值的表示方式 <code>rect(&lt;top&gt;, &lt;right&gt;, &lt;bottom&gt;, &lt;left&gt;)</code>。</p></li>
+</ul>
+
+<p>top &amp; bottom 设置的是距离元素上边距的距离。left &amp; right 设置的是距离元素左边距的距离。</p>
+
+<h5 id="左侧使用了clip属性-左右容器和图片的尺寸都是200-200">左侧使用了clip属性，左右容器和图片的尺寸都是200 * 200。</h5>
+
+<p style="text-align: center">
+<img src="/img/0522-css-clip1.png" style="height: 200px; width: 400px" />
+</p>
+
+<p>top、right、bottom、left 的值可以是 <em>数值</em> 或 <em>auto</em> 。</p>
+
+<p>tips：<strong>auto</strong>表示 <em>If any side&rsquo;s value is auto, the element is clipped to that side&rsquo;s inside border edge.</em> （文档）
+截取到元素该边的内边界。</p>
+
+<ul>
+<li>inherit：从父元素继承 clip 属性的值，不兼容 IE6。</li>
+</ul>
+
+<blockquote>
+<p>实例</p>
+</blockquote>
+
+<p>看到 <a href="https://immutable-js.github.io/immutable-js/">immutable官网</a> header 部分的划动效果很棒，有一种拉开序幕的感jio。</p>
+
+<p>然后，研究了一下这个属性。这个功能的实现就是依赖的 clip 属性，使得可以剪裁 <code>position： fixed</code> 的子元素。</p>
+
+<p><a href="https://codepen.io/LuneShao/project/editor/XMbnnx">神秘链接🤪</a></p>
+
+<p>下面还是祭一下自己demo相关实现代码，去掉了一些修饰的属性。</p>
+
+<pre><code class="language-html">&lt;!-- html部分 --&gt;
+&lt;div class=&quot;greet&quot;&gt;基础内容&lt;/div&gt;
+&lt;div class=&quot;top-wrap1&quot;&gt;
+  &lt;div class=&quot;top-wrap2&quot;&gt;
+    &lt;div class=&quot;top&quot;&gt;滚动后会消失的内容&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-css">/* css部分 */
+.greet {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.top-wrap1{
+  position: relative;
+  top: 0;
+  width: 100%;
+  background-color: #F6B352;
+  overflow: hidden;
+  z-index: 1; /* 这个元素的堆叠顺序高于另一个，向上滚动的时候，默认的header就娓娓道来。 */
+}
+.top-wrap2{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  clip: rect(0, auto, auto, 0); /* 这里的 auto 是指截取到边的内边界位置。 */
+}
+.top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fc6;
+}
+</code></pre>
+
+<blockquote>
+<p>以上。感谢大佬的分享。🤣</p>
+</blockquote>
+                    
+                </div>
+                <div class="feat share">
+                </div>
+                
+                
+                
+            </article>
+        </section>
+
+        <footer>
+	
+</footer>
+    </div>
+
+    <div class="next-prev-arrows">
+        
+        
+            <a rel="prev" href="https://luneshao.github.io/posts/js-date/" id="prev">
+                 <span class="nav-title nav-title-prev">Javascript Date 对象</span> &rarr;
+            </a>
+        
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://luneshao.github.io/js/scrollreveal.min.js"></script>
+<script type='application/javascript' src='https://luneshao.github.io/js/smooth-scrollbar.js'></script>
+<script src="https://luneshao.github.io/js/baffle.min.js"></script>
+<script src="https://luneshao.github.io/js/main.js"></script>
+
+
+
+
+
+<!-- Syntax highlighting -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
