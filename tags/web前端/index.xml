@@ -45,15 +45,16 @@ MDN文档地址
     </item>
     
     <item>
-      <title>浏览器属性兼容性整理</title>
+      <title>前端属性兼容性整理</title>
       <link>https://luneshao.github.io/posts/comp/</link>
       <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://luneshao.github.io/posts/comp/</guid>
-      <description>Javascript 相关
- 1. addEventListen
+      <description>Element 相关 1. addEventListen
+兼容写法：
 function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget.addEventListen(eType, eHandle) } else { // ie 浏览器 if (eTarget.attachEvent) { eType = &#39;on&#39; + eType eTarget.attachEvent(eType, eHandle) } else { eventTarget[&#39;on&#39; + eventType] = eventHandler } } }  2. scrollTop()
-// ie6/7/8 1. 没有 doctype 声明的页面： const st = document.body.scrollTop; 2. 声明 doctype 的页面： const st = document.documentElement.scrollTop; // safari const st = document.pageYOffset; // chrome、firefox const st = document.</description>
+兼容写法：
+// 因为 0 || undefine =&amp;gt; undefined const st = document.pageYOffset.scrollTop || document.documentElement.scrollTop || document.body.scrollTop || 0  // ie6/7/8 1. 没有 doctype 声明的页面： const st = document.</description>
     </item>
     
   </channel>

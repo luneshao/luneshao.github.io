@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+<head>
+    <title>window requestAnimationFrame 方法  &middot; luneS&#39;s garden </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-language" content="en-us" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="luneS">
+    <meta name="description" content="高校生">
+    <meta name="generator" content="Hugo 0.55.0" />
+
+    <!-- Stylesheets -->
+    <link rel="shortcut icon" href="https://luneshao.github.io//favicon.ico">
+    <link rel="stylesheet" href="https://luneshao.github.io/css/smooth-scrollbar.css" />
+    <link rel="stylesheet" type="text/css" href="https://luneshao.github.io/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/tomorrow.min.css" />
+    
+
+    <style>
+        .posts li {
+            visibility: hidden;
+        }
+    </style> 
+</head>
+<body>
+    
+    
+
+    <header>	
+	<div class="h-wrap">
+		
+		<h1 class="title"><a href="https://luneshao.github.io/">luneS&#39;s garden</a></h1>
+		
+	</div>
+</header>
+    
+    <div class="site-wrapper" id="full-wrapper">
+        
+        <section class="single-wrap">
+            <article class="single-content" itemscope itemtype="//schema.org/BlogPosting">
+                <div class="feat">
+                    <h5 class="page-date">
+                    <time datetime="" itemprop="datePublished">
+                    30 May 2019
+                   
+                    </time>
+                    </h5>
+                </div>
+                <h1 class="page-title" itemprop="name headline">window requestAnimationFrame 方法</h1>
+                <div itemprop="articleBody">
+                    <p><a href="http://web.jobbole.com/91578/">原文链接 伯乐</a>  <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame">MDN</a></p>
+
+<p>概念：告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个<strong>回调函数</strong>作为参数，该回调函数会在浏览器下一次重绘之前执行。</p>
+
+<p>个人理解：<strong>raf</strong> 这个函数可以用来做动画，它需要一个参数，参数的形式是一个<strong>回调函数</strong>，在回调函数里可以写需要执行的动画。</p>
+
+<p>这个回调函数会默认接收一个参数，即执行回调函数时的<strong>时间戳</strong>，回调函数，会在每次浏览器在下次重绘前执行回调函数更新动画，个人认为这样来保证动画的帧率和稳定性。大多数电脑显示器的刷新频率是60Hz，大概相当于每秒钟重绘60次，相当于每帧的执行时间为 16.67ms。</p>
+
+<blockquote>
+<p>特性</p>
+</blockquote>
+
+<ul>
+<li><p>参数中的回调函数执行次数通常是每秒60次，速度大约为 16.67ms 每帧。</p></li>
+
+<li><p>当<code>requestAnimationFrame()</code>运行在后台标签页或者隐藏的<code>&lt;iframe&gt;</code> 里时，requestAnimationFrame() 会被暂停调用。对比 setTimeout ，离开页面依旧会计时，raf 更加节省性能。</p></li>
+
+<li><p><strong>DOMHighResTimeStamp</strong>指示由 <code>RequestAnimationFrame()</code> 排队的回调开始触发的时间。</p></li>
+
+<li><p>它返回一个整数，表示定时器的编号，这个值可以传递给 <code>cancelAnimationFrame</code> 用于取消这个函数的执行。</p></li>
+</ul>
+
+<blockquote>
+<p>使用方法</p>
+</blockquote>
+
+<pre><code class="language-js">window.requestAnimationFrame(callback)
+
+function callback (timeStamp) {
+  // 默认接收参数 timeStamp，表示开始执行回调函数的时刻
+
+  // 若你想在浏览器下次重绘之前继续更新下一帧动画，那么回调函数自身必须再次调用window.requestAnimationFrame()
+  window.requestAnimationFrame(callback)
+}
+</code></pre>
+
+<blockquote>
+<p>避免一帧多次调用</p>
+</blockquote>
+
+<pre><code class="language-js">  let ifCurFra = false // 当前帧是否执行
+  function cb (timeStamp) {
+    if (ifCurFra) return 
+    ifCurFra = true
+    window.requestAnimationFrame(timeStamp =&gt; {
+      ifCurFra = false
+    })
+  }
+
+  window.addEventListener('scroll', cb)
+</code></pre>
+
+<blockquote>
+<p>兼容</p>
+</blockquote>
+
+<p><a href="https://www.cnblogs.com/xiaohuochai/p/5777186.html">兼容代码</a></p>
+
+<pre><code class="language-js">if(!window.requestAnimationFrame){
+  var lastTime = 0;
+  window.requestAnimationFrame = function(callback){
+      var currTime = new Date().getTime();
+      var timeToCall = Math.max(0,16.7-(currTime - lastTime));
+      var id  = window.setTimeout(function(){
+          callback(currTime + timeToCall);
+      },timeToCall);
+      lastTime = currTime + timeToCall;
+      return id;
+  }
+}
+</code></pre>
+
+<blockquote>
+<p>example</p>
+</blockquote>
+
+<p>我测试了一下两种方法实现动画，认为 setTimeout() 和 window.requestAnimationFrame ()， raf 的动画更稳定一些,sto 有时平稳有时抖动。</p>
+
+<p>sto 抖动的原因：假设屏幕每隔16.7ms刷新一次，而setTimeout每隔10ms设置图像向左移动1px， 就会引起动画卡顿。</p>
+
+<pre><code class="language-js">// 测试文件相关部分代码
+  const el = document.querySelector('.box1')
+  let start = null
+  let ml = 0
+  const totalTime = 2000
+  
+  function ani (timeStamp) {
+    if (!start) {
+      start = timeStamp
+    }
+
+    const progress = timeStamp - start
+    // 判断时间差（时间间隔），是否是规定时间
+    if (progress &lt; totalTime) {
+      el.style.left = `${ml++}px`
+      window.requestAnimationFrame(ani)
+    }
+  }
+
+  window.requestAnimationFrame(ani)
+</code></pre>
+
+<p>附上我的<a href="https://codepen.io/LuneShao/project/editor/XMbnnx">测试文件</a></p>
+
+<p>文件中存在一个问题，我的定时器是2s，结束时的时间大部分是 1985ms, 可能因为函数执行的速度是每帧 16.7ms，1985 + 16.7 &gt; 2000 最后一次的判断就是 false 了，就没有执行2000ms，在我的例子中实际上就少加了 1px。还请各位大佬多多指教。</p>
+                    
+                </div>
+                <div class="feat share">
+                </div>
+                
+                
+                
+            </article>
+        </section>
+
+        <footer>
+	
+</footer>
+    </div>
+
+    <div class="next-prev-arrows">
+        
+            <a rel="next" href="https://luneshao.github.io/posts/css-lineheight-vertical/" id="next">
+                &larr; <span class="nav-title nav-title-next">css line-height 和 vertical-align</span> 
+            </a>
+        
+        
+            <a rel="prev" href="https://luneshao.github.io/posts/css-matrix/" id="prev">
+                 <span class="nav-title nav-title-prev">CSS Tranform 的 Matrix函数</span> &rarr;
+            </a>
+        
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://luneshao.github.io/js/scrollreveal.min.js"></script>
+<script type='application/javascript' src='https://luneshao.github.io/js/smooth-scrollbar.js'></script>
+<script src="https://luneshao.github.io/js/baffle.min.js"></script>
+<script src="https://luneshao.github.io/js/main.js"></script>
+
+
+
+
+
+<!-- Syntax highlighting -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

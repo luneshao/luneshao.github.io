@@ -6,10 +6,32 @@
     <description>Recent content in CSS on luneS&#39;s garden</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/tags/css/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>css line-height 和 vertical-align</title>
+      <link>https://luneshao.github.io/posts/css-lineheight-vertical/</link>
+      <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/css-lineheight-vertical/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CSS Tranform 的 Matrix函数</title>
+      <link>https://luneshao.github.io/posts/css-matrix/</link>
+      <pubDate>Wed, 29 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/css-matrix/</guid>
+      <description>插播一句：translate 的百分比是相对于自身的宽高计算的。
+插播2：计算角度值 eg：已知 sin(a) = 1，求 a？。 a = Math.asin(1) * 180 / Math.PI
+张鑫旭前辈的文章
+目前看到第七部分，关于 Matrix 的使用，内容镜像。莫的全看完。 &amp;ndash;20190529
+时光匆匆如流水，太快了，五月快结束了。</description>
+    </item>
     
     <item>
       <title>CSS 的 clip 属性</title>
@@ -21,12 +43,11 @@
  介绍
  定义 clip 属性剪裁元素，属性仅应用于绝对定位元素，例如 position: absolute 或 position: fixed。
 属性值  auto：不剪裁。
- &amp;lt;shape&amp;gt;：截取的形状，值的表示方式 rect(&amp;lt;top&amp;gt;, &amp;lt;right&amp;gt;, &amp;lt;bottom&amp;gt;, &amp;lt;left&amp;gt;)。
+ &amp;lt;shape&amp;gt;：截取的形状，值的表示方式 rect(&amp;lt;top&amp;gt;, &amp;lt;right&amp;gt;, &amp;lt;bottom&amp;gt;, &amp;lt;left&amp;gt;) 或 rect(&amp;lt;top&amp;gt; &amp;lt;right&amp;gt; &amp;lt;bottom&amp;gt; &amp;lt;left&amp;gt;)。
   top &amp;amp; bottom 设置的是距离元素上边距的距离。left &amp;amp; right 设置的是距离元素左边距的距离。
 左侧使用了clip属性，左右容器和图片的尺寸都是200 * 200。 top、right、bottom、left 的值可以是 数值 或 auto 。
 tips：auto表示 If any side&amp;rsquo;s value is auto, the element is clipped to that side&amp;rsquo;s inside border edge. （文档） 截取到元素该边的内边界。
- inherit：从父元素继承 clip 属性的值，不兼容 IE6。   实例
- 看到 immutable官网 header 部分的划动效果很棒，有一种拉开序幕的感jio。</description>
+ inherit：从父元素继承 clip 属性的值，不兼容 IE6。   实例</description>
     </item>
     
   </channel>

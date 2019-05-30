@@ -6,10 +6,96 @@
     <description>Recent content in 前端 on luneS&#39;s garden</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>css line-height 和 vertical-align</title>
+      <link>https://luneshao.github.io/posts/css-lineheight-vertical/</link>
+      <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/css-lineheight-vertical/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>window requestAnimationFrame 方法</title>
+      <link>https://luneshao.github.io/posts/window-requestanimationframe/</link>
+      <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/window-requestanimationframe/</guid>
+      <description>原文链接 伯乐 MDN
+概念：告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
+个人理解：raf 这个函数可以用来做动画，它需要一个参数，参数的形式是一个回调函数，在回调函数里可以写需要执行的动画。
+这个回调函数会默认接收一个参数，即执行回调函数时的时间戳，回调函数，会在每次浏览器在下次重绘前执行回调函数更新动画，个人认为这样来保证动画的帧率和稳定性。大多数电脑显示器的刷新频率是60Hz，大概相当于每秒钟重绘60次，相当于每帧的执行时间为 16.67ms。
+ 特性
+  参数中的回调函数执行次数通常是每秒60次，速度大约为 16.67ms 每帧。
+ 当requestAnimationFrame()运行在后台标签页或者隐藏的&amp;lt;iframe&amp;gt; 里时，requestAnimationFrame() 会被暂停调用。对比 setTimeout ，离开页面依旧会计时，raf 更加节省性能。
+ DOMHighResTimeStamp指示由 RequestAnimationFrame() 排队的回调开始触发的时间。
+ 它返回一个整数，表示定时器的编号，这个值可以传递给 cancelAnimationFrame 用于取消这个函数的执行。
+   使用方法
+ window.requestAnimationFrame(callback) function callback (timeStamp) { // 默认接收参数 timeStamp，表示开始执行回调函数的时刻 // 若你想在浏览器下次重绘之前继续更新下一帧动画，那么回调函数自身必须再次调用window.requestAnimationFrame() window.requestAnimationFrame(callback) }   避免一帧多次调用
+ let ifCurFra = false // 当前帧是否执行 function cb (timeStamp) { if (ifCurFra) return ifCurFra = true window.requestAnimationFrame(timeStamp =&amp;gt; { ifCurFra = false }) } window.</description>
+    </item>
+    
+    <item>
+      <title>CSS Tranform 的 Matrix函数</title>
+      <link>https://luneshao.github.io/posts/css-matrix/</link>
+      <pubDate>Wed, 29 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/css-matrix/</guid>
+      <description>插播一句：translate 的百分比是相对于自身的宽高计算的。
+插播2：计算角度值 eg：已知 sin(a) = 1，求 a？。 a = Math.asin(1) * 180 / Math.PI
+张鑫旭前辈的文章
+目前看到第七部分，关于 Matrix 的使用，内容镜像。莫的全看完。 &amp;ndash;20190529
+时光匆匆如流水，太快了，五月快结束了。</description>
+    </item>
+    
+    <item>
+      <title>element 对象的拓展</title>
+      <link>https://luneshao.github.io/posts/element-expland/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/element-expland/</guid>
+      <description>1. 获取元素的css  1.1 Element.getBoundingClientRect()  MDN
+返回元素的大小及其相对于视口的位置。
+如果你需要获得相对于整个网页左上角定位的属性值，那么只要给top、left属性值加上当前的滚动位置
+（通过window.scrollX和window.scrollY），这样就可以获取与当前的滚动位置无关的值。
+ 1.2 window.getComputedStyle()  返回另一个包含所有 css 属性的对象，该对象应用了样式表并解析了基础计算（只读）。
+window.getComputedStyle().getPropertyValue(&#39;font&#39;) // 获取属性 font 值  MDN 张鑫旭前辈的文章
+css 安全(blog)
+ 1.3 document.defaultView  MDN
+该属性返回当前 document 对象所关联的 window 对象，如果没有，会返回 null。
+在许多在线的演示代码中，getComputedStyle是通过 document.defaultView 对象来调用的。大部分情况下，这是不需要的，因为可以直接通过window对象调用。但有一种情况，你必需要使用 defaultView, 那是在firefox3.6上访问子框架内的样式。</description>
+    </item>
+    
+    <item>
+      <title>js 代码美化</title>
+      <link>https://luneshao.github.io/posts/js-beauty/</link>
+      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/js-beauty/</guid>
+      <description>github完整文章连接
+Objects  1.1 将简写属性，放在对象定义的开始部分。  // bad const obj = { key1: 2, key2, key3: 2, } // good const obj = { key2, key4, key1: 2, key3: 2, }   1.2 不要直接调用 Object.prototype，例如 hasOwnProperty， propertyIsEnumerable，  因为这些名字没有被 Javascript 保留，如果被重新定义就会被覆盖。所以，最好是在原型链上调用。
+MDN相关连接
+// bad const a = obj.hasOwnProperty(&#39;name&#39;) // good const a = Object.prototype.hasOwnProperty.call(obj, &#39;name&#39;) // best // has.js const has = Object.prototype.hasOwnProperty // use.js import has from &#39;.</description>
+    </item>
+    
+    <item>
+      <title>js 拓展(也就是新学到的东西)</title>
+      <link>https://luneshao.github.io/posts/js-expland/</link>
+      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/js-expland/</guid>
+      <description>1.Array 1.1 将类数组转化为数组  Array.prototype.slice.call() 方法：  MDN slice相关
+slice 方法可以用来将一个类数组（Array-like）对象/集合转换成一个新数组。你只需将该方法绑定到这个对象上。
+Array.slice(start, end) 方法用来截取数组 start 到 end （不包含 end）值，并返回一个新数组。
+function list () { return Array.property.slice.call(arguments) } list(1, 2, 3)  除此以外可以使用 [].splice.call(arguments) 代替，也可以使用 bind 来简化过程。
+const unboundSlice = Array.property.slice const slice = Function.property.bind.call(unboundSlice) function list () { return slice(arguments) } list(1, 2, 3)   Array.from 方法  MDN Array.from
+Array.from() 方法从一个类似数组或可迭代对象中创建一个新的数组实例。</description>
+    </item>
     
     <item>
       <title>CSS 的 clip 属性</title>
@@ -21,16 +107,15 @@
  介绍
  定义 clip 属性剪裁元素，属性仅应用于绝对定位元素，例如 position: absolute 或 position: fixed。
 属性值  auto：不剪裁。
- &amp;lt;shape&amp;gt;：截取的形状，值的表示方式 rect(&amp;lt;top&amp;gt;, &amp;lt;right&amp;gt;, &amp;lt;bottom&amp;gt;, &amp;lt;left&amp;gt;)。
+ &amp;lt;shape&amp;gt;：截取的形状，值的表示方式 rect(&amp;lt;top&amp;gt;, &amp;lt;right&amp;gt;, &amp;lt;bottom&amp;gt;, &amp;lt;left&amp;gt;) 或 rect(&amp;lt;top&amp;gt; &amp;lt;right&amp;gt; &amp;lt;bottom&amp;gt; &amp;lt;left&amp;gt;)。
   top &amp;amp; bottom 设置的是距离元素上边距的距离。left &amp;amp; right 设置的是距离元素左边距的距离。
 左侧使用了clip属性，左右容器和图片的尺寸都是200 * 200。 top、right、bottom、left 的值可以是 数值 或 auto 。
 tips：auto表示 If any side&amp;rsquo;s value is auto, the element is clipped to that side&amp;rsquo;s inside border edge. （文档） 截取到元素该边的内边界。
- inherit：从父元素继承 clip 属性的值，不兼容 IE6。   实例
- 看到 immutable官网 header 部分的划动效果很棒，有一种拉开序幕的感jio。</description>
+ inherit：从父元素继承 clip 属性的值，不兼容 IE6。   实例</description>
     </item>
     
     <item>
-      <title>Javascript Date 对象</title>
+      <title>js Date 对象</title>
       <link>https://luneshao.github.io/posts/js-date/</link>
       <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
       
