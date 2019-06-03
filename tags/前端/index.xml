@@ -6,10 +6,43 @@
     <description>Recent content in 前端 on luneS&#39;s garden</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>强大的css filter属性及色彩名词（附 opacity 属性的兼容写法）</title>
+      <link>https://luneshao.github.io/posts/css-filter/</link>
+      <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/css-filter/</guid>
+      <description>概述
+ 本篇主要是摘要了 MDN 的 filter 属性、取值及示例图以及关于色相、饱和度、灰度的概念。末尾附上了一份 opacity 的兼容性写法。
+ 引言
+ 最近公司需要找一个管理项目的工具，然后被推荐了 coding.net，我就看了一下官网的功能介绍。看到合作伙伴那里，hover 之后，图片变了颜色。然后，职业病就犯了，就看了一下人家是怎么实现的。
+讲道理，我找了半天是怎么换的颜色。filter 这个属性之前看到是用来兼容 ie 的 opacity 属性的，我也一直没有用过，就以为它就是透明度的属性，我就没勾掉试一试。。。有点愚蠢。我就以为是换了图片的 URL，结果图片的 URL 并没有变化。我查看了图片，它本来的颜色就是彩色的。然后猜测，难道是利用 css 改变了图片的颜色？？？我就挨个属性勾了勾，果然是 filter 的原因。。
+默认的 css 属性中，有这么一句 filter: grayscale(100%); ，这就是让图片变灰的属性。然后，就滚去 MDN 了。首屏就是几个例子，我又震惊了！这个属性可以做这么多事！！上一次震惊是在发现了 object-fit 属性，竟然可以改变图片内容的尺寸！
+（文档真的要认真看，仔细看，可能某个小括号里边就提供了一种简便方法或者功能介绍。）
+ 定义
+ filter：滤镜。
+filter CSS属性将模糊或颜色偏移等 图形效果应用于元素 。滤镜通常用于调整图像，背景和边框的渲染。 CSS标准里包含了一些已实现预定义效果的函数。你也可以参考一个SVG滤镜，通过一个URL链接到SVG滤镜元素(SVG filter element)。
+ 语法
+ 共分为四类。具体的我就不搬运了，下面具体介绍。形式语法
+/* 自定义的 SVG 滤镜 */ .filter: url(&amp;quot;filters.svg#filter-id&amp;quot;) /* 滤镜函数 */ blur、brightness、contrast、drop-shadow、grayscale、hue-rotate invert、opacity、saturate、sepia .filter: blur(5px); /* 混合滤镜 */ filter: contrast(175%) brightness(3%); /* Global values */ filter: inherit; filter: initial; filter: unset;   函数</description>
+    </item>
+    
+    <item>
+      <title>=3 前端优化</title>
+      <link>https://luneshao.github.io/posts/front-optimize/</link>
+      <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/front-optimize/</guid>
+      <description>原文链接
+2
+我我我，我学不完了啊喂 （哭😭
+1 粗看了一遍，2未看 &amp;ndash;19-05-30</description>
+    </item>
     
     <item>
       <title>css line-height 和 vertical-align</title>
@@ -17,7 +50,7 @@
       <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://luneshao.github.io/posts/css-lineheight-vertical/</guid>
-      <description></description>
+      <description>display: block 对 vertical-align 属性不起作用。</description>
     </item>
     
     <item>
@@ -48,13 +81,17 @@
       <guid>https://luneshao.github.io/posts/css-matrix/</guid>
       <description>插播一句：translate 的百分比是相对于自身的宽高计算的。
 插播2：计算角度值 eg：已知 sin(a) = 1，求 a？。 a = Math.asin(1) * 180 / Math.PI
-张鑫旭前辈的文章
-目前看到第七部分，关于 Matrix 的使用，内容镜像。莫的全看完。 &amp;ndash;20190529
-时光匆匆如流水，太快了，五月快结束了。</description>
+这也是关于优化 js 代码衍生出来的内容，过程是这样的。
+ 文章里说 Array.from 代替 Array.prototype.slice.call(arrayLike)，😳Array.prototype.slice.call(arrayLike) 是不是截取数组的嘛，查了一下文档 MDN ，原来将这个方法绑定到类数组对象/集合上，就可以转化为一个数组。过程中，看到了这篇博客，大佬是真的🐂🍺，里边就写到了计算用 window.getComputedStyle(dom, 伪类) 获取值，本来我是忽略过去的，但是，好奇心让我测试了一下。。得到了一个这个东西。  这是啥？我不认识啊？？还是乖乖的学一下吧。
+于是学习了 张鑫旭前辈的文章，这是一个矩阵，是transform变换的基础。我们可以根据这个矩阵里面的值推算出，transform 属性的值。
+其格式为：Matrix(a, b, c, d, e, f) 具体的介绍请直接看前辈文章的第五节。
+借前辈图，translate &amp;amp; scale 的转换公式如下。 ：
+ translate 值的计算。
+ x, y ：表示转换元素的所有坐标（变量）矩阵偏移元素的中心点。 ax+cy+e ：变换后的x坐标 bx+dy+f ：变换后的y坐标    scale 值的计算。  matrix(s, 0, 0, s, 0, 0); s 即为 scale 的值。</description>
     </item>
     
     <item>
-      <title>element 对象的拓展</title>
+      <title>=8 element 对象的拓展</title>
       <link>https://luneshao.github.io/posts/element-expland/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
@@ -72,19 +109,7 @@ css 安全(blog)
     </item>
     
     <item>
-      <title>js 代码美化</title>
-      <link>https://luneshao.github.io/posts/js-beauty/</link>
-      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://luneshao.github.io/posts/js-beauty/</guid>
-      <description>github完整文章连接
-Objects  1.1 将简写属性，放在对象定义的开始部分。  // bad const obj = { key1: 2, key2, key3: 2, } // good const obj = { key2, key4, key1: 2, key3: 2, }   1.2 不要直接调用 Object.prototype，例如 hasOwnProperty， propertyIsEnumerable，  因为这些名字没有被 Javascript 保留，如果被重新定义就会被覆盖。所以，最好是在原型链上调用。
-MDN相关连接
-// bad const a = obj.hasOwnProperty(&#39;name&#39;) // good const a = Object.prototype.hasOwnProperty.call(obj, &#39;name&#39;) // best // has.js const has = Object.prototype.hasOwnProperty // use.js import has from &#39;.</description>
-    </item>
-    
-    <item>
-      <title>js 拓展(也就是新学到的东西)</title>
+      <title>=8 js 拓展</title>
       <link>https://luneshao.github.io/posts/js-expland/</link>
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
@@ -95,6 +120,18 @@ Array.slice(start, end) 方法用来截取数组 start 到 end （不包含 end�
 function list () { return Array.property.slice.call(arguments) } list(1, 2, 3)  除此以外可以使用 [].splice.call(arguments) 代替，也可以使用 bind 来简化过程。
 const unboundSlice = Array.property.slice const slice = Function.property.bind.call(unboundSlice) function list () { return slice(arguments) } list(1, 2, 3)   Array.from 方法  MDN Array.from
 Array.from() 方法从一个类似数组或可迭代对象中创建一个新的数组实例。</description>
+    </item>
+    
+    <item>
+      <title>js 代码美化</title>
+      <link>https://luneshao.github.io/posts/js-beauty/</link>
+      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/posts/js-beauty/</guid>
+      <description>github完整文章连接
+Objects  1.1 将简写属性，放在对象定义的开始部分。  // bad const obj = { key1: 2, key2, key3: 2, } // good const obj = { key2, key4, key1: 2, key3: 2, }   1.2 不要直接调用 Object.prototype，例如 hasOwnProperty， propertyIsEnumerable，  因为这些名字没有被 Javascript 保留，如果被重新定义就会被覆盖。所以，最好是在原型链上调用。
+MDN相关连接
+// bad const a = obj.hasOwnProperty(&#39;name&#39;) // good const a = Object.prototype.hasOwnProperty.call(obj, &#39;name&#39;) // best // has.js const has = Object.prototype.hasOwnProperty // use.js import has from &#39;.</description>
     </item>
     
     <item>

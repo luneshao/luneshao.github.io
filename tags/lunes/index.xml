@@ -23,7 +23,7 @@
     </item>
     
     <item>
-      <title>浏览器易混淆名词整理</title>
+      <title>=8 浏览器易混淆名词整理</title>
       <link>https://luneshao.github.io/posts/browser-num/</link>
       <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       
@@ -138,7 +138,10 @@ function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget
       
       <guid>https://luneshao.github.io/posts/my-first-post/</guid>
       <description>介绍 初次见面，请多多关照。 &amp;ndash;来自萌新的问候。（≧∇≦）
- （≧∇≦）
+这样规定一下：
+ 标题带有 =3 的就是我有未看完的内容的 （ 怕不是都要带着了 23333
+ 标题带有 =8 的就是持续更新的文章
+   （≧∇≦）
  来自萌新的问候 （≧∇≦）</description>
     </item>
     
