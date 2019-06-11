@@ -13,10 +13,10 @@
     
     <item>
       <title>强大的css filter属性及色彩名词（附 opacity 属性的兼容写法）</title>
-      <link>https://luneshao.github.io/posts/css-filter/</link>
+      <link>https://luneshao.github.io/post/css-filter/</link>
       <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/css-filter/</guid>
+      <guid>https://luneshao.github.io/post/css-filter/</guid>
       <description>概述
  本篇主要是摘要了 MDN 的 filter 属性、取值及示例图以及关于色相、饱和度、灰度的概念。末尾附上了一份 opacity 的兼容性写法。
  引言
@@ -34,36 +34,38 @@ filter CSS属性将模糊或颜色偏移等 图形效果应用于元素 。滤�
     
     <item>
       <title>css line-height 和 vertical-align</title>
-      <link>https://luneshao.github.io/posts/css-lineheight-vertical/</link>
+      <link>https://luneshao.github.io/post/css-lineheight-vertical/</link>
       <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/css-lineheight-vertical/</guid>
+      <guid>https://luneshao.github.io/post/css-lineheight-vertical/</guid>
       <description>display: block 对 vertical-align 属性不起作用。</description>
     </item>
     
     <item>
       <title>CSS Tranform 的 Matrix函数</title>
-      <link>https://luneshao.github.io/posts/css-matrix/</link>
+      <link>https://luneshao.github.io/post/css-matrix/</link>
       <pubDate>Wed, 29 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/css-matrix/</guid>
+      <guid>https://luneshao.github.io/post/css-matrix/</guid>
       <description>插播一句：translate 的百分比是相对于自身的宽高计算的。
 插播2：计算角度值 eg：已知 sin(a) = 1，求 a？。 a = Math.asin(1) * 180 / Math.PI
-这也是关于优化 js 代码衍生出来的内容，过程是这样的。
- 文章里说 Array.from 代替 Array.prototype.slice.call(arrayLike)，😳Array.prototype.slice.call(arrayLike) 是不是截取数组的嘛，查了一下文档 MDN ，原来将这个方法绑定到类数组对象/集合上，就可以转化为一个数组。过程中，看到了这篇博客，大佬是真的🐂🍺，里边就写到了计算用 window.getComputedStyle(dom, 伪类) 获取值，本来我是忽略过去的，但是，好奇心让我测试了一下。。得到了一个这个东西。  这是啥？我不认识啊？？还是乖乖的学一下吧。
-于是学习了 张鑫旭前辈的文章，这是一个矩阵，是transform变换的基础。我们可以根据这个矩阵里面的值推算出，transform 属性的值。
+ 引言
+ 这也是关于优化 js 代码衍生出来的内容，过程是这样的。
+ 文章里说 Array.from 代替 Array.prototype.slice.call(arrayLike)，😳Array.prototype.slice.call(arrayLike) 是不是截取数组的嘛，查了一下文档 MDN ，原来将这个方法绑定到类数组对象/集合上，就可以转化为一个数组。过程中，看到了这篇博客，大佬是真的🐂🍺，里边就写到了计算用window.getComputedStyle(dom, 伪类) 获取值，本来我是忽略过去的，但是，好奇心让我测试了一下。。得到了一个这个东西。  这是啥？我不认识啊？？还是乖乖的学一下吧。
+ translate 值的计算。
+ 于是学习了 张鑫旭前辈的文章，这是一个矩阵，是transform变换的基础。我们可以根据这个矩阵里面的值推算出，transform 属性的值。
 其格式为：Matrix(a, b, c, d, e, f) 具体的介绍请直接看前辈文章的第五节。
 借前辈图，translate &amp;amp; scale 的转换公式如下。 ：
- translate 值的计算。
- x, y ：表示转换元素的所有坐标（变量）矩阵偏移元素的中心点。 ax+cy+e ：变换后的x坐标 bx+dy+f ：变换后的y坐标    scale 值的计算。  matrix(s, 0, 0, s, 0, 0); s 即为 scale 的值。</description>
+ x, y ：表示转换元素的所有坐标（变量）矩阵偏移元素的中心点。 ax+cy+e ：变换后的x坐标 bx+dy+f ：变换后的y坐标   scale 值的计算。
+ matrix(s, 0, 0, s, 0, 0); s 即为 scale 的值。</description>
     </item>
     
     <item>
       <title>CSS 的 clip 属性</title>
-      <link>https://luneshao.github.io/posts/css-clip/</link>
+      <link>https://luneshao.github.io/post/css-clip/</link>
       <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/css-clip/</guid>
+      <guid>https://luneshao.github.io/post/css-clip/</guid>
       <description>参考文献：MDN&amp;emsp; 张鑫旭前辈的文章
  介绍
  定义 clip 属性剪裁元素，属性仅应用于绝对定位元素，例如 position: absolute 或 position: fixed。

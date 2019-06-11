@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>小程序 on luneS&#39;s garden</title>
+    <link>https://luneshao.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/</link>
+    <description>Recent content in 小程序 on luneS&#39;s garden</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://luneshao.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>小程序云开发</title>
+      <link>https://luneshao.github.io/post/miniprogram/</link>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/post/miniprogram/</guid>
+      <description>引言
+ 最近和一个小姐姐在互相监督学习，所以想找一个工具打卡使用。没有找到那种到手即用的，就自己做一个了。结果，审核未通过。为啥呢，因为没好好看限制内容，个人的账号可以作的东西很少，文档敬上。
+不过过程中遇到的一些问题，打算记录下来。希望能帮助看到这篇文章的你避免一些坑吧。
+—————————— 一个渣渣前端的独白
+1.页面开发  使用 this.setData({}) 赋值。
+ 页面向函数传参使用 dataset。请戳官方文档
+  &amp;lt;!-- page.html --&amp;gt; &amp;lt;view data-index=&#39;{{index}}&#39; bindtap=&amp;quot;handelItemDel&amp;quot;&amp;gt; {{ item }} &amp;lt;/view&amp;gt;  // page.js handelItemDel(e) { let { selArr } = this.data const index = e.target.dataset.index selArr.splice(index, 1) this.setData({ selArr: selArr }) },   在 app.json 中，page 项数组的第一个页面是小程序的主页（即第一个跳转到的页面）。  2.组件开发 在 miniprogram 的目录下新建一个 components 文件夹，在文件夹内创建 组件。在页面中引用时，需要在页面的 json 文件中引入组件。key 值就是在页面中引入的标签名。
+// page.js &amp;quot;usingComponents&amp;quot;: { &amp;quot;calendar&amp;quot;: &amp;quot;.</description>
+    </item>
+    
+  </channel>
+</rss>

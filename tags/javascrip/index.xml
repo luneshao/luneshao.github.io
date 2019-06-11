@@ -13,10 +13,10 @@
     
     <item>
       <title>=8 js 拓展</title>
-      <link>https://luneshao.github.io/posts/js-expland/</link>
+      <link>https://luneshao.github.io/post/js-expland/</link>
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/js-expland/</guid>
+      <guid>https://luneshao.github.io/post/js-expland/</guid>
       <description>1.Array 1.1 将类数组转化为数组  Array.prototype.slice.call() 方法：  MDN slice相关
 slice 方法可以用来将一个类数组（Array-like）对象/集合转换成一个新数组。你只需将该方法绑定到这个对象上。
 Array.slice(start, end) 方法用来截取数组 start 到 end （不包含 end）值，并返回一个新数组。

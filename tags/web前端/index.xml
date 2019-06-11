@@ -13,10 +13,10 @@
     
     <item>
       <title>=8 浏览器易混淆名词整理</title>
-      <link>https://luneshao.github.io/posts/browser-num/</link>
+      <link>https://luneshao.github.io/post/browser-num/</link>
       <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/browser-num/</guid>
+      <guid>https://luneshao.github.io/post/browser-num/</guid>
       <description> 01. JS 的 window.location 对象
  包含有关文档及当前位置的信息。
 MDN文档地址
@@ -37,19 +37,19 @@ MDN文档地址
     
     <item>
       <title>markdown 常用语法</title>
-      <link>https://luneshao.github.io/posts/markdown/</link>
+      <link>https://luneshao.github.io/post/markdown/</link>
       <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/markdown/</guid>
+      <guid>https://luneshao.github.io/post/markdown/</guid>
       <description> 列表 // 无序列表 * txt txt txt + txt txt txt - txt txt txt // 有序列表 1. txt txt txt 2. txt txt txt  引用 &amp;gt; txt txt txt  粗体 和 斜体 // 粗体 **txt** / __txt__ // 斜体 *txt* / _txt_  表格 | thead | thead | thead | | :---- | :---: | ----: | | 左对齐 | 居中 | 右对齐 |  分隔线 *** / - - - / * * *  </description>
     </item>
     
     <item>
       <title>前端属性兼容性整理</title>
-      <link>https://luneshao.github.io/posts/comp/</link>
+      <link>https://luneshao.github.io/post/comp/</link>
       <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/comp/</guid>
+      <guid>https://luneshao.github.io/post/comp/</guid>
       <description>Element 相关 1. addEventListen
 兼容写法：
 function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget.addEventListen(eType, eHandle) } else { // ie 浏览器 if (eTarget.attachEvent) { eType = &#39;on&#39; + eType eTarget.attachEvent(eType, eHandle) } else { eventTarget[&#39;on&#39; + eventType] = eventHandler } } }  2. scrollTop()

@@ -13,10 +13,10 @@
     
     <item>
       <title>js 代码美化</title>
-      <link>https://luneshao.github.io/posts/js-beauty/</link>
+      <link>https://luneshao.github.io/post/js-beauty/</link>
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/js-beauty/</guid>
+      <guid>https://luneshao.github.io/post/js-beauty/</guid>
       <description>github完整文章连接
 Objects  1.1 将简写属性，放在对象定义的开始部分。  // bad const obj = { key1: 2, key2, key3: 2, } // good const obj = { key2, key4, key1: 2, key3: 2, }   1.2 不要直接调用 Object.prototype，例如 hasOwnProperty， propertyIsEnumerable，  因为这些名字没有被 Javascript 保留，如果被重新定义就会被覆盖。所以，最好是在原型链上调用。
 MDN相关连接
@@ -25,10 +25,10 @@ MDN相关连接
     
     <item>
       <title>js Date 对象</title>
-      <link>https://luneshao.github.io/posts/js-date/</link>
+      <link>https://luneshao.github.io/post/js-date/</link>
       <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/js-date/</guid>
+      <guid>https://luneshao.github.io/post/js-date/</guid>
       <description>参考文献：MDN
  常用方法
  语法 new Date()： 返回一个 Date 对象

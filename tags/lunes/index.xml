@@ -13,10 +13,10 @@
     
     <item>
       <title>USB 接口类型</title>
-      <link>https://luneshao.github.io/posts/usb-types/</link>
+      <link>https://luneshao.github.io/post/usb-types/</link>
       <pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/usb-types/</guid>
+      <guid>https://luneshao.github.io/post/usb-types/</guid>
       <description>USB: 通用串行总线（英语：Universal Serial Bus，缩写：USB）是连接计算机系统与外部设备的一种串口总线标准，也是一种输入输出接口的技术规范，
 文档地址
    USB类型 对应图片     USB A-Type    USB B-Type    USB C-Type    Micro-USB A    Micro-USB B    USB Mini-b(5-pin)    USB Mini-b(4-pin)    USB 3.0 A-Type    USB 3.0 B-Type    USB 3.0 Micro B     </description>
@@ -24,10 +24,10 @@
     
     <item>
       <title>=8 浏览器易混淆名词整理</title>
-      <link>https://luneshao.github.io/posts/browser-num/</link>
+      <link>https://luneshao.github.io/post/browser-num/</link>
       <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/browser-num/</guid>
+      <guid>https://luneshao.github.io/post/browser-num/</guid>
       <description> 01. JS 的 window.location 对象
  包含有关文档及当前位置的信息。
 MDN文档地址
@@ -48,19 +48,19 @@ MDN文档地址
     
     <item>
       <title>markdown 常用语法</title>
-      <link>https://luneshao.github.io/posts/markdown/</link>
+      <link>https://luneshao.github.io/post/markdown/</link>
       <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/markdown/</guid>
+      <guid>https://luneshao.github.io/post/markdown/</guid>
       <description> 列表 // 无序列表 * txt txt txt + txt txt txt - txt txt txt // 有序列表 1. txt txt txt 2. txt txt txt  引用 &amp;gt; txt txt txt  粗体 和 斜体 // 粗体 **txt** / __txt__ // 斜体 *txt* / _txt_  表格 | thead | thead | thead | | :---- | :---: | ----: | | 左对齐 | 居中 | 右对齐 |  分隔线 *** / - - - / * * *  </description>
     </item>
     
     <item>
       <title>前端属性兼容性整理</title>
-      <link>https://luneshao.github.io/posts/comp/</link>
+      <link>https://luneshao.github.io/post/comp/</link>
       <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/comp/</guid>
+      <guid>https://luneshao.github.io/post/comp/</guid>
       <description>Element 相关 1. addEventListen
 兼容写法：
 function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget.addEventListen(eType, eHandle) } else { // ie 浏览器 if (eTarget.attachEvent) { eType = &#39;on&#39; + eType eTarget.attachEvent(eType, eHandle) } else { eventTarget[&#39;on&#39; + eventType] = eventHandler } } }  2. scrollTop()
@@ -70,10 +70,10 @@ function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget
     
     <item>
       <title>Mac 的快捷键</title>
-      <link>https://luneshao.github.io/posts/mac-keyboard/</link>
+      <link>https://luneshao.github.io/post/mac-keyboard/</link>
       <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/mac-keyboard/</guid>
+      <guid>https://luneshao.github.io/post/mac-keyboard/</guid>
       <description>在知乎上截取部分自己会用到的一部分。
  按键符号
   ⌘ (command) ⌥ (option) ⇧ (shift) ⌃ (control) ⌫ (delete)   常用的快捷键
@@ -87,10 +87,10 @@ function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget
     
     <item>
       <title>蔬菜水煮建议时间</title>
-      <link>https://luneshao.github.io/posts/vegetable/</link>
+      <link>https://luneshao.github.io/post/vegetable/</link>
       <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/vegetable/</guid>
+      <guid>https://luneshao.github.io/post/vegetable/</guid>
       <description>要注意水煮时间要根据蔬菜的切块大小以及想追求的柔软程度，下面的时间仅是指导 (单位为分钟)：
  洋蓟(整个): 25-40
  洋蓟(芯儿): 10-15
@@ -116,10 +116,10 @@ function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget
     
     <item>
       <title>每天一集TED 20190415</title>
-      <link>https://luneshao.github.io/posts/0415/</link>
+      <link>https://luneshao.github.io/post/0415/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/0415/</guid>
+      <guid>https://luneshao.github.io/post/0415/</guid>
       <description> 是什么让你睡不着觉？ 防止失眠的方法  治疗失眠最好的方法之一是，管理好会造成过度警觉的压力。  确保你的卧室十分舒爽，你的床只是用来睡觉，如果睡不着就去看会书、
 冥想或者写日记。
  调节你的新陈代谢，做法是维持一贯的睡眠和起床作息，来协助调整你的生物钟。因为这个生物钟对光很敏感，所以夜间避免亮光。
@@ -133,10 +133,10 @@ function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget
     
     <item>
       <title>初次见面</title>
-      <link>https://luneshao.github.io/posts/my-first-post/</link>
+      <link>https://luneshao.github.io/post/my-first-post/</link>
       <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/my-first-post/</guid>
+      <guid>https://luneshao.github.io/post/my-first-post/</guid>
       <description>介绍 初次见面，请多多关照。 &amp;ndash;来自萌新的问候。（≧∇≦）
 这样规定一下：
  标题带有 =3 的就是我有未看完的内容的 （ 怕不是都要带着了 23333

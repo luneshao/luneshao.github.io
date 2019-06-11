@@ -13,10 +13,10 @@
     
     <item>
       <title>强大的css filter属性及色彩名词（附 opacity 属性的兼容写法）</title>
-      <link>https://luneshao.github.io/posts/css-filter/</link>
+      <link>https://luneshao.github.io/post/css-filter/</link>
       <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/css-filter/</guid>
+      <guid>https://luneshao.github.io/post/css-filter/</guid>
       <description>概述
  本篇主要是摘要了 MDN 的 filter 属性、取值及示例图以及关于色相、饱和度、灰度的概念。末尾附上了一份 opacity 的兼容性写法。
  引言
@@ -34,10 +34,10 @@ filter CSS属性将模糊或颜色偏移等 图形效果应用于元素 。滤�
     
     <item>
       <title>=3 前端优化</title>
-      <link>https://luneshao.github.io/posts/front-optimize/</link>
+      <link>https://luneshao.github.io/post/front-optimize/</link>
       <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/front-optimize/</guid>
+      <guid>https://luneshao.github.io/post/front-optimize/</guid>
       <description>原文链接
 2
 我我我，我学不完了啊喂 （哭😭
@@ -46,21 +46,22 @@ filter CSS属性将模糊或颜色偏移等 图形效果应用于元素 。滤�
     
     <item>
       <title>css line-height 和 vertical-align</title>
-      <link>https://luneshao.github.io/posts/css-lineheight-vertical/</link>
+      <link>https://luneshao.github.io/post/css-lineheight-vertical/</link>
       <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/css-lineheight-vertical/</guid>
+      <guid>https://luneshao.github.io/post/css-lineheight-vertical/</guid>
       <description>display: block 对 vertical-align 属性不起作用。</description>
     </item>
     
     <item>
       <title>window requestAnimationFrame 方法</title>
-      <link>https://luneshao.github.io/posts/window-requestanimationframe/</link>
+      <link>https://luneshao.github.io/post/window-requestanimationframe/</link>
       <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/window-requestanimationframe/</guid>
+      <guid>https://luneshao.github.io/post/window-requestanimationframe/</guid>
       <description>原文链接 伯乐 MDN
-概念：告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
+ 概念
+ 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
 个人理解：raf 这个函数可以用来做动画，它需要一个参数，参数的形式是一个回调函数，在回调函数里可以写需要执行的动画。
 这个回调函数会默认接收一个参数，即执行回调函数时的时间戳，回调函数，会在每次浏览器在下次重绘前执行回调函数更新动画，个人认为这样来保证动画的帧率和稳定性。大多数电脑显示器的刷新频率是60Hz，大概相当于每秒钟重绘60次，相当于每帧的执行时间为 16.67ms。
  特性
@@ -70,32 +71,34 @@ filter CSS属性将模糊或颜色偏移等 图形效果应用于元素 。滤�
  它返回一个整数，表示定时器的编号，这个值可以传递给 cancelAnimationFrame 用于取消这个函数的执行。
    使用方法
  window.requestAnimationFrame(callback) function callback (timeStamp) { // 默认接收参数 timeStamp，表示开始执行回调函数的时刻 // 若你想在浏览器下次重绘之前继续更新下一帧动画，那么回调函数自身必须再次调用window.requestAnimationFrame() window.requestAnimationFrame(callback) }   避免一帧多次调用
- let ifCurFra = false // 当前帧是否执行 function cb (timeStamp) { if (ifCurFra) return ifCurFra = true window.requestAnimationFrame(timeStamp =&amp;gt; { ifCurFra = false }) } window.</description>
+ let ifCurFra = false // 当前帧是否执行 function cb (timeStamp) { if (ifCurFra) return ifCurFra = true window.</description>
     </item>
     
     <item>
       <title>CSS Tranform 的 Matrix函数</title>
-      <link>https://luneshao.github.io/posts/css-matrix/</link>
+      <link>https://luneshao.github.io/post/css-matrix/</link>
       <pubDate>Wed, 29 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/css-matrix/</guid>
+      <guid>https://luneshao.github.io/post/css-matrix/</guid>
       <description>插播一句：translate 的百分比是相对于自身的宽高计算的。
 插播2：计算角度值 eg：已知 sin(a) = 1，求 a？。 a = Math.asin(1) * 180 / Math.PI
-这也是关于优化 js 代码衍生出来的内容，过程是这样的。
- 文章里说 Array.from 代替 Array.prototype.slice.call(arrayLike)，😳Array.prototype.slice.call(arrayLike) 是不是截取数组的嘛，查了一下文档 MDN ，原来将这个方法绑定到类数组对象/集合上，就可以转化为一个数组。过程中，看到了这篇博客，大佬是真的🐂🍺，里边就写到了计算用 window.getComputedStyle(dom, 伪类) 获取值，本来我是忽略过去的，但是，好奇心让我测试了一下。。得到了一个这个东西。  这是啥？我不认识啊？？还是乖乖的学一下吧。
-于是学习了 张鑫旭前辈的文章，这是一个矩阵，是transform变换的基础。我们可以根据这个矩阵里面的值推算出，transform 属性的值。
+ 引言
+ 这也是关于优化 js 代码衍生出来的内容，过程是这样的。
+ 文章里说 Array.from 代替 Array.prototype.slice.call(arrayLike)，😳Array.prototype.slice.call(arrayLike) 是不是截取数组的嘛，查了一下文档 MDN ，原来将这个方法绑定到类数组对象/集合上，就可以转化为一个数组。过程中，看到了这篇博客，大佬是真的🐂🍺，里边就写到了计算用window.getComputedStyle(dom, 伪类) 获取值，本来我是忽略过去的，但是，好奇心让我测试了一下。。得到了一个这个东西。  这是啥？我不认识啊？？还是乖乖的学一下吧。
+ translate 值的计算。
+ 于是学习了 张鑫旭前辈的文章，这是一个矩阵，是transform变换的基础。我们可以根据这个矩阵里面的值推算出，transform 属性的值。
 其格式为：Matrix(a, b, c, d, e, f) 具体的介绍请直接看前辈文章的第五节。
 借前辈图，translate &amp;amp; scale 的转换公式如下。 ：
- translate 值的计算。
- x, y ：表示转换元素的所有坐标（变量）矩阵偏移元素的中心点。 ax+cy+e ：变换后的x坐标 bx+dy+f ：变换后的y坐标    scale 值的计算。  matrix(s, 0, 0, s, 0, 0); s 即为 scale 的值。</description>
+ x, y ：表示转换元素的所有坐标（变量）矩阵偏移元素的中心点。 ax+cy+e ：变换后的x坐标 bx+dy+f ：变换后的y坐标   scale 值的计算。
+ matrix(s, 0, 0, s, 0, 0); s 即为 scale 的值。</description>
     </item>
     
     <item>
       <title>=8 element 对象的拓展</title>
-      <link>https://luneshao.github.io/posts/element-expland/</link>
+      <link>https://luneshao.github.io/post/element-expland/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/element-expland/</guid>
+      <guid>https://luneshao.github.io/post/element-expland/</guid>
       <description>1. 获取元素的css  1.1 Element.getBoundingClientRect()  MDN
 返回元素的大小及其相对于视口的位置。
 如果你需要获得相对于整个网页左上角定位的属性值，那么只要给top、left属性值加上当前的滚动位置
@@ -110,10 +113,10 @@ css 安全(blog)
     
     <item>
       <title>=8 js 拓展</title>
-      <link>https://luneshao.github.io/posts/js-expland/</link>
+      <link>https://luneshao.github.io/post/js-expland/</link>
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/js-expland/</guid>
+      <guid>https://luneshao.github.io/post/js-expland/</guid>
       <description>1.Array 1.1 将类数组转化为数组  Array.prototype.slice.call() 方法：  MDN slice相关
 slice 方法可以用来将一个类数组（Array-like）对象/集合转换成一个新数组。你只需将该方法绑定到这个对象上。
 Array.slice(start, end) 方法用来截取数组 start 到 end （不包含 end）值，并返回一个新数组。
@@ -124,10 +127,10 @@ Array.from() 方法从一个类似数组或可迭代对象中创建一个新的�
     
     <item>
       <title>js 代码美化</title>
-      <link>https://luneshao.github.io/posts/js-beauty/</link>
+      <link>https://luneshao.github.io/post/js-beauty/</link>
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/js-beauty/</guid>
+      <guid>https://luneshao.github.io/post/js-beauty/</guid>
       <description>github完整文章连接
 Objects  1.1 将简写属性，放在对象定义的开始部分。  // bad const obj = { key1: 2, key2, key3: 2, } // good const obj = { key2, key4, key1: 2, key3: 2, }   1.2 不要直接调用 Object.prototype，例如 hasOwnProperty， propertyIsEnumerable，  因为这些名字没有被 Javascript 保留，如果被重新定义就会被覆盖。所以，最好是在原型链上调用。
 MDN相关连接
@@ -136,10 +139,10 @@ MDN相关连接
     
     <item>
       <title>CSS 的 clip 属性</title>
-      <link>https://luneshao.github.io/posts/css-clip/</link>
+      <link>https://luneshao.github.io/post/css-clip/</link>
       <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/css-clip/</guid>
+      <guid>https://luneshao.github.io/post/css-clip/</guid>
       <description>参考文献：MDN&amp;emsp; 张鑫旭前辈的文章
  介绍
  定义 clip 属性剪裁元素，属性仅应用于绝对定位元素，例如 position: absolute 或 position: fixed。
@@ -153,10 +156,10 @@ tips：auto表示 If any side&amp;rsquo;s value is auto, the element is clipped 
     
     <item>
       <title>js Date 对象</title>
-      <link>https://luneshao.github.io/posts/js-date/</link>
+      <link>https://luneshao.github.io/post/js-date/</link>
       <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/posts/js-date/</guid>
+      <guid>https://luneshao.github.io/post/js-date/</guid>
       <description>参考文献：MDN
  常用方法
  语法 new Date()： 返回一个 Date 对象
