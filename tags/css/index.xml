@@ -17,19 +17,16 @@
       <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://luneshao.github.io/post/css-filter/</guid>
-      <description>概述
- 本篇主要是摘要了 MDN 的 filter 属性、取值及示例图以及关于色相、饱和度、灰度的概念。末尾附上了一份 opacity 的兼容性写法。
- 引言
+      <description>引言
  最近公司需要找一个管理项目的工具，然后被推荐了 coding.net，我就看了一下官网的功能介绍。看到合作伙伴那里，hover 之后，图片变了颜色。然后，职业病就犯了，就看了一下人家是怎么实现的。
 讲道理，我找了半天是怎么换的颜色。filter 这个属性之前看到是用来兼容 ie 的 opacity 属性的，我也一直没有用过，就以为它就是透明度的属性，我就没勾掉试一试。。。有点愚蠢。我就以为是换了图片的 URL，结果图片的 URL 并没有变化。我查看了图片，它本来的颜色就是彩色的。然后猜测，难道是利用 css 改变了图片的颜色？？？我就挨个属性勾了勾，果然是 filter 的原因。。
 默认的 css 属性中，有这么一句 filter: grayscale(100%); ，这就是让图片变灰的属性。然后，就滚去 MDN 了。首屏就是几个例子，我又震惊了！这个属性可以做这么多事！！上一次震惊是在发现了 object-fit 属性，竟然可以改变图片内容的尺寸！
 （文档真的要认真看，仔细看，可能某个小括号里边就提供了一种简便方法或者功能介绍。）
- 定义
- filter：滤镜。
+本篇主要是摘要了 MDN 的 filter 属性、取值及示例图以及关于色相、饱和度、灰度的概念。末尾附上了一份 opacity 的兼容性写法。
+定义 filter：滤镜。
 filter CSS属性将模糊或颜色偏移等 图形效果应用于元素 。滤镜通常用于调整图像，背景和边框的渲染。 CSS标准里包含了一些已实现预定义效果的函数。你也可以参考一个SVG滤镜，通过一个URL链接到SVG滤镜元素(SVG filter element)。
- 语法
- 共分为四类。具体的我就不搬运了，下面具体介绍。形式语法
-/* 自定义的 SVG 滤镜 */ .filter: url(&amp;quot;filters.svg#filter-id&amp;quot;) /* 滤镜函数 */ blur、brightness、contrast、drop-shadow、grayscale、hue-rotate invert、opacity、saturate、sepia .filter: blur(5px); /* 混合滤镜 */ filter: contrast(175%) brightness(3%); /* Global values */ filter: inherit; filter: initial; filter: unset;   函数</description>
+语法 共分为四类。具体的我就不搬运了，下面具体介绍。形式语法
+/* 自定义的 SVG 滤镜 */ .filter: url(&amp;quot;filters.svg#filter-id&amp;quot;) /* 滤镜函数 */ blur、brightness、contrast、drop-shadow、grayscale、hue-rotate invert、opacity、saturate、sepia .filter: blur(5px); /* 混合滤镜 */ filter: contrast(175%) brightness(3%); /* Global values */ filter: inherit; filter: initial; filter: unset;  函数 url: URL函数接受一个XML文件，该文件设置了一个 SVG滤镜 ，且可以包含一个锚点来指定一个具体的滤镜元素.</description>
     </item>
     
     <item>
@@ -52,12 +49,10 @@ filter CSS属性将模糊或颜色偏移等 图形效果应用于元素 。滤�
  引言
  这也是关于优化 js 代码衍生出来的内容，过程是这样的。
  文章里说 Array.from 代替 Array.prototype.slice.call(arrayLike)，😳Array.prototype.slice.call(arrayLike) 是不是截取数组的嘛，查了一下文档 MDN ，原来将这个方法绑定到类数组对象/集合上，就可以转化为一个数组。过程中，看到了这篇博客，大佬是真的🐂🍺，里边就写到了计算用window.getComputedStyle(dom, 伪类) 获取值，本来我是忽略过去的，但是，好奇心让我测试了一下。。得到了一个这个东西。  这是啥？我不认识啊？？还是乖乖的学一下吧。
- translate 值的计算。
- 于是学习了 张鑫旭前辈的文章，这是一个矩阵，是transform变换的基础。我们可以根据这个矩阵里面的值推算出，transform 属性的值。
+translate 值的计算 于是学习了 张鑫旭前辈的文章，这是一个矩阵，是transform变换的基础。我们可以根据这个矩阵里面的值推算出，transform 属性的值。
 其格式为：Matrix(a, b, c, d, e, f) 具体的介绍请直接看前辈文章的第五节。
 借前辈图，translate &amp;amp; scale 的转换公式如下。 ：
- x, y ：表示转换元素的所有坐标（变量）矩阵偏移元素的中心点。 ax+cy+e ：变换后的x坐标 bx+dy+f ：变换后的y坐标   scale 值的计算。
- matrix(s, 0, 0, s, 0, 0); s 即为 scale 的值。</description>
+ x, y ：表示转换元素的所有坐标（变量）矩阵偏移元素的中心点。 ax+cy+e ：变换后的x坐标 bx+dy+f ：变换后的y坐标  scale 值的计算 matrix(s, 0, 0, s, 0, 0); s 即为 scale 的值。</description>
     </item>
     
     <item>
@@ -67,8 +62,7 @@ filter CSS属性将模糊或颜色偏移等 图形效果应用于元素 。滤�
       
       <guid>https://luneshao.github.io/post/css-clip/</guid>
       <description>参考文献：MDN&amp;emsp; 张鑫旭前辈的文章
- 介绍
- 定义 clip 属性剪裁元素，属性仅应用于绝对定位元素，例如 position: absolute 或 position: fixed。
+介绍 定义 clip 属性剪裁元素，属性仅应用于绝对定位元素，例如 position: absolute 或 position: fixed。
 属性值  auto：不剪裁。
  &amp;lt;shape&amp;gt;：截取的形状，值的表示方式 rect(&amp;lt;top&amp;gt;, &amp;lt;right&amp;gt;, &amp;lt;bottom&amp;gt;, &amp;lt;left&amp;gt;) 或 rect(&amp;lt;top&amp;gt; &amp;lt;right&amp;gt; &amp;lt;bottom&amp;gt; &amp;lt;left&amp;gt;)。
   top &amp;amp; bottom 设置的是距离元素上边距的距离。left &amp;amp; right 设置的是距离元素左边距的距离。

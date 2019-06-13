@@ -30,8 +30,7 @@ MDN相关连接
       
       <guid>https://luneshao.github.io/post/js-date/</guid>
       <description>参考文献：MDN
- 常用方法
- 语法 new Date()： 返回一个 Date 对象
+常用方法 语法 new Date()： 返回一个 Date 对象
 new Date(value)：
 new Date(dateString)：
 new Date(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])：
@@ -46,7 +45,8 @@ hours：小时数的整数值 (24小时制)。
 minutes：时间中分钟部分的整数值。
 seconds：时间中的秒部分的整数值。
 milliseconds：时间的毫秒部分的整数值。
-方法 Date.now()： 返回自 1970-1-1 00:00:00 UTC（世界标准时间）至今所经过的毫秒数。</description>
+方法 Date.now()： 返回自 1970-1-1 00:00:00 UTC（世界标准时间）至今所经过的毫秒数。
+Date.parse()： 解析一个表示日期的字符串，并返回从 1970-1-1 00:00:00 所经过的毫秒数。</description>
     </item>
     
   </channel>
