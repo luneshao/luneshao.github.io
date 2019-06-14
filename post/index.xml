@@ -46,28 +46,7 @@ filter CSS属性将模糊或颜色偏移等 图形效果应用于元素 。滤�
     </item>
     
     <item>
-      <title>=3 前端优化</title>
-      <link>https://luneshao.github.io/post/front-optimize/</link>
-      <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://luneshao.github.io/post/front-optimize/</guid>
-      <description>原文链接
-2
-我我我，我学不完了啊喂 （哭😭
-1 粗看了一遍，2未看 &amp;ndash;19-05-30</description>
-    </item>
-    
-    <item>
-      <title>css line-height 和 vertical-align</title>
-      <link>https://luneshao.github.io/post/css-lineheight-vertical/</link>
-      <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://luneshao.github.io/post/css-lineheight-vertical/</guid>
-      <description>display: block 对 vertical-align 属性不起作用。</description>
-    </item>
-    
-    <item>
-      <title>window requestAnimationFrame 方法</title>
+      <title>window.requestAnimationFrame方法</title>
       <link>https://luneshao.github.io/post/window-requestanimationframe/</link>
       <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
       
@@ -101,19 +80,19 @@ translate 值的计算 于是学习了 张鑫旭前辈的文章，这是一个�
     </item>
     
     <item>
-      <title>=8 element 对象的拓展</title>
+      <title>=8 一些不常用的获取元素属性的操作</title>
       <link>https://luneshao.github.io/post/element-expland/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://luneshao.github.io/post/element-expland/</guid>
-      <description>1. 获取元素的css  1.1 Element.getBoundingClientRect()  MDN
+      <description>1. 获取元素的css  1.1 window.getComputedStyle()  返回另一个包含所有 css 属性的对象，该对象应用了样式表并解析了基础计算（只读）。
+window.getComputedStyle().getPropertyValue(&#39;font&#39;) // 获取属性 font 值  MDN 张鑫旭前辈的文章
+css 安全(blog)
+2.获取元素的大小及其相对于视口的位置  2.1 Element.getComputedStyle()  MDN
 返回元素的大小及其相对于视口的位置。
 如果你需要获得相对于整个网页左上角定位的属性值，那么只要给top、left属性值加上当前的滚动位置
 （通过window.scrollX和window.scrollY），这样就可以获取与当前的滚动位置无关的值。
- 1.2 window.getComputedStyle()  返回另一个包含所有 css 属性的对象，该对象应用了样式表并解析了基础计算（只读）。
-window.getComputedStyle().getPropertyValue(&#39;font&#39;) // 获取属性 font 值  MDN 张鑫旭前辈的文章
-css 安全(blog)
- 1.3 document.defaultView  MDN
+3.返回当前document对象所关联的window对象  3.1 document.defaultView  MDN
 该属性返回当前 document 对象所关联的 window 对象，如果没有，会返回 null。
 在许多在线的演示代码中，getComputedStyle是通过 document.defaultView 对象来调用的。大部分情况下，这是不需要的，因为可以直接通过window对象调用。但有一种情况，你必需要使用 defaultView, 那是在firefox3.6上访问子框架内的样式。</description>
     </item>
@@ -130,18 +109,6 @@ Array.slice(start, end) 方法用来截取数组 start 到 end （不包含 end�
 function list () { return Array.property.slice.call(arguments) } list(1, 2, 3)  除此以外可以使用 [].splice.call(arguments) 代替，也可以使用 bind 来简化过程。
 const unboundSlice = Array.property.slice const slice = Function.property.bind.call(unboundSlice) function list () { return slice(arguments) } list(1, 2, 3)   Array.from 方法  MDN Array.from
 Array.from() 方法从一个类似数组或可迭代对象中创建一个新的数组实例。</description>
-    </item>
-    
-    <item>
-      <title>js 代码美化</title>
-      <link>https://luneshao.github.io/post/js-beauty/</link>
-      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://luneshao.github.io/post/js-beauty/</guid>
-      <description>github完整文章连接
-Objects  1.1 将简写属性，放在对象定义的开始部分。  // bad const obj = { key1: 2, key2, key3: 2, } // good const obj = { key2, key4, key1: 2, key3: 2, }   1.2 不要直接调用 Object.prototype，例如 hasOwnProperty， propertyIsEnumerable，  因为这些名字没有被 Javascript 保留，如果被重新定义就会被覆盖。所以，最好是在原型链上调用。
-MDN相关连接
-// bad const a = obj.hasOwnProperty(&#39;name&#39;) // good const a = Object.prototype.hasOwnProperty.call(obj, &#39;name&#39;) // best // has.js const has = Object.prototype.hasOwnProperty // use.js import has from &#39;.</description>
     </item>
     
     <item>
