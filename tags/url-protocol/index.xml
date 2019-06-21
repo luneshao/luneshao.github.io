@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>URL Protocol on luneS&#39;s garden</title>
+    <link>https://luneshao.github.io/tags/url-protocol/</link>
+    <description>Recent content in URL Protocol on luneS&#39;s garden</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Jun 2019 14:43:42 +0800</lastBuildDate>
+    
+	<atom:link href="https://luneshao.github.io/tags/url-protocol/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>添加自定义协议打开 exe 或 appCostom Url Protol</title>
+      <link>https://luneshao.github.io/post/costom-url-protocol/</link>
+      <pubDate>Thu, 20 Jun 2019 14:43:42 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/post/costom-url-protocol/</guid>
+      <description>原文链接
+ ⚠️注意   [HKEY_CLASSES_ROOT\calc\shell]方括号内的路径要改成自定义的名字。
+ 自定义的key值，也就是名称，要小写（都是血与泪&amp;hellip;
+  S实现 浏览器判断本地是否安装程序，并下载与启动 Chrome,IE,360可用 mark</description>
+    </item>
+    
+  </channel>
+</rss>

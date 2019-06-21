@@ -6,10 +6,111 @@
     <description>Recent content in 前端 on luneS&#39;s garden</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jun 2019 10:12:32 +0800</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>如何让自己的可以被搜索到？</title>
+      <link>https://luneshao.github.io/post/google-console/</link>
+      <pubDate>Thu, 13 Jun 2019 10:12:32 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/post/google-console/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;引言&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;最近两个月一直在鼓捣这个博客，一直也只是用网址访问。最近，尝试在搜索引擎上搜索我博客的url、内容、标题，通通搜不到？？？然后，看了&lt;a href=&#34;https://support.google.com/webmasters/answer/7451184&#34;&gt;搜索引擎优化 (SEO) 新手指南&lt;/a&gt;。在 google console 上配置了站点地图并进行&lt;a href=&#34;https://support.google.com/webmasters/answer/9012289#url_can_be_on_google_issues&#34;&gt;网址检查&lt;/a&gt;（查看资源中某个网址的 Google 索引信息）。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;我的检查结果： &lt;em&gt;此网址未显示在 Google 搜索结果中&lt;/em&gt; 。（此时已经可以在 google 中检索到 url 了。）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;点击查看详情 =&amp;gt; return ( 已抓取 - 尚未编入索引, 状态：已排除。 ) 查看&lt;a href=&#34;https://support.google.com/webmasters/answer/7440203#discovered__unclear_status&#34;&gt;状态报告指南&lt;/a&gt;去一条一条的排查。我的结果对应的解释：&lt;code&gt;Google 已抓取相应网页，但尚未将其编入索引。日后，该网页可能会被编入索引，也可能不会被编入索引；无论如何，您都无需重新提交该网址以供抓取。&lt;/code&gt; 那就只能静静的等待了。（目前已经搜到了。）&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下面主要是摘要梳理了搜索引擎优化 (SEO) 新手指南一些相关知识点，帮助理解。&lt;/p&gt;
+
+&lt;p&gt;官方文档先祭一下 &lt;a href=&#34;https://support.google.com/webmasters/answer/7451184&#34;&gt;搜索引擎优化 (SEO) 新手指南&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;术语&#34;&gt;术语&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://support.google.com/webmasters/answer/70897&#34;&gt;Google 搜索的工作方式&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Google 按照以下三个基本步骤来生成基于网页的结果：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;抓取&lt;/li&gt;
+&lt;li&gt;编入索引&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;呈现（和排名）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;索引&lt;/strong&gt; - Google 会将所知道的全部网页存储在其“索引”中。每个网页的索引条目都会描述该网页的内容和位置（网址）。编入索引是指当 Google 抓取、读取网页并将其添加到索引的过程。例如：Google 今天已将我网站上的几个网页编入索引。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;抓取&lt;/strong&gt; - 寻找新网页或更新后的网页的过程。Google 会通过跟踪链接、读取站点地图或其他各种方式来发现网址。Google 通过抓取网页来寻找新增网页，然后（在适当的时候）将网页编入索引。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;抓取工具&lt;/strong&gt; - 从网络中抓取（提取）网页并将网页编入索引的自动化软件。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Googlebot&lt;/strong&gt; - Google 抓取工具的通用名称。Googlebot 会持续不断地抓取网页。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;SEO&lt;/strong&gt; - 搜索引擎优化：使您的网站更易于搜索引擎抓取和编入索引的过程；也可指从事搜索引擎优化的人员的职位名称，例如：我们刚刚聘请了新的 SEO 来提升我们在网络上的曝光度。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;测试搜索结果&#34;&gt;测试搜索结果&lt;/h2&gt;
+
+&lt;p&gt;在 google 中搜索 &lt;code&gt;site:example.com&lt;/code&gt;，尝试是否可以搜索到结果。如果可以搜索到，表明你的网站已经在索引中。搜不到，就继续向下看吧:)&lt;/p&gt;
+
+&lt;h2 id=&#34;帮助-google-找到您的内容&#34;&gt;帮助 Google 找到您的内容&lt;/h2&gt;
+
+&lt;p&gt;最好的办法是提交&lt;a href=&#34;https://support.google.com/webmasters/answer/156184?hl=zh-Hans&amp;amp;ref_topic=4581190&#34;&gt;站点地图&lt;/a&gt; 。站点地图是网站上的一种文件，可告知搜索引擎网站上新增了网页或有更新的网页。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;这里，我的博客本来是在 google 搜索不到的，hugo 会在 public 文件夹自动生成站点地图。（如果没有使用hugo，&lt;a href=&#34;https://support.google.com/webmasters/answer/183668?hl=zh-Hans&amp;amp;ref_topic=4581190&#34;&gt;文章&lt;/a&gt;中也提供了一些在线生成站点地图的网址和工具，可以自行生成哟～）此时，需要我们做的就是在 Search Console 工具中，自行配置站点地图的 url，或者将其添加到您的 robots.txt 文件中。然后，在 google 输入 site:luneshao.github.io 就可以搜索到了。一小步进步啊！&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;告诉-google-不应抓取哪些页面&#34;&gt;告诉 Google 不应抓取哪些页面&lt;/h2&gt;
+
+&lt;p&gt;若为非敏感信息，则可以使用 robots.txt 阻止不必要的抓取。&lt;/p&gt;
+
+&lt;h2 id=&#34;帮助-google-和用户-了解您的内容&#34;&gt;帮助 Google（和用户）了解您的内容&lt;/h2&gt;
+
+&lt;p&gt;诸位可以使用这个&lt;a href=&#34;http://analyzer.metatags.org/&#34;&gt;免费网站分析工具&lt;/a&gt;，分析一下自己的网站 seo 方面是否存在不足。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-创建唯一且准确的网页标题&#34;&gt;1.创建唯一且准确的网页标题&lt;/h3&gt;
+
+&lt;p&gt;&lt;title&gt; 标记可告诉用户和搜索引擎特定网页的主题是什么。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;title&amp;gt;unique title&amp;lt;/title&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;2-创建恰当的标题和摘要以在搜索结果中显示&#34;&gt;2.创建恰当的标题和摘要以在搜索结果中显示&lt;/h3&gt;
+
+&lt;p&gt;如果您的文档会显示在搜索结果页中，则 title 标记的内容可能会显示在相应结果的第一行&lt;/p&gt;
+
+&lt;h3 id=&#34;3-使用-description-元标记&#34;&gt;3.使用“description”元标记&lt;/h3&gt;
+
+&lt;p&gt;网页的说明元标记可让 Google 和其他搜索引擎了解该网页的大致内容。网页的标题可以是几个词或一个短语，而网页的说明元标记则可以是一两个句子或是一小段话。&lt;/p&gt;
+
+&lt;h4 id=&#34;说明元标记有哪些好处&#34;&gt;说明元标记有哪些好处？&lt;/h4&gt;
+
+&lt;p&gt;说明元标记很重要，因为 Google 可能会将其用作您网页的摘要。为每个网页添加说明元标记从来都是非常好的做法，以防 Google 找不到要在摘要中使用的恰当文字。&lt;/p&gt;
+
+&lt;h3 id=&#34;4-使用标题标记强调重要文字&#34;&gt;4.使用标题标记强调重要文字&lt;/h3&gt;
+
+&lt;p&gt;按顺序使用多种大小的标题可为您的内容创建层次结构，便于用户浏览文档。&lt;/p&gt;
+
+&lt;h3 id=&#34;5-添加结构化数据标记&#34;&gt;5.添加结构化数据标记&lt;/h3&gt;
+
+&lt;p&gt;结构化数据21是可添加到网站页面中的代码，用于向搜索引擎描述内容，以便搜索引擎更好地了解网页上的信息。搜索引擎可以利用这类信息在搜索结果中以有用的（且吸引用户的）方式显示您的内容。这也有助于您吸引到适合您业务的客户。&lt;/p&gt;
+
+&lt;p&gt;例如，如果您有一个网店并且标记了一个单独的产品页面，这将帮助我们了解该页面主要显示自行车、自行车价格以及客户评价。我们可能会在相关查询的搜索结果的摘要中显示这些信息。我们将其称之为“富媒体搜索结果”。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;富媒体搜索结果：Google 搜索结果中的增强型结果，具有额外的视觉效果或互动功能。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     
     <item>
       <title>强大的css filter属性及色彩名词（附 opacity 属性的兼容写法）</title>

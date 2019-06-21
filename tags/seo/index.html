@@ -10,26 +10,28 @@
     
 
     
-    <title>window.requestAnimationFrame方法</title>
-
-    
-    
-
-
-
+    <title>
+  Tag → seo
   
+   | Lune&#39;s blogs
+</title>
+
+    
+    
+
+
+
+
   
   <meta name="author" content="LuneShao" />
-  <meta name="description" content="window.requestAnimationFrame方法可以实现setTimeout的功能，经过测试动画会比setTimeout更稳定，并且运行在后台标签页或者隐藏的`` 里时会暂停调用，更加节省性能。">
+  <meta name="description" content="这里是luneshao的个人博客，里面包含了前端知识及一部分计算机相关的内容。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。" />
 
   
-  
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@lune76308387" />
-    <meta name="twitter:title" content="window.requestAnimationFrame方法" />
-    <meta name="twitter:description" content="window.requestAnimationFrame方法可以实现setTimeout的功能，经过测试动画会比setTimeout更稳定，并且运行在后台标签页或者隐藏的`` 里时会暂停调用，更加节省性能。" />
-    <meta name="twitter:image" content="https://luneshao.github.io/img/avatar.jpg" />
-  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@lune76308387" />
+  <meta name="twitter:title" content="Lune&#39;s blogs" />
+  <meta name="twitter:description" content="这里是luneshao的个人博客，里面包含了前端知识及一部分计算机相关的内容。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。" />
+  <meta name="twitter:image" content="https://luneshao.github.io/img/avatar.jpg" />
 
 
 
@@ -37,7 +39,7 @@
 <meta name="generator" content="Hugo 0.55.0">
 
 
-<link rel="canonical" href="https://luneshao.github.io/post/window-requestanimationframe/">
+<link rel="canonical" href="https://luneshao.github.io/tags/seo/">
 <link rel="alternative" href="/index.xml" title="luneS&#39;s garden" type="application/atom+xml">
 
 
@@ -174,7 +176,7 @@
       
       
       
-        <li class="menu-item  is-active"><a href="/">首页</a></li>
+        <li class="menu-item "><a href="/">首页</a></li>
       
         <li class="menu-item "><a href="https://www.weibo.com/u/3754246405">sina 微博</a></li>
       
@@ -256,7 +258,7 @@ if (!doNotTrack) {
     
     
     
-      <li class="sidebar-item  is-active"><a class="sidebar-link" href="/">首页</a></li>
+      <li class="sidebar-item "><a class="sidebar-link" href="/">首页</a></li>
     
       <li class="sidebar-item "><a class="sidebar-link" href="https://www.weibo.com/u/3754246405">sina 微博</a></li>
     
@@ -264,153 +266,78 @@ if (!doNotTrack) {
 </amp-sidebar>
 
     
-  <section class="main post-detail">
-    <header class="post-header">
-      <h1 class="post-title">window.requestAnimationFrame方法</h1>
-      <p class="entry-meta"><span class="entry-time">May 30, 2019</span> 1 min read</p>
+  <section class="main entry-list">
+    <header class="list-header">
+      
+      
+        
+      
+        
+      
     </header>
     
-
-    <article class="post-content">
-
-<p><a href="http://web.jobbole.com/91578/">原文链接伯乐</a>  <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame">MDN</a></p>
-
-<h2 id="概念">概念</h2>
-
-<p>告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个<strong>回调函数</strong>作为参数，该回调函数会在浏览器下一次重绘之前执行。</p>
-
-<p>个人理解：<strong>raf</strong> 这个函数可以用来做动画，它需要一个参数，参数的形式是一个<strong>回调函数</strong>，在回调函数里可以写需要执行的动画。</p>
-
-<p>这个回调函数会默认接收一个参数，即执行回调函数时的<strong>时间戳</strong>，回调函数，会在每次浏览器在下次重绘前执行回调函数更新动画，个人认为这样来保证动画的帧率和稳定性。大多数电脑显示器的刷新频率是60Hz，大概相当于每秒钟重绘60次，相当于每帧的执行时间为 16.67ms。</p>
-
-<h2 id="特性">特性</h2>
-
-<ul>
-<li><p>参数中的回调函数执行次数通常是每秒60次，速度大约为 16.67ms 每帧。</p></li>
-
-<li><p>当<code>requestAnimationFrame()</code>运行在后台标签页或者隐藏的<code>&lt;iframe&gt;</code> 里时，requestAnimationFrame() 会被暂停调用。对比 setTimeout ，离开页面依旧会计时，raf 更加节省性能。</p></li>
-
-<li><p><strong>DOMHighResTimeStamp</strong>指示由 <code>RequestAnimationFrame()</code> 排队的回调开始触发的时间。</p></li>
-
-<li><p>它返回一个整数，表示定时器的编号，这个值可以传递给 <code>cancelAnimationFrame</code> 用于取消这个函数的执行。</p></li>
-</ul>
-
-<h2 id="使用方法">使用方法</h2>
-
-<pre><code class="language-js">window.requestAnimationFrame(callback)
-
-function callback (timeStamp) {
-  // 默认接收参数 timeStamp，表示开始执行回调函数的时刻
-
-  // 若你想在浏览器下次重绘之前继续更新下一帧动画，那么回调函数自身必须再次调用window.requestAnimationFrame()
-  window.requestAnimationFrame(callback)
-}
-</code></pre>
-
-<h2 id="避免一帧多次调用">避免一帧多次调用</h2>
-
-<pre><code class="language-js">  let ifCurFra = false // 当前帧是否执行
-  function cb (timeStamp) {
-    if (ifCurFra) return 
-    ifCurFra = true
-    window.requestAnimationFrame(timeStamp =&gt; {
-      ifCurFra = false
-    })
-  }
-
-  window.addEventListener('scroll', cb)
-</code></pre>
-
-<h2 id="兼容">兼容</h2>
-
-<p><a href="https://www.cnblogs.com/xiaohuochai/p/5777186.html">兼容代码</a></p>
-
-<pre><code class="language-js">if(!window.requestAnimationFrame){
-  var lastTime = 0;
-  window.requestAnimationFrame = function(callback){
-      var currTime = new Date().getTime();
-      var timeToCall = Math.max(0,16.7-(currTime - lastTime));
-      var id  = window.setTimeout(function(){
-          callback(currTime + timeToCall);
-      },timeToCall);
-      lastTime = currTime + timeToCall;
-      return id;
-  }
-}
-</code></pre>
-
-<h2 id="example">example</h2>
-
-<p>我测试了一下两种方法实现动画，认为 setTimeout() 和 window.requestAnimationFrame ()， raf 的动画更稳定一些,sto 有时平稳有时抖动。</p>
-
-<p>sto 抖动的原因：假设屏幕每隔16.7ms刷新一次，而setTimeout每隔10ms设置图像向左移动1px， 就会引起动画卡顿。</p>
-
-<pre><code class="language-js">// 测试文件相关部分代码
-  const el = document.querySelector('.box1')
-  let start = null
-  let ml = 0
-  const totalTime = 2000
-  
-  function ani (timeStamp) {
-    if (!start) {
-      start = timeStamp
-    }
-
-    const progress = timeStamp - start
-    // 判断时间差（时间间隔），是否是规定时间
-    if (progress &lt; totalTime) {
-      el.style.left = `${ml++}px`
-      window.requestAnimationFrame(ani)
-    }
-  }
-
-  window.requestAnimationFrame(ani)
-</code></pre>
-
-<p>附上我的<a href="https://codepen.io/LuneShao/project/editor/XMbnnx">测试文件</a></p>
-
-<p>文件中存在一个问题，我的定时器是2s，结束时的时间大部分是 1985ms, 可能因为函数执行的速度是每帧 16.7ms，1985 + 16.7 &gt; 2000 最后一次的判断就是 false 了，就没有执行2000ms，在我的例子中实际上就少加了 1px。还请各位大佬多多指教。</p>
-
-<blockquote>
-<p>以上。🧐</p>
-</blockquote>
-</article>
     
-    <div id="vcomments"></div>
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=22677433&auto=1&height=66"></iframe>
-    <footer class="post-footer">
       
-      <ul class="post-tags">
-        
-          <li class="post-tag"><a href="/tags/%E5%89%8D%E7%AB%AF"><span class="tag">前端</span></a></li>
-        
-      </ul>
+        <article class="entry-single">
+  
+    <a href="https://luneshao.github.io/post/google-console/" title="如何让自己的可以被搜索到？">
+      <amp-img alt="如何让自己的可以被搜索到？"
+        height="244"
+        layout="fixed-height"
+        class="entry-cover"
+        src="/img/cover.jpg">
+      </amp-img>
+    </a>
+  
+  <header class="entry-header">
+    <h3 class="entry-title"><a href="https://luneshao.github.io/post/google-console/" title="如何让自己的可以被搜索到？" class="entry-link">如何让自己的可以被搜索到？</a></h3>
+  </header>
+
+  <p class="entry-summary"> 引言
+ 最近两个月一直在鼓捣这个博客，一直也只是用网址访问。最近，尝试在搜索引擎上搜索我博客的url、内容、标题，通通搜不到？？？然后，看了搜索引擎优化 (SEO) 新手指南。在 google console 上配置了站点地图并进行网址检查（查看资源中某个网址的 Google 索引信息）。
+ 我的检查结果： 此网址未显示在 Google 搜索结果中 。（此时已经可以在 google 中检索到 url 了。）
+ 点击查看详情 =&gt; return ( 已抓取 - 尚未编入索引, 状态：已排除。 ) 查看状态报告指南去一条一条的排查。我的结果对应的解释：Google 已抓取相应网页，但尚未将其编入索引。日后，该网页可能会被编入索引，也可能不会被编入索引；无论如何，您都无需重新提交该网址以供抓取。 那就只能静静的等待了。（目前已经搜到了。）
+  下面主要是摘要梳理了搜索引擎优化 (SEO) 新手指南一些相关知识点，帮助理解。
+官方文档先祭一下 搜索引擎优化 (SEO) 新手指南
+术语  Google 搜索的工作方式
+ Google 按照以下三个基本步骤来生成基于网页的结果：
+ 抓取 编入索引 呈现（和排名）
+ 索引 - Google 会将所知道的全部网页存储在其“索引”中。每个网页的索引条目都会描述该网页的内容和位置（网址）。编入索引是指当 Google 抓取、读取网页并将其添加到索引的过程。例如：Google 今天已将我网站上的几个网页编入索引。
+ 抓取 - 寻找新网页或更新后的网页的过程。Google 会通过跟踪链接、读取站点地图或其他各种方式来发现网址。Google 通过抓取网页来寻找新增网页，然后（在适当的时候）将网页编入索引。
+ 抓取工具 - 从网络中抓取（提取）网页并将网页编入索引的自动化软件。
+ Googlebot - Google 抓取工具的通用名称。Googlebot 会持续不断地抓取网页。
+ SEO - 搜索引擎优化：使您的网站更易于搜索引擎抓取和编入索引的过程；也可指从事搜索引擎优化的人员的职位名称，例如：我们刚刚聘请了新的 SEO 来提升我们在网络上的曝光度。
+  测试搜索结果 在 google 中搜索 site:example.com，尝试是否可以搜索到结果。如果可以搜索到，表明你的网站已经在索引中。搜不到，就继续向下看吧:)
+帮助 Google 找到您的内容 最好的办法是提交站点地图 。站点地图是网站上的一种文件，可告知搜索引擎网站上新增了网页或有更新的网页。
+ 这里，我的博客本来是在 google 搜索不到的，hugo 会在 public 文件夹自动生成站点地图。（如果没有使用hugo，文章中也提供了一些在线生成站点地图的网址和工具，可以自行生成哟～）此时，需要我们做的就是在 Search Console 工具中，自行配置站点地图的 url，或者将其添加到您的 robots.txt 文件中。然后，在 google 输入 site:luneshao.github.io 就可以搜索到了。一小步进步啊！  告诉 Google 不应抓取哪些页面 若为非敏感信息，则可以使用 robots.txt 阻止不必要的抓取。
+帮助 Google（和用户）了解您的内容 诸位可以使用这个免费网站分析工具，分析一下自己的网站 seo 方面是否存在不足。
+1.创建唯一且准确的网页标题  标记可告诉用户和搜索引擎特定网页的主题是什么。
+&lt;title&gt;unique title&lt;/title&gt;  2.创建恰当的标题和摘要以在搜索结果中显示 如果您的文档会显示在搜索结果页中，则 title 标记的内容可能会显示在相应结果的第一行
+3.使用“description”元标记 网页的说明元标记可让 Google 和其他搜索引擎了解该网页的大致内容。网页的标题可以是几个词或一个短语，而网页的说明元标记则可以是一两个句子或是一小段话。
+说明元标记有哪些好处？ 说明元标记很重要，因为 Google 可能会将其用作您网页的摘要。为每个网页添加说明元标记从来都是非常好的做法，以防 Google 找不到要在摘要中使用的恰当文字。
+4.使用标题标记强调重要文字 按顺序使用多种大小的标题可为您的内容创建层次结构，便于用户浏览文档。
+5.添加结构化数据标记 结构化数据21是可添加到网站页面中的代码，用于向搜索引擎描述内容，以便搜索引擎更好地了解网页上的信息。搜索引擎可以利用这类信息在搜索结果中以有用的（且吸引用户的）方式显示您的内容。这也有助于您吸引到适合您业务的客户。
+例如，如果您有一个网店并且标记了一个单独的产品页面，这将帮助我们了解该页面主要显示自行车、自行车价格以及客户评价。我们可能会在相关查询的搜索结果的摘要中显示这些信息。我们将其称之为“富媒体搜索结果”。
+ 富媒体搜索结果：Google 搜索结果中的增强型结果，具有额外的视觉效果或互动功能。 </p>
+  <footer class="entry-footer">
+    <p class="entry-meta"><span class="entry-time">Jun 13, 2019</span> 1 min read</p>
+    <div class="sharing">
+      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fgoogle-console%2f" title="Share on Facebook">
+        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
+      </a>
+      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=%e5%a6%82%e4%bd%95%e8%ae%a9%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8f%af%e4%bb%a5%e8%a2%ab%e6%90%9c%e7%b4%a2%e5%88%b0%ef%bc%9f&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fgoogle-console%2f" title="Share on Twitter">
+        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
+      </a>
+      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=%e5%a6%82%e4%bd%95%e8%ae%a9%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8f%af%e4%bb%a5%e8%a2%ab%e6%90%9c%e7%b4%a2%e5%88%b0%ef%bc%9f&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fgoogle-console%2f" title="Share on Google+">
+        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
+      </a>
+    </div>
+  </footer>
+</article>
+
       
-      <div class="sharing">
-        <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fwindow-requestanimationframe%2f" title="Share on Facebook">
-          <svg class="icon icon-facebook" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
-        </a>
-        <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=window.requestAnimationFrame%e6%96%b9%e6%b3%95&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fwindow-requestanimationframe%2f" title="Share on Twitter">
-          <svg class="icon icon-twitter" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
-        </a>
-        <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=window.requestAnimationFrame%e6%96%b9%e6%b3%95&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fwindow-requestanimationframe%2f" title="Share on Google+">
-          <svg class="icon icon-google" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
-        </a>
-      </div>
-    </footer>
-    <script>
-      new Valine({
-        el: '#vcomments' ,
-        appId: 'VMtRNdHhQOQVoiWu2y2dQnJb-gzGzoHsz',
-        appKey: '073437m7LGtKY9mmCQioFbKI',
-        notify:true, 
-        verify:false, 
-        avatar:'wavatar', 
-        recordIP: true,
-        visitor: true,
-        placeholder: 'Oh, what a curious baby you are!' 
-      })
-  </script>
+    
+    
   </section>
 
     <footer class="footer">
