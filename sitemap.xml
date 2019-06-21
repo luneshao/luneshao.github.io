@@ -38,23 +38,6 @@
   </url>
   
   <url>
-    <loc>https://luneshao.github.io/tags/seo/</loc>
-    <lastmod>2019-06-13T10:12:32+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2019-06-13T10:12:32+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://luneshao.github.io/post/google-console/</loc>
-    <lastmod>2019-06-13T10:12:32+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://luneshao.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/</loc>
     <lastmod>2019-06-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -67,6 +50,12 @@
   
   <url>
     <loc>https://luneshao.github.io/tags/css/</loc>
+    <lastmod>2019-05-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2019-05-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
