@@ -6,10 +6,21 @@
     <description>Recent content on luneS&#39;s garden</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Jun 2019 09:24:54 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jun 2019 16:30:36 +0800</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flutter 安装 CocoaPods</title>
+      <link>https://luneshao.github.io/post/flutter-install/</link>
+      <pubDate>Mon, 24 Jun 2019 16:30:36 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/post/flutter-install/</guid>
+      <description>引言
+ 安装 flutter 过程中，卡在 pod setup 这里，总是会报错，找了好多也没能正确安装。最后发现 这篇博客 =&amp;gt; CocoaPods的安装步骤和遇见的问题 按照里面的步骤，一步一步来就OK了。
+安装步骤 // 建议先更新下gem sudo gem update --system // 切换镜像 gem sources --remove https://rubygems.org/ gem sources -a https://gems.ruby-china.com/ gem sources -l // 安装 cocoapods sudo gem install cocoapods 应该会提示下错误 // ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/update_rubygems 试试 gem update -n /usr/local/bin --system // 安装cocoapods sudo gem install -n /usr/local/bin cocoapods pod repo list // 查看repo 列表 pod repo remove master // 删除master 新版的 CocoaPods 不允许用pod repo add直接添加master库了，现在一般执行完pod repo add master *** 之后又会提示[!</description>
+    </item>
     
     <item>
       <title>brew update 无响应</title>

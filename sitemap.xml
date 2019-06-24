@@ -3,19 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://luneshao.github.io/tags/mac/</loc>
-    <lastmod>2019-06-24T09:24:54+08:00</lastmod>
-    <priority>0</priority>
+    <loc>https://luneshao.github.io/post/flutter-install/</loc>
+    <lastmod>2019-06-24T16:30:36+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://luneshao.github.io/post/</loc>
-    <lastmod>2019-06-24T09:24:54+08:00</lastmod>
+    <lastmod>2019-06-24T16:30:36+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://luneshao.github.io/tags/</loc>
+    <lastmod>2019-06-24T16:30:36+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://luneshao.github.io/tags/flutter/</loc>
+    <lastmod>2019-06-24T16:30:36+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://luneshao.github.io/</loc>
+    <lastmod>2019-06-24T16:30:36+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://luneshao.github.io/tags/mac/</loc>
     <lastmod>2019-06-24T09:24:54+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -29,12 +46,6 @@
   <url>
     <loc>https://luneshao.github.io/post/brew-noresponse/</loc>
     <lastmod>2019-06-24T09:24:54+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://luneshao.github.io/</loc>
-    <lastmod>2019-06-24T09:24:54+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

@@ -268,6 +268,41 @@ if (!doNotTrack) {
       
         <article class="entry-single">
   
+    <a href="https://luneshao.github.io/post/flutter-install/" title="Flutter 安装 CocoaPods">
+      <amp-img alt="Flutter 安装 CocoaPods"
+        height="244"
+        layout="fixed-height"
+        class="entry-cover"
+        src="/img/cover.jpg">
+      </amp-img>
+    </a>
+  
+  <header class="entry-header">
+    <h3 class="entry-title"><a href="https://luneshao.github.io/post/flutter-install/" title="Flutter 安装 CocoaPods" class="entry-link">Flutter 安装 CocoaPods</a></h3>
+  </header>
+
+  <p class="entry-summary">引言
+ 安装 flutter 过程中，卡在 pod setup 这里，总是会报错，找了好多也没能正确安装。最后发现 这篇博客 =&gt; CocoaPods的安装步骤和遇见的问题 按照里面的步骤，一步一步来就OK了。
+安装步骤 // 建议先更新下gem sudo gem update --system // 切换镜像 gem sources --remove https://rubygems.org/ gem sources -a https://gems.ruby-china.com/ gem sources -l // 安装 cocoapods sudo gem install cocoapods 应该会提示下错误 // ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/update_rubygems 试试 gem update -n /usr/local/bin --system // 安装cocoapods sudo gem install -n /usr/local/bin cocoapods pod repo list // 查看repo 列表 pod repo remove master // 删除master 新版的 CocoaPods 不允许用pod repo add直接添加master库了，现在一般执行完pod repo add master *** 之后又会提示[!</p>
+  <footer class="entry-footer">
+    <p class="entry-meta"><span class="entry-time">Jun 24, 2019</span> 1 min read</p>
+    <div class="sharing">
+      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fflutter-install%2f" title="Share on Facebook">
+        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
+      </a>
+      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=Flutter%20%e5%ae%89%e8%a3%85%20CocoaPods&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fflutter-install%2f" title="Share on Twitter">
+        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
+      </a>
+      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=Flutter%20%e5%ae%89%e8%a3%85%20CocoaPods&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fflutter-install%2f" title="Share on Google+">
+        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
+      </a>
+    </div>
+  </footer>
+</article>
+
+      
+        <article class="entry-single">
+  
     <a href="https://luneshao.github.io/post/brew-noresponse/" title="brew update 无响应">
       <amp-img alt="brew update 无响应"
         height="244"
@@ -597,37 +632,6 @@ Array.from() 方法从一个类似数组或可迭代对象中创建一个新的�
         <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
       </a>
       <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=%3d8%20js%20%e6%8b%93%e5%b1%95&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fjs-expland%2f" title="Share on Google+">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
-      </a>
-    </div>
-  </footer>
-</article>
-
-      
-        <article class="entry-single">
-  
-  <header class="entry-header">
-    <h3 class="entry-title"><a href="https://luneshao.github.io/post/css-clip/" title="CSS 的 clip 属性" class="entry-link">CSS 的 clip 属性</a></h3>
-  </header>
-
-  <p class="entry-summary">参考文献：MDN  张鑫旭前辈的文章
-介绍 定义 clip 属性剪裁元素，属性仅应用于绝对定位元素，例如 position: absolute 或 position: fixed。
-属性值  auto：不剪裁。
- &lt;shape&gt;：截取的形状，值的表示方式 rect(&lt;top&gt;, &lt;right&gt;, &lt;bottom&gt;, &lt;left&gt;) 或 rect(&lt;top&gt; &lt;right&gt; &lt;bottom&gt; &lt;left&gt;)。
-  top &amp; bottom 设置的是距离元素上边距的距离。left &amp; right 设置的是距离元素左边距的距离。
-左侧使用了clip属性，左右容器和图片的尺寸都是200 * 200。 top、right、bottom、left 的值可以是 数值 或 auto 。
-tips：auto表示 If any side’s value is auto, the element is clipped to that side’s inside border edge. （文档） 截取到元素该边的内边界。
- inherit：从父元素继承 clip 属性的值，不兼容 IE6。   实例</p>
-  <footer class="entry-footer">
-    <p class="entry-meta"><span class="entry-time">May 23, 2019</span> 1 min read</p>
-    <div class="sharing">
-      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fcss-clip%2f" title="Share on Facebook">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
-      </a>
-      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=CSS%20%e7%9a%84%20clip%20%e5%b1%9e%e6%80%a7&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fcss-clip%2f" title="Share on Twitter">
-        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
-      </a>
-      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=CSS%20%e7%9a%84%20clip%20%e5%b1%9e%e6%80%a7&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fcss-clip%2f" title="Share on Google+">
         <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
       </a>
     </div>
