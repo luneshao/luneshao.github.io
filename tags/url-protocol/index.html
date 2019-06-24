@@ -24,13 +24,13 @@
 
   
   <meta name="author" content="LuneShao" />
-  <meta name="description" content="这里是luneshao的个人博客，里面包含了前端知识及一部分计算机相关的内容。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。" />
+  <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。" />
 
   
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@lune76308387" />
   <meta name="twitter:title" content="Lune&#39;s blogs" />
-  <meta name="twitter:description" content="这里是luneshao的个人博客，里面包含了前端知识及一部分计算机相关的内容。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。" />
+  <meta name="twitter:description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。" />
   <meta name="twitter:image" content="https://luneshao.github.io/img/avatar.jpg" />
 
 
@@ -280,8 +280,8 @@ if (!doNotTrack) {
       
         <article class="entry-single">
   
-    <a href="https://luneshao.github.io/post/costom-url-protocol/" title="添加自定义协议打开 exe 或 appCostom Url Protol">
-      <amp-img alt="添加自定义协议打开 exe 或 appCostom Url Protol"
+    <a href="https://luneshao.github.io/post/costom-url-protocol/" title="windows 添加自定义协议，实现浏览器打开软件">
+      <amp-img alt="windows 添加自定义协议，实现浏览器打开软件"
         height="244"
         layout="fixed-height"
         class="entry-cover"
@@ -290,23 +290,25 @@ if (!doNotTrack) {
     </a>
   
   <header class="entry-header">
-    <h3 class="entry-title"><a href="https://luneshao.github.io/post/costom-url-protocol/" title="添加自定义协议打开 exe 或 appCostom Url Protol" class="entry-link">添加自定义协议打开 exe 或 appCostom Url Protol</a></h3>
+    <h3 class="entry-title"><a href="https://luneshao.github.io/post/costom-url-protocol/" title="windows 添加自定义协议，实现浏览器打开软件" class="entry-link">windows 添加自定义协议，实现浏览器打开软件</a></h3>
   </header>
 
-  <p class="entry-summary">原文链接
- ⚠️注意   [HKEY_CLASSES_ROOT\calc\shell]方括号内的路径要改成自定义的名字。
- 自定义的key值，也就是名称，要小写（都是血与泪…
-  S实现 浏览器判断本地是否安装程序，并下载与启动 Chrome,IE,360可用 mark</p>
+  <p class="entry-summary">我参考了这篇博客，我使用了原博中 windows 系统的方式，亲测有效。下面贴一下操作步骤：
+操作步骤  添加注册表  （1）新建一个 .reg 的文件，填充如下内容。例如我新建一个自定义协议，名称为 lune。请注意，将下面所有的路径（也就是方括号内的内容）中的名称要 全部替换为自定义的名称 ，且名称一定要 全部是小写字母 。
+Windows Registry Editor Version 5.00 [HKEY_CLASSES_ROOT\lune] &#34;URL Protocol&#34;=&#34;C:\\WINDOWS\\system32\\calc.exe&#34; @=&#34;LuneProtocol&#34; [HKEY_CLASSES_ROOT\lune\DefaultIcon] @=&#34;C:\\WINDOWS\\system32\\calc.exe,1&#34; [HKEY_CLASSES_ROOT\lune\shell] [HKEY_CLASSES_ROOT\lune\shell\open] [HKEY_CLASSES_ROOT\lune\shell\open\command] @=&#34;\&#34;C:\\WINDOWS\\system32\\calc.exe\&#34; \&#34;%1\&#34;&#34;  （2）双击添加到注册表。
+ 调用方式  &lt;a href=&#34;lune://123&#34;&gt;click&lt;/a&gt;  注意  [HKEY_CLASSES_ROOT\lune\shell]方括号内的路径（即 lune）要改成自定义的名字。
+ 自定义的key值，也就是名称，要小写。（都是血与泪…
+  mark 实现浏览器判断本地是否安装程序，并下载与启动 Chrome,IE,360可用</p>
   <footer class="entry-footer">
     <p class="entry-meta"><span class="entry-time">Jun 20, 2019</span> 1 min read</p>
     <div class="sharing">
       <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fcostom-url-protocol%2f" title="Share on Facebook">
         <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
       </a>
-      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%ae%9a%e4%b9%89%e5%8d%8f%e8%ae%ae%e6%89%93%e5%bc%80%20exe%20%e6%88%96%20appCostom%20Url%20Protol&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fcostom-url-protocol%2f" title="Share on Twitter">
+      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=windows%20%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%ae%9a%e4%b9%89%e5%8d%8f%e8%ae%ae%ef%bc%8c%e5%ae%9e%e7%8e%b0%e6%b5%8f%e8%a7%88%e5%99%a8%e6%89%93%e5%bc%80%e8%bd%af%e4%bb%b6&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fcostom-url-protocol%2f" title="Share on Twitter">
         <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
       </a>
-      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%ae%9a%e4%b9%89%e5%8d%8f%e8%ae%ae%e6%89%93%e5%bc%80%20exe%20%e6%88%96%20appCostom%20Url%20Protol&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fcostom-url-protocol%2f" title="Share on Google+">
+      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=windows%20%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%ae%9a%e4%b9%89%e5%8d%8f%e8%ae%ae%ef%bc%8c%e5%ae%9e%e7%8e%b0%e6%b5%8f%e8%a7%88%e5%99%a8%e6%89%93%e5%bc%80%e8%bd%af%e4%bb%b6&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fcostom-url-protocol%2f" title="Share on Google+">
         <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
       </a>
     </div>

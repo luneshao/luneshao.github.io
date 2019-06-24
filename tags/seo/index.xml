@@ -33,7 +33,7 @@
 
 &lt;p&gt;官方文档先祭一下 &lt;a href=&#34;https://support.google.com/webmasters/answer/7451184&#34;&gt;搜索引擎优化 (SEO) 新手指南&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;术语&#34;&gt;术语&lt;/h2&gt;
+&lt;h2 id=&#34;1-术语&#34;&gt;1.术语&lt;/h2&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://support.google.com/webmasters/answer/70897&#34;&gt;Google 搜索的工作方式&lt;/a&gt;&lt;/p&gt;
@@ -58,11 +58,11 @@
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;SEO&lt;/strong&gt; - 搜索引擎优化：使您的网站更易于搜索引擎抓取和编入索引的过程；也可指从事搜索引擎优化的人员的职位名称，例如：我们刚刚聘请了新的 SEO 来提升我们在网络上的曝光度。&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;测试搜索结果&#34;&gt;测试搜索结果&lt;/h2&gt;
+&lt;h2 id=&#34;2-测试搜索结果&#34;&gt;2.测试搜索结果&lt;/h2&gt;
 
 &lt;p&gt;在 google 中搜索 &lt;code&gt;site:example.com&lt;/code&gt;，尝试是否可以搜索到结果。如果可以搜索到，表明你的网站已经在索引中。搜不到，就继续向下看吧:)&lt;/p&gt;
 
-&lt;h2 id=&#34;帮助-google-找到您的内容&#34;&gt;帮助 Google 找到您的内容&lt;/h2&gt;
+&lt;h2 id=&#34;3-如何让-google-收录您的内容&#34;&gt;3.如何让 Google 收录您的内容&lt;/h2&gt;
 
 &lt;p&gt;最好的办法是提交&lt;a href=&#34;https://support.google.com/webmasters/answer/156184?hl=zh-Hans&amp;amp;ref_topic=4581190&#34;&gt;站点地图&lt;/a&gt; 。站点地图是网站上的一种文件，可告知搜索引擎网站上新增了网页或有更新的网页。&lt;/p&gt;
 
@@ -70,26 +70,26 @@
 &lt;li&gt;这里，我的博客本来是在 google 搜索不到的，hugo 会在 public 文件夹自动生成站点地图。（如果没有使用hugo，&lt;a href=&#34;https://support.google.com/webmasters/answer/183668?hl=zh-Hans&amp;amp;ref_topic=4581190&#34;&gt;文章&lt;/a&gt;中也提供了一些在线生成站点地图的网址和工具，可以自行生成哟～）此时，需要我们做的就是在 Search Console 工具中，自行配置站点地图的 url，或者将其添加到您的 robots.txt 文件中。然后，在 google 输入 site:luneshao.github.io 就可以搜索到了。一小步进步啊！&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;告诉-google-不应抓取哪些页面&#34;&gt;告诉 Google 不应抓取哪些页面&lt;/h2&gt;
+&lt;h2 id=&#34;4-告诉-google-不应抓取哪些页面&#34;&gt;4.告诉 Google 不应抓取哪些页面&lt;/h2&gt;
 
 &lt;p&gt;若为非敏感信息，则可以使用 robots.txt 阻止不必要的抓取。&lt;/p&gt;
 
-&lt;h2 id=&#34;帮助-google-和用户-了解您的内容&#34;&gt;帮助 Google（和用户）了解您的内容&lt;/h2&gt;
+&lt;h2 id=&#34;5-帮助-google-和用户-了解您的内容&#34;&gt;5.帮助 Google（和用户）了解您的内容&lt;/h2&gt;
 
 &lt;p&gt;诸位可以使用这个&lt;a href=&#34;http://analyzer.metatags.org/&#34;&gt;免费网站分析工具&lt;/a&gt;，分析一下自己的网站 seo 方面是否存在不足。&lt;/p&gt;
 
-&lt;h3 id=&#34;1-创建唯一且准确的网页标题&#34;&gt;1.创建唯一且准确的网页标题&lt;/h3&gt;
+&lt;h3 id=&#34;5-1-创建唯一且准确的网页标题&#34;&gt;5.1 创建唯一且准确的网页标题&lt;/h3&gt;
 
-&lt;p&gt;&lt;title&gt; 标记可告诉用户和搜索引擎特定网页的主题是什么。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;title&amp;gt;&lt;/code&gt; 标记可告诉用户和搜索引擎特定网页的主题是什么。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;title&amp;gt;unique title&amp;lt;/title&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;2-创建恰当的标题和摘要以在搜索结果中显示&#34;&gt;2.创建恰当的标题和摘要以在搜索结果中显示&lt;/h3&gt;
+&lt;h3 id=&#34;5-2-创建恰当的标题和摘要以在搜索结果中显示&#34;&gt;5.2 创建恰当的标题和摘要以在搜索结果中显示&lt;/h3&gt;
 
 &lt;p&gt;如果您的文档会显示在搜索结果页中，则 title 标记的内容可能会显示在相应结果的第一行&lt;/p&gt;
 
-&lt;h3 id=&#34;3-使用-description-元标记&#34;&gt;3.使用“description”元标记&lt;/h3&gt;
+&lt;h3 id=&#34;5-3-使用-description-元标记&#34;&gt;5.3 使用“description”元标记&lt;/h3&gt;
 
 &lt;p&gt;网页的说明元标记可让 Google 和其他搜索引擎了解该网页的大致内容。网页的标题可以是几个词或一个短语，而网页的说明元标记则可以是一两个句子或是一小段话。&lt;/p&gt;
 
@@ -97,11 +97,11 @@
 
 &lt;p&gt;说明元标记很重要，因为 Google 可能会将其用作您网页的摘要。为每个网页添加说明元标记从来都是非常好的做法，以防 Google 找不到要在摘要中使用的恰当文字。&lt;/p&gt;
 
-&lt;h3 id=&#34;4-使用标题标记强调重要文字&#34;&gt;4.使用标题标记强调重要文字&lt;/h3&gt;
+&lt;h3 id=&#34;5-4-使用标题标记强调重要文字&#34;&gt;5.4 使用标题标记强调重要文字&lt;/h3&gt;
 
 &lt;p&gt;按顺序使用多种大小的标题可为您的内容创建层次结构，便于用户浏览文档。&lt;/p&gt;
 
-&lt;h3 id=&#34;5-添加结构化数据标记&#34;&gt;5.添加结构化数据标记&lt;/h3&gt;
+&lt;h3 id=&#34;5-5-添加结构化数据标记&#34;&gt;5.5 添加结构化数据标记&lt;/h3&gt;
 
 &lt;p&gt;结构化数据21是可添加到网站页面中的代码，用于向搜索引擎描述内容，以便搜索引擎更好地了解网页上的信息。搜索引擎可以利用这类信息在搜索结果中以有用的（且吸引用户的）方式显示您的内容。这也有助于您吸引到适合您业务的客户。&lt;/p&gt;
 

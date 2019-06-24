@@ -11,7 +11,7 @@
 
     
     <title>
-  Tag → 前端
+  Tag → Mac
   
    | Lune&#39;s blogs
 </title>
@@ -39,7 +39,7 @@
 <meta name="generator" content="Hugo 0.55.0">
 
 
-<link rel="canonical" href="https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF/">
+<link rel="canonical" href="https://luneshao.github.io/tags/mac/">
 <link rel="alternative" href="/index.xml" title="luneS&#39;s garden" type="application/atom+xml">
 
 
@@ -280,8 +280,8 @@ if (!doNotTrack) {
       
         <article class="entry-single">
   
-    <a href="https://luneshao.github.io/post/google-console/" title="如何让自己网站被google收录？">
-      <amp-img alt="如何让自己网站被google收录？"
+    <a href="https://luneshao.github.io/post/brew-noresponse/" title="brew update 无响应">
+      <amp-img alt="brew update 无响应"
         height="244"
         layout="fixed-height"
         class="entry-cover"
@@ -290,285 +290,21 @@ if (!doNotTrack) {
     </a>
   
   <header class="entry-header">
-    <h3 class="entry-title"><a href="https://luneshao.github.io/post/google-console/" title="如何让自己网站被google收录？" class="entry-link">如何让自己网站被google收录？</a></h3>
+    <h3 class="entry-title"><a href="https://luneshao.github.io/post/brew-noresponse/" title="brew update 无响应" class="entry-link">brew update 无响应</a></h3>
   </header>
 
-  <p class="entry-summary"> 引言
- 最近两个月一直在鼓捣这个博客，一直也只是用网址访问。最近，尝试在搜索引擎上搜索我博客的url、内容、标题，通通搜不到？？？然后，看了搜索引擎优化 (SEO) 新手指南。在 google console 上配置了站点地图并进行网址检查（查看资源中某个网址的 Google 索引信息）。
- 我的检查结果： 此网址未显示在 Google 搜索结果中 。（此时已经可以在 google 中检索到 url 了。）
- 点击查看详情 =&gt; return ( 已抓取 - 尚未编入索引, 状态：已排除。 ) 查看状态报告指南去一条一条的排查。我的结果对应的解释：Google 已抓取相应网页，但尚未将其编入索引。日后，该网页可能会被编入索引，也可能不会被编入索引；无论如何，您都无需重新提交该网址以供抓取。 那就只能静静的等待了。（目前已经搜到了。）
-  下面主要是摘要梳理了搜索引擎优化 (SEO) 新手指南一些相关知识点，帮助理解。
-官方文档先祭一下 搜索引擎优化 (SEO) 新手指南
-1.术语  Google 搜索的工作方式
- Google 按照以下三个基本步骤来生成基于网页的结果：
- 抓取 编入索引 呈现（和排名）
- 索引 - Google 会将所知道的全部网页存储在其“索引”中。每个网页的索引条目都会描述该网页的内容和位置（网址）。编入索引是指当 Google 抓取、读取网页并将其添加到索引的过程。例如：Google 今天已将我网站上的几个网页编入索引。
- 抓取 - 寻找新网页或更新后的网页的过程。Google 会通过跟踪链接、读取站点地图或其他各种方式来发现网址。Google 通过抓取网页来寻找新增网页，然后（在适当的时候）将网页编入索引。
- 抓取工具 - 从网络中抓取（提取）网页并将网页编入索引的自动化软件。
- Googlebot - Google 抓取工具的通用名称。Googlebot 会持续不断地抓取网页。
- SEO - 搜索引擎优化：使您的网站更易于搜索引擎抓取和编入索引的过程；也可指从事搜索引擎优化的人员的职位名称，例如：我们刚刚聘请了新的 SEO 来提升我们在网络上的曝光度。
-  2.测试搜索结果 在 google 中搜索 site:example.com，尝试是否可以搜索到结果。如果可以搜索到，表明你的网站已经在索引中。搜不到，就继续向下看吧:)
-3.如何让 Google 收录您的内容 最好的办法是提交站点地图 。站点地图是网站上的一种文件，可告知搜索引擎网站上新增了网页或有更新的网页。
- 这里，我的博客本来是在 google 搜索不到的，hugo 会在 public 文件夹自动生成站点地图。（如果没有使用hugo，文章中也提供了一些在线生成站点地图的网址和工具，可以自行生成哟～）此时，需要我们做的就是在 Search Console 工具中，自行配置站点地图的 url，或者将其添加到您的 robots.txt 文件中。然后，在 google 输入 site:luneshao.github.io 就可以搜索到了。一小步进步啊！  4.告诉 Google 不应抓取哪些页面 若为非敏感信息，则可以使用 robots.txt 阻止不必要的抓取。
-5.帮助 Google（和用户）了解您的内容 诸位可以使用这个免费网站分析工具，分析一下自己的网站 seo 方面是否存在不足。
-5.1 创建唯一且准确的网页标题 &lt;title&gt; 标记可告诉用户和搜索引擎特定网页的主题是什么。
-&lt;title&gt;unique title&lt;/title&gt;  5.2 创建恰当的标题和摘要以在搜索结果中显示 如果您的文档会显示在搜索结果页中，则 title 标记的内容可能会显示在相应结果的第一行
-5.3 使用“description”元标记 网页的说明元标记可让 Google 和其他搜索引擎了解该网页的大致内容。网页的标题可以是几个词或一个短语，而网页的说明元标记则可以是一两个句子或是一小段话。
-说明元标记有哪些好处？ 说明元标记很重要，因为 Google 可能会将其用作您网页的摘要。为每个网页添加说明元标记从来都是非常好的做法，以防 Google 找不到要在摘要中使用的恰当文字。
-5.4 使用标题标记强调重要文字 按顺序使用多种大小的标题可为您的内容创建层次结构，便于用户浏览文档。
-5.5 添加结构化数据标记 结构化数据21是可添加到网站页面中的代码，用于向搜索引擎描述内容，以便搜索引擎更好地了解网页上的信息。搜索引擎可以利用这类信息在搜索结果中以有用的（且吸引用户的）方式显示您的内容。这也有助于您吸引到适合您业务的客户。
-例如，如果您有一个网店并且标记了一个单独的产品页面，这将帮助我们了解该页面主要显示自行车、自行车价格以及客户评价。我们可能会在相关查询的搜索结果的摘要中显示这些信息。我们将其称之为“富媒体搜索结果”。
- 富媒体搜索结果：Google 搜索结果中的增强型结果，具有额外的视觉效果或互动功能。 </p>
+  <p class="entry-summary"> 内容摘自 清华大学开源软件镜像站
+替换现有上游 cd &#34;$(brew --repo)&#34; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git cd &#34;$(brew --repo)/Library/Taps/homebrew/homebrew-core&#34; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git brew update  </p>
   <footer class="entry-footer">
-    <p class="entry-meta"><span class="entry-time">Jun 13, 2019</span> 1 min read</p>
+    <p class="entry-meta"><span class="entry-time">Jun 24, 2019</span> 1 min read</p>
     <div class="sharing">
-      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fgoogle-console%2f" title="Share on Facebook">
+      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fbrew-noresponse%2f" title="Share on Facebook">
         <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
       </a>
-      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=%e5%a6%82%e4%bd%95%e8%ae%a9%e8%87%aa%e5%b7%b1%e7%bd%91%e7%ab%99%e8%a2%abgoogle%e6%94%b6%e5%bd%95%ef%bc%9f&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fgoogle-console%2f" title="Share on Twitter">
+      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=brew%20update%20%e6%97%a0%e5%93%8d%e5%ba%94&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fbrew-noresponse%2f" title="Share on Twitter">
         <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
       </a>
-      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=%e5%a6%82%e4%bd%95%e8%ae%a9%e8%87%aa%e5%b7%b1%e7%bd%91%e7%ab%99%e8%a2%abgoogle%e6%94%b6%e5%bd%95%ef%bc%9f&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fgoogle-console%2f" title="Share on Google+">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
-      </a>
-    </div>
-  </footer>
-</article>
-
-      
-        <article class="entry-single">
-  
-    <a href="https://luneshao.github.io/post/css-filter/" title="强大的css filter属性及色彩名词（附 opacity 属性的兼容写法）">
-      <amp-img alt="强大的css filter属性及色彩名词（附 opacity 属性的兼容写法）"
-        height="244"
-        layout="fixed-height"
-        class="entry-cover"
-        src="/img/cover.jpg">
-      </amp-img>
-    </a>
-  
-  <header class="entry-header">
-    <h3 class="entry-title"><a href="https://luneshao.github.io/post/css-filter/" title="强大的css filter属性及色彩名词（附 opacity 属性的兼容写法）" class="entry-link">强大的css filter属性及色彩名词（附 opacity 属性的兼容写法）</a></h3>
-  </header>
-
-  <p class="entry-summary">引言
- 最近公司需要找一个管理项目的工具，然后被推荐了 coding.net，我就看了一下官网的功能介绍。看到合作伙伴那里，hover 之后，图片变了颜色。然后，职业病就犯了，就看了一下人家是怎么实现的。
-讲道理，我找了半天是怎么换的颜色。filter 这个属性之前看到是用来兼容 ie 的 opacity 属性的，我也一直没有用过，就以为它就是透明度的属性，我就没勾掉试一试。。。有点愚蠢。我就以为是换了图片的 URL，结果图片的 URL 并没有变化。我查看了图片，它本来的颜色就是彩色的。然后猜测，难道是利用 css 改变了图片的颜色？？？我就挨个属性勾了勾，果然是 filter 的原因。。
-默认的 css 属性中，有这么一句 filter: grayscale(100%); ，这就是让图片变灰的属性。然后，就滚去 MDN 了。首屏就是几个例子，我又震惊了！这个属性可以做这么多事！！上一次震惊是在发现了 object-fit 属性，竟然可以改变图片内容的尺寸！
-（文档真的要认真看，仔细看，可能某个小括号里边就提供了一种简便方法或者功能介绍。）
-本篇主要是摘要了 MDN 的 filter 属性、取值及示例图以及关于色相、饱和度、灰度的概念。末尾附上了一份 opacity 的兼容性写法。
-定义 filter：滤镜。
-filter CSS属性将模糊或颜色偏移等 图形效果应用于元素 。滤镜通常用于调整图像，背景和边框的渲染。 CSS标准里包含了一些已实现预定义效果的函数。你也可以参考一个SVG滤镜，通过一个URL链接到SVG滤镜元素(SVG filter element)。
-语法 共分为四类。具体的我就不搬运了，下面具体介绍。形式语法
-/* 自定义的 SVG 滤镜 */ .filter: url(&#34;filters.svg#filter-id&#34;) /* 滤镜函数 */ blur、brightness、contrast、drop-shadow、grayscale、hue-rotate invert、opacity、saturate、sepia .filter: blur(5px); /* 混合滤镜 */ filter: contrast(175%) brightness(3%); /* Global values */ filter: inherit; filter: initial; filter: unset;  函数 url: URL函数接受一个XML文件，该文件设置了一个 SVG滤镜 ，且可以包含一个锚点来指定一个具体的滤镜元素.</p>
-  <footer class="entry-footer">
-    <p class="entry-meta"><span class="entry-time">May 31, 2019</span> 2 min read</p>
-    <div class="sharing">
-      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fcss-filter%2f" title="Share on Facebook">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
-      </a>
-      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=%e5%bc%ba%e5%a4%a7%e7%9a%84css%20filter%e5%b1%9e%e6%80%a7%e5%8f%8a%e8%89%b2%e5%bd%a9%e5%90%8d%e8%af%8d%ef%bc%88%e9%99%84%20opacity%20%e5%b1%9e%e6%80%a7%e7%9a%84%e5%85%bc%e5%ae%b9%e5%86%99%e6%b3%95%ef%bc%89&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fcss-filter%2f" title="Share on Twitter">
-        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
-      </a>
-      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=%e5%bc%ba%e5%a4%a7%e7%9a%84css%20filter%e5%b1%9e%e6%80%a7%e5%8f%8a%e8%89%b2%e5%bd%a9%e5%90%8d%e8%af%8d%ef%bc%88%e9%99%84%20opacity%20%e5%b1%9e%e6%80%a7%e7%9a%84%e5%85%bc%e5%ae%b9%e5%86%99%e6%b3%95%ef%bc%89&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fcss-filter%2f" title="Share on Google+">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
-      </a>
-    </div>
-  </footer>
-</article>
-
-      
-        <article class="entry-single">
-  
-  <header class="entry-header">
-    <h3 class="entry-title"><a href="https://luneshao.github.io/post/window-requestanimationframe/" title="window.requestAnimationFrame方法" class="entry-link">window.requestAnimationFrame方法</a></h3>
-  </header>
-
-  <p class="entry-summary">原文链接伯乐 MDN
-概念 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
-个人理解：raf 这个函数可以用来做动画，它需要一个参数，参数的形式是一个回调函数，在回调函数里可以写需要执行的动画。
-这个回调函数会默认接收一个参数，即执行回调函数时的时间戳，回调函数，会在每次浏览器在下次重绘前执行回调函数更新动画，个人认为这样来保证动画的帧率和稳定性。大多数电脑显示器的刷新频率是60Hz，大概相当于每秒钟重绘60次，相当于每帧的执行时间为 16.67ms。
-特性  参数中的回调函数执行次数通常是每秒60次，速度大约为 16.67ms 每帧。
- 当requestAnimationFrame()运行在后台标签页或者隐藏的&lt;iframe&gt; 里时，requestAnimationFrame() 会被暂停调用。对比 setTimeout ，离开页面依旧会计时，raf 更加节省性能。
- DOMHighResTimeStamp指示由 RequestAnimationFrame() 排队的回调开始触发的时间。
- 它返回一个整数，表示定时器的编号，这个值可以传递给 cancelAnimationFrame 用于取消这个函数的执行。
-  使用方法 window.requestAnimationFrame(callback) function callback (timeStamp) { // 默认接收参数 timeStamp，表示开始执行回调函数的时刻 // 若你想在浏览器下次重绘之前继续更新下一帧动画，那么回调函数自身必须再次调用window.requestAnimationFrame() window.requestAnimationFrame(callback) }  避免一帧多次调用 let ifCurFra = false // 当前帧是否执行 function cb (timeStamp) { if (ifCurFra) return ifCurFra = true window.requestAnimationFrame(timeStamp =&gt; { ifCurFra = false }) } window.</p>
-  <footer class="entry-footer">
-    <p class="entry-meta"><span class="entry-time">May 30, 2019</span> 1 min read</p>
-    <div class="sharing">
-      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fwindow-requestanimationframe%2f" title="Share on Facebook">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
-      </a>
-      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=window.requestAnimationFrame%e6%96%b9%e6%b3%95&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fwindow-requestanimationframe%2f" title="Share on Twitter">
-        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
-      </a>
-      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=window.requestAnimationFrame%e6%96%b9%e6%b3%95&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fwindow-requestanimationframe%2f" title="Share on Google+">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
-      </a>
-    </div>
-  </footer>
-</article>
-
-      
-        <article class="entry-single">
-  
-  <header class="entry-header">
-    <h3 class="entry-title"><a href="https://luneshao.github.io/post/css-matrix/" title="CSS Tranform 的 Matrix函数" class="entry-link">CSS Tranform 的 Matrix函数</a></h3>
-  </header>
-
-  <p class="entry-summary">插播一句：translate 的百分比是相对于自身的宽高计算的。
-插播2：计算角度值 eg：已知 sin(a) = 1，求 a？。 a = Math.asin(1) * 180 / Math.PI
- 引言
- 这也是关于优化 js 代码衍生出来的内容，过程是这样的。
- 文章里说 Array.from 代替 Array.prototype.slice.call(arrayLike)，😳Array.prototype.slice.call(arrayLike) 是不是截取数组的嘛，查了一下文档 MDN ，原来将这个方法绑定到类数组对象/集合上，就可以转化为一个数组。过程中，看到了这篇博客，大佬是真的🐂🍺，里边就写到了计算用window.getComputedStyle(dom, 伪类) 获取值，本来我是忽略过去的，但是，好奇心让我测试了一下。。得到了一个这个东西。  这是啥？我不认识啊？？还是乖乖的学一下吧。
-translate 值的计算 于是学习了 张鑫旭前辈的文章，这是一个矩阵，是transform变换的基础。我们可以根据这个矩阵里面的值推算出，transform 属性的值。
-其格式为：Matrix(a, b, c, d, e, f) 具体的介绍请直接看前辈文章的第五节。
-借前辈图，translate &amp; scale 的转换公式如下。 ：
- x, y ：表示转换元素的所有坐标（变量）矩阵偏移元素的中心点。 ax&#43;cy&#43;e ：变换后的x坐标 bx&#43;dy&#43;f ：变换后的y坐标  scale 值的计算 matrix(s, 0, 0, s, 0, 0); s 即为 scale 的值。</p>
-  <footer class="entry-footer">
-    <p class="entry-meta"><span class="entry-time">May 29, 2019</span> 1 min read</p>
-    <div class="sharing">
-      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fcss-matrix%2f" title="Share on Facebook">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
-      </a>
-      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=CSS%20Tranform%20%e7%9a%84%20Matrix%e5%87%bd%e6%95%b0&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fcss-matrix%2f" title="Share on Twitter">
-        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
-      </a>
-      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=CSS%20Tranform%20%e7%9a%84%20Matrix%e5%87%bd%e6%95%b0&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fcss-matrix%2f" title="Share on Google+">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
-      </a>
-    </div>
-  </footer>
-</article>
-
-      
-        <article class="entry-single">
-  
-  <header class="entry-header">
-    <h3 class="entry-title"><a href="https://luneshao.github.io/post/element-expland/" title="=8 一些不常用的获取元素属性的操作" class="entry-link">=8 一些不常用的获取元素属性的操作</a></h3>
-  </header>
-
-  <p class="entry-summary">1. 获取元素的css  1.1 window.getComputedStyle()  返回另一个包含所有 css 属性的对象，该对象应用了样式表并解析了基础计算（只读）。
-window.getComputedStyle().getPropertyValue(&#39;font&#39;) // 获取属性 font 值  MDN 张鑫旭前辈的文章
-css 安全(blog)
-2.获取元素的大小及其相对于视口的位置  2.1 Element.getComputedStyle()  MDN
-返回元素的大小及其相对于视口的位置。
-如果你需要获得相对于整个网页左上角定位的属性值，那么只要给top、left属性值加上当前的滚动位置
-（通过window.scrollX和window.scrollY），这样就可以获取与当前的滚动位置无关的值。
-3.返回当前document对象所关联的window对象  3.1 document.defaultView  MDN
-该属性返回当前 document 对象所关联的 window 对象，如果没有，会返回 null。
-在许多在线的演示代码中，getComputedStyle是通过 document.defaultView 对象来调用的。大部分情况下，这是不需要的，因为可以直接通过window对象调用。但有一种情况，你必需要使用 defaultView, 那是在firefox3.6上访问子框架内的样式。</p>
-  <footer class="entry-footer">
-    <p class="entry-meta"><span class="entry-time">May 28, 2019</span> 1 min read</p>
-    <div class="sharing">
-      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2felement-expland%2f" title="Share on Facebook">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
-      </a>
-      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=%3d8%20%e4%b8%80%e4%ba%9b%e4%b8%8d%e5%b8%b8%e7%94%a8%e7%9a%84%e8%8e%b7%e5%8f%96%e5%85%83%e7%b4%a0%e5%b1%9e%e6%80%a7%e7%9a%84%e6%93%8d%e4%bd%9c&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2felement-expland%2f" title="Share on Twitter">
-        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
-      </a>
-      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=%3d8%20%e4%b8%80%e4%ba%9b%e4%b8%8d%e5%b8%b8%e7%94%a8%e7%9a%84%e8%8e%b7%e5%8f%96%e5%85%83%e7%b4%a0%e5%b1%9e%e6%80%a7%e7%9a%84%e6%93%8d%e4%bd%9c&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2felement-expland%2f" title="Share on Google+">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
-      </a>
-    </div>
-  </footer>
-</article>
-
-      
-        <article class="entry-single">
-  
-  <header class="entry-header">
-    <h3 class="entry-title"><a href="https://luneshao.github.io/post/js-expland/" title="=8 js 拓展" class="entry-link">=8 js 拓展</a></h3>
-  </header>
-
-  <p class="entry-summary">1.Array 1.1 将类数组转化为数组  Array.prototype.slice.call() 方法：  MDN slice相关
-slice 方法可以用来将一个类数组（Array-like）对象/集合转换成一个新数组。你只需将该方法绑定到这个对象上。
-Array.slice(start, end) 方法用来截取数组 start 到 end （不包含 end）值，并返回一个新数组。
-function list () { return Array.property.slice.call(arguments) } list(1, 2, 3)  除此以外可以使用 [].splice.call(arguments) 代替，也可以使用 bind 来简化过程。
-const unboundSlice = Array.property.slice const slice = Function.property.bind.call(unboundSlice) function list () { return slice(arguments) } list(1, 2, 3)   Array.from 方法  MDN Array.from
-Array.from() 方法从一个类似数组或可迭代对象中创建一个新的数组实例。</p>
-  <footer class="entry-footer">
-    <p class="entry-meta"><span class="entry-time">May 27, 2019</span> 1 min read</p>
-    <div class="sharing">
-      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fjs-expland%2f" title="Share on Facebook">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
-      </a>
-      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=%3d8%20js%20%e6%8b%93%e5%b1%95&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fjs-expland%2f" title="Share on Twitter">
-        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
-      </a>
-      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=%3d8%20js%20%e6%8b%93%e5%b1%95&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fjs-expland%2f" title="Share on Google+">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
-      </a>
-    </div>
-  </footer>
-</article>
-
-      
-        <article class="entry-single">
-  
-  <header class="entry-header">
-    <h3 class="entry-title"><a href="https://luneshao.github.io/post/js-date/" title="js Date 对象" class="entry-link">js Date 对象</a></h3>
-  </header>
-
-  <p class="entry-summary">参考文献：MDN
-常用方法 语法 new Date()： 返回一个 Date 对象
-new Date(value)：
-new Date(dateString)：
-new Date(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])：
-Date() : 以函数形式直接调用 Date()，返回一个字符串
-new Date() 参数 (value)： 一个整数值，表示自1970年1月1日00:00:00 UTC（the Unix epoch）以来的毫秒数。
-(dateString)： 表示日期的字符串值。
-(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])：
-year：表示年份的整数值。
-monthIndex：表示月份的整数值，从 0（1月）到 11（12月）。
-day：表示一个月中的第几天的整数值，从1开始。
-hours：小时数的整数值 (24小时制)。
-minutes：时间中分钟部分的整数值。
-seconds：时间中的秒部分的整数值。
-milliseconds：时间的毫秒部分的整数值。
-方法 Date.now()： 返回自 1970-1-1 00:00:00 UTC（世界标准时间）至今所经过的毫秒数。
-Date.parse()： 解析一个表示日期的字符串，并返回从 1970-1-1 00:00:00 所经过的毫秒数。</p>
-  <footer class="entry-footer">
-    <p class="entry-meta"><span class="entry-time">May 23, 2019</span> 1 min read</p>
-    <div class="sharing">
-      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fjs-date%2f" title="Share on Facebook">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
-      </a>
-      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=js%20Date%20%e5%af%b9%e8%b1%a1&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fjs-date%2f" title="Share on Twitter">
-        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
-      </a>
-      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=js%20Date%20%e5%af%b9%e8%b1%a1&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fjs-date%2f" title="Share on Google+">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
-      </a>
-    </div>
-  </footer>
-</article>
-
-      
-        <article class="entry-single">
-  
-  <header class="entry-header">
-    <h3 class="entry-title"><a href="https://luneshao.github.io/post/css-clip/" title="CSS 的 clip 属性" class="entry-link">CSS 的 clip 属性</a></h3>
-  </header>
-
-  <p class="entry-summary">参考文献：MDN  张鑫旭前辈的文章
-介绍 定义 clip 属性剪裁元素，属性仅应用于绝对定位元素，例如 position: absolute 或 position: fixed。
-属性值  auto：不剪裁。
- &lt;shape&gt;：截取的形状，值的表示方式 rect(&lt;top&gt;, &lt;right&gt;, &lt;bottom&gt;, &lt;left&gt;) 或 rect(&lt;top&gt; &lt;right&gt; &lt;bottom&gt; &lt;left&gt;)。
-  top &amp; bottom 设置的是距离元素上边距的距离。left &amp; right 设置的是距离元素左边距的距离。
-左侧使用了clip属性，左右容器和图片的尺寸都是200 * 200。 top、right、bottom、left 的值可以是 数值 或 auto 。
-tips：auto表示 If any side’s value is auto, the element is clipped to that side’s inside border edge. （文档） 截取到元素该边的内边界。
- inherit：从父元素继承 clip 属性的值，不兼容 IE6。   实例</p>
-  <footer class="entry-footer">
-    <p class="entry-meta"><span class="entry-time">May 23, 2019</span> 1 min read</p>
-    <div class="sharing">
-      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fcss-clip%2f" title="Share on Facebook">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
-      </a>
-      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=CSS%20%e7%9a%84%20clip%20%e5%b1%9e%e6%80%a7&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fcss-clip%2f" title="Share on Twitter">
-        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
-      </a>
-      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=CSS%20%e7%9a%84%20clip%20%e5%b1%9e%e6%80%a7&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fcss-clip%2f" title="Share on Google+">
+      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=brew%20update%20%e6%97%a0%e5%93%8d%e5%ba%94&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fbrew-noresponse%2f" title="Share on Google+">
         <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
       </a>
     </div>
