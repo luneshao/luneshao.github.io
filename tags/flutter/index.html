@@ -294,8 +294,8 @@ if (!doNotTrack) {
   </header>
 
   <p class="entry-summary">引言
- 安装 flutter 过程中，卡在 pod setup 这里，总是会报错，找了好多也没能正确安装。最后发现 这篇博客 =&gt; CocoaPods的安装步骤和遇见的问题 按照里面的步骤，一步一步来就OK了。
-安装步骤 // 建议先更新下gem sudo gem update --system // 切换镜像 gem sources --remove https://rubygems.org/ gem sources -a https://gems.ruby-china.com/ gem sources -l // 安装 cocoapods sudo gem install cocoapods 应该会提示下错误 // ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/update_rubygems 试试 gem update -n /usr/local/bin --system // 安装cocoapods sudo gem install -n /usr/local/bin cocoapods pod repo list // 查看repo 列表 pod repo remove master // 删除master 新版的 CocoaPods 不允许用pod repo add直接添加master库了，现在一般执行完pod repo add master *** 之后又会提示[!</p>
+ 安装 flutter 过程中，卡在 pod setup 这里，总是会报错，找了好多文章也没能解决。最后发现这篇博客=&gt; CocoaPods的安装步骤和遇见的问题 按照里面的步骤，一步一步来就OK了。
+安装步骤 // 建议先更新下gem sudo gem update --system // 切换镜像 gem sources --remove https://rubygems.org/ gem sources -a https://gems.ruby-china.com/ gem sources -l // 安装 cocoapods sudo gem install cocoapods 应该会提示下错误 // ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/update_rubygems 试试 gem update -n /usr/local/bin --system // 安装cocoapods （我用的这个） sudo gem install -n /usr/local/bin cocoapods pod repo list // 查看repo 列表 pod repo remove master // 删除master // 添加master库 新版的 CocoaPods 不允许用pod repo add直接添加master库了，现在一般执行完pod repo add master *** 之后又会提示[!</p>
   <footer class="entry-footer">
     <p class="entry-meta"><span class="entry-time">Jun 24, 2019</span> 1 min read</p>
     <div class="sharing">

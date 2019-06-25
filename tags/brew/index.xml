@@ -18,7 +18,8 @@
       
       <guid>https://luneshao.github.io/post/brew-noresponse/</guid>
       <description> 内容摘自 清华大学开源软件镜像站
-替换现有上游 cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git cd &amp;quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;quot; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git brew update  </description>
+替换现有上游 cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git cd &amp;quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;quot; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git brew update   以上。🐡
+ </description>
     </item>
     
   </channel>

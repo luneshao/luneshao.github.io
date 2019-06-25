@@ -282,8 +282,8 @@ if (!doNotTrack) {
   </header>
 
   <p class="entry-summary">引言
- 安装 flutter 过程中，卡在 pod setup 这里，总是会报错，找了好多也没能正确安装。最后发现 这篇博客 =&gt; CocoaPods的安装步骤和遇见的问题 按照里面的步骤，一步一步来就OK了。
-安装步骤 // 建议先更新下gem sudo gem update --system // 切换镜像 gem sources --remove https://rubygems.org/ gem sources -a https://gems.ruby-china.com/ gem sources -l // 安装 cocoapods sudo gem install cocoapods 应该会提示下错误 // ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/update_rubygems 试试 gem update -n /usr/local/bin --system // 安装cocoapods sudo gem install -n /usr/local/bin cocoapods pod repo list // 查看repo 列表 pod repo remove master // 删除master 新版的 CocoaPods 不允许用pod repo add直接添加master库了，现在一般执行完pod repo add master *** 之后又会提示[!</p>
+ 安装 flutter 过程中，卡在 pod setup 这里，总是会报错，找了好多文章也没能解决。最后发现这篇博客=&gt; CocoaPods的安装步骤和遇见的问题 按照里面的步骤，一步一步来就OK了。
+安装步骤 // 建议先更新下gem sudo gem update --system // 切换镜像 gem sources --remove https://rubygems.org/ gem sources -a https://gems.ruby-china.com/ gem sources -l // 安装 cocoapods sudo gem install cocoapods 应该会提示下错误 // ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/update_rubygems 试试 gem update -n /usr/local/bin --system // 安装cocoapods （我用的这个） sudo gem install -n /usr/local/bin cocoapods pod repo list // 查看repo 列表 pod repo remove master // 删除master // 添加master库 新版的 CocoaPods 不允许用pod repo add直接添加master库了，现在一般执行完pod repo add master *** 之后又会提示[!</p>
   <footer class="entry-footer">
     <p class="entry-meta"><span class="entry-time">Jun 24, 2019</span> 1 min read</p>
     <div class="sharing">
@@ -317,7 +317,8 @@ if (!doNotTrack) {
   </header>
 
   <p class="entry-summary"> 内容摘自 清华大学开源软件镜像站
-替换现有上游 cd &#34;$(brew --repo)&#34; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git cd &#34;$(brew --repo)/Library/Taps/homebrew/homebrew-core&#34; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git brew update  </p>
+替换现有上游 cd &#34;$(brew --repo)&#34; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git cd &#34;$(brew --repo)/Library/Taps/homebrew/homebrew-core&#34; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git brew update   以上。🐡
+ </p>
   <footer class="entry-footer">
     <p class="entry-meta"><span class="entry-time">Jun 24, 2019</span> 1 min read</p>
     <div class="sharing">
@@ -350,12 +351,14 @@ if (!doNotTrack) {
     <h3 class="entry-title"><a href="https://luneshao.github.io/post/costom-url-protocol/" title="windows 添加自定义协议，实现浏览器打开软件" class="entry-link">windows 添加自定义协议，实现浏览器打开软件</a></h3>
   </header>
 
-  <p class="entry-summary">我参考了这篇博客，我使用了原博中 windows 系统的方式，亲测有效。下面贴一下操作步骤：
+  <p class="entry-summary"> 我参考了这篇博客，我使用了原博中 windows 系统的方式，亲测有效。下面贴一下操作步骤：
 操作步骤  添加注册表  （1）新建一个 .reg 的文件，填充如下内容。例如我新建一个自定义协议，名称为 lune。请注意，将下面所有的路径（也就是方括号内的内容）中的名称要 全部替换为自定义的名称 ，且名称一定要 全部是小写字母 。
 Windows Registry Editor Version 5.00 [HKEY_CLASSES_ROOT\lune] &#34;URL Protocol&#34;=&#34;C:\\WINDOWS\\system32\\calc.exe&#34; @=&#34;LuneProtocol&#34; [HKEY_CLASSES_ROOT\lune\DefaultIcon] @=&#34;C:\\WINDOWS\\system32\\calc.exe,1&#34; [HKEY_CLASSES_ROOT\lune\shell] [HKEY_CLASSES_ROOT\lune\shell\open] [HKEY_CLASSES_ROOT\lune\shell\open\command] @=&#34;\&#34;C:\\WINDOWS\\system32\\calc.exe\&#34; \&#34;%1\&#34;&#34;  （2）双击添加到注册表。
  调用方式  &lt;a href=&#34;lune://123&#34;&gt;click&lt;/a&gt;  注意  [HKEY_CLASSES_ROOT\lune\shell]方括号内的路径（即 lune）要改成自定义的名字。
  自定义的key值，也就是名称，要小写。（都是血与泪…
-  mark 实现浏览器判断本地是否安装程序，并下载与启动 Chrome,IE,360可用</p>
+  mark 实现浏览器判断本地是否安装程序，并下载与启动 Chrome,IE,360可用
+ 以上。🐳
+ </p>
   <footer class="entry-footer">
     <p class="entry-meta"><span class="entry-time">Jun 20, 2019</span> 1 min read</p>
     <div class="sharing">
