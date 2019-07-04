@@ -197,6 +197,18 @@ Array.from() 方法从一个类似数组或可迭代对象中创建一个新的�
     </item>
     
     <item>
+      <title>js 代码美化 (持续更新)</title>
+      <link>https://luneshao.github.io/post/js-beauty/</link>
+      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/post/js-beauty/</guid>
+      <description>github完整文章连接
+Objects  1.1 将简写属性，放在对象定义的开始部分。  // bad const obj = { key1: 2, key2, key3: 2, } // good const obj = { key2, key4, key1: 2, key3: 2, }   1.2 不要直接调用 Object.prototype，例如 hasOwnProperty， propertyIsEnumerable，  因为这些名字没有被 Javascript 保留，如果被重新定义就会被覆盖。所以，最好是在原型链上调用。
+MDN相关连接
+// bad const a = obj.hasOwnProperty(&#39;name&#39;) // good const a = Object.prototype.hasOwnProperty.call(obj, &#39;name&#39;) // best // has.js const has = Object.prototype.hasOwnProperty // use.js import has from &#39;.</description>
+    </item>
+    
+    <item>
       <title>CSS 的 clip 属性</title>
       <link>https://luneshao.github.io/post/css-clip/</link>
       <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>

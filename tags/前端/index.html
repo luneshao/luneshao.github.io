@@ -478,6 +478,33 @@ css 安全(blog)
         <article class="entry-single">
   
   <header class="entry-header">
+    <h3 class="entry-title"><a href="https://luneshao.github.io/post/js-beauty/" title="js 代码美化 (持续更新)" class="entry-link">js 代码美化 (持续更新)</a></h3>
+  </header>
+
+  <p class="entry-summary">github完整文章连接
+Objects  1.1 将简写属性，放在对象定义的开始部分。  // bad const obj = { key1: 2, key2, key3: 2, } // good const obj = { key2, key4, key1: 2, key3: 2, }   1.2 不要直接调用 Object.prototype，例如 hasOwnProperty， propertyIsEnumerable，  因为这些名字没有被 Javascript 保留，如果被重新定义就会被覆盖。所以，最好是在原型链上调用。
+MDN相关连接
+// bad const a = obj.hasOwnProperty(&#39;name&#39;) // good const a = Object.prototype.hasOwnProperty.call(obj, &#39;name&#39;) // best // has.js const has = Object.prototype.hasOwnProperty // use.js import has from &#39;.</p>
+  <footer class="entry-footer">
+    <p class="entry-meta"><span class="entry-time">May 27, 2019</span> 1 min read</p>
+    <div class="sharing">
+      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fjs-beauty%2f" title="Share on Facebook">
+        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
+      </a>
+      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=js%20%e4%bb%a3%e7%a0%81%e7%be%8e%e5%8c%96%20%28%e6%8c%81%e7%bb%ad%e6%9b%b4%e6%96%b0%29&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fjs-beauty%2f" title="Share on Twitter">
+        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
+      </a>
+      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=js%20%e4%bb%a3%e7%a0%81%e7%be%8e%e5%8c%96%20%28%e6%8c%81%e7%bb%ad%e6%9b%b4%e6%96%b0%29&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fjs-beauty%2f" title="Share on Google+">
+        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
+      </a>
+    </div>
+  </footer>
+</article>
+
+      
+        <article class="entry-single">
+  
+  <header class="entry-header">
     <h3 class="entry-title"><a href="https://luneshao.github.io/post/js-expland/" title="=8 js 拓展" class="entry-link">=8 js 拓展</a></h3>
   </header>
 
