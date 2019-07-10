@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vue on luneS&#39;s garden</title>
+    <link>https://luneshao.github.io/tags/vue/</link>
+    <description>Recent content in Vue on luneS&#39;s garden</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Jul 2019 16:27:20 +0800</lastBuildDate>
+    
+	<atom:link href="https://luneshao.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vue CLI中配置使用Mock数据</title>
+      <link>https://luneshao.github.io/post/vue-cli-mock/</link>
+      <pubDate>Tue, 09 Jul 2019 16:27:20 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/post/vue-cli-mock/</guid>
+      <description>引言
+ 鉴于对 Vue CLI 中 webpack 的链式配置一直不熟悉，mock 也没有用过。最近项目需要 mock 数据，所以新建了一个测试项目配置了一下。下面我会介绍配置流程。👇👇👇 (webpack 没理解透彻T_T)
+参考文献：
+ Vue CLI 文档 webpack-chain 文档 webpack 配置 http-proxy-middleware 文档 mockjs-webpack-plugin 文档  文章结构：
++ 配置流程 + Step 1. 安装插件 mockjs-webpack-plugin + Step 2. 配置 webpack 配置项 + Step 3. Mock 数据  配置流程 这里我就默认民那桑已经用 Vue CLI 安装了一个项目。我使用的 Vue CLI 3。
+Step 1. 安装插件 mockjs-webpack-plugin  这个插件通过 webpack 插件的方式，快速搭建项目的 mock 服务，用于前后端分离模式下的并行开发。emmm，是公司大佬用的这个，至于为什么我还没敢问 -_-  yarn add mockjs-webpack-plugin --dev 或 cnpm install --save-dev mockjs-webpack-plugin   安装完成后，新建存放 mock 数据的文件夹及文件。文档  .</description>
+    </item>
+    
+  </channel>
+</rss>

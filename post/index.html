@@ -288,6 +288,44 @@ if (!doNotTrack) {
       
         <article class="entry-single">
   
+    <a href="https://luneshao.github.io/post/vue-cli-mock/" title="Vue CLI中配置使用Mock数据">
+      <amp-img alt="Vue CLI中配置使用Mock数据"
+        height="244"
+        layout="fixed-height"
+        class="entry-cover"
+        src="/img/cover.jpg">
+      </amp-img>
+    </a>
+  
+  <header class="entry-header">
+    <h3 class="entry-title"><a href="https://luneshao.github.io/post/vue-cli-mock/" title="Vue CLI中配置使用Mock数据" class="entry-link">Vue CLI中配置使用Mock数据</a></h3>
+  </header>
+
+  <p class="entry-summary">引言
+ 鉴于对 Vue CLI 中 webpack 的链式配置一直不熟悉，mock 也没有用过。最近项目需要 mock 数据，所以新建了一个测试项目配置了一下。下面我会介绍配置流程。👇👇👇 (webpack 没理解透彻T_T)
+参考文献：
+ Vue CLI 文档 webpack-chain 文档 webpack 配置 http-proxy-middleware 文档 mockjs-webpack-plugin 文档  文章结构：
+&#43; 配置流程 &#43; Step 1. 安装插件 mockjs-webpack-plugin &#43; Step 2. 配置 webpack 配置项 &#43; Step 3. Mock 数据  配置流程 这里我就默认民那桑已经用 Vue CLI 安装了一个项目。我使用的 Vue CLI 3。
+Step 1. 安装插件 mockjs-webpack-plugin  这个插件通过 webpack 插件的方式，快速搭建项目的 mock 服务，用于前后端分离模式下的并行开发。emmm，是公司大佬用的这个，至于为什么我还没敢问 -_-  yarn add mockjs-webpack-plugin --dev 或 cnpm install --save-dev mockjs-webpack-plugin   安装完成后，新建存放 mock 数据的文件夹及文件。文档  .</p>
+  <footer class="entry-footer">
+    <p class="entry-meta"><span class="entry-time">Jul 9, 2019</span> 2 min read</p>
+    <div class="sharing">
+      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fvue-cli-mock%2f" title="Share on Facebook">
+        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
+      </a>
+      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=Vue%20CLI%e4%b8%ad%e9%85%8d%e7%bd%ae%e4%bd%bf%e7%94%a8Mock%e6%95%b0%e6%8d%ae&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fvue-cli-mock%2f" title="Share on Twitter">
+        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
+      </a>
+      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=Vue%20CLI%e4%b8%ad%e9%85%8d%e7%bd%ae%e4%bd%bf%e7%94%a8Mock%e6%95%b0%e6%8d%ae&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fvue-cli-mock%2f" title="Share on Google+">
+        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
+      </a>
+    </div>
+  </footer>
+</article>
+
+      
+        <article class="entry-single">
+  
     <a href="https://luneshao.github.io/post/flutter-install/" title="Flutter 安装 CocoaPods">
       <amp-img alt="Flutter 安装 CocoaPods"
         height="244"
@@ -626,35 +664,6 @@ css 安全(blog)
         <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
       </a>
       <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=%3d8%20%e4%b8%80%e4%ba%9b%e4%b8%8d%e5%b8%b8%e7%94%a8%e7%9a%84%e8%8e%b7%e5%8f%96%e5%85%83%e7%b4%a0%e5%b1%9e%e6%80%a7%e7%9a%84%e6%93%8d%e4%bd%9c&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2felement-expland%2f" title="Share on Google+">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
-      </a>
-    </div>
-  </footer>
-</article>
-
-      
-        <article class="entry-single">
-  
-  <header class="entry-header">
-    <h3 class="entry-title"><a href="https://luneshao.github.io/post/js-expland/" title="=8 js 拓展" class="entry-link">=8 js 拓展</a></h3>
-  </header>
-
-  <p class="entry-summary">1.Array 1.1 将类数组转化为数组  Array.prototype.slice.call() 方法：  MDN slice相关
-slice 方法可以用来将一个类数组（Array-like）对象/集合转换成一个新数组。你只需将该方法绑定到这个对象上。
-Array.slice(start, end) 方法用来截取数组 start 到 end （不包含 end）值，并返回一个新数组。
-function list () { return Array.property.slice.call(arguments) } list(1, 2, 3)  除此以外可以使用 [].splice.call(arguments) 代替，也可以使用 bind 来简化过程。
-const unboundSlice = Array.property.slice const slice = Function.property.bind.call(unboundSlice) function list () { return slice(arguments) } list(1, 2, 3)   Array.from 方法  MDN Array.from
-Array.from() 方法从一个类似数组或可迭代对象中创建一个新的数组实例。</p>
-  <footer class="entry-footer">
-    <p class="entry-meta"><span class="entry-time">May 27, 2019</span> 1 min read</p>
-    <div class="sharing">
-      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fjs-expland%2f" title="Share on Facebook">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
-      </a>
-      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=%3d8%20js%20%e6%8b%93%e5%b1%95&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fjs-expland%2f" title="Share on Twitter">
-        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
-      </a>
-      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=%3d8%20js%20%e6%8b%93%e5%b1%95&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fjs-expland%2f" title="Share on Google+">
         <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
       </a>
     </div>
