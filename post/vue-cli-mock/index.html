@@ -284,7 +284,7 @@ if (!doNotTrack) {
 <ul>
 <li><a href="https://cli.vuejs.org/zh/guide/webpack.html">Vue CLI 文档</a></li>
 <li><a href="https://github.com/neutrinojs/webpack-chain">webpack-chain 文档</a></li>
-<li><a href="https://webpack.js.org/configuration/dev-server/#devserverproxy">webpack 配置</a></li>
+<li><a href="https://webpack.js.org/configuration/dev-server/#devserverproxy">webpack 配置文档</a></li>
 <li><a href="https://github.com/chimurai/http-proxy-middleware#options">http-proxy-middleware 文档</a></li>
 <li><a href="https://github.com/soon08/mockjs-webpack-plugin/blob/HEAD/readme-zh.md">mockjs-webpack-plugin 文档</a></li>
 </ul>
@@ -304,15 +304,12 @@ if (!doNotTrack) {
 <h3 id="step-1-安装插件-mockjs-webpack-plugin">Step 1. 安装插件 mockjs-webpack-plugin</h3>
 
 <ol>
-<li>这个插件通过 webpack 插件的方式，快速搭建项目的 mock 服务，用于前后端分离模式下的并行开发。emmm，是公司大佬用的这个，至于为什么我还没敢问 -_-</li>
-</ol>
+<li><p>这个插件通过 webpack 插件的方式，快速搭建项目的 mock 服务，用于前后端分离模式下的并行开发。emmm，是公司大佬用的这个，至于为什么我还没敢问 -_-</p>
 
 <pre><code>yarn add mockjs-webpack-plugin --dev 或 cnpm install --save-dev mockjs-webpack-plugin
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>安装完成后，新建存放 mock 数据的文件夹及文件。<a href="https://github.com/soon08/mockjs-webpack-plugin/blob/HEAD/readme-zh.md">文档</a></li>
-</ol>
+<li><p>安装完成后，新建存放 mock 数据的文件夹及文件。<a href="https://github.com/soon08/mockjs-webpack-plugin/blob/HEAD/readme-zh.md">文档</a></p>
 
 <pre><code>.
 ├── app         //工程目录
@@ -323,7 +320,8 @@ if (!doNotTrack) {
     |   ├── data.js
     |   ├── data.json
         ...
-</code></pre>
+</code></pre></li>
+</ol>
 
 <h3 id="step-2-配置-webpack-配置项">Step 2. 配置 webpack 配置项</h3>
 

@@ -10,28 +10,26 @@
     
 
     
-    <title>
-  Tag → Mock
-  
-   | Lune&#39;s blogs
-</title>
+    <title>深入理解eslint</title>
 
     
     
 
 
 
+  
+  
+  <meta name="author" content="luneShao" />
+  <meta name="description" content="读懂eslint的配置项，以及开发自己eslint插件">
 
   
-  <meta name="author" content="LuneShao" />
-  <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。" />
-
   
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@lune76308387" />
-  <meta name="twitter:title" content="Lune&#39;s blogs" />
-  <meta name="twitter:description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。" />
-  <meta name="twitter:image" content="https://luneshao.github.io/img/avatar.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lune76308387" />
+    <meta name="twitter:title" content="深入理解eslint" />
+    <meta name="twitter:description" content="读懂eslint的配置项，以及开发自己eslint插件" />
+    <meta name="twitter:image" content="https://luneshao.github.io/img/cover.jpg" />
+  
 
 
 
@@ -39,7 +37,7 @@
 <meta name="generator" content="Hugo 0.55.0">
 
 
-<link rel="canonical" href="https://luneshao.github.io/tags/mock/">
+<link rel="canonical" href="https://luneshao.github.io/post/eslint/">
 <link rel="alternative" href="/index.xml" title="luneS&#39;s garden" type="application/atom+xml">
 
 
@@ -176,7 +174,7 @@
       
       
       
-        <li class="menu-item "><a href="/">首页</a></li>
+        <li class="menu-item  is-active"><a href="/">首页</a></li>
       
         <li class="menu-item "><a href="https://www.weibo.com/u/3754246405">sina 微博</a></li>
       
@@ -258,7 +256,7 @@ if (!doNotTrack) {
     
     
     
-      <li class="sidebar-item "><a class="sidebar-link" href="/">首页</a></li>
+      <li class="sidebar-item  is-active"><a class="sidebar-link" href="/">首页</a></li>
     
       <li class="sidebar-item "><a class="sidebar-link" href="https://www.weibo.com/u/3754246405">sina 微博</a></li>
     
@@ -266,59 +264,114 @@ if (!doNotTrack) {
 </amp-sidebar>
 
     
-  <section class="main entry-list">
-    <header class="list-header">
-      
-      
-        
-      
-        
-      
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">深入理解eslint</h1>
+      <p class="entry-meta"><span class="entry-time">Aug 2, 2019</span> 1 min read</p>
     </header>
     
-    
-      
-        <article class="entry-single">
-  
-    <a href="https://luneshao.github.io/post/vue-cli-mock/" title="Vue CLI中配置使用Mock数据">
-      <amp-img alt="Vue CLI中配置使用Mock数据"
-        height="244"
-        layout="fixed-height"
-        class="entry-cover"
-        src="/img/cover.jpg">
-      </amp-img>
-    </a>
-  
-  <header class="entry-header">
-    <h3 class="entry-title"><a href="https://luneshao.github.io/post/vue-cli-mock/" title="Vue CLI中配置使用Mock数据" class="entry-link">Vue CLI中配置使用Mock数据</a></h3>
-  </header>
 
-  <p class="entry-summary">引言
- 鉴于对 Vue CLI 中 webpack 的链式配置一直不熟悉，mock 也没有用过。最近项目需要 mock 数据，所以新建了一个测试项目配置了一下。下面我会介绍配置流程。👇👇👇 (webpack 没理解透彻T_T)
-参考文献：
- Vue CLI 文档 webpack-chain 文档 webpack 配置文档 http-proxy-middleware 文档 mockjs-webpack-plugin 文档  文章结构：
-&#43; 配置流程 &#43; Step 1. 安装插件 mockjs-webpack-plugin &#43; Step 2. 配置 webpack 配置项 &#43; Step 3. Mock 数据  配置流程 这里我就默认民那桑已经用 Vue CLI 安装了一个项目。我使用的 Vue CLI 3。
-Step 1. 安装插件 mockjs-webpack-plugin  这个插件通过 webpack 插件的方式，快速搭建项目的 mock 服务，用于前后端分离模式下的并行开发。emmm，是公司大佬用的这个，至于为什么我还没敢问 -_-
-yarn add mockjs-webpack-plugin --dev 或 cnpm install --save-dev mockjs-webpack-plugin  安装完成后，新建存放 mock 数据的文件夹及文件。文档</p>
-  <footer class="entry-footer">
-    <p class="entry-meta"><span class="entry-time">Jul 9, 2019</span> 2 min read</p>
-    <div class="sharing">
-      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fvue-cli-mock%2f" title="Share on Facebook">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
-      </a>
-      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=Vue%20CLI%e4%b8%ad%e9%85%8d%e7%bd%ae%e4%bd%bf%e7%94%a8Mock%e6%95%b0%e6%8d%ae&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fvue-cli-mock%2f" title="Share on Twitter">
-        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
-      </a>
-      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=Vue%20CLI%e4%b8%ad%e9%85%8d%e7%bd%ae%e4%bd%bf%e7%94%a8Mock%e6%95%b0%e6%8d%ae&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fvue-cli-mock%2f" title="Share on Google+">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
-      </a>
-    </div>
-  </footer>
+    <article class="post-content"><blockquote>
+<p>引言</p>
+</blockquote>
+
+<p>参考文献：<a href="https://mp.weixin.qq.com/s/X2gShxrCw0ukZigjE_45kA">转载微信公众号的正文</a></p>
+
+<p>文章结构：注释了一下 eslint.js 的各个配置项是什么意思，再也不会觉得像天书了（狗头</p>
+
+<pre><code class="language-js">// eslint.js
+module.exports = {
+  root: true, // 如果root设置为true，那么 ESLint 就会认为当前目录为根目录，不再向上查找配置。
+  
+  parser: 'babel-eslint', // 解析器类型：espima(默认), babel-eslint, @typescript-eslint/parse
+
+  parserOptions: { // 解析器配置参数
+    sourceType: 'module' // 代码类型：script(默认), module
+  },
+
+  // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
+  /**
+  * &quot;eslint:recommended&quot;, // 一共有两个：eslint:recommended 、eslint:all
+  * &quot;plugin:react/recommended&quot;, // 扩展是插件类型，也可以直接在 plugins 属性中进行设置 =&gt; extPlugin = `plugin:${pluginName}/${configName}`
+  * &quot;eslint-config-standard&quot;, // 扩展来自 npm 包，官方规定 npm 包的扩展必须以 eslint-config- 开头，使用时可以省略这个头
+  */
+  extends: 'standard', // 扩展就是直接使用别人已经写好的 lint 规则，方便快捷
+
+  // required to lint *.vue files
+  plugins: [ // 以 eslint-plugin- 开头，使用的时候也可以省略这个头
+    'vue'
+  ],
+
+  /**
+   * “off” 或 0：关闭规则
+   * “warn” 或 1：开启规则，warn 级别的错误 (不会导致程序退出)
+   * “error” 或 2：开启规则，error级别的错误(当被触发的时候，程序会退出)
+   * {
+   * &quot;rules&quot;: {
+    // 使用数组形式，对规则进行配置
+    // 第一个参数为是否启用规则
+    // 后面的参数才是规则的配置项
+   * &quot;quotes&quot;: [
+   *  &quot;error&quot;,
+   *  &quot;single&quot;,
+   *  {
+   *    &quot;avoidEscape&quot;: true 
+   *  }
+   * ]
+  }}
+   */
+  'rules': { // 可以在配置文件的 rules 属性中配置你想要的规则
+    // allow paren-less arrow functions
+    'arrow-parens': 0,
+    // allow async-await
+    'generator-star-spacing': 0,
+    // allow debugger during development
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+  }
+}
+
+</code></pre>
+
+<blockquote>
+<p>以上。🥳</p>
+</blockquote>
 </article>
-
+    
+    <div id="vcomments"></div>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=22677433&auto=1&height=66"></iframe>
+    <footer class="post-footer">
       
-    
-    
+      <ul class="post-tags">
+        
+          <li class="post-tag"><a href="/tags/eslint"><span class="tag">Eslint</span></a></li>
+        
+      </ul>
+      
+      <div class="sharing">
+        <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2feslint%2f" title="Share on Facebook">
+          <svg class="icon icon-facebook" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
+        </a>
+        <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=%e6%b7%b1%e5%85%a5%e7%90%86%e8%a7%a3eslint&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2feslint%2f" title="Share on Twitter">
+          <svg class="icon icon-twitter" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
+        </a>
+        <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=%e6%b7%b1%e5%85%a5%e7%90%86%e8%a7%a3eslint&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2feslint%2f" title="Share on Google+">
+          <svg class="icon icon-google" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
+        </a>
+      </div>
+    </footer>
+    <script>
+      new Valine({
+        el: '#vcomments' ,
+        appId: 'VMtRNdHhQOQVoiWu2y2dQnJb-gzGzoHsz',
+        appKey: '073437m7LGtKY9mmCQioFbKI',
+        notify:true, 
+        verify:false, 
+        avatar:'wavatar', 
+        recordIP: true,
+        visitor: true,
+        placeholder: 'Oh, what a curious baby you are!' 
+      })
+  </script>
   </section>
 
     <footer class="footer">

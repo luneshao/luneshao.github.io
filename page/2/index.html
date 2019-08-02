@@ -269,6 +269,39 @@ if (!doNotTrack) {
         <article class="entry-single">
   
   <header class="entry-header">
+    <h3 class="entry-title"><a href="https://luneshao.github.io/post/element-expland/" title="=8 一些不常用的获取元素属性的操作" class="entry-link">=8 一些不常用的获取元素属性的操作</a></h3>
+  </header>
+
+  <p class="entry-summary">1. 获取元素的css  1.1 window.getComputedStyle()  返回另一个包含所有 css 属性的对象，该对象应用了样式表并解析了基础计算（只读）。
+window.getComputedStyle().getPropertyValue(&#39;font&#39;) // 获取属性 font 值  MDN 张鑫旭前辈的文章
+css 安全(blog)
+2.获取元素的大小及其相对于视口的位置  2.1 Element.getComputedStyle()  MDN
+返回元素的大小及其相对于视口的位置。
+如果你需要获得相对于整个网页左上角定位的属性值，那么只要给top、left属性值加上当前的滚动位置
+（通过window.scrollX和window.scrollY），这样就可以获取与当前的滚动位置无关的值。
+3.返回当前document对象所关联的window对象  3.1 document.defaultView  MDN
+该属性返回当前 document 对象所关联的 window 对象，如果没有，会返回 null。
+在许多在线的演示代码中，getComputedStyle是通过 document.defaultView 对象来调用的。大部分情况下，这是不需要的，因为可以直接通过window对象调用。但有一种情况，你必需要使用 defaultView, 那是在firefox3.6上访问子框架内的样式。</p>
+  <footer class="entry-footer">
+    <p class="entry-meta"><span class="entry-time">May 28, 2019</span> 1 min read</p>
+    <div class="sharing">
+      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2felement-expland%2f" title="Share on Facebook">
+        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
+      </a>
+      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=%3d8%20%e4%b8%80%e4%ba%9b%e4%b8%8d%e5%b8%b8%e7%94%a8%e7%9a%84%e8%8e%b7%e5%8f%96%e5%85%83%e7%b4%a0%e5%b1%9e%e6%80%a7%e7%9a%84%e6%93%8d%e4%bd%9c&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2felement-expland%2f" title="Share on Twitter">
+        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
+      </a>
+      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=%3d8%20%e4%b8%80%e4%ba%9b%e4%b8%8d%e5%b8%b8%e7%94%a8%e7%9a%84%e8%8e%b7%e5%8f%96%e5%85%83%e7%b4%a0%e5%b1%9e%e6%80%a7%e7%9a%84%e6%93%8d%e4%bd%9c&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2felement-expland%2f" title="Share on Google+">
+        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
+      </a>
+    </div>
+  </footer>
+</article>
+
+      
+        <article class="entry-single">
+  
+  <header class="entry-header">
     <h3 class="entry-title"><a href="https://luneshao.github.io/post/js-beauty/" title="js 代码美化 (持续更新)" class="entry-link">js 代码美化 (持续更新)</a></h3>
   </header>
 
@@ -535,38 +568,6 @@ function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget
         <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
       </a>
       <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=markdown%20%e5%b8%b8%e7%94%a8%e8%af%ad%e6%b3%95&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fmarkdown%2f" title="Share on Google+">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
-      </a>
-    </div>
-  </footer>
-</article>
-
-      
-        <article class="entry-single">
-  
-  <header class="entry-header">
-    <h3 class="entry-title"><a href="https://luneshao.github.io/post/mac-keyboard/" title="Mac 的快捷键" class="entry-link">Mac 的快捷键</a></h3>
-  </header>
-
-  <p class="entry-summary">在知乎上截取部分自己会用到的一部分。
- 按键符号
-  ⌘ (command) ⌥ (option) ⇧ (shift) ⌃ (control) ⌫ (delete)   常用的快捷键
-  快速调用 emoji 表情：⌘（command）&#43; ⌃（control）&#43; 空格键；   浏览器中将网页加入个人收藏：⌘（command）&#43; D；遇到喜欢的网页内容只需按下此快捷键即可加入收藏夹；
- 截屏 &#43; 录屏：⌘ （command）&#43; ⌥（option） &#43; R 即可调出
- 光标移到地址框：Command &#43; L
-  附：CheatSheet 下载地址
- 以上。谢谢各位大佬的分享🤩
- </p>
-  <footer class="entry-footer">
-    <p class="entry-meta"><span class="entry-time">May 6, 2019</span> 1 min read</p>
-    <div class="sharing">
-      <a class="share share-facebook" target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fluneshao.github.io%2fpost%2fmac-keyboard%2f" title="Share on Facebook">
-        <svg class="icon" fill="currentColor"><use xlink:href="#icon-facebook" /></svg>
-      </a>
-      <a class="share share-twitter" target="_blank" href="https://twitter.com/intent/tweet/?text=Mac%20%e7%9a%84%e5%bf%ab%e6%8d%b7%e9%94%ae&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fmac-keyboard%2f" title="Share on Twitter">
-        <svg class="icon share-twitter-icon" fill="currentColor"><use xlink:href="#icon-twitter" /></svg>
-      </a>
-      <a class="share share-google" target="_blank" href="https://plus.google.com/share?url=Mac%20%e7%9a%84%e5%bf%ab%e6%8d%b7%e9%94%ae&amp;url=https%3a%2f%2fluneshao.github.io%2fpost%2fmac-keyboard%2f" title="Share on Google+">
         <svg class="icon" fill="currentColor"><use xlink:href="#icon-googleplus" /></svg>
       </a>
     </div>
