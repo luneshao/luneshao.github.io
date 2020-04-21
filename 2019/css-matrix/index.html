@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
+  
+  <link rel="prev" href="https://luneshao.github.io/2019/element-expland/" />
+  <link rel="next" href="https://luneshao.github.io/2019/window-requestanimationframe/" />
+  <link rel="canonical" href="https://luneshao.github.io/2019/css-matrix/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           CSS Tranform 的 Matrix函数 | luneS&#39;s garden
+       
+  </title>
+  <meta name="title" content="CSS Tranform 的 Matrix函数 | luneS&#39;s garden">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "CSS Tranform 的 Matrix函数",
+    "headline" : "CSS Tranform 的 Matrix函数",
+    "description" : "CSS Tranform 的 Matrix函数",
+    "inLanguage" : "en-us",
+    "author" : "LuneShao",
+    "creator" : "LuneShao",
+    "publisher": "LuneShao",
+    "accountablePerson" : "LuneShao",
+    "copyrightHolder" : "LuneShao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-05-29 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-05-29 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/luneshao.github.io\/2019\/css-matrix\/",
+    "wordCount" : "149",
+    "keywords" : [ "前端","CSS", "luneS\x27s garden"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">CSS Tranform 的 Matrix函数</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">LuneShao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-05-29 itemprop="datePublished">May 29, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>插播一句：<code>translate</code> 的百分比是相对于自身的宽高计算的。</p>
+
+<p>插播2：计算角度值 eg：已知 sin(a) = 1，求 a？。 a = Math.asin(1) * 180 / Math.PI</p>
+
+<blockquote>
+<p>引言</p>
+</blockquote>
+
+<p>这也是关于优化 js 代码衍生出来的内容，过程是这样的。</p>
+
+<ol>
+<li>文章里说 <code>Array.from</code> 代替 <code>Array.prototype.slice.call(arrayLike)</code>，😳<code>Array.prototype.slice.call(arrayLike)</code> 是不是截取数组的嘛，查了一下文档 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#Array-like" rel="nofollow noreferrer" target="_blank">MDN</a> ，原来将这个方法绑定到类数组对象/集合上，就可以转化为一个数组。过程中，看到了这篇<a href="https://www.cnblogs.com/ariel-zhang/p/7288455.html" rel="nofollow noreferrer" target="_blank">博客</a>，大佬是真的🐂🍺，里边就写到了计算用window.getComputedStyle(dom, 伪类) 获取值，本来我是忽略过去的，但是，好奇心让我测试了一下。。得到了一个这个东西。</li>
+</ol>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/0529-cm-eg1.jpg" alt="返回值图片" class="lazyload"><figcaption class="image-caption">返回值图片</figcaption></figure></p>
+
+<p>这是啥？我不认识啊？？还是乖乖的学一下吧。</p>
+
+<h2 id="translate-值的计算">translate 值的计算</h2>
+
+<p>于是学习了 <a href="https://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%E7%9F%A9%E9%98%B5/" rel="nofollow noreferrer" target="_blank">张鑫旭前辈的文章</a>，这是一个矩阵，是transform变换的基础。我们可以根据这个矩阵里面的值推算出，transform 属性的值。</p>
+
+<p>其格式为：Matrix(a, b, c, d, e, f) 具体的介绍请直接看前辈文章的第五节。</p>
+
+<p>借前辈图，translate &amp; scale 的转换公式如下。 ：</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.zhangxinxu.com/image/blog/201206/css-transforms-matrix5.gif" alt="转换公式图片" class="lazyload"><figcaption class="image-caption">转换公式图片</figcaption></figure></p>
+
+<ul>
+<li>x, y ：表示转换元素的所有坐标（变量）矩阵偏移元素的中心点。</li>
+<li>ax+cy+e ：变换后的x坐标</li>
+<li>bx+dy+f ：变换后的y坐标</li>
+</ul>
+
+<h2 id="scale-值的计算">scale 值的计算</h2>
+
+<p><code>matrix(s, 0, 0, s, 0, 0);</code> s 即为 scale 的值。</p>
+
+<h2 id="rotate-值的计算">rotate 值的计算</h2>
+
+<p>方法及参数</p>
+
+<p><code>matrix(cosθ,sinθ,-sinθ,cosθ,0,0)</code></p>
+
+<p>对应公式</p>
+
+<pre><code class="language-js">x' = x * cosθ - y * sinθ + 0 = x * cosθ - y * sinθ
+y' = x * sinθ + y * cosθ + 0 = x * sinθ + y * cosθ
+</code></pre>
+
+<h2 id="skew-值的计算">skew 值的计算</h2>
+
+<p>方法及参数</p>
+
+<p><code>matrix(1,tan(θy),tan(θx),1,0,0)</code></p>
+
+<p>对应公式</p>
+
+<pre><code class="language-js">x' = x + y * tan(θx) + 0 = x + y * tan(θx) 
+y' = x * tan(θy) + y + 0 = x * tan(θy) + y
+</code></pre>
+
+<p>目前看到第七部分，关于 <code>Matrix</code> 的使用，内容镜像。莫的全看完。 &ndash;20190529</p>
+
+<p>时光匆匆如流水，太快了，五月快结束了。</p>
+
+<blockquote>
+<p>感谢前辈👏🏻</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2019/css-matrix/>https://luneshao.github.io/2019/css-matrix/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF/">
+                    #前端</a></span>
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/css/">
+                    #CSS</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2019/element-expland/" class="prev" rel="prev" title="=8 一些不常用的获取元素属性的操作"><i class="iconfont icon-left"></i>&nbsp;=8 一些不常用的获取元素属性的操作</a>
+         
+        
+        <a href="https://luneshao.github.io/2019/window-requestanimationframe/" class="next" rel="next" title="window.requestAnimationFrame方法">window.requestAnimationFrame方法&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

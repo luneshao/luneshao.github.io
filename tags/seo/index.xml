@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>seo on luneS&#39;s garden</title>
@@ -13,30 +13,30 @@
     
     <item>
       <title>如何让自己网站被google收录？</title>
-      <link>https://luneshao.github.io/post/google-console/</link>
+      <link>https://luneshao.github.io/2019/google-console/</link>
       <pubDate>Thu, 13 Jun 2019 10:12:32 +0800</pubDate>
       
-      <guid>https://luneshao.github.io/post/google-console/</guid>
+      <guid>https://luneshao.github.io/2019/google-console/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;引言&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;最近两个月一直在鼓捣这个博客，一直也只是用网址访问。最近，尝试在搜索引擎上搜索我博客的url、内容、标题，通通搜不到？？？然后，看了&lt;a href=&#34;https://support.google.com/webmasters/answer/7451184&#34;&gt;搜索引擎优化 (SEO) 新手指南&lt;/a&gt;。在 google console 上配置了站点地图并进行&lt;a href=&#34;https://support.google.com/webmasters/answer/9012289#url_can_be_on_google_issues&#34;&gt;网址检查&lt;/a&gt;（查看资源中某个网址的 Google 索引信息）。&lt;/p&gt;
+&lt;p&gt;最近两个月一直在鼓捣这个博客，一直也只是用网址访问。最近，尝试在搜索引擎上搜索我博客的url、内容、标题，通通搜不到？？？然后，看了&lt;a href=&#34;https://support.google.com/webmasters/answer/7451184&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;搜索引擎优化 (SEO) 新手指南&lt;/a&gt;。在 google console 上配置了站点地图并进行&lt;a href=&#34;https://support.google.com/webmasters/answer/9012289#url_can_be_on_google_issues&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;网址检查&lt;/a&gt;（查看资源中某个网址的 Google 索引信息）。&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;我的检查结果： &lt;em&gt;此网址未显示在 Google 搜索结果中&lt;/em&gt; 。（此时已经可以在 google 中检索到 url 了。）&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;点击查看详情 =&amp;gt; return ( 已抓取 - 尚未编入索引, 状态：已排除。 ) 查看&lt;a href=&#34;https://support.google.com/webmasters/answer/7440203#discovered__unclear_status&#34;&gt;状态报告指南&lt;/a&gt;去一条一条的排查。我的结果对应的解释：&lt;code&gt;Google 已抓取相应网页，但尚未将其编入索引。日后，该网页可能会被编入索引，也可能不会被编入索引；无论如何，您都无需重新提交该网址以供抓取。&lt;/code&gt; 那就只能静静的等待了。（目前已经搜到了。）&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;点击查看详情 =&amp;gt; return ( 已抓取 - 尚未编入索引, 状态：已排除。 ) 查看&lt;a href=&#34;https://support.google.com/webmasters/answer/7440203#discovered__unclear_status&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;状态报告指南&lt;/a&gt;去一条一条的排查。我的结果对应的解释：&lt;code&gt;Google 已抓取相应网页，但尚未将其编入索引。日后，该网页可能会被编入索引，也可能不会被编入索引；无论如何，您都无需重新提交该网址以供抓取。&lt;/code&gt; 那就只能静静的等待了。（目前已经搜到了。）&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;下面主要是摘要梳理了搜索引擎优化 (SEO) 新手指南一些相关知识点，帮助理解。&lt;/p&gt;
 
-&lt;p&gt;官方文档先祭一下 &lt;a href=&#34;https://support.google.com/webmasters/answer/7451184&#34;&gt;搜索引擎优化 (SEO) 新手指南&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;官方文档先祭一下 &lt;a href=&#34;https://support.google.com/webmasters/answer/7451184&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;搜索引擎优化 (SEO) 新手指南&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;1-术语&#34;&gt;1.术语&lt;/h2&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://support.google.com/webmasters/answer/70897&#34;&gt;Google 搜索的工作方式&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://support.google.com/webmasters/answer/70897&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Google 搜索的工作方式&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Google 按照以下三个基本步骤来生成基于网页的结果：&lt;/p&gt;
@@ -64,10 +64,10 @@
 
 &lt;h2 id=&#34;3-如何让-google-收录您的内容&#34;&gt;3.如何让 Google 收录您的内容&lt;/h2&gt;
 
-&lt;p&gt;最好的办法是提交&lt;a href=&#34;https://support.google.com/webmasters/answer/156184?hl=zh-Hans&amp;amp;ref_topic=4581190&#34;&gt;站点地图&lt;/a&gt; 。站点地图是网站上的一种文件，可告知搜索引擎网站上新增了网页或有更新的网页。&lt;/p&gt;
+&lt;p&gt;最好的办法是提交&lt;a href=&#34;https://support.google.com/webmasters/answer/156184?hl=zh-Hans&amp;amp;ref_topic=4581190&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;站点地图&lt;/a&gt; 。站点地图是网站上的一种文件，可告知搜索引擎网站上新增了网页或有更新的网页。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;这里，我的博客本来是在 google 搜索不到的，hugo 会在 public 文件夹自动生成站点地图。（如果没有使用hugo，&lt;a href=&#34;https://support.google.com/webmasters/answer/183668?hl=zh-Hans&amp;amp;ref_topic=4581190&#34;&gt;文章&lt;/a&gt;中也提供了一些在线生成站点地图的网址和工具，可以自行生成哟～）此时，需要我们做的就是在 Search Console 工具中，自行配置站点地图的 url，或者将其添加到您的 robots.txt 文件中。然后，在 google 输入 site:luneshao.github.io 就可以搜索到了。一小步进步啊！&lt;/li&gt;
+&lt;li&gt;这里，我的博客本来是在 google 搜索不到的，hugo 会在 public 文件夹自动生成站点地图。（如果没有使用hugo，&lt;a href=&#34;https://support.google.com/webmasters/answer/183668?hl=zh-Hans&amp;amp;ref_topic=4581190&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;文章&lt;/a&gt;中也提供了一些在线生成站点地图的网址和工具，可以自行生成哟～）此时，需要我们做的就是在 Search Console 工具中，自行配置站点地图的 url，或者将其添加到您的 robots.txt 文件中。然后，在 google 输入 site:luneshao.github.io 就可以搜索到了。一小步进步啊！&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;4-告诉-google-不应抓取哪些页面&#34;&gt;4.告诉 Google 不应抓取哪些页面&lt;/h2&gt;
@@ -76,7 +76,7 @@
 
 &lt;h2 id=&#34;5-帮助-google-和用户-了解您的内容&#34;&gt;5.帮助 Google（和用户）了解您的内容&lt;/h2&gt;
 
-&lt;p&gt;诸位可以使用这个&lt;a href=&#34;http://analyzer.metatags.org/&#34;&gt;免费网站分析工具&lt;/a&gt;，分析一下自己的网站 seo 方面是否存在不足。&lt;/p&gt;
+&lt;p&gt;诸位可以使用这个&lt;a href=&#34;http://analyzer.metatags.org/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;免费网站分析工具&lt;/a&gt;，分析一下自己的网站 seo 方面是否存在不足。&lt;/p&gt;
 
 &lt;h3 id=&#34;5-1-创建唯一且准确的网页标题&#34;&gt;5.1 创建唯一且准确的网页标题&lt;/h3&gt;
 

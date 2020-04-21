@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
+  
+  <link rel="prev" href="https://luneshao.github.io/2019/brew-noresponse/" />
+  <link rel="next" href="https://luneshao.github.io/2019/vue-cli-mock/" />
+  <link rel="canonical" href="https://luneshao.github.io/2019/flutter-install/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Flutter 安装 CocoaPods | luneS&#39;s garden
+       
+  </title>
+  <meta name="title" content="Flutter 安装 CocoaPods | luneS&#39;s garden">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Flutter 安装 CocoaPods",
+    "headline" : "Flutter 安装 CocoaPods",
+    "description" : "引言\n 安装 flutter 过程中，卡在 pod setup 这里，总是会报错，找了好多文章也没能解决。最后发现这篇博客=\x26gt; CocoaPods的安装步骤和遇见的问题 按照里面的步骤，一步一步来就OK了。\n安装步骤 \/\/ 建议先更新下gem sudo gem update --system \/\/ 切换镜像 gem sources --remove https:\/\/rubygems.org\/ gem sources -a https:\/\/gems.ruby-china.com\/ gem sources -l \/\/ 安装 cocoapods sudo gem install cocoapods 应该会提示下错误 \/\/ ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - \/usr\/bin\/update_rubygems 试试 gem update -n \/usr\/local\/bin --system \/\/ 安装cocoapods （我用的这个） sudo gem install -n \/usr\/local\/bin cocoapods pod repo list \/\/ 查看repo 列表 pod repo remove master \/\/ 删除master \/\/ 添加master库 新版的 CocoaPods 不允许用pod repo add直接添加master库了，现在一般执行完pod repo add master *** 之后又会提示[!",
+    "inLanguage" : "en-us",
+    "author" : "lune",
+    "creator" : "lune",
+    "publisher": "lune",
+    "accountablePerson" : "lune",
+    "copyrightHolder" : "lune",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-06-24 16:30:36 \x2b0800 CST",
+    "dateModified" : "2019-06-24 16:30:36 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2019\/flutter-install\/",
+    "wordCount" : "139",
+    "keywords" : [ "flutter", "luneS\x27s garden"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Flutter 安装 CocoaPods</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">lune</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-06-24 itemprop="datePublished">June 24, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<blockquote>
+<p>引言</p>
+</blockquote>
+
+<p>安装 flutter 过程中，卡在 <code>pod setup</code> 这里，总是会报错，找了好多文章也没能解决。最后发现这篇博客=&gt; <a href="https://www.jianshu.com/p/3864b302ff90" rel="nofollow noreferrer" target="_blank">CocoaPods的安装步骤和遇见的问题</a> 按照里面的步骤，一步一步来就OK了。</p>
+
+<h3 id="安装步骤">安装步骤</h3>
+
+<pre><code>// 建议先更新下gem
+sudo gem update --system
+
+// 切换镜像
+gem sources --remove https://rubygems.org/
+gem sources -a https://gems.ruby-china.com/
+gem sources -l
+
+
+// 安装 cocoapods
+sudo gem install cocoapods 应该会提示下错误
+// ERROR:  While executing gem ... (Errno::EPERM)   Operation not permitted - /usr/bin/update_rubygems
+试试 gem update -n /usr/local/bin --system
+
+// 安装cocoapods （我用的这个）
+sudo gem install -n /usr/local/bin cocoapods
+
+pod repo list // 查看repo 列表
+pod repo remove master   // 删除master
+
+// 添加master库
+新版的 CocoaPods 不允许用pod repo add直接添加master库了，现在一般执行完pod repo add master  *** 之后又会提示[!] To setup the master specs repo, please run pod setup.但是依然可以：
+// https://mirrors.tuna.tsinghua.edu.cn/help/CocoaPods/ 清华大学的CocoaPods 镜像
+git clone https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git ~/.cocoapods/repos/master
+// 默认的 https://github.com/CocoaPods/Specs.git 
+// 备用的 git://cocoapodscn.com/Specs.git
+
+在自己工程的podFile第一行加上：刚刚替换的新repo
+// source 'git://cocoapodscn.com/Specs.git'
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+
+// cd ~/.cocoapods然后下面指令    
+// du -sh * 查看下载进度 （此时再次运行 flutter doctor -v ，就可以了。）
+// pod setup手动克隆就不要执行这个了，不然一会又要死循环了
+pod --version
+</code></pre>
+
+<p>操作完以上步骤，我最后的错误也解决了。一篇绿色，舒服啊～～～</p>
+
+<p>虽然目前没深入学习，不知道需不需要都装好，但是全都是绿色就是得劲😎</p>
+
+<p><img alt="flutter doctor -v 运行结果（如果你挂了代理，就看不到图片了～）" height="300" src="http://ww4.sinaimg.cn/large/006tNc79ly1g4d670u7u1j30u0119mz6.jpg" /></p>
+
+<blockquote>
+<p>以上。🦑</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2019/flutter-install/>https://luneshao.github.io/2019/flutter-install/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/flutter/">
+                    #flutter</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2019/brew-noresponse/" class="prev" rel="prev" title="brew update 无响应"><i class="iconfont icon-left"></i>&nbsp;brew update 无响应</a>
+         
+        
+        <a href="https://luneshao.github.io/2019/vue-cli-mock/" class="next" rel="next" title="Vue CLI中配置使用Mock数据">Vue CLI中配置使用Mock数据&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

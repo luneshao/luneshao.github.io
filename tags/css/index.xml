@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CSS on luneS&#39;s garden</title>
@@ -13,10 +13,10 @@
     
     <item>
       <title>强大的css filter属性及色彩名词（附 opacity 属性的兼容写法）</title>
-      <link>https://luneshao.github.io/post/css-filter/</link>
+      <link>https://luneshao.github.io/2019/css-filter/</link>
       <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/post/css-filter/</guid>
+      <guid>https://luneshao.github.io/2019/css-filter/</guid>
       <description>引言
  最近公司需要找一个管理项目的工具，然后被推荐了 coding.net，我就看了一下官网的功能介绍。看到合作伙伴那里，hover 之后，图片变了颜色。然后，职业病就犯了，就看了一下人家是怎么实现的。
 讲道理，我找了半天是怎么换的颜色。filter 这个属性之前看到是用来兼容 ie 的 opacity 属性的，我也一直没有用过，就以为它就是透明度的属性，我就没勾掉试一试。。。有点愚蠢。我就以为是换了图片的 URL，结果图片的 URL 并没有变化。我查看了图片，它本来的颜色就是彩色的。然后猜测，难道是利用 css 改变了图片的颜色？？？我就挨个属性勾了勾，果然是 filter 的原因。。
@@ -31,10 +31,10 @@ filter CSS属性将模糊或颜色偏移等 图形效果应用于元素 。滤�
     
     <item>
       <title>CSS Tranform 的 Matrix函数</title>
-      <link>https://luneshao.github.io/post/css-matrix/</link>
+      <link>https://luneshao.github.io/2019/css-matrix/</link>
       <pubDate>Wed, 29 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/post/css-matrix/</guid>
+      <guid>https://luneshao.github.io/2019/css-matrix/</guid>
       <description>插播一句：translate 的百分比是相对于自身的宽高计算的。
 插播2：计算角度值 eg：已知 sin(a) = 1，求 a？。 a = Math.asin(1) * 180 / Math.PI
  引言
@@ -48,10 +48,10 @@ translate 值的计算 于是学习了 张鑫旭前辈的文章，这是一个�
     
     <item>
       <title>CSS 的 clip 属性</title>
-      <link>https://luneshao.github.io/post/css-clip/</link>
+      <link>https://luneshao.github.io/2019/css-clip/</link>
       <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/post/css-clip/</guid>
+      <guid>https://luneshao.github.io/2019/css-clip/</guid>
       <description>参考文献：MDN&amp;emsp; 张鑫旭前辈的文章
 介绍 定义 clip 属性剪裁元素，属性仅应用于绝对定位元素，例如 position: absolute 或 position: fixed。
 属性值  auto：不剪裁。

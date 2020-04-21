@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
+  
+  <link rel="prev" href="https://luneshao.github.io/2019/js-date/" />
+  <link rel="next" href="https://luneshao.github.io/2019/js-beauty/" />
+  <link rel="canonical" href="https://luneshao.github.io/2019/css-clip/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           CSS 的 clip 属性 | luneS&#39;s garden
+       
+  </title>
+  <meta name="title" content="CSS 的 clip 属性 | luneS&#39;s garden">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "CSS 的 clip 属性",
+    "headline" : "CSS 的 clip 属性",
+    "description" : "介绍CSS的clip属性，以及使用案例。",
+    "inLanguage" : "en-us",
+    "author" : "LuneShao",
+    "creator" : "LuneShao",
+    "publisher": "LuneShao",
+    "accountablePerson" : "LuneShao",
+    "copyrightHolder" : "LuneShao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-05-23 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-05-23 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/luneshao.github.io\/2019\/css-clip\/",
+    "wordCount" : "147",
+    "keywords" : [ "前端","CSS", "luneS\x27s garden"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">CSS 的 clip 属性</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">LuneShao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-05-23 itemprop="datePublished">May 23, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>参考文献：<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip" rel="nofollow noreferrer" target="_blank">MDN</a>&emsp;
+<a href="https://www.zhangxinxu.com/wordpress/2012/07/codepen-jsfiddle/" rel="nofollow noreferrer" target="_blank">张鑫旭前辈的文章</a></p>
+
+<h2 id="介绍">介绍</h2>
+
+<h3 id="定义">定义</h3>
+
+<p>clip 属性剪裁元素，属性仅应用于<strong>绝对定位</strong>元素，例如 <code>position: absolute</code> 或 <code>position: fixed</code>。</p>
+
+<h3 id="属性值">属性值</h3>
+
+<ul>
+<li><p>auto：不剪裁。</p></li>
+
+<li><p><code>&lt;shape&gt;</code>：截取的形状，值的表示方式 <code>rect(&lt;top&gt;, &lt;right&gt;, &lt;bottom&gt;, &lt;left&gt;) 或 rect(&lt;top&gt; &lt;right&gt; &lt;bottom&gt; &lt;left&gt;)</code>。</p></li>
+</ul>
+
+<p>top &amp; bottom 设置的是距离元素上边距的距离。left &amp; right 设置的是距离元素左边距的距离。</p>
+
+<h4 id="左侧使用了clip属性-左右容器和图片的尺寸都是200-200">左侧使用了clip属性，左右容器和图片的尺寸都是200 * 200。</h4>
+
+<p style="text-align: center">
+<img src="/img/0522-css-clip1.png" style=" width: 100%" />
+</p>
+
+<p>top、right、bottom、left 的值可以是 <em>数值</em> 或 <em>auto</em> 。</p>
+
+<p>tips：<strong>auto</strong>表示 <em>If any side&rsquo;s value is auto, the element is clipped to that side&rsquo;s inside border edge.</em> （文档）
+截取到元素该边的内边界。</p>
+
+<ul>
+<li>inherit：从父元素继承 clip 属性的值，不兼容 IE6。</li>
+</ul>
+
+<blockquote>
+<p>实例</p>
+</blockquote>
+
+<p>看到 <a href="https://immutable-js.github.io/immutable-js/" rel="nofollow noreferrer" target="_blank">immutable官网</a> header 部分的划动效果很棒，有一种拉开序幕的感jio。</p>
+
+<p>然后，研究了一下这个属性。这个功能的实现就是依赖的 clip 属性，使得可以剪裁 <code>position： fixed</code> 的子元素。</p>
+
+<p><a href="https://codepen.io/LuneShao/project/editor/XMbnnx" rel="nofollow noreferrer" target="_blank">神秘链接🤪</a></p>
+
+<p>下面还是祭一下自己demo相关实现代码，去掉了一些修饰的属性。</p>
+
+<pre><code class="language-html">&lt;!-- html部分 --&gt;
+&lt;div class=&quot;greet&quot;&gt;基础内容&lt;/div&gt;
+&lt;div class=&quot;top-wrap1&quot;&gt;
+  &lt;div class=&quot;top-wrap2&quot;&gt;
+    &lt;div class=&quot;top&quot;&gt;滚动后会消失的内容&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-css">/* css部分 */
+.greet {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.top-wrap1{
+  position: relative;
+  top: 0;
+  width: 100%;
+  background-color: #F6B352;
+  overflow: hidden;
+  z-index: 1; /* 这个元素的堆叠顺序高于另一个，向上滚动的时候，默认的header就娓娓道来。 */
+}
+.top-wrap2{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  clip: rect(0, auto, auto, 0); /* 这里的 auto 是指截取到边的内边界位置。 */
+}
+.top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fc6;
+}
+</code></pre>
+
+<blockquote>
+<p>以上。感谢大佬的分享。🤣</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2019/css-clip/>https://luneshao.github.io/2019/css-clip/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF/">
+                    #前端</a></span>
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/css/">
+                    #CSS</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2019/js-date/" class="prev" rel="prev" title="js Date 对象"><i class="iconfont icon-left"></i>&nbsp;js Date 对象</a>
+         
+        
+        <a href="https://luneshao.github.io/2019/js-beauty/" class="next" rel="next" title="js 代码美化 (持续更新)">js 代码美化 (持续更新)&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

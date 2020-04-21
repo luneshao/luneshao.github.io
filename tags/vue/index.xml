@@ -1,22 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vue on luneS&#39;s garden</title>
+    <title>vue on luneS&#39;s garden</title>
     <link>https://luneshao.github.io/tags/vue/</link>
-    <description>Recent content in Vue on luneS&#39;s garden</description>
+    <description>Recent content in vue on luneS&#39;s garden</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Jul 2019 16:27:20 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2020 10:36:26 +0800</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>vue笔记</title>
+      <link>https://luneshao.github.io/2020/2020-03-20-vue/</link>
+      <pubDate>Fri, 20 Mar 2020 10:36:26 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-03-20-vue/</guid>
+      <description> 不要在选项属性或回调上使用箭头函数，比如 created: () =&amp;gt; console.log(this.a) 或 vm.$watch(&amp;lsquo;a&amp;rsquo;, newValue =&amp;gt; this.myMethod())。因为箭头函数并没有 this，this 会作为变量一直向上级词法作用域查找，直至找到为止，经常导致 Uncaught TypeError: Cannot read property of undefined 或 Uncaught TypeError: this.myMethod is not a function 之类的错误。
+ 可以在二级目录线上部署项目
+// vue.config.js module.exports = { publicPath: &#39;./&#39;, }  </description>
+    </item>
+    
+    <item>
       <title>Vue CLI中配置使用Mock数据</title>
-      <link>https://luneshao.github.io/post/vue-cli-mock/</link>
+      <link>https://luneshao.github.io/2019/vue-cli-mock/</link>
       <pubDate>Tue, 09 Jul 2019 16:27:20 +0800</pubDate>
       
-      <guid>https://luneshao.github.io/post/vue-cli-mock/</guid>
+      <guid>https://luneshao.github.io/2019/vue-cli-mock/</guid>
       <description>引言
  鉴于对 Vue CLI 中 webpack 的链式配置一直不熟悉，mock 也没有用过。最近项目需要 mock 数据，所以新建了一个测试项目配置了一下。下面我会介绍配置流程。👇👇👇 (webpack 没理解透彻T_T)
 参考文献：

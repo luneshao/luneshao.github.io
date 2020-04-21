@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
+  
+  <link rel="prev" href="https://luneshao.github.io/2019/flutter-install/" />
+  <link rel="next" href="https://luneshao.github.io/2019/eslint/" />
+  <link rel="canonical" href="https://luneshao.github.io/2019/vue-cli-mock/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Vue CLI中配置使用Mock数据 | luneS&#39;s garden
+       
+  </title>
+  <meta name="title" content="Vue CLI中配置使用Mock数据 | luneS&#39;s garden">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Vue CLI中配置使用Mock数据",
+    "headline" : "Vue CLI中配置使用Mock数据",
+    "description" : "使用Vue CLI搭建项目，在项目使用Mock数据。本文介绍了项目中如何配置webpack的配置文件。",
+    "inLanguage" : "en-us",
+    "author" : "luneshao",
+    "creator" : "luneshao",
+    "publisher": "luneshao",
+    "accountablePerson" : "luneshao",
+    "copyrightHolder" : "luneshao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-07-09 16:27:20 \x2b0800 CST",
+    "dateModified" : "2019-07-09 16:27:20 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2019\/vue-cli-mock\/",
+    "wordCount" : "411",
+    "keywords" : [ "Vue","Mock","webpack", "luneS\x27s garden"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Vue CLI中配置使用Mock数据</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneshao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-07-09 itemprop="datePublished">July 9, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<blockquote>
+<p>引言</p>
+</blockquote>
+
+<p>鉴于对 Vue CLI 中 webpack 的链式配置一直不熟悉，mock 也没有用过。最近项目需要 mock 数据，所以新建了一个测试项目配置了一下。下面我会介绍配置流程。👇👇👇 (webpack 没理解透彻T_T)</p>
+
+<p>参考文献：</p>
+
+<ul>
+<li><a href="https://cli.vuejs.org/zh/guide/webpack.html" rel="nofollow noreferrer" target="_blank">Vue CLI 文档</a></li>
+<li><a href="https://github.com/neutrinojs/webpack-chain" rel="nofollow noreferrer" target="_blank">webpack-chain 文档</a></li>
+<li><a href="https://webpack.js.org/configuration/dev-server/#devserverproxy" rel="nofollow noreferrer" target="_blank">webpack 配置文档</a></li>
+<li><a href="https://github.com/chimurai/http-proxy-middleware#options" rel="nofollow noreferrer" target="_blank">http-proxy-middleware 文档</a></li>
+<li><a href="https://github.com/soon08/mockjs-webpack-plugin/blob/HEAD/readme-zh.md" rel="nofollow noreferrer" target="_blank">mockjs-webpack-plugin 文档</a></li>
+</ul>
+
+<p>文章结构：</p>
+
+<pre><code>+ 配置流程
+  + Step 1. 安装插件 mockjs-webpack-plugin
+  + Step 2. 配置 webpack 配置项
+  + Step 3. Mock 数据
+</code></pre>
+
+<h2 id="配置流程">配置流程</h2>
+
+<p>这里我就默认民那桑已经用 Vue CLI 安装了一个项目。我使用的 Vue CLI 3。</p>
+
+<h3 id="step-1-安装插件-mockjs-webpack-plugin">Step 1. 安装插件 mockjs-webpack-plugin</h3>
+
+<ol>
+<li><p>这个插件通过 webpack 插件的方式，快速搭建项目的 mock 服务，用于前后端分离模式下的并行开发。emmm，是公司大佬用的这个，至于为什么我还没敢问 -_-</p>
+
+<pre><code>yarn add mockjs-webpack-plugin --dev 或 cnpm install --save-dev mockjs-webpack-plugin
+</code></pre></li>
+
+<li><p>安装完成后，新建存放 mock 数据的文件夹及文件。<a href="https://github.com/soon08/mockjs-webpack-plugin/blob/HEAD/readme-zh.md" rel="nofollow noreferrer" target="_blank">文档</a></p>
+
+<pre><code>.
+├── app         //工程目录
+    ├── dist
+    ├── config
+    ├── src
+    ├── mock    //mock数据目录
+    |   ├── data.js
+    |   ├── data.json
+        ...
+</code></pre></li>
+</ol>
+
+<h3 id="step-2-配置-webpack-配置项">Step 2. 配置 webpack 配置项</h3>
+
+<p>⚠️ 每次更新配置文件都需要重启项目</p>
+
+<p>可以参考 <a href="https://cli.vuejs.org/zh/guide/webpack.html#%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F" rel="nofollow noreferrer" target="_blank">Vue CLI文档</a> 中介绍，关于 webpack 的配置需要新建一个 <code>vue.config.js</code> 文件。由于本文是为了学习 webpack-chian，所以就直接使用链式配置方式。</p>
+
+<p>这里一共需要配置两项，添加 mock 插件和配置代理服务。</p>
+
+<ol>
+<li><p>mock 插件</p>
+
+<pre><code class="language-js">// webpack-chain 添加插件格式，注意不要使用 new 创建一个插件对象，因为它会自动完成。
+config
+  .plugin(name) // name: 插件自定义名称
+  .use(WebpackPlugin, args) // WebpackPlugin: 引入的插件， args: 配置项
+</code></pre></li>
+
+<li><p>服务代理</p>
+
+<pre><code class="language-js">// webpack devSever 格式
+config
+  .devServe
+    .port('port | Number') // 用于侦听请求的端口号
+    .proxy({ // proxy 的参数说明见下👇👇👇
+      '/path': { // 侦听代理的路径名称，这里将侦听 /path 的请求到代理主机的 www.topath.com/path
+        target: 'www.topath.com', // 指向代理主机
+        pathRewrite: {'^/path' : '/new/path'} // 重写目标路径，即请求 /path 时将代理到 www.topath.com/new/path
+      }
+    })
+
+// proxy 的参数说明 👇👇👇
+// 因为这里 webpack 用的 http-proxy-middleware 这个插件，所以就搬了插件的例子解释。
+var apiProxy = proxy('/api', { target: 'http://www.example.org' });
+//                   \____/   \_____________________________/
+//                     |                    |
+//                   context             options
+</code></pre>
+
+<p>下面我只介绍了我用到的，详细说明见<a href="https://github.com/chimurai/http-proxy-middleware#options" rel="nofollow noreferrer" target="_blank">详细说明</a>。</p>
+
+<ul>
+<li>context：确定哪些请求会被代理到目标主机。 例如，这里会将 <code>/api</code> 的请求代理到 <code>http://www.example.org/api</code> 这里。</li>
+<li>options：配置项。</li>
+<li>options.target：目标主机。</li>
+
+<li><p>options.pathRewrite：(object/function)重写目标url路径。 对象键将用作RegEx以匹配路径。</p>
+
+<pre><code class="language-js">// 例如，我希望请求 `/path`时，代理到主机的 `http://www.example.org/hostPath`
+pathRewrite: {'^/path' : '/hostPath'}
+</code></pre></li>
+
+<li><p>options.router：针对特定请求重新定位option.target。我觉得这个可以用来在调试 mock 和真实接口时填写代理主机，不用来回修改了。</p>
+
+<pre><code class="language-js">// Use `host` and/or `path` to match requests. First match will be used.
+// The order of the configuration matters.
+router: {
+'integration.localhost:3000' : 'http://localhost:8001',  // host only
+'staging.localhost:3000'     : 'http://localhost:8002',  // host only
+'localhost:3000/api'         : 'http://localhost:8003',  // host + path
+'/rest'                      : 'http://localhost:8004'   // path only
+}
+
+// Custom router function
+router: function(req) {
+return 'http://localhost:8004';
+}
+</code></pre></li>
+</ul></li>
+</ol>
+
+<p>下面补充完整的配置文件代码。</p>
+
+<pre><code class="language-js">// vue.config.js 完整配置
+
+const path = require('path');
+const MockjsWebpackPlugin = require('mockjs-webpack-plugin')
+
+module.exports = {
+  chainWebpack: config =&gt; {
+    config
+      .plugin('mock')
+        .use(MockjsWebpackPlugin, [{
+          path: path.join(__dirname, './mock'),
+          // 配置mock服务的端口，避免与应用端口冲突
+          port: 3001
+        }])
+
+    config
+      .devServer
+        .port(5001)
+        .proxy({
+          '/api': {
+            target: 'http://localhost:3001', //对应自己的接口
+            pathRewrite: {'^/api' : '/json'}
+          }
+        })
+  }
+}
+</code></pre>
+
+<p>配置好了之后，就完成了一大大大半的工作了。</p>
+
+<h3 id="step-3-mock-数据">Step 3. Mock 数据</h3>
+
+<p>参考<a href="https://github.com/soon08/mockjs-webpack-plugin/blob/HEAD/readme-zh.md#mock-%E6%95%B0%E6%8D%AE" rel="nofollow noreferrer" target="_blank">插件 Mock 数据</a>填充 js 和 json 文件。</p>
+
+<pre><code class="language-js">// data.js
+/**
+ * JS data file
+ *
+ * @url /js/js-data-file
+ *
+ * Export data by using the JS file directly.
+ */
+
+module.exports = {
+    &quot;code&quot;: function () { // simulation error code, 1/10 probability of error code 1.
+        return Math.random() &lt; 0.1 ? 1 : 0;
+    },
+    &quot;list|5-10&quot;: [
+        {&quot;title&quot;: &quot;@title&quot;, &quot;link&quot;: &quot;@url&quot;}
+    ]
+};
+</code></pre>
+
+<pre><code class="language-js">// 对应的内容
+文件标题： Json data file
+访问路径： /js/js-data-file
+描述：
+</code></pre>
+
+<p>访问 <code>http://localhost:3001</code> 就可以查看接口列表了，按照自定义的接口路径及代理就可以访问接口啦。</p>
+
+<pre><code class="language-js">Axios.get('/api/data')
+  .then(res =&gt; {
+    console.log(res)
+  })
+</code></pre>
+
+<blockquote>
+<p>以上。🐵</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2019/vue-cli-mock/>https://luneshao.github.io/2019/vue-cli-mock/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/vue/">
+                    #Vue</a></span>
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/mock/">
+                    #Mock</a></span>
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/webpack/">
+                    #webpack</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2019/flutter-install/" class="prev" rel="prev" title="Flutter 安装 CocoaPods"><i class="iconfont icon-left"></i>&nbsp;Flutter 安装 CocoaPods</a>
+         
+        
+        <a href="https://luneshao.github.io/2019/eslint/" class="next" rel="next" title="深入理解eslint">深入理解eslint&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

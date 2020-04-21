@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
+  
+  <link rel="prev" href="https://luneshao.github.io/2019/google-console/" />
+  <link rel="next" href="https://luneshao.github.io/2019/brew-noresponse/" />
+  <link rel="canonical" href="https://luneshao.github.io/2019/costom-url-protocol/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           windows 添加自定义协议，实现浏览器打开软件 | luneS&#39;s garden
+       
+  </title>
+  <meta name="title" content="windows 添加自定义协议，实现浏览器打开软件 | luneS&#39;s garden">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "windows 添加自定义协议，实现浏览器打开软件",
+    "headline" : "windows 添加自定义协议，实现浏览器打开软件",
+    "description" : "实现在浏览器中点击一个链接，打开另一个软件的功能。",
+    "inLanguage" : "en-us",
+    "author" : "Author Name",
+    "creator" : "Author Name",
+    "publisher": "Author Name",
+    "accountablePerson" : "Author Name",
+    "copyrightHolder" : "Author Name",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-06-20 14:43:42 \x2b0800 CST",
+    "dateModified" : "2019-06-20 14:43:42 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2019\/costom-url-protocol\/",
+    "wordCount" : "41",
+    "keywords" : [ "URL Protocol","Costom", "luneS\x27s garden"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">windows 添加自定义协议，实现浏览器打开软件</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">Author Name</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-06-20 itemprop="datePublished">June 20, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>我参考了这篇<a href="http://baimoz.me/1429/" rel="nofollow noreferrer" target="_blank">博客</a>，我使用了原博中 windows 系统的方式，亲测有效。下面贴一下操作步骤：</p>
+
+<h3 id="操作步骤">操作步骤</h3>
+
+<ol>
+<li>添加注册表</li>
+</ol>
+
+<p>（1）新建一个 <code>.reg</code> 的文件，填充如下内容。例如我新建一个自定义协议，名称为 lune。请注意，将下面所有的路径（也就是方括号内的内容）中的名称要 <strong>全部替换为自定义的名称</strong> ，且名称一定要 <strong>全部是小写字母</strong> 。</p>
+
+<pre><code>Windows Registry Editor Version 5.00
+[HKEY_CLASSES_ROOT\lune]
+&quot;URL Protocol&quot;=&quot;C:\\WINDOWS\\system32\\calc.exe&quot;
+@=&quot;LuneProtocol&quot;
+[HKEY_CLASSES_ROOT\lune\DefaultIcon]
+@=&quot;C:\\WINDOWS\\system32\\calc.exe,1&quot;
+[HKEY_CLASSES_ROOT\lune\shell]
+[HKEY_CLASSES_ROOT\lune\shell\open]
+[HKEY_CLASSES_ROOT\lune\shell\open\command]
+@=&quot;\&quot;C:\\WINDOWS\\system32\\calc.exe\&quot; \&quot;%1\&quot;&quot;
+</code></pre>
+
+<p>（2）双击添加到注册表。</p>
+
+<ol>
+<li><p>调用方式</p>
+
+<pre><code class="language-html">&lt;a href=&quot;lune://123&quot;&gt;click&lt;/a&gt;
+</code></pre></li>
+</ol>
+
+<h4 id="注意">注意</h4>
+
+<ol>
+<li><p><code>[HKEY_CLASSES_ROOT\lune\shell]</code>方括号内的路径（即 lune）要改成自定义的名字。</p></li>
+
+<li><p>自定义的key值，也就是名称，要小写。（都是血与泪&hellip;</p></li>
+</ol>
+
+<h4 id="mark">mark</h4>
+
+<p><a href="https://blog.csdn.net/evanxuhe/article/details/79240051" rel="nofollow noreferrer" target="_blank">实现浏览器判断本地是否安装程序，并下载与启动 Chrome,IE,360可用</a></p>
+
+<blockquote>
+<p>以上。🐳</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2019/costom-url-protocol/>https://luneshao.github.io/2019/costom-url-protocol/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/url-protocol/">
+                    #URL Protocol</a></span>
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/costom/">
+                    #Costom</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2019/google-console/" class="prev" rel="prev" title="如何让自己网站被google收录？"><i class="iconfont icon-left"></i>&nbsp;如何让自己网站被google收录？</a>
+         
+        
+        <a href="https://luneshao.github.io/2019/brew-noresponse/" class="next" rel="next" title="brew update 无响应">brew update 无响应&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

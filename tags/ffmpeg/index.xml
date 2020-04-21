@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ffmpeg on luneS&#39;s garden</title>
+    <link>https://luneshao.github.io/tags/ffmpeg/</link>
+    <description>Recent content in ffmpeg on luneS&#39;s garden</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Apr 2020 10:36:26 +0800</lastBuildDate>
+    
+	<atom:link href="https://luneshao.github.io/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>node-fluent-ffmpeg 文档</title>
+      <link>https://luneshao.github.io/2020/2020-04-07-fluent-ffmpeg-api/</link>
+      <pubDate>Tue, 07 Apr 2020 10:36:26 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-04-07-fluent-ffmpeg-api/</guid>
+      <description>node-fluent-ffmpeg 该库将 ffmpeg 的复杂命令行用法抽象为一个流畅，易于使用的 node.js 模块。为了能够使用此模块，请确保在系统上安装了ffmpeg（包括所有必需的编码库，如 libmp3lame 或 libx264）。
+安装 npm
+$ npm install fluent-ffmpeg  yarn
+$ yarn add fluent-ffmpeg  或者作为一个 submodule
+$ git submodule add git://github.com/schaermu/node-fluent-ffmpeg.git vendor/fluent-ffmpeg  用法 你将在 examples 文件夹中找到一些有用的例子。
+先决条件 ffmpeg and ffprobe fluent-ffmpeg 需要 ffmpeg&amp;gt; = 0.9 才能工作。它可能与以前的版本一起使用，但是一些功能将不可用（并且不再对库进行较低版本的测试）。
+如果设置了 FFMPEG_PATH 环境变量，fluent-ffmpeg 会将其用作 ffmpeg 可执行文件的完整路径。否则，它将尝试直接调用 ffmpeg（因此它应该在您的 PATH 中）。您还必须安装 ffprobe（大多数发行版随附 ffmpeg）。同样，fluent-ffmpeg 将使用 FFPROBE_PATH 环境变量（如果已设置），否则它将尝试在 PATH 中调用它。
+当使用 avconv 和 avprobe 而不是 ffmpeg 和 ffprobe 时，大多数功能都可以使用，但是目前尚不正式支持。</description>
+    </item>
+    
+  </channel>
+</rss>

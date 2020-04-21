@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
+  
+  <link rel="prev" href="https://luneshao.github.io/2020/2020-03-31-audio/" />
+  <link rel="next" href="https://luneshao.github.io/2020/2020-04-07-fluent-ffmpeg-api/" />
+  <link rel="canonical" href="https://luneshao.github.io/2020/2020-04-02-tencent-server-ssh/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           修改腾讯云默认远程连接端口 | luneS&#39;s garden
+       
+  </title>
+  <meta name="title" content="修改腾讯云默认远程连接端口 | luneS&#39;s garden">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "修改腾讯云默认远程连接端口",
+    "headline" : "修改腾讯云默认远程连接端口",
+    "description" : "内容概要：修改腾讯云默认远程连接端口以及设置ssh远程连接方式。",
+    "inLanguage" : "en-us",
+    "author" : "luneShao",
+    "creator" : "luneShao",
+    "publisher": "luneShao",
+    "accountablePerson" : "luneShao",
+    "copyrightHolder" : "luneShao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-02 10:36:26 \x2b0800 CST",
+    "dateModified" : "2020-04-02 10:36:26 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2020\/2020-04-02-tencent-server-ssh\/",
+    "wordCount" : "140",
+    "keywords" : [ "腾讯云", "luneS\x27s garden"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">修改腾讯云默认远程连接端口</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneShao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-02 itemprop="datePublished">April 2, 2020</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h3 id="引子">引子</h3>
+
+<p>话说去年夏天，腾讯云最低端配置的服务器两百多可以包三年，我就冲了一台给自己瞎鼓捣东西用。最近在测试Jekyll的自动部署就又把服务器用起来了，然后，这两天就提示越南的IP异常登录，emmm，我又不太懂，怕服务器被黑了，就查了下解决办法。然后，就看到了<a href="https://www.cnblogs.com/lurenjia1994/p/9484628.html" rel="nofollow noreferrer" target="_blank">腾讯云防暴力破解防异地登陆</a>。然后，就踩了一个小坑“修改ssh远程登陆端口后，ssh连接一直connect refused”所以记录下。</p>
+
+<h2 id="正文">正文</h2>
+
+<p>文章中的步骤：
+&gt; 1、 vim  /etc/ssh/sshd_config,将#Port 22解注释，然后改成其他端口，最后重启sshd服务
+&gt; 2、 重启sshd服务： systemctl restart sshd
+&gt; 3、 在腾讯云安全组开放你的端口，来源最好绑定自己ip</p>
+
+<p>这里步骤是完全没问题的，但是不完整。下面我补充一下：</p>
+
+<ul>
+<li>5、 根据<a href="https://cloud.tencent.com/document/product/213/42838#ModifyLinuxCVMPort" rel="nofollow noreferrer" target="_blank">修改云服务器远程默认端口</a>这篇文章，在执行完第二步之后需要配置下防火墙，放行新增端口。</li>
+<li>6、 也就是我踩的坑。重启实例。具体原因我不清楚，但是不重启的话，我修改的远程端口配置就不生效。如果大佬们清楚原因还望赐教，感谢。</li>
+</ul>
+
+<h3 id="补充腾讯云其他操作">补充腾讯云其他操作</h3>
+
+<h4 id="一-使用ssh方式远程连接服务器">一、使用ssh方式远程连接服务器</h4>
+
+<p>参考<a href="https://blog.csdn.net/ouzuosong/article/details/52225087" rel="nofollow noreferrer" target="_blank">腾讯云购买以及配置ssh密钥登录</a>
+为了安全，在本地生成公钥、私钥配置到实例中。
+步骤：
+- 1、 本地执行 ssh-keygen -t rsa ,然后会出现如下内容：</p>
+
+<pre><code class="language-txt">  Generating public/private rsa key pair.
+  Enter file in which to save the key (/Users/apple/.ssh/id_rsa): 
+</code></pre>
+
+<p>可以在此时输入自定义的ssh文件名，默认的是 id_rsa，为了区分我修改为 id_rsa_tencent-server。之后可以一路回车，如果想设置密码可以设置，我嫌麻烦没设置。
+- 2、 本地配置ssh对应的hostname及端口：</p>
+
+<pre><code class="language-vi">  $ cd ~/.ssh
+  $ vi config 
+  （键盘键入 i 输入内容）
+  $ Host tencent
+    UseKeychain yes
+    User root
+    Port 8888
+    HostName 8.8.8.8
+    IdentityFile ~/.ssh/id_rsa_tencent-server
+    # 参数
+    # Host: 识别模式
+    # HostName: 要登陆的主机名
+    # Port: 端口
+    # User: 登录名
+    # IdentityFile: user对应的identityFile
+</code></pre>
+
+<p>以上的三行命令分别是：进入ssh菜单、编辑config文件、配置ssh对应的主机名及端口，Host、User、Port、HostName都需要自行配置。
+  输入完成后，键入 esc =&gt; :wq 保存。
+- 3、 使用账号、密码远程连接服务器，添加公钥。</p>
+
+<pre><code class="language-vi">  $ cd ~/.ssh
+  $ vi authorized_keys
+  (i)
+</code></pre>
+
+<p>把公钥（id_rsa_tencent-server.pub）拷贝进去，键入 <code>esc</code> =&gt; <code>$ :wq</code> 保存 =&gt; <code>$ chmod 600 authorized_keys</code>。($ 仅表示在命令行输入，实际不需输入)
+- 4、 本地命令行输入 ssh tencent ，测试配置是否成功。</p>
+
+<h4 id="二-添加弹性ip">二、添加弹性IP</h4>
+
+<p>在云服务器页左侧的菜单中找到 弹性公网IP，点击 申请，完成申请弹性公网IP。（注意申请后如果闲置的话会被扣费，最好及时绑定实例）</p>
+
+<p>实例页和弹性公网IP页都可以实现 EIP 绑定实例。绑定后记得修改本地ssh config 中的主机地址。</p>
+
+<p><strong>注意</strong>申请弹性IP并绑定实例后，公网IP将被释放，并且需要重启nginx服务恢复80端口的访问。如果想用公网IP，解绑时在弹出框勾选左下角的 “解绑后分配免费公网IP”</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2020/2020-04-02-tencent-server-ssh/>https://luneshao.github.io/2020/2020-04-02-tencent-server-ssh/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/">
+                    #腾讯云</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2020/2020-03-31-audio/" class="prev" rel="prev" title="音频操作"><i class="iconfont icon-left"></i>&nbsp;音频操作</a>
+         
+        
+        <a href="https://luneshao.github.io/2020/2020-04-07-fluent-ffmpeg-api/" class="next" rel="next" title="node-fluent-ffmpeg 文档">node-fluent-ffmpeg 文档&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

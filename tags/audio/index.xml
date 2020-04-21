@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>audio on luneS&#39;s garden</title>
+    <link>https://luneshao.github.io/tags/audio/</link>
+    <description>Recent content in audio on luneS&#39;s garden</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 31 Mar 2020 10:36:26 +0800</lastBuildDate>
+    
+	<atom:link href="https://luneshao.github.io/tags/audio/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>音频操作</title>
+      <link>https://luneshao.github.io/2020/2020-03-31-audio/</link>
+      <pubDate>Tue, 31 Mar 2020 10:36:26 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-03-31-audio/</guid>
+      <description> currentTime: 当前播放时间，单位为秒。为其赋值将会使媒体跳到一个新的时间。  1 2 
+你的浏览器不支持音乐播放，请点击这里查看
+
+  var audio = document.querySelector(&#39;#audio&#39;) audio.loop = true function select () { const select = document.getElementById(&#39;select&#39;); audio.playbackRate = select.value audio.preload console.log(audio.played) }  </description>
+    </item>
+    
+  </channel>
+</rss>

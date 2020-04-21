@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
+  
+  <link rel="prev" href="https://luneshao.github.io/2019/vue-cli-mock/" />
+  <link rel="next" href="https://luneshao.github.io/2019/setup-vpn/" />
+  <link rel="canonical" href="https://luneshao.github.io/2019/eslint/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           深入理解eslint | luneS&#39;s garden
+       
+  </title>
+  <meta name="title" content="深入理解eslint | luneS&#39;s garden">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "深入理解eslint",
+    "headline" : "深入理解eslint",
+    "description" : "读懂eslint的配置项，以及开发自己eslint插件",
+    "inLanguage" : "en-us",
+    "author" : "luneShao",
+    "creator" : "luneShao",
+    "publisher": "luneShao",
+    "accountablePerson" : "luneShao",
+    "copyrightHolder" : "luneShao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-08-02 10:36:26 \x2b0800 CST",
+    "dateModified" : "2019-08-02 10:36:26 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2019\/eslint\/",
+    "wordCount" : "159",
+    "keywords" : [ "eslint", "luneS\x27s garden"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">深入理解eslint</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneShao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-08-02 itemprop="datePublished">August 2, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <blockquote>
+<p>引言</p>
+
+<p>参考文献：<a href="https://mp.weixin.qq.com/s/X2gShxrCw0ukZigjE_45kA" rel="nofollow noreferrer" target="_blank">转载微信公众号的正文</a></p>
+
+<p>文章结构：注释了一下 eslint.js 的各个配置项是什么意思，再也不会觉得像天书了（狗头</p>
+</blockquote>
+
+<pre><code class="language-js">// eslint.js
+module.exports = {
+  root: true, // 如果root设置为true，那么 ESLint 就会认为当前目录为根目录，不再向上查找配置。
+  
+  parser: 'babel-eslint', // 解析器类型：espima(默认), babel-eslint, @typescript-eslint/parse
+
+  parserOptions: { // 解析器配置参数
+    sourceType: 'module' // 代码类型：script(默认), module
+  },
+
+  // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
+  /**
+  * &quot;eslint:recommended&quot;, // 一共有两个：eslint:recommended 、eslint:all
+  * &quot;plugin:react/recommended&quot;, // 扩展是插件类型，也可以直接在 plugins 属性中进行设置 =&gt; extPlugin = `plugin:${pluginName}/${configName}`
+  * &quot;eslint-config-standard&quot;, // 扩展来自 npm 包，官方规定 npm 包的扩展必须以 eslint-config- 开头，使用时可以省略这个头
+  */
+  extends: 'standard', // 扩展就是直接使用别人已经写好的 lint 规则，方便快捷
+
+  // required to lint *.vue files
+  plugins: [ // 以 eslint-plugin- 开头，使用的时候也可以省略这个头
+    'vue'
+  ],
+
+  /**
+   * “off” 或 0：关闭规则
+   * “warn” 或 1：开启规则，warn 级别的错误 (不会导致程序退出)
+   * “error” 或 2：开启规则，error级别的错误(当被触发的时候，程序会退出)
+   * {
+   * &quot;rules&quot;: {
+    // 使用数组形式，对规则进行配置
+    // 第一个参数为是否启用规则
+    // 后面的参数才是规则的配置项
+   * &quot;quotes&quot;: [
+   *  &quot;error&quot;,
+   *  &quot;single&quot;,
+   *  {
+   *    &quot;avoidEscape&quot;: true 
+   *  }
+   * ]
+  }}
+   */
+  'rules': { // 可以在配置文件的 rules 属性中配置你想要的规则
+    // allow paren-less arrow functions
+    'arrow-parens': 0,
+    // allow async-await
+    'generator-star-spacing': 0,
+    // allow debugger during development
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+  }
+}
+
+</code></pre>
+
+<blockquote>
+<p>以上。🥳</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2019/eslint/>https://luneshao.github.io/2019/eslint/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/eslint/">
+                    #eslint</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2019/vue-cli-mock/" class="prev" rel="prev" title="Vue CLI中配置使用Mock数据"><i class="iconfont icon-left"></i>&nbsp;Vue CLI中配置使用Mock数据</a>
+         
+        
+        <a href="https://luneshao.github.io/2019/setup-vpn/" class="next" rel="next" title="Chrome 上网插件 setupVPN">Chrome 上网插件 setupVPN&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>URL Protocol on luneS&#39;s garden</title>
@@ -13,14 +13,15 @@
     
     <item>
       <title>windows 添加自定义协议，实现浏览器打开软件</title>
-      <link>https://luneshao.github.io/post/costom-url-protocol/</link>
+      <link>https://luneshao.github.io/2019/costom-url-protocol/</link>
       <pubDate>Thu, 20 Jun 2019 14:43:42 +0800</pubDate>
       
-      <guid>https://luneshao.github.io/post/costom-url-protocol/</guid>
+      <guid>https://luneshao.github.io/2019/costom-url-protocol/</guid>
       <description> 我参考了这篇博客，我使用了原博中 windows 系统的方式，亲测有效。下面贴一下操作步骤：
 操作步骤  添加注册表  （1）新建一个 .reg 的文件，填充如下内容。例如我新建一个自定义协议，名称为 lune。请注意，将下面所有的路径（也就是方括号内的内容）中的名称要 全部替换为自定义的名称 ，且名称一定要 全部是小写字母 。
 Windows Registry Editor Version 5.00 [HKEY_CLASSES_ROOT\lune] &amp;quot;URL Protocol&amp;quot;=&amp;quot;C:\\WINDOWS\\system32\\calc.exe&amp;quot; @=&amp;quot;LuneProtocol&amp;quot; [HKEY_CLASSES_ROOT\lune\DefaultIcon] @=&amp;quot;C:\\WINDOWS\\system32\\calc.exe,1&amp;quot; [HKEY_CLASSES_ROOT\lune\shell] [HKEY_CLASSES_ROOT\lune\shell\open] [HKEY_CLASSES_ROOT\lune\shell\open\command] @=&amp;quot;\&amp;quot;C:\\WINDOWS\\system32\\calc.exe\&amp;quot; \&amp;quot;%1\&amp;quot;&amp;quot;  （2）双击添加到注册表。
- 调用方式  &amp;lt;a href=&amp;quot;lune://123&amp;quot;&amp;gt;click&amp;lt;/a&amp;gt;  注意  [HKEY_CLASSES_ROOT\lune\shell]方括号内的路径（即 lune）要改成自定义的名字。
+ 调用方式
+&amp;lt;a href=&amp;quot;lune://123&amp;quot;&amp;gt;click&amp;lt;/a&amp;gt;   注意  [HKEY_CLASSES_ROOT\lune\shell]方括号内的路径（即 lune）要改成自定义的名字。
  自定义的key值，也就是名称，要小写。（都是血与泪&amp;hellip;
   mark 实现浏览器判断本地是否安装程序，并下载与启动 Chrome,IE,360可用
  以上。🐳

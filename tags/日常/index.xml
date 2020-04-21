@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>日常 on luneS&#39;s garden</title>
@@ -13,10 +13,10 @@
     
     <item>
       <title>hugo 介绍及使用</title>
-      <link>https://luneshao.github.io/post/hugo-intro/</link>
+      <link>https://luneshao.github.io/2019/hugo-intro/</link>
       <pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/post/hugo-intro/</guid>
+      <guid>https://luneshao.github.io/2019/hugo-intro/</guid>
       <description>引言 本篇文章简单介绍了 Hugo 的目录结构和博客内一些个性化内容(评论、音乐、google analyze)的实现。
 使用 Hugo 生成博客还请大家移步至 Hugo中文文档，我看着挺清晰的，比英文文档好看啊&amp;hellip;
 我目前使用的是 hugo-lamp 这个主题，绿绿的多好看😏。
@@ -31,10 +31,10 @@
     
     <item>
       <title>Mac 的快捷键</title>
-      <link>https://luneshao.github.io/post/mac-keyboard/</link>
+      <link>https://luneshao.github.io/2019/mac-keyboard/</link>
       <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/post/mac-keyboard/</guid>
+      <guid>https://luneshao.github.io/2019/mac-keyboard/</guid>
       <description>在知乎上截取部分自己会用到的一部分。
  按键符号
   ⌘ (command) ⌥ (option) ⇧ (shift) ⌃ (control) ⌫ (delete)   常用的快捷键
@@ -48,10 +48,10 @@
     
     <item>
       <title>蔬菜水煮建议时间</title>
-      <link>https://luneshao.github.io/post/vegetable/</link>
+      <link>https://luneshao.github.io/2019/vegetable/</link>
       <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/post/vegetable/</guid>
+      <guid>https://luneshao.github.io/2019/vegetable/</guid>
       <description>要注意水煮时间要根据蔬菜的切块大小以及想追求的柔软程度，下面的时间仅是指导 (单位为分钟)：
  洋蓟(整个): 25-40
  洋蓟(芯儿): 10-15
@@ -77,10 +77,10 @@
     
     <item>
       <title>每天一集TED 20190415</title>
-      <link>https://luneshao.github.io/post/0415/</link>
+      <link>https://luneshao.github.io/2019/0415/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/post/0415/</guid>
+      <guid>https://luneshao.github.io/2019/0415/</guid>
       <description> 是什么让你睡不着觉？ 防止失眠的方法  治疗失眠最好的方法之一是，管理好会造成过度警觉的压力。  确保你的卧室十分舒爽，你的床只是用来睡觉，如果睡不着就去看会书、
 冥想或者写日记。
  调节你的新陈代谢，做法是维持一贯的睡眠和起床作息，来协助调整你的生物钟。因为这个生物钟对光很敏感，所以夜间避免亮光。
@@ -94,10 +94,10 @@
     
     <item>
       <title>初次见面</title>
-      <link>https://luneshao.github.io/post/my-first-post/</link>
+      <link>https://luneshao.github.io/2019/my-first-post/</link>
       <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://luneshao.github.io/post/my-first-post/</guid>
+      <guid>https://luneshao.github.io/2019/my-first-post/</guid>
       <description>介绍 初次见面，请多多关照。 &amp;ndash;来自萌新的问候。（≧∇≦）
 这样规定一下：
  标题带有 =3 的就是我有未看完的内容的 （ 怕不是都要带着了 23333

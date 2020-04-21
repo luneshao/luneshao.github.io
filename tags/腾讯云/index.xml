@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>腾讯云 on luneS&#39;s garden</title>
+    <link>https://luneshao.github.io/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/</link>
+    <description>Recent content in 腾讯云 on luneS&#39;s garden</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Apr 2020 10:36:26 +0800</lastBuildDate>
+    
+	<atom:link href="https://luneshao.github.io/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>修改腾讯云默认远程连接端口</title>
+      <link>https://luneshao.github.io/2020/2020-04-02-tencent-server-ssh/</link>
+      <pubDate>Thu, 02 Apr 2020 10:36:26 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-04-02-tencent-server-ssh/</guid>
+      <description>引子 话说去年夏天，腾讯云最低端配置的服务器两百多可以包三年，我就冲了一台给自己瞎鼓捣东西用。最近在测试Jekyll的自动部署就又把服务器用起来了，然后，这两天就提示越南的IP异常登录，emmm，我又不太懂，怕服务器被黑了，就查了下解决办法。然后，就看到了腾讯云防暴力破解防异地登陆。然后，就踩了一个小坑“修改ssh远程登陆端口后，ssh连接一直connect refused”所以记录下。
+正文 文章中的步骤： &amp;gt; 1、 vim /etc/ssh/sshd_config,将#Port 22解注释，然后改成其他端口，最后重启sshd服务 &amp;gt; 2、 重启sshd服务： systemctl restart sshd &amp;gt; 3、 在腾讯云安全组开放你的端口，来源最好绑定自己ip
+这里步骤是完全没问题的，但是不完整。下面我补充一下：
+ 5、 根据修改云服务器远程默认端口这篇文章，在执行完第二步之后需要配置下防火墙，放行新增端口。 6、 也就是我踩的坑。重启实例。具体原因我不清楚，但是不重启的话，我修改的远程端口配置就不生效。如果大佬们清楚原因还望赐教，感谢。  补充腾讯云其他操作 一、使用ssh方式远程连接服务器 参考腾讯云购买以及配置ssh密钥登录 为了安全，在本地生成公钥、私钥配置到实例中。 步骤： - 1、 本地执行 ssh-keygen -t rsa ,然后会出现如下内容：
+Generating public/private rsa key pair. Enter file in which to save the key (/Users/apple/.ssh/id_rsa):  可以在此时输入自定义的ssh文件名，默认的是 id_rsa，为了区分我修改为 id_rsa_tencent-server。之后可以一路回车，如果想设置密码可以设置，我嫌麻烦没设置。 - 2、 本地配置ssh对应的hostname及端口：
+$ cd ~/.ssh $ vi config （键盘键入 i 输入内容） $ Host tencent UseKeychain yes User root Port 8888 HostName 8.</description>
+    </item>
+    
+  </channel>
+</rss>

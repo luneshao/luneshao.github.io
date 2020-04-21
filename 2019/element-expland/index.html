@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
+  
+  <link rel="prev" href="https://luneshao.github.io/2019/js-beauty/" />
+  <link rel="next" href="https://luneshao.github.io/2019/css-matrix/" />
+  <link rel="canonical" href="https://luneshao.github.io/2019/element-expland/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           =8 一些不常用的获取元素属性的操作 | luneS&#39;s garden
+       
+  </title>
+  <meta name="title" content="=8 一些不常用的获取元素属性的操作 | luneS&#39;s garden">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "=8 一些不常用的获取元素属性的操作",
+    "headline" : "=8 一些不常用的获取元素属性的操作",
+    "description" : "element 对象的拓展",
+    "inLanguage" : "en-us",
+    "author" : "LuneShao",
+    "creator" : "LuneShao",
+    "publisher": "LuneShao",
+    "accountablePerson" : "LuneShao",
+    "copyrightHolder" : "LuneShao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-05-28 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-05-28 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/luneshao.github.io\/2019\/element-expland\/",
+    "wordCount" : "38",
+    "keywords" : [ "前端", "luneS\x27s garden"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">=8 一些不常用的获取元素属性的操作</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">LuneShao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-05-28 itemprop="datePublished">May 28, 2019</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="1-获取元素的css">1. 获取元素的css</h2>
+
+<ul>
+<li>1.1 <code>window.getComputedStyle()</code></li>
+</ul>
+
+<p>返回另一个包含所有 <code>css</code> 属性的对象，该对象应用了样式表并解析了基础计算（只读）。</p>
+
+<pre><code class="language-js">window.getComputedStyle().getPropertyValue('font') // 获取属性 font 值
+</code></pre>
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle" rel="nofollow noreferrer" target="_blank">MDN</a>  <a href="https://www.zhangxinxu.com/wordpress/2012/05/getcomputedstyle-js-getpropertyvalue-currentstyle/" rel="nofollow noreferrer" target="_blank">张鑫旭前辈的文章</a></p>
+
+<p><em>css 安全</em>(<a href="https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/" rel="nofollow noreferrer" target="_blank">blog</a>)</p>
+
+<h2 id="2-获取元素的大小及其相对于视口的位置">2.获取元素的大小及其相对于视口的位置</h2>
+
+<ul>
+<li>2.1 <code>Element.getComputedStyle()</code></li>
+</ul>
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect" rel="nofollow noreferrer" target="_blank">MDN</a></p>
+
+<p>返回元素的大小及其相对于视口的位置。</p>
+
+<p>如果你需要获得相对于整个网页左上角定位的属性值，那么只要给top、left属性值加上当前的滚动位置</p>
+
+<p>（通过window.scrollX和window.scrollY），这样就可以获取与当前的滚动位置无关的值。</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/0528-ee-gb1.jpg" alt="getBoundingClientRect图片" class="lazyload"><figcaption class="image-caption">getBoundingClientRect图片</figcaption></figure></p>
+
+<h2 id="3-返回当前document对象所关联的window对象">3.返回当前document对象所关联的window对象</h2>
+
+<ul>
+<li>3.1 <code>document.defaultView</code></li>
+</ul>
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle#defaultView" rel="nofollow noreferrer" target="_blank">MDN</a></p>
+
+<p>该属性返回当前 <code>document</code> 对象所关联的 <code>window</code> 对象，如果没有，会返回 <code>null</code>。</p>
+
+<p>在许多在线的演示代码中，<code>getComputedStyle</code>是通过 <code>document.defaultView</code> 对象来调用的。大部分情况下，这是不需要的，因为可以直接通过window对象调用。但有一种情况，你必需要使用 <code>defaultView</code>,  那是在firefox3.6上访问子框架内的样式。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2019/element-expland/>https://luneshao.github.io/2019/element-expland/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF/">
+                    #前端</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2019/js-beauty/" class="prev" rel="prev" title="js 代码美化 (持续更新)"><i class="iconfont icon-left"></i>&nbsp;js 代码美化 (持续更新)</a>
+         
+        
+        <a href="https://luneshao.github.io/2019/css-matrix/" class="next" rel="next" title="CSS Tranform 的 Matrix函数">CSS Tranform 的 Matrix函数&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

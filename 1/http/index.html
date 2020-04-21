@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
+  
+  <link rel="prev" href="https://luneshao.github.io/1/js-expland/" />
+  <link rel="next" href="https://luneshao.github.io/2019/my-first-post/" />
+  <link rel="canonical" href="https://luneshao.github.io/1/http/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+            | luneS&#39;s garden
+       
+  </title>
+  <meta name="title" content=" | luneS&#39;s garden">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "",
+    "headline" : "",
+    "description" : "\x2b\x2b\x2b title = \x26ldquo;httt 协议与 TCP\/IP 协议\x26rdquo; description = \x26ldquo;http 协议和 TCP\/IP 协议的理解，以及一些简写的释义。\x26rdquo; tags = [\x26lsquo;http\x26rsquo;, \x26lsquo;前端\x26rsquo;] date = \x26ldquo;2019-09-03\x26rdquo; location = \x26ldquo;JiNan, CN\x26rdquo; type = \x26ldquo;post\x26rdquo; draft=\x26ldquo;true\x26rdquo; \x2b\x2b\x2b 参考微信公众号文章，记录一些知识点，原文请点击 👉🏻微信公众号原文\n名词缩写释义 OSI 参考模型：OSI 参考模型是一个尝试让全世界计算机互联为网络的概念性框架，为定制标准提供参考的概念性框架。\nOSI 参考模型中将计算机网络体系结构划分为 7 层，从下至上依次是：\n 物理层：光纤和网卡等，负责通信设备和网络媒体之间的互通 数据链路层：以太网，用来加强物理层功能 网络层：IP 协议和 ICMP 协议等，负责数据的路由的选择与数据转寄 传输层：TCP 协议和 UDP 协议等，承上启下，控制连接，控制流量 会话层：建立和维护会话关系 表达层：把数据转换为接受者系统可兼容的格式 应用层：HTTP、FTP、SMTP 和 SSH 等，粗犷的理解为程序员层  TCP\/IP 参考模型：TCP\/IP 协议代表一整个网络传输协议家族，而不仅仅是 TCP 协议和 IP 协议，TCP 协议和 IP 协议是该协议家族中最早通过的最核心的两个协议标准，因此该协议家族被称作 TCP\/IP 协议族，也就是我们通常所说的 TCP\/IP 协议。",
+    "inLanguage" : "en-us",
+    "author" : "LuneShao",
+    "creator" : "LuneShao",
+    "publisher": "LuneShao",
+    "accountablePerson" : "LuneShao",
+    "copyrightHolder" : "LuneShao",
+    "copyrightYear" : "0001",
+    "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
+    "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/luneshao.github.io\/1\/http\/",
+    "wordCount" : "265",
+    "keywords" : [  "luneS\x27s garden"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">luneS&#39;s garden</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline"></h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">LuneShao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=0001-01-01 itemprop="datePublished">January 1, 0001</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>+++
+title = &ldquo;httt 协议与 TCP/IP 协议&rdquo;
+description = &ldquo;http 协议和 TCP/IP 协议的理解，以及一些简写的释义。&rdquo;
+tags = [&lsquo;http&rsquo;, &lsquo;前端&rsquo;]
+date = &ldquo;2019-09-03&rdquo;
+location = &ldquo;JiNan, CN&rdquo;
+type = &ldquo;post&rdquo;
+draft=&ldquo;true&rdquo;
++++
+参考微信公众号文章，记录一些知识点，原文请点击 👉🏻<a href="https://mp.weixin.qq.com/s/69EvvR0FHR57QuhDC7bJ8w" rel="nofollow noreferrer" target="_blank">微信公众号原文</a></p>
+
+<h3 id="名词缩写释义">名词缩写释义</h3>
+
+<p><code>OSI 参考模型</code>：OSI 参考模型是一个尝试让全世界计算机互联为网络的概念性框架，为定制标准提供参考的概念性框架。</p>
+
+<p>OSI 参考模型中将计算机网络体系结构划分为 7 层，从下至上依次是：</p>
+
+<ul>
+<li>物理层：光纤和网卡等，负责通信设备和网络媒体之间的互通</li>
+<li>数据链路层：以太网，用来加强物理层功能</li>
+<li>网络层：IP 协议和 ICMP 协议等，负责数据的路由的选择与数据转寄</li>
+<li>传输层：TCP 协议和 UDP 协议等，承上启下，控制连接，控制流量</li>
+<li>会话层：建立和维护会话关系</li>
+<li>表达层：把数据转换为接受者系统可兼容的格式</li>
+<li>应用层：HTTP、FTP、SMTP 和 SSH 等，粗犷的理解为程序员层</li>
+</ul>
+
+<p><code>TCP/IP 参考模型</code>：TCP/IP 协议代表一整个网络传输协议家族，而不仅仅是 TCP 协议和 IP 协议，TCP 协议和 IP 协议是该协议家族中最早通过的最核心的两个协议标准，因此该协议家族被称作 TCP/IP 协议族，也就是我们通常所说的 TCP/IP 协议。</p>
+
+<p>要完成一个任务需要该协议家族的各种协议分工协作，在该参考模型中的网络体系结构一共分为 4 层，从下至上依次是：</p>
+
+<ul>
+<li>网络连接层：主机与网络相连的协议，如：以太网</li>
+<li>网络互联层：IP 协议和 ICMP 协议等，负责数据的路由的选择与数据转寄</li>
+<li>传输层：TCP 协议和 UDP 协议等，控制端对端的连接、流量和稳定性</li>
+<li>应用层：HTTP、FTP、SMTP 和 SSH 等，粗犷的理解为程序员层</li>
+</ul>
+
+<p><code>Socket</code>：TCP/IP 协议需要向程序员提供可编程的 API，该 API 就是 Socket</p>
+
+<p><code>MAC地址</code>： 媒体存取控制位址，也称为局域网地址，它是一个用来确认网络设备位置的位址。在 OSI 模型中，第三层网络层负责 IP 地址，第二层数据链路层则负责 MAC 位址。</p>
+
+<p><code>ARP</code>：地址解析协议，即 ARP（Address Resolution Protocol），是根据 IP 地址获取物理地址的一个 TCP/IP 协议。</p>
+
+<p><code>TCP 的数据结构图</code>：
+<img width="100%" src="/img/0903-http-tcp1.webp" alt="TCP 的数据结构图"></p>
+
+<ul>
+<li>SYN：建立连接标识</li>
+<li>ACK：响应标识</li>
+<li>FIN：断开连接标识</li>
+<li>seq：seq number，发送序号</li>
+<li>ack：ack number，响应序号</li>
+</ul>
+
+<h4 id="建立-tcp-连接-3-次握手">建立 TCP 连接，3 次握手</h4>
+
+<ul>
+<li>客户端发送 SYN, seq=x，进入 SYN_SEND 状态</li>
+<li>服务端回应 SYN, ACK, seq=y, ack=x+1，进入 SYN_RCVD 状态</li>
+<li>客户端回应 ACK, seq=x+1, ack=y+1，进入 ESTABLISHED 状态，服务端收到后进入 ESTABLISHED 状态</li>
+</ul>
+
+<h4 id="进行数据传输">进行数据传输</h4>
+
+<ul>
+<li>客户端发送 ACK, seq=x+1, ack=y+1, len=m</li>
+<li>服务端回应 ACK, seq=y+1, ack=x+m+1, len=n</li>
+<li>客户端回应 ACK, seq=x+m+1, ack=y+n+1</li>
+</ul>
+
+<h4 id="断开-tcp-连接-4-次挥手">断开 TCP 连接， 4 次挥手</h4>
+
+<ul>
+<li>主机 A 发送 FIN, ACK, seq=x+m+1, ack=y+n+1，进入 FNIWAIT1 状态</li>
+<li>主机 B 回应 ACK, seq=y+n+1, ack=x+m+1，进入 CLOSEWAIT 状态，主机 A 收到后 进入 FINWAIT_2 状态</li>
+<li>主机 B 发送 FIN, ACK, seq=y+n+1, ack=x+m+1，进入 LAST_ACK 状态</li>
+<li>主机 A 回应 ACk, seq=x+m+1, ack=y+n+1，进入 TIME_WAIT 状态，等待主机 B 可能要求重传 ACK 包，主机 B 收到后关闭连接，进入 CLOSED 状态或者要求主机 A 重传 ACK，客户端在一定的时间内没收到主机 B 重传 ACK 包的要求后，断开连接进入 CLOSED 状态</li>
+</ul>
+
+<p>根据 HTTP 协议，更加规范的来看包体的内容类型可以分为三大类，分别是 URL 参数、任意流和表单。</p>
+
+<ul>
+<li><p>第一种，发送 URL 参数，在 Body 中的数据是这样拼接的：</p>
+
+<pre><code>name=harry&amp;gender=man
+</code></pre></li>
+</ul>
+
+<p>此时，请求头Content-Type是：</p>
+
+<pre><code>Content-Type: application/x-www-form-urlencoded
+</code></pre>
+
+<ul>
+<li>第二种，任意流，可以是字节流、字符流或者文件流等。</li>
+</ul>
+
+<p>例一：json等特定格式数据</p>
+
+<pre><code class="language-js">{ &quot;name&quot;: &quot;harry&quot;, &quot;gender&quot;: &quot;man&quot; }
+</code></pre>
+
+<p>此时，请求头Content-Type是：</p>
+
+<pre><code>Content-Type: application/json
+</code></pre>
+
+<p>例二，发送任意字符串数据，在 Body 中数据是这样的：eg：&rsquo;hello world&rsquo;</p>
+
+<p>此时，请求头Content-Type是：</p>
+
+<pre><code>Content-Type: text/plain
+</code></pre>
+
+<p>例三，发送已知类型的文件，比如是一张jpeg的图片</p>
+
+<p>此时，请求头Content-Type是对应的文件的MimeType：</p>
+
+<pre><code>Content-Type: image/jpeg
+</code></pre>
+
+<p>例四，未知类型的数据或者文件，此时 Body 中可以想象成这样：</p>
+
+<p>此时，请求头Content-Type是：</p>
+
+<pre><code>Content-Type: application/octet-stream
+</code></pre>
+
+<ul>
+<li>第三种，表单数据，因为表单具有一定的格式，所以只要按照格式上传就可以传递复杂的数据，比如可以在表单中全部传递字符串，也可以全部是文件，也可以是文件和字符串的混合，表单实际上可以理解为一个对象键值对，下面是表单的数据结构：</li>
+</ul>
+
+<p>此时，请求头Content-Type是： <a href="https://imququ.com/post/four-ways-to-post-data-in-http.html" rel="nofollow noreferrer" target="_blank">参考</a></p>
+
+<pre><code>Content-Type: multipart/form-data; boundary={boundary}
+</code></pre>
+
+<p>后边就懵了。。。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/1/http/>https://luneshao.github.io/1/http/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/1/js-expland/" class="prev" rel="prev" title=""><i class="iconfont icon-left"></i>&nbsp;</a>
+         
+        
+        <a href="https://luneshao.github.io/2019/my-first-post/" class="next" rel="next" title="初次见面">初次见面&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
