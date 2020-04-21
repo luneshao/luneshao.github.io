@@ -62,6 +62,7 @@
 }
 </script>
 
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 </head>
 
   
@@ -124,6 +125,9 @@
                 </span>
                 in
                 
+                <span id="/2020/2020-04-07-fluent-ffmpeg-api/" class="leancloud_visitors post-meta" data-flag-title="node-fluent-ffmpeg 文档">
+                    <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
+                </span>
         </div>
     </header>
     <div class="post-content">
@@ -1530,6 +1534,8 @@ command.save('/path/to/output-original-size.mp4');
 
     </div>
 
+    <div id="vcomment"></div>
+
     <div class="post-copyright">
              
             <p class="copyright-item">
@@ -1550,7 +1556,6 @@ command.save('/path/to/output-original-size.mp4');
             </p>
             
     </div>
-
   
     <div class="post-tags">
         
@@ -1582,6 +1587,19 @@ command.save('/path/to/output-original-size.mp4');
                  
           
     </div>
+    <script>
+        new Valine({
+          el: '#vcomment' ,
+          appId: 'VMtRNdHhQOQVoiWu2y2dQnJb-gzGzoHsz',
+          appKey: '073437m7LGtKY9mmCQioFbKI',
+          notify:true, 
+          verify:false, 
+          avatar:'wavatar', 
+          recordIP: true,
+          visitor: true, 
+          placeholder: '你好哇，快来戳我吐槽吧！🎉' 
+        })
+    </script>
 </article>
           </div>
 		   </main>

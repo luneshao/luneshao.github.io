@@ -62,6 +62,7 @@
 }
 </script>
 
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 </head>
 
   
@@ -124,6 +125,9 @@
                 </span>
                 in
                 
+                <span id="/1/js-expland/" class="leancloud_visitors post-meta" data-flag-title="">
+                    <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
+                </span>
         </div>
     </header>
     <div class="post-content">
@@ -227,6 +231,8 @@ Array.prototype.shuffle = function () {
 
     </div>
 
+    <div id="vcomment"></div>
+
     <div class="post-copyright">
              
             <p class="copyright-item">
@@ -247,7 +253,6 @@ Array.prototype.shuffle = function () {
             </p>
             
     </div>
-
   
     <div class="post-tags">
         
@@ -269,6 +274,19 @@ Array.prototype.shuffle = function () {
                  
           
     </div>
+    <script>
+        new Valine({
+          el: '#vcomment' ,
+          appId: 'VMtRNdHhQOQVoiWu2y2dQnJb-gzGzoHsz',
+          appKey: '073437m7LGtKY9mmCQioFbKI',
+          notify:true, 
+          verify:false, 
+          avatar:'wavatar', 
+          recordIP: true,
+          visitor: true, 
+          placeholder: '你好哇，快来戳我吐槽吧！🎉' 
+        })
+    </script>
 </article>
           </div>
 		   </main>
