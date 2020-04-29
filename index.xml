@@ -1,20 +1,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>luneS&#39;s garden on luneS&#39;s garden</title>
+    <title>lune&#39;s garden on lune&#39;s garden</title>
     <link>https://luneshao.github.io/</link>
-    <description>Recent content in luneS&#39;s garden on luneS&#39;s garden</description>
+    <description>Recent content in lune&#39;s garden on lune&#39;s garden</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2020 10:36:26 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2020 09:50:55 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Posts</title>
       <link>https://luneshao.github.io/posts/</link>
-      <pubDate>Mon, 20 Apr 2020 10:36:26 +0800</pubDate>
+      <pubDate>Wed, 29 Apr 2020 09:50:55 +0800</pubDate>
       
       <guid>https://luneshao.github.io/posts/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://luneshao.github.io/about/</link>
+      <pubDate>Tue, 21 Apr 2020 10:36:26 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/about/</guid>
+      <description>
+
+&lt;h2 id=&#34;おれ&#34;&gt;おれ&lt;/h2&gt;
+
+&lt;p&gt;我是一只码前端的两足兽，坐标济南。Welcome to Jinan~&lt;/p&gt;
+
+&lt;p&gt;喜欢听音乐、看动画片、瞎鼓捣看起来有意思的玩意儿。不喜欢运动、出门、社交。小屋是最安全的根据地！&lt;/p&gt;
+
+&lt;p&gt;写文章是因为，我比较笨，鼓捣东西不会的又太多，我又都想看看，不常用就会忘，所以记录一下，方便之后反复查看。如果能帮到你就更好啦。&lt;/p&gt;
+
+&lt;p&gt;如果你在文章中发现错误，还请麻烦告诉我，发邮件或评论都可以啦～感谢感谢 :)&lt;/p&gt;
+
+&lt;p&gt;邮箱：1561358258@qq.com&lt;/p&gt;
+
+&lt;p&gt;以上。:)&lt;/p&gt;
+
+&lt;p&gt;ps:感谢作者的主题&lt;code&gt;*v*&lt;/code&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>

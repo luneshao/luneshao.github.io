@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on luneS&#39;s garden</title>
+    <title>Posts on lune&#39;s garden</title>
     <link>https://luneshao.github.io/posts/</link>
-    <description>Recent content in Posts on luneS&#39;s garden</description>
+    <description>Recent content in Posts on lune&#39;s garden</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2020 10:36:26 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2020 09:50:55 +0800</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Chrome 上网插件 setupVPN</title>
+      <link>https://luneshao.github.io/2020/2020-04-29-setupvpn/</link>
+      <pubDate>Wed, 29 Apr 2020 09:50:55 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-04-29-setupvpn/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>node、nginx 处理跨域</title>
@@ -496,7 +505,7 @@ MDN文档地址
       <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://luneshao.github.io/2019/markdown/</guid>
-      <description> 列表 // 无序列表 * txt txt txt + txt txt txt - txt txt txt // 有序列表 1. txt txt txt 2. txt txt txt  引用 &amp;gt; txt txt txt  粗体 和 斜体 // 粗体 **txt** / __txt__ // 斜体 *txt* / _txt_  表格 | thead | thead | thead | | :---- | :---: | ----: | | 左对齐 | 居中 | 右对齐 |  分隔线 *** / - - - / * * *  </description>
+      <description>列表 // 无序列表 * txt txt txt + txt txt txt - txt txt txt // 有序列表 1. txt txt txt 2. txt txt txt  引用 &amp;gt; txt txt txt  粗体 和 斜体 // 粗体 **txt** / __txt__ // 斜体 *txt* / _txt_  表格 | thead | thead | thead | | :---- | :---: | ----: | | 左对齐 | 居中 | 右对齐 |  分隔线 *** / - - - / * * *  图片 !</description>
     </item>
     
     <item>

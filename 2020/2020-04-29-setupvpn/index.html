@@ -9,9 +9,9 @@
   <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
   <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
   
-  <link rel="prev" href="https://luneshao.github.io/2019/markdown/" />
-  <link rel="next" href="https://luneshao.github.io/2019/usb-types/" />
-  <link rel="canonical" href="https://luneshao.github.io/2019/browser-num/" />
+  <link rel="prev" href="https://luneshao.github.io/2020/2020-04-20-nodejs-proxy/" />
+  
+  <link rel="canonical" href="https://luneshao.github.io/2020/2020-04-29-setupvpn/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -23,10 +23,10 @@
   <title>
        
        
-           =8 浏览器易混淆名词整理 | lune&#39;s garden
+           Chrome 上网插件 setupVPN | lune&#39;s garden
        
   </title>
-  <meta name="title" content="=8 浏览器易混淆名词整理 | lune&#39;s garden">
+  <meta name="title" content="Chrome 上网插件 setupVPN | lune&#39;s garden">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -45,21 +45,21 @@
          "@id": "https:\/\/luneshao.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : "=8 浏览器易混淆名词整理",
-    "headline" : "=8 浏览器易混淆名词整理",
-    "description" : "浏览器易混淆名词整理，比如 host、origin、url、uri",
+    "name" : "Chrome 上网插件 setupVPN",
+    "headline" : "Chrome 上网插件 setupVPN",
+    "description" : "Chrome 上网插件 setupVPN",
     "inLanguage" : "en-us",
-    "author" : "LuneShao",
-    "creator" : "LuneShao",
-    "publisher": "LuneShao",
-    "accountablePerson" : "LuneShao",
-    "copyrightHolder" : "LuneShao",
-    "copyrightYear" : "2019",
-    "datePublished": "2019-05-13 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-05-13 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/luneshao.github.io\/2019\/browser-num\/",
-    "wordCount" : "51",
-    "keywords" : [ "luneS","web前端", "lune\x27s garden"]
+    "author" : "luneshao",
+    "creator" : "luneshao",
+    "publisher": "luneshao",
+    "accountablePerson" : "luneshao",
+    "copyrightHolder" : "luneshao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-29 09:50:55 \x2b0800 CST",
+    "dateModified" : "2020-04-29 09:50:55 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2020\/2020-04-29-setupvpn\/",
+    "wordCount" : "31",
+    "keywords" : [ "chrome", "lune\x27s garden"]
 }
 </script>
 
@@ -122,15 +122,15 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">=8 浏览器易混淆名词整理</h1>
+        <h1 class="post-title" itemprop="name headline">Chrome 上网插件 setupVPN</h1>
         <div class="post-meta">
-                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">LuneShao</a> with ♥ 
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneshao</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-05-13 itemprop="datePublished">May 13, 2019</time>
+                on <time datetime=2020-04-29 itemprop="datePublished">April 29, 2020</time>
                 </span>
                 in
                 
-                <span id="/2019/browser-num/" class="leancloud_visitors post-meta" data-flag-title="=8 浏览器易混淆名词整理">
+                <span id="/2020/2020-04-29-setupvpn/" class="leancloud_visitors post-meta" data-flag-title="Chrome 上网插件 setupVPN">
                     <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
                 </span>
         </div>
@@ -138,6 +138,8 @@
     <div class="post-content">
         
 
+        
+            
         
 
         
@@ -151,47 +153,31 @@
           
           
 
-          
+          <h2 id="step-1-下载插件">Step 1、下载插件</h2>
 
-<h2 id="1-js-的-window-location-对象">1.JS 的 window.location 对象</h2>
+<p><a href="https://www.crx4chrome.com/crx/36007/" rel="nofollow noreferrer" target="_blank">下载地址</a></p>
 
-<p>包含有关文档及当前位置的信息。</p>
+<p>滚动到 <code>SetupVPN Old Versions</code>，选择自己要下载的版本 =&gt; 跳转到下载页 =&gt; 选择 <code>Download crx file from crx4chrome</code> 下载。</p>
 
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/location" rel="nofollow noreferrer" target="_blank">MDN文档地址</a></p>
+<h2 id="step-2-安装插件">Step 2、安装插件</h2>
 
-<ul>
-<li><p><code>location.origin</code>: 包含页面来源的域名的标准形式，当前页面的域名 + 端口。
-<br>eg: <code>https://www.baidu.com</code></p></li>
+<p>Chrome 打开开发者模式（拓展程序页的右上角），找到下载的文件拖进扩展程序。</p>
 
-<li><p><code>location.host</code>: 当前页面的域名，可能最后带有一个“：”和端口。
-<br>eg: www.baidu.com</p></li>
+<p>选择语言 =&gt; 创建账户\用邮箱注册 =&gt; 登录</p>
 
-<li><p><code>location.hostname</code>: 当前页面的域名。
-<br>eg: www.baidu.com</p></li>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/20200429-setupvpn-select-language.png" alt="选择服务器" class="lazyload"><figcaption class="image-caption">选择服务器</figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/20200429-setupvpn-signin.png" alt="创建账户" class="lazyload"><figcaption class="image-caption">创建账户</figcaption></figure>
+直接点下一步，就自动copy生成的验证码登录了。</p>
 
-<li><p><code>location.protocol</code>: 当前页面的协议。
-<br>eg: https</p></li>
+<h2 id="step-3-使用">Step 3、使用</h2>
 
-<li><p><code>location.assign()</code>: 加载给定 URL 的内容到这个 Location对象所关联的对象上。</p></li>
+<p>选择一个免费服务器，稍等会出现一个绿色盾牌页，就连接成功了。
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/20200429-setupvpn-select.png" alt="选择服务器" class="lazyload"><figcaption class="image-caption">选择服务器</figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/20200429-setupvpn-success.png" alt="连接成功" class="lazyload"><figcaption class="image-caption">连接成功</figcaption></figure></p>
 
-<li><p><code>location.reload(params)</code>: 重新加载当前页。params: t/f =&gt; 服务器请求资源/缓存。</p></li>
-
-<li><p><code>location.replace()</code>: 用给定的URL替换当前的资源，不会被保存历史。</p></li>
-</ul>
-
-<h2 id="2-ajax-请求头中的属性">2.ajax 请求头中的属性</h2>
-
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP" rel="nofollow noreferrer" target="_blank">MDN文档地址</a></p>
-
-<ul>
-<li><p><code>Host</code>: 服务器的域名（对于虚拟主机来说），以及（可选的）服务器监听的TCP端口号。
-<a href="https://blog.csdn.net/netdxy/article/details/51195560" rel="nofollow noreferrer" target="_blank">相关文章</a>一个IP可以部署众多网站，分别解析不同的域名，host 指示访问哪个虚拟主机。</p></li>
-
-<li><p><code>Origin</code>: 请求来自于哪个站点，该字段仅指示服务器名称，并不包含任何路径信息。</p></li>
-
-<li><p><code>Referer</code>: 当前请求页面的来源页面的地址。B -&gt; A, Referer: B.URL</p></li>
-</ul>
-
+<blockquote>
+<p>以上。🐵</p>
+</blockquote>
     </div>
 
     <div class="post-copyright">
@@ -205,7 +191,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://luneshao.github.io/2019/browser-num/>https://luneshao.github.io/2019/browser-num/</span>
+                    <a href=https://luneshao.github.io/2020/2020-04-29-setupvpn/>https://luneshao.github.io/2020/2020-04-29-setupvpn/</span>
             </p>
             
              
@@ -220,11 +206,8 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://luneshao.github.io/tags/lunes/">
-                    #luneS</a></span>
-            
-            <span class="tag"><a href="https://luneshao.github.io/tags/web%E5%89%8D%E7%AB%AF/">
-                    #web前端</a></span>
+            <span class="tag"><a href="https://luneshao.github.io/tags/chrome/">
+                    #chrome</a></span>
             
             </section>
         
@@ -236,10 +219,8 @@
 
     <div class="post-nav">
         
-        <a href="https://luneshao.github.io/2019/markdown/" class="prev" rel="prev" title="markdown 常用语法"><i class="iconfont icon-left"></i>&nbsp;markdown 常用语法</a>
+        <a href="https://luneshao.github.io/2020/2020-04-20-nodejs-proxy/" class="prev" rel="prev" title="node、nginx 处理跨域"><i class="iconfont icon-left"></i>&nbsp;node、nginx 处理跨域</a>
          
-        
-        <a href="https://luneshao.github.io/2019/usb-types/" class="next" rel="next" title="USB 接口类型">USB 接口类型&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
@@ -295,8 +276,9 @@
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
   
 
