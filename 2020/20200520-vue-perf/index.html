@@ -9,9 +9,9 @@
   <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
   <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
   
-  <link rel="prev" href="https://luneshao.github.io/2020/2020-04-20-nodejs-proxy/" />
-  <link rel="next" href="https://luneshao.github.io/2020/20200520-vue-perf/" />
-  <link rel="canonical" href="https://luneshao.github.io/2020/2020-04-29-setupvpn/" />
+  <link rel="prev" href="https://luneshao.github.io/2020/2020-04-29-setupvpn/" />
+  
+  <link rel="canonical" href="https://luneshao.github.io/2020/20200520-vue-perf/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -23,10 +23,10 @@
   <title>
        
        
-           Chrome 上网插件 setupVPN | lune&#39;s garden
+           vue 优化 | lune&#39;s garden
        
   </title>
-  <meta name="title" content="Chrome 上网插件 setupVPN | lune&#39;s garden">
+  <meta name="title" content="vue 优化 | lune&#39;s garden">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -45,21 +45,21 @@
          "@id": "https:\/\/luneshao.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : "Chrome 上网插件 setupVPN",
-    "headline" : "Chrome 上网插件 setupVPN",
-    "description" : "Chrome 上网插件 setupVPN",
+    "name" : "vue 优化",
+    "headline" : "vue 优化",
+    "description" : "vue 打包体积优化",
     "inLanguage" : "en-us",
-    "author" : "luneshao",
-    "creator" : "luneshao",
-    "publisher": "luneshao",
-    "accountablePerson" : "luneshao",
-    "copyrightHolder" : "luneshao",
+    "author" : "LuneShao",
+    "creator" : "LuneShao",
+    "publisher": "LuneShao",
+    "accountablePerson" : "LuneShao",
+    "copyrightHolder" : "LuneShao",
     "copyrightYear" : "2020",
-    "datePublished": "2020-04-29 09:50:55 \x2b0800 CST",
-    "dateModified" : "2020-04-29 09:50:55 \x2b0800 CST",
-    "url" : "https:\/\/luneshao.github.io\/2020\/2020-04-29-setupvpn\/",
-    "wordCount" : "31",
-    "keywords" : [ "chrome", "lune\x27s garden"]
+    "datePublished": "2020-05-20 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-05-20 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/luneshao.github.io\/2020\/20200520-vue-perf\/",
+    "wordCount" : "179",
+    "keywords" : [ "vue","web前端", "lune\x27s garden"]
 }
 </script>
 
@@ -122,15 +122,15 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Chrome 上网插件 setupVPN</h1>
+        <h1 class="post-title" itemprop="name headline">vue 优化</h1>
         <div class="post-meta">
-                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneshao</a> with ♥ 
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">LuneShao</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2020-04-29 itemprop="datePublished">April 29, 2020</time>
+                on <time datetime=2020-05-20 itemprop="datePublished">May 20, 2020</time>
                 </span>
                 in
                 
-                <span id="/2020/2020-04-29-setupvpn/" class="leancloud_visitors post-meta" data-flag-title="Chrome 上网插件 setupVPN">
+                <span id="/2020/20200520-vue-perf/" class="leancloud_visitors post-meta" data-flag-title="vue 优化">
                     <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
                 </span>
         </div>
@@ -138,8 +138,6 @@
     <div class="post-content">
         
 
-        
-            
         
 
         
@@ -153,31 +151,97 @@
           
           
 
-          <h2 id="step-1-下载插件">Step 1、下载插件</h2>
+          
 
-<p><a href="https://www.crx4chrome.com/crx/36007/" rel="nofollow noreferrer" target="_blank">下载地址</a></p>
+<h2 id="1-字体包压缩">1、字体包压缩</h2>
 
-<p>滚动到 <code>SetupVPN Old Versions</code>，选择自己要下载的版本 =&gt; 跳转到下载页 =&gt; 选择 <code>Download crx file from crx4chrome</code> 下载。</p>
+<p>使用 <a href="https://github.com/ecomfe/fontmin" rel="nofollow noreferrer" target="_blank">fontmin</a> 这个库压缩字体包。（字体下载地址 <a href="http://www.font168.com/" rel="nofollow noreferrer" target="_blank">字体下载网</a> ，这个下载的苹方简-常规可以被格式化。）</p>
 
-<h2 id="step-2-安装插件">Step 2、安装插件</h2>
+<h2 id="2-图片使用懒加载">2、图片使用懒加载</h2>
 
-<p>Chrome 打开开发者模式（拓展程序页的右上角），找到下载的文件拖进扩展程序。</p>
+<p>使用 <a href="https://www.npmjs.com/package/vue-lazyload" rel="nofollow noreferrer" target="_blank">vue-lazyload</a> 库优化图片加载，滚动到某处再加载图片。</p>
 
-<p>选择语言 =&gt; 创建账户\用邮箱注册 =&gt; 登录</p>
+<h2 id="3-打包线上版本-使用cdn引入包">3、打包线上版本，使用cdn引入包</h2>
 
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/20200429-setupvpn-select-language.png" alt="选择服务器" class="lazyload"><figcaption class="image-caption">选择服务器</figcaption></figure>
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/20200429-setupvpn-signin.png" alt="创建账户" class="lazyload"><figcaption class="image-caption">创建账户</figcaption></figure>
-直接点下一步，就自动copy生成的验证码登录了。</p>
+<pre><code class="language-js">// --------------
+// .env
+// --------------
+NODE_ENV === 'production'
 
-<h2 id="step-3-使用">Step 3、使用</h2>
+// --------------
+// vue.config.js
+// --------------
 
-<p>选择一个免费服务器，稍等会出现一个绿色盾牌页，就连接成功了。
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/20200429-setupvpn-select.png" alt="选择服务器" class="lazyload"><figcaption class="image-caption">选择服务器</figcaption></figure>
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/20200429-setupvpn-success.png" alt="连接成功" class="lazyload"><figcaption class="image-caption">连接成功</figcaption></figure></p>
+const isProd = process.env.NODE_ENV === 'production'
 
-<blockquote>
-<p>以上。🐵</p>
-</blockquote>
+const assetsCDN = {
+  // webpack build externals
+  externals: {
+    vue: 'Vue',
+    'vue-router': 'VueRouter',
+    'vue-lazyload': 'VueLazyload',
+  },
+  css: ['//cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css'],
+  // https://unpkg.com/browse/vue@2.6.10/
+  js: [
+    '//cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js',
+    '//cdn.jsdelivr.net/npm/vue-router@3.1.6/dist/vue-router.min.js',
+    '//cdn.jsdelivr.net/npm/vue-lazyload@1.3.3/vue-lazyload.min.js',
+  ]
+}
+
+module.exports = {
+  configureWebpack: config =&gt; {
+    if (isProd) {
+      return {
+        resolve: {
+          alias: {
+            '@ant-design/icons/lib/dist$': resolve('./src/core/antd/icons.js')
+          }
+        },
+        externals: assetsCDN.externals,
+        plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)]
+      }
+    }
+  },
+
+  chainWebpack: config =&gt; {
+    config.plugin('html').tap(args =&gt; {
+      args[0].title = process.env.VUE_APP_TITLE
+      if (isProd) {
+        args[0].cdn = assetsCDN
+      }
+      return args
+    })
+  }
+}
+</code></pre>
+
+<pre><code class="language-html">&lt;!-- index.html --&gt;
+...
+&lt;!-- require cdn assets css --&gt;
+  &lt;% for (var i in htmlWebpackPlugin.options.cdn &amp;&amp; htmlWebpackPlugin.options.cdn.css) { %&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;%= htmlWebpackPlugin.options.cdn.css[i] %&gt;&quot; /&gt;
+  &lt;% } %&gt;
+...
+&lt;!-- require cdn assets js --&gt;
+  &lt;% for (var i in htmlWebpackPlugin.options.cdn &amp;&amp; htmlWebpackPlugin.options.cdn.js) { %&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%= htmlWebpackPlugin.options.cdn.js[i] %&gt;&quot;&gt;&lt;/script&gt;
+  &lt;% } %&gt;
+</code></pre>
+
+<h2 id="4-ant-design-vue-相关">4、ant-design-vue 相关</h2>
+
+<h3 id="4-1-打包后-icon-包体积过大">4.1 打包后，icon 包体积过大</h3>
+
+<p>参考此 <a href="https://github.com/vueComponent/ant-design-vue/issues/1109" rel="nofollow noreferrer" target="_blank">issue</a> 作者的<a href="https://github.com/vueComponent/ant-design-vue/issues/1109#issuecomment-563094161" rel="nofollow noreferrer" target="_blank">回答</a></p>
+
+<h3 id="4-2-打包后-moment-包体积过大">4.2 打包后，moment 包体积过大</h3>
+
+<p>参考此优化方案 <a href="https://github.com/jmblog/how-to-optimize-momentjs-with-webpack" rel="nofollow noreferrer" target="_blank">github</a></p>
+
+<p>以上。</p>
+
     </div>
 
     <div class="post-copyright">
@@ -191,7 +255,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://luneshao.github.io/2020/2020-04-29-setupvpn/>https://luneshao.github.io/2020/2020-04-29-setupvpn/</span>
+                    <a href=https://luneshao.github.io/2020/20200520-vue-perf/>https://luneshao.github.io/2020/20200520-vue-perf/</span>
             </p>
             
              
@@ -206,8 +270,11 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://luneshao.github.io/tags/chrome/">
-                    #chrome</a></span>
+            <span class="tag"><a href="https://luneshao.github.io/tags/vue/">
+                    #vue</a></span>
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/web%E5%89%8D%E7%AB%AF/">
+                    #web前端</a></span>
             
             </section>
         
@@ -219,10 +286,8 @@
 
     <div class="post-nav">
         
-        <a href="https://luneshao.github.io/2020/2020-04-20-nodejs-proxy/" class="prev" rel="prev" title="node、nginx 处理跨域"><i class="iconfont icon-left"></i>&nbsp;node、nginx 处理跨域</a>
+        <a href="https://luneshao.github.io/2020/2020-04-29-setupvpn/" class="prev" rel="prev" title="Chrome 上网插件 setupVPN"><i class="iconfont icon-left"></i>&nbsp;Chrome 上网插件 setupVPN</a>
          
-        
-        <a href="https://luneshao.github.io/2020/20200520-vue-perf/" class="next" rel="next" title="vue 优化">vue 优化&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
@@ -278,9 +343,8 @@
 
 
     
-     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
-      
-     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
     
   
 
