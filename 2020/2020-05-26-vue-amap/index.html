@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
+  
+  <link rel="prev" href="https://luneshao.github.io/2020/2020-05-21-nginx/" />
+  
+  <link rel="canonical" href="https://luneshao.github.io/2020/2020-05-26-vue-amap/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/img/favicon.ico" />
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Vue 中异步加载 AMap | lune&#39;s garden
+       
+  </title>
+  <meta name="title" content="Vue 中异步加载 AMap | lune&#39;s garden">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Vue 中异步加载 AMap",
+    "headline" : "Vue 中异步加载 AMap",
+    "description" : "vue 中异步加载 amap 的 js 文件",
+    "inLanguage" : "en-us",
+    "author" : "luneShao",
+    "creator" : "luneShao",
+    "publisher": "luneShao",
+    "accountablePerson" : "luneShao",
+    "copyrightHolder" : "luneShao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-05-26 14:27:32 \x2b0800 CST",
+    "dateModified" : "2020-05-26 14:27:32 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2020\/2020-05-26-vue-amap\/",
+    "wordCount" : "244",
+    "keywords" : [ "vue, amap", "lune\x27s garden"]
+}
+</script>
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">lune&#39;s garden</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/about/" title=""></a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">lune&#39;s garden</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/about/" title=""></a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Vue 中异步加载 AMap</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneShao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-05-26 itemprop="datePublished">May 26, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://luneshao.github.io/categories/vue/"> vue </a>
+                        
+                </span>
+                <span id="/2020/2020-05-26-vue-amap/" class="leancloud_visitors post-meta" data-flag-title="Vue 中异步加载 AMap">
+                    <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h3 id="前言">前言</h3>
+
+<p>最近在优化之前写的网站，FP 大概要半分钟才能加载出来，emmm，我写的。。。</p>
+
+<p>这个也是之前文章优化的一部分，因为我的网页中有用到地图，之前用的 <code>vue-amap</code> 组件，后来觉得这个引用 cdn 不知道怎么下手，就改成了直接用节点渲染，不用组件了。然后又查了异步加载的方式，发现了一个解决方案，但是后期又发现了这个解决方案的一些 bug，一通百度加自己尝试修改了一下。</p>
+
+<h2 id="正文">正文</h2>
+
+<p>先贴一下<a href="https://www.jianshu.com/p/f65034cf7d24" rel="nofollow noreferrer" target="_blank">原文</a>的解决方案:</p>
+
+<blockquote>
+<h4 id="1-创建一个-amap-js-路径-src-assets-js-amap-js">1. 创建一个 AMap.js,路径&rsquo;src/assets/js/AMap.js&rsquo;</h4>
+</blockquote>
+
+<pre><code class="language-js">// src/assets/js/AMap.js
+
+export default function MapLoader() {
+  // &lt;-- 原作者这里使用的是module.exports
+  return new Promise((resolve, reject) =&gt; {
+    if (window.AMap) {
+      resolve(window.AMap)
+    } else {
+      var script = document.createElement('script')
+      script.type = 'text/javascript'
+      script.async = true
+      script.src =
+        'http://webapi.amap.com/maps?v=1.3&amp;callback=initAMap&amp;key=yourkey'
+      script.onerror = reject
+      document.head.appendChild(script)
+    }
+    window.initAMap = () =&gt; {
+      resolve(window.AMap)
+    }
+  })
+}
+</code></pre>
+
+<h4 id="2-在任何-vue-文件中使用">2. 在任何.vue 文件中使用</h4>
+
+<pre><code class="language-vue">// test.vue
+&lt;template&gt;
+  &lt;div class=&quot;test&quot;&gt;
+    &lt;div id=&quot;container&quot; class=&quot;h300 w300&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import MapLoader from '@/assets/js/AMap.js'
+export default {
+  name: 'test',
+  data() {
+    return {
+      map: null,
+    }
+  },
+  mounted() {
+    let that = this
+    MapLoader().then(
+      (AMap) =&gt; {
+        console.log('地图加载成功')
+        that.map = new AMap.Map('container', {
+          center: [117.000923, 36.675807],
+          zoom: 11,
+        })
+      },
+      (e) =&gt; {
+        console.log('地图加载失败', e)
+      }
+    )
+  },
+}
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="遇到的问题">遇到的问题</h2>
+
+<ol>
+<li>我 copy 代码之后，回调函数中获取不到 <code>AMap</code>。
+不清楚 window.init 这个事件或是函数是什么意思。这里参考<a href="https://lbs.amap.com/api/javascript-api/guide/abc/load" rel="nofollow noreferrer" target="_blank">文档给出的异步加载方案</a>，其中有用到 window.init ，我在网页中打印 window 并没有 init 这个属性，这里是不是还需要再进行调用？
+然后，我就将 window.init 修改为 window.onload，等 js 资源加载完成后再将 AMap 对象返回给回调函数。然后就能获取到了。
+等我后来调试的时候，又遇到了 bug2 号。</li>
+<li>若首次打开的页面不包含加载了地图的组件，经路由跳转后追加的脚本，回调函数也拿不到 AMap 对象。
+因为 window.onload 只在首次页面资源加载完成后调用。vue 切换路由只是切换了节点中的内容，并未刷新页面。所以追加了 script 标签后，并不会再执行 winsow.onload 了，就拿不到脚本解析后 AMap 对象了。
+恰好我上午看到了相关内容就又做了修改，将 window.onload 替换为 script.onload (意思为解析完脚本文件)，目前暂时解决问题了。 <a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/load" rel="nofollow noreferrer" target="_blank">load</a> 的文档也在找图片加载完成事件，就看到了图片加载的解决方案，就类比着用到了加载 js 上。</li>
+</ol>
+
+<h2 id="参考文献">参考文献</h2>
+
+<p>（ps: 点击文献都可以直达文章）</p>
+
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/load" rel="nofollow noreferrer" target="_blank">load MDN</a></li>
+</ul>
+
+<blockquote>
+<p>load 事件: 当一个资源及其依赖资源已完成加载时，将触发 load 事件。</p>
+</blockquote>
+
+<ul>
+<li><a href="https://www.oecom.cn/window-onload-domcontentloaded/" rel="nofollow noreferrer" target="_blank">window 的 onload 事件和 domcontentloaded 执行顺序</a></li>
+</ul>
+
+<blockquote>
+<pre><code>onload 事件支持 
+
+我们首先来看一下都有哪些支持onload事件。
+- 支持该事件的 HTML 标签：&lt;body&gt;, &lt;frame&gt;, &lt;frameset&gt;, &lt;iframe&gt;, &lt;img&gt;, &lt;link&gt;, &lt;script&gt;;
+- 支持该事件的 JavaScript 对象：image, layer, window
+</code></pre>
+</blockquote>
+
+<ul>
+<li><a href="https://www.cnblogs.com/snandy/p/3704938.html" rel="nofollow noreferrer" target="_blank">JavaScript 判断图片是否加载完成的三种方式</a></li>
+</ul>
+
+<blockquote>
+<pre><code class="language-html">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;img - load event&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;img id=&quot;img1&quot; src=&quot;http://pic1.win4000.com/wallpaper/f/51c3bb99a21ea.jpg&quot;&gt;
+    &lt;p id=&quot;p1&quot;&gt;loading...&lt;/p&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        img1.onload = function() {
+            p1.innerHTML = 'loaded'
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</blockquote>
+
+<p>以上。😆</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2020/2020-05-26-vue-amap/>https://luneshao.github.io/2020/2020-05-26-vue-amap/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/vue-amap/">
+                    #vue, amap</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2020/2020-05-21-nginx/" class="prev" rel="prev" title="nginx 相关文章汇总"><i class="iconfont icon-left"></i>&nbsp;nginx 相关文章汇总</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+        <div id="vcomment"></div>
+          
+                 
+          
+    </div>
+    <script>
+        new Valine({
+          el: '#vcomment' ,
+          appId: 'VMtRNdHhQOQVoiWu2y2dQnJb-gzGzoHsz',
+          appKey: '073437m7LGtKY9mmCQioFbKI',
+          notify:true, 
+          verify:false, 
+          avatar:'wavatar', 
+          recordIP: true,
+          visitor: true, 
+          placeholder: '你好哇，快来戳我吐槽吧！🎉' 
+        })
+    </script>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -9,9 +9,9 @@
   <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
   <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
   
-  <link rel="prev" href="https://luneshao.github.io/2020/2020-04-29-setupvpn/" />
-  <link rel="next" href="https://luneshao.github.io/2020/2020-05-21-nginx/" />
-  <link rel="canonical" href="https://luneshao.github.io/2020/2020-05-20-vue-perf/" />
+  <link rel="prev" href="https://luneshao.github.io/2020/2020-05-20-vue-perf/" />
+  <link rel="next" href="https://luneshao.github.io/2020/2020-05-26-vue-amap/" />
+  <link rel="canonical" href="https://luneshao.github.io/2020/2020-05-21-nginx/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -23,10 +23,10 @@
   <title>
        
        
-           vue 优化 | lune&#39;s garden
+           nginx 相关文章汇总 | lune&#39;s garden
        
   </title>
-  <meta name="title" content="vue 优化 | lune&#39;s garden">
+  <meta name="title" content="nginx 相关文章汇总 | lune&#39;s garden">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -45,9 +45,9 @@
          "@id": "https:\/\/luneshao.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : "vue 优化",
-    "headline" : "vue 优化",
-    "description" : "vue 打包体积优化",
+    "name" : "nginx 相关文章汇总",
+    "headline" : "nginx 相关文章汇总",
+    "description" : "nginx 相关文章汇总",
     "inLanguage" : "en-us",
     "author" : "LuneShao",
     "creator" : "LuneShao",
@@ -55,11 +55,11 @@
     "accountablePerson" : "LuneShao",
     "copyrightHolder" : "LuneShao",
     "copyrightYear" : "2020",
-    "datePublished": "2020-05-20 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2020-05-20 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/luneshao.github.io\/2020\/2020-05-20-vue-perf\/",
-    "wordCount" : "179",
-    "keywords" : [ "vue","web前端", "lune\x27s garden"]
+    "datePublished": "2020-05-21 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-05-21 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/luneshao.github.io\/2020\/2020-05-21-nginx\/",
+    "wordCount" : "7",
+    "keywords" : [ "nginx", "lune\x27s garden"]
 }
 </script>
 
@@ -122,15 +122,15 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">vue 优化</h1>
+        <h1 class="post-title" itemprop="name headline">nginx 相关文章汇总</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">LuneShao</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2020-05-20 itemprop="datePublished">May 20, 2020</time>
+                on <time datetime=2020-05-21 itemprop="datePublished">May 21, 2020</time>
                 </span>
                 in
                 
-                <span id="/2020/2020-05-20-vue-perf/" class="leancloud_visitors post-meta" data-flag-title="vue 优化">
+                <span id="/2020/2020-05-21-nginx/" class="leancloud_visitors post-meta" data-flag-title="nginx 相关文章汇总">
                     <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
                 </span>
         </div>
@@ -151,96 +151,11 @@
           
           
 
-          
+          <p>1、nginx 重启相关文章
+<a href="https://www.php.cn/nginx/421972.html" rel="nofollow noreferrer" target="_blank">Nginx怎么重启</a></p>
 
-<h2 id="1-字体包压缩">1、字体包压缩</h2>
-
-<p>使用 <a href="https://github.com/ecomfe/fontmin" rel="nofollow noreferrer" target="_blank">fontmin</a> 这个库压缩字体包。（字体下载地址 <a href="http://www.font168.com/" rel="nofollow noreferrer" target="_blank">字体下载网</a> ，这个下载的苹方简-常规可以被格式化。）</p>
-
-<h2 id="2-图片使用懒加载">2、图片使用懒加载</h2>
-
-<p>使用 <a href="https://www.npmjs.com/package/vue-lazyload" rel="nofollow noreferrer" target="_blank">vue-lazyload</a> 库优化图片加载，滚动到某处再加载图片。</p>
-
-<h2 id="3-打包线上版本-使用cdn引入包">3、打包线上版本，使用cdn引入包</h2>
-
-<pre><code class="language-js">// --------------
-// .env
-// --------------
-NODE_ENV === 'production'
-
-// --------------
-// vue.config.js
-// --------------
-
-const isProd = process.env.NODE_ENV === 'production'
-
-const assetsCDN = {
-  // webpack build externals
-  externals: {
-    vue: 'Vue',
-    'vue-router': 'VueRouter',
-    'vue-lazyload': 'VueLazyload',
-  },
-  css: ['//cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css'],
-  // https://unpkg.com/browse/vue@2.6.10/
-  js: [
-    '//cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js',
-    '//cdn.jsdelivr.net/npm/vue-router@3.1.6/dist/vue-router.min.js',
-    '//cdn.jsdelivr.net/npm/vue-lazyload@1.3.3/vue-lazyload.min.js',
-  ]
-}
-
-module.exports = {
-  configureWebpack: config =&gt; {
-    if (isProd) {
-      return {
-        resolve: {
-          alias: {
-            '@ant-design/icons/lib/dist$': resolve('./src/core/antd/icons.js')
-          }
-        },
-        externals: assetsCDN.externals,
-        plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)]
-      }
-    }
-  },
-
-  chainWebpack: config =&gt; {
-    config.plugin('html').tap(args =&gt; {
-      args[0].title = process.env.VUE_APP_TITLE
-      if (isProd) {
-        args[0].cdn = assetsCDN
-      }
-      return args
-    })
-  }
-}
-</code></pre>
-
-<pre><code class="language-html">&lt;!-- index.html --&gt;
-...
-&lt;!-- require cdn assets css --&gt;
-  &lt;% for (var i in htmlWebpackPlugin.options.cdn &amp;&amp; htmlWebpackPlugin.options.cdn.css) { %&gt;
-  &lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;%= htmlWebpackPlugin.options.cdn.css[i] %&gt;&quot; /&gt;
-  &lt;% } %&gt;
-...
-&lt;!-- require cdn assets js --&gt;
-  &lt;% for (var i in htmlWebpackPlugin.options.cdn &amp;&amp; htmlWebpackPlugin.options.cdn.js) { %&gt;
-  &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%= htmlWebpackPlugin.options.cdn.js[i] %&gt;&quot;&gt;&lt;/script&gt;
-  &lt;% } %&gt;
-</code></pre>
-
-<h2 id="4-ant-design-vue-相关">4、ant-design-vue 相关</h2>
-
-<h3 id="4-1-打包后-icon-包体积过大">4.1 打包后，icon 包体积过大</h3>
-
-<p>参考此 <a href="https://github.com/vueComponent/ant-design-vue/issues/1109" rel="nofollow noreferrer" target="_blank">issue</a> 作者的<a href="https://github.com/vueComponent/ant-design-vue/issues/1109#issuecomment-563094161" rel="nofollow noreferrer" target="_blank">回答</a></p>
-
-<h3 id="4-2-打包后-moment-包体积过大">4.2 打包后，moment 包体积过大</h3>
-
-<p>参考此优化方案 <a href="https://github.com/jmblog/how-to-optimize-momentjs-with-webpack" rel="nofollow noreferrer" target="_blank">github</a></p>
-
-<p>以上。</p>
+<p>2、nginx 配置 gzip
+<a href="https://www.cnblogs.com/Renyi-Fan/p/11047490.html" rel="nofollow noreferrer" target="_blank">nginx中如何设置gzip（总结）</a></p>
 
     </div>
 
@@ -255,7 +170,7 @@ module.exports = {
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://luneshao.github.io/2020/2020-05-20-vue-perf/>https://luneshao.github.io/2020/2020-05-20-vue-perf/</span>
+                    <a href=https://luneshao.github.io/2020/2020-05-21-nginx/>https://luneshao.github.io/2020/2020-05-21-nginx/</span>
             </p>
             
              
@@ -270,11 +185,8 @@ module.exports = {
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://luneshao.github.io/tags/vue/">
-                    #vue</a></span>
-            
-            <span class="tag"><a href="https://luneshao.github.io/tags/web%E5%89%8D%E7%AB%AF/">
-                    #web前端</a></span>
+            <span class="tag"><a href="https://luneshao.github.io/tags/nginx/">
+                    #nginx</a></span>
             
             </section>
         
@@ -286,10 +198,10 @@ module.exports = {
 
     <div class="post-nav">
         
-        <a href="https://luneshao.github.io/2020/2020-04-29-setupvpn/" class="prev" rel="prev" title="Chrome 上网插件 setupVPN"><i class="iconfont icon-left"></i>&nbsp;Chrome 上网插件 setupVPN</a>
+        <a href="https://luneshao.github.io/2020/2020-05-20-vue-perf/" class="prev" rel="prev" title="vue 优化"><i class="iconfont icon-left"></i>&nbsp;vue 优化</a>
          
         
-        <a href="https://luneshao.github.io/2020/2020-05-21-nginx/" class="next" rel="next" title="nginx 相关文章汇总">nginx 相关文章汇总&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://luneshao.github.io/2020/2020-05-26-vue-amap/" class="next" rel="next" title="Vue 中异步加载 AMap">Vue 中异步加载 AMap&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
