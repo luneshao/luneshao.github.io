@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>兼容性 on lune&#39;s garden</title>
+    <link>https://luneshao.github.io/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/</link>
+    <description>Recent content in 兼容性 on lune&#39;s garden</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://luneshao.github.io/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>前端属性兼容性整理</title>
+      <link>https://luneshao.github.io/2019/comp/</link>
+      <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luneshao.github.io/2019/comp/</guid>
+      <description>1.document 相关 1.1 addEventListen
+兼容写法：
+function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget.addEventListen(eType, eHandle) } else { // ie 浏览器 if (eTarget.attachEvent) { eType = &#39;on&#39; + eType eTarget.attachEvent(eType, eHandle) } else { eventTarget[&#39;on&#39; + eventType] = eventHandler } } }  1.2 scrollTop()
+兼容写法：
+// 因为 0 || undefine =&amp;gt; undefined const st = document.pageYOffset.scrollTop || document.documentElement.scrollTop || document.body.scrollTop || 0  // ie6/7/8 1. 没有 doctype 声明的页面： const st = document.</description>
+    </item>
+    
+  </channel>
+</rss>

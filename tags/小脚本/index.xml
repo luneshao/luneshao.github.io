@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>小脚本 on lune&#39;s garden</title>
+    <link>https://luneshao.github.io/tags/%E5%B0%8F%E8%84%9A%E6%9C%AC/</link>
+    <description>Recent content in 小脚本 on lune&#39;s garden</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Mar 2020 10:36:26 +0800</lastBuildDate>
+    
+	<atom:link href="https://luneshao.github.io/tags/%E5%B0%8F%E8%84%9A%E6%9C%AC/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>边框追随鼠标</title>
+      <link>https://luneshao.github.io/2020/2020-03-19-follow-mouse/</link>
+      <pubDate>Thu, 19 Mar 2020 10:36:26 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-03-19-follow-mouse/</guid>
+      <description>feature  给盒子设置了图片边框 实现背景色角度追随鼠标移动改变  css 属性  border-image-slice：通过 border-image-source 引用边框图片后，border-image-slice属性会将图片分割为9个区域：四个角，四个边（edges）以及中心区域。四条切片线，从它们各自的侧面设置给定距离，控制区域的大小。    var t = document.querySelector(&amp;lsquo;.test&amp;rsquo;) t.onmousemove = function (e) { let r = (e.screenX + e.screenY) % 360
+&amp;lt;!-- t.style.borderImage = `linear-gradient(${r}deg, #ffeead, #96ceb4) 2` --&amp;gt; t.style.backgroundImage = `linear-gradient(${360 - r}deg, #ffeead, #96ceb4)`  } 
+code &amp;lt;!-- ... --&amp;gt; &amp;lt;style&amp;gt; .test { width: 100px; height: 100px; padding: 20px; border: dashed 70px; border-image: url(https://tse3-mm.cn.bing.net/th/id/OIP.GL_hNcihF8Q0N-HDKWzBngHaFj?w=288&amp;amp;h=216&amp;amp;c=7&amp;amp;o=5&amp;amp;dpr=2&amp;amp;pid=1.7); border-image-slice: 33% 33%; // 修改试试 border-radius: 50%; border-image-width: 90px; // 修改试试 background: linear-gradient(45deg, transparent, rgb(150, 206, 180)) repeat center center / 50px 50px; } &amp;lt;/style&amp;gt; &amp;lt;!</description>
+    </item>
+    
+  </channel>
+</rss>

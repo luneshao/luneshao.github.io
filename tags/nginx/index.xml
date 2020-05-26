@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>nginx 相关文章汇总</title>
+      <title>Nginx 相关文章汇总</title>
       <link>https://luneshao.github.io/2020/2020-05-21-nginx/</link>
       <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
       
@@ -22,7 +22,7 @@
     </item>
     
     <item>
-      <title>node、nginx 处理跨域</title>
+      <title>nodejs、Nginx 处理跨域</title>
       <link>https://luneshao.github.io/2020/2020-04-20-nodejs-proxy/</link>
       <pubDate>Mon, 20 Apr 2020 10:36:26 +0800</pubDate>
       

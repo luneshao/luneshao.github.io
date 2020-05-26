@@ -24,7 +24,7 @@
     </item>
     
     <item>
-      <title>nginx 相关文章汇总</title>
+      <title>Nginx 相关文章汇总</title>
       <link>https://luneshao.github.io/2020/2020-05-21-nginx/</link>
       <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
       
@@ -34,7 +34,7 @@
     </item>
     
     <item>
-      <title>vue 优化</title>
+      <title>Vue 优化</title>
       <link>https://luneshao.github.io/2020/2020-05-20-vue-perf/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
@@ -54,7 +54,7 @@
     </item>
     
     <item>
-      <title>node、nginx 处理跨域</title>
+      <title>nodejs、Nginx 处理跨域</title>
       <link>https://luneshao.github.io/2020/2020-04-20-nodejs-proxy/</link>
       <pubDate>Mon, 20 Apr 2020 10:36:26 +0800</pubDate>
       
@@ -115,7 +115,7 @@ $ cd ~/.ssh $ vi config （键盘键入 i 输入内容） $ Host tencent UseKeyc
     </item>
     
     <item>
-      <title>jekyll 搭建博客步骤</title>
+      <title>Jekyll 搭建博客步骤</title>
       <link>https://luneshao.github.io/2020/2020-03-23-jekyll-blog/</link>
       <pubDate>Mon, 23 Mar 2020 10:36:26 +0800</pubDate>
       
@@ -131,7 +131,7 @@ Create a site 为网站创建一个目录，名称可以任意起。在教程的
     </item>
     
     <item>
-      <title>html回滚</title>
+      <title>html 回滚</title>
       <link>https://luneshao.github.io/2020/2020-03-22-html-note/</link>
       <pubDate>Sun, 22 Mar 2020 10:36:26 +0800</pubDate>
       
@@ -141,7 +141,7 @@ Create a site 为网站创建一个目录，名称可以任意起。在教程的
     </item>
     
     <item>
-      <title>vue笔记</title>
+      <title>vue 笔记</title>
       <link>https://luneshao.github.io/2020/2020-03-20-vue/</link>
       <pubDate>Fri, 20 Mar 2020 10:36:26 +0800</pubDate>
       
