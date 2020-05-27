@@ -58,7 +58,7 @@
     "datePublished": "2020-05-26 09:36:26 \x2b0800 CST",
     "dateModified" : "2020-05-26 09:36:26 \x2b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2020\/2020-05-26-perfomace\/",
-    "wordCount" : "266",
+    "wordCount" : "305",
     "keywords" : [ "前端优化", "lune\x27s garden"]
 }
 </script>
@@ -177,7 +177,18 @@
 
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/20200527-perfomance-fp.jpg" alt="浏览器的页面的加载流程" class="lazyload"><figcaption class="image-caption">浏览器的页面的加载流程</figcaption></figure></p>
 
-<h3 id="first-paint的加载流程">First Paint的加载流程</h3>
+<h2 id="名词解释">名词解释</h2>
+
+<ul>
+<li><strong>FP(First Paint)</strong>
+First paint: 直译过来的意思就是浏览器第一次渲染(paint)，在First paint之前是白屏，在这个时间点之后用户就能看到（部分）页面内容。[from <a href="http://eux.baidu.com/blog/fe/Chrome%E7%9A%84First%20Paint" rel="nofollow noreferrer" target="_blank">Chrome的First Paint</a>]</li>
+</ul>
+
+<p>First Paint，是Paint Timing API的一部分，是页面导航与浏览器将该网页的第一个像素渲染到屏幕上所用的中间时，渲染是任何与输入网页导航前的屏幕上的内容不同的内容。</p>
+
+<p>浏览器会提前渲染body中第一个脚本前的内容（我们就把body中的第一个外链脚本叫做【第一脚本】吧），并且第一脚本还会在FP之后才执行。所以结合之前得出的结论，在CSSOM准备就绪之后，浏览器会提前渲染第一脚本前的内容。</p>
+
+<h3 id="first-paint-的加载流程">First Paint 的加载流程</h3>
 
 <ol>
 <li>所有的CSS加载完成</li>
@@ -189,32 +200,20 @@
 <li>Composite Layers：形成层，浏览器按照合理的顺序合并成一个图层然后输出到屏幕（给别人看）</li>
 </ol>
 
-<p>浏览器会提前渲染body中第一个脚本前的内容（我们就把body中的第一个外链脚本叫做【第一脚本】吧），并且第一脚本还会在FP之后才执行。所以结合之前得出的结论，在CSSOM准备就绪之后，浏览器会提前渲染第一脚本前的内容</p>
-
-<h3 id="结论">结论</h3>
+<h3 id="first-paint-小结">First Paint 小结</h3>
 
 <p>FP发生在 body 中第一个 script 脚本之前的 CSS 解析和 JS 执行完成之后。换句话说就是第一脚本之前的 DOM 和 CSSOM 准备就绪之后，便会着手渲染第一脚本前的内容。</p>
 
-<p>如果第一脚本前的 JS 和 CSS 加载完了，body 中的脚本还未下载完成，那么浏览器就会利用构建好的局部 CSSOM 和 DOM 提前渲染第一脚本前的内容（触发FP）；如果第一脚本前的JS和CSS都还没下载完成，body中的脚本就已经下载完了，那么浏览器就会在所有 JS 脚本都执行完之后才触发FP。</p>
+<p>如果第一脚本前的 JS 和 CSS 加载完了，body 中的脚本还未下载完成，那么浏览器就会利用构建好的局部 CSSOM 和 DOM 提前渲染第一脚本前的内容（触发FP）；如果第一脚本前的 JS 和 CSS 都还没下载完成，body中的脚本就已经下载完了，那么浏览器就会在所有 JS 脚本都执行完之后才触发FP。</p>
 
 <h3 id="建议">建议</h3>
 
 <ol>
 <li>CSS放在head中，JS放在</body>前（如果在head必须放JS，也尽量减少他的大小，把大JS文件放</body>前）。</li>
-<li>减小head中CSS和JS大小（gzip了解一下？)，</li>
+<li>减小head中CSS和JS大小（gzip了解一下？)</li>
 <li>优化head中的JS和CSS外链的网络情况，减少Stalled、TTFB和Content Download的时间。</li>
 <li>在第一脚本前使用骨架图，可以减少用户的白屏感知时间（对于使用JS插入模板来渲染的框架，建议将骨架图的路由生成逻辑单独提出来）</li>
 </ol>
-
-<h2 id="名词解释">名词解释</h2>
-
-<ul>
-<li><strong>FP(First Paint)</strong></li>
-</ul>
-
-<p>首屏时间: 这段时间其实就是 HTML 文档加载和解析的时间。也就是 DOMContentLoaded 事件触发之前所经历的时间。也就是 DOMContentLoaded 事件触发之前所经历的时间。 [from <a href="https://www.cnblogs.com/Bonnie3449/p/8419609.html" rel="nofollow noreferrer" target="_blank">load/domContentLoaded 事件、异步/延迟 Js 与 DOM 解析</a>]</p>
-
-<p>First paint: 直译过来的意思就是浏览器第一次渲染(paint)，在First paint之前是白屏，在这个时间点之后用户就能看到（部分）页面内容。[from <a href="http://eux.baidu.com/blog/fe/Chrome%E7%9A%84First%20Paint" rel="nofollow noreferrer" target="_blank">Chrome的First Paint</a>]</p>
 
 <ul>
 <li><strong>DOMContentLoaded</strong></li>
@@ -234,36 +233,66 @@
 <p>简而言之，二者触发时间的区别在于：DOMContentLoaded 在 HTML 文档被解析完成之后触发，而 load 是在 HTML 所有相关资源被加载完成后触发。[from <a href="https://www.cnblogs.com/Bonnie3449/p/8419609.html" rel="nofollow noreferrer" target="_blank">load/domContentLoaded 事件、异步/延迟 Js 与 DOM 解析</a>]</p>
 
 <ul>
-<li><strong>sync</strong></li>
+<li><strong>script 标签 sync 属性</strong>
+<br /></li>
 </ul>
 
 <p>HTML 文档被解析时如果遇见（同步）脚本，则停止解析，先去加载脚本，然后执行，执行结束后继续解析 HTML 文档。HTML 文档解析完毕后触发 DOMContentLoaded。[from <a href="https://www.cnblogs.com/Bonnie3449/p/8419609.html" rel="nofollow noreferrer" target="_blank">load/domContentLoaded 事件、异步/延迟 Js 与 DOM 解析</a>]</p>
 
 <ul>
-<li><strong>async</strong></li>
+<li><strong>script 标签 async 属性</strong></li>
 </ul>
+
+<p>HTML5新增属性，用于异步下载脚本文件，下载完毕立即解释执行代码。</p>
 
 <p>对此，《JavaScript 高级程序设计》一书的解释是：带 async 的脚本一定会在 load 事件之前执行，可能会在 DOMContentLoaded 之前或之后执行。[from <a href="https://www.cnblogs.com/Bonnie3449/p/8419609.html" rel="nofollow noreferrer" target="_blank">load/domContentLoaded 事件、异步/延迟 Js 与 DOM 解析</a>]
   DomContentLoaded 事件只关注 HTML 是否被解析完，而不关注 async 脚本。</p>
 
 <ul>
-<li><strong>defer</strong></li>
+<li><strong>script 标签 defer 属性</strong></li>
 </ul>
+
+<p>用于开启新的线程下载脚本文件，并使脚本在文档解析完成后执行。</p>
 
 <p>如果 script 标签中包含 defer，那么这一块脚本将不会影响 HTML 文档的解析，而是等到 HTML 解析完成后才会执行。无论 HTML 解析完毕前 script 脚本是否加载完成，都会在 HTML 解析完毕后再执行 script。而 DOMContentLoaded 只有在 defer 脚本执行结束后才会被触发。[from <a href="https://www.cnblogs.com/Bonnie3449/p/8419609.html" rel="nofollow noreferrer" target="_blank">load/domContentLoaded 事件、异步/延迟 Js 与 DOM 解析</a>]</p>
 
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://upload-images.jianshu.io/upload_images/13674153-fbf1aa78a93edc2c.png?imageMogr2/auto-orient/strip|imageView2/2/w/516/format/webp" alt="script 加载与执行" class="lazyload"><figcaption class="image-caption">script 加载与执行</figcaption></figure> [图片 from <a href="https://www.jianshu.com/p/c7c331ea4fe8" rel="nofollow noreferrer" target="_blank">defer和async的区别</a>]</p>
+
 <h3 id="async-与-defer-对比小结">async 与 defer 对比小结</h3>
 
-<p>DomContentLoaded 事件关注 defer 脚本，不关心 asnyc 脚本。</p>
+<p>DomContentLoaded 事件关注添加 defer 属性的脚本，脚本加载完毕并解析后触发 DomContentLoaded 事件；DomContentLoaded 事件不关注 asnyc 脚本，HTML 解析完毕即触发。</p>
 
 <ul>
 <li><strong>unload</strong></li>
 </ul>
 
 <p>当文档或一个子资源正在被卸载时, 触发 unload 事件。
-  它在下面两个事件后被触发:
-  - 1.  beforeunload (可取消默认行为的事件)
-  - 2.  pagehide</p>
+  它在下面两个事件后被触发:</p>
+
+<ol>
+<li>beforeunload (可取消默认行为的事件)</li>
+<li>pagehide</li>
+</ol>
+
+<ul>
+<li><strong><a href="https://zh.javascript.info/browser-environment#wen-dang-dui-xiang-mo-xing-dom" rel="nofollow noreferrer" target="_blank">DOM</a></strong></li>
+</ul>
+
+<p>文档对象模型（Document Object Model），简称 DOM，将所有页面内容表示为可以修改的对象。DOM 规范解释了文档的结构，并提供了操作文档的对象。有的非浏览器设备也使用 DOM。</p>
+
+<ul>
+<li><strong><a href="https://zh.javascript.info/browser-environment#wen-dang-dui-xiang-mo-xing-dom" rel="nofollow noreferrer" target="_blank">CSSOM</a></strong></li>
+</ul>
+
+<p>CSS 规则和样式表的结构与 HTML 不同。有一个单独的规范 CSS Object Model (CSSOM)，它解释了如何将 CSS 表示为对象，以及如何读写它们。</p>
+
+<ul>
+<li><strong><a href="https://zh.javascript.info/browser-environment#liu-lan-qi-dui-xiang-mo-xing-bom" rel="nofollow noreferrer" target="_blank">浏览器对象模型（BOM）</a></strong></li>
+</ul>
+
+<p>浏览器对象模型（Browser Object Model），简称 BOM，表示由浏览器（主机环境）提供的用于处理文档（document）之外的所有内容的其他对象。</p>
+
+<p>函数 alert/confirm/prompt 也是 BOM 的一部分：它们与文档（document）没有直接关系，但它代表了与用户通信的纯浏览器方法。</p>
 
 <h2 id="参考文献">参考文献</h2>
 
@@ -272,6 +301,7 @@
 <li><a href="https://www.jianshu.com/p/1a8a7e698447" rel="nofollow noreferrer" target="_blank">window.onload 和 DOMContentLoaded 的区别</a></li>
 <li><a href="https://www.cnblogs.com/Bonnie3449/p/8419609.html" rel="nofollow noreferrer" target="_blank">load/domContentLoaded 事件、异步/延迟 Js 与 DOM 解析</a></li>
 <li><a href="https://www.cnblogs.com/dahe1989/p/11765066.html" rel="nofollow noreferrer" target="_blank">从页面加载到首屏渲染时机</a></li>
+<li><a href="https://www.jianshu.com/p/c7c331ea4fe8" rel="nofollow noreferrer" target="_blank">defer和async的区别</a></li>
 </ul>
 
     </div>
