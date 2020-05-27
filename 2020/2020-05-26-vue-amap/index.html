@@ -9,7 +9,7 @@
   <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
   <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
   
-  <link rel="prev" href="https://luneshao.github.io/2020/2020-05-21-nginx/" />
+  <link rel="prev" href="https://luneshao.github.io/2020/2020-05-26-perfomace/" />
   
   <link rel="canonical" href="https://luneshao.github.io/2020/2020-05-26-vue-amap/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -239,7 +239,7 @@ export default {
 等我后来调试的时候，又遇到了 bug2 号。</li>
 <li>若首次打开的页面不包含加载了地图的组件，经路由跳转后追加的脚本，回调函数也拿不到 AMap 对象。
 因为 window.onload 只在首次页面资源加载完成后调用。vue 切换路由只是切换了节点中的内容，并未刷新页面。所以追加了 script 标签后，并不会再执行 winsow.onload 了，就拿不到脚本解析后 AMap 对象了。
-恰好我上午看到了相关内容就又做了修改，将 window.onload 替换为 script.onload (意思为解析完脚本文件)，目前暂时解决问题了。 <a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/load" rel="nofollow noreferrer" target="_blank">load</a> 的文档也在找图片加载完成事件，就看到了图片加载的解决方案，就类比着用到了加载 js 上。</li>
+恰好我上午看到了相关内容就又做了修改，将 window.onload 替换为 script.onload (意思为脚本资源加载完成)，目前暂时解决问题了。 <a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/load" rel="nofollow noreferrer" target="_blank">load</a> 的文档也图片加载完成事件，就看到了图片加载的解决方案，就类比着用到了加载 js 上。</li>
 </ol>
 
 <h2 id="参考文献">参考文献</h2>
@@ -340,7 +340,7 @@ export default {
 
     <div class="post-nav">
         
-        <a href="https://luneshao.github.io/2020/2020-05-21-nginx/" class="prev" rel="prev" title="Nginx 相关文章汇总"><i class="iconfont icon-left"></i>&nbsp;Nginx 相关文章汇总</a>
+        <a href="https://luneshao.github.io/2020/2020-05-26-perfomace/" class="prev" rel="prev" title="网页加载相关事件梳理"><i class="iconfont icon-left"></i>&nbsp;网页加载相关事件梳理</a>
          
         
     </div>
