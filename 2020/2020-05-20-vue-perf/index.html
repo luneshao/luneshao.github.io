@@ -23,10 +23,10 @@
   <title>
        
        
-           Vue 优化 | lune&#39;s garden
+           Vue 项目优化 | Luneshao
        
   </title>
-  <meta name="title" content="Vue 优化 | lune&#39;s garden">
+  <meta name="title" content="Vue 项目优化 | Luneshao">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -45,9 +45,9 @@
          "@id": "https:\/\/luneshao.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : "Vue 优化",
-    "headline" : "Vue 优化",
-    "description" : "vue 打包体积优化",
+    "name" : "Vue 项目优化",
+    "headline" : "Vue 项目优化",
+    "description" : "介绍了 vue 项目优化，包括字体加载及压缩、图片懒加载、antd 打包优化。",
     "inLanguage" : "en-us",
     "author" : "LuneShao",
     "creator" : "LuneShao",
@@ -58,8 +58,8 @@
     "datePublished": "2020-05-20 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-05-20 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/luneshao.github.io\/2020\/2020-05-20-vue-perf\/",
-    "wordCount" : "179",
-    "keywords" : [ "vue","前端", "lune\x27s garden"]
+    "wordCount" : "412",
+    "keywords" : [ "vue","前端", "Luneshao"]
 }
 </script>
 
@@ -74,7 +74,7 @@
         <nav class="navbar">
     <div class="container">
         <div class="navbar-header header-logo">
-        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">lune&#39;s garden</a>
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">Luneshao</a>
         </div>
         <div class="menu navbar-right">
                 
@@ -95,7 +95,7 @@
 <nav class="navbar-mobile" id="nav-mobile" style="display: none">
      <div class="container">
         <div class="navbar-header">
-            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">lune&#39;s garden</a></div>
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">Luneshao</a></div>
             <div class="menu-toggle">
                 <span></span><span></span><span></span>
             </div>
@@ -122,7 +122,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Vue 优化</h1>
+        <h1 class="post-title" itemprop="name headline">Vue 项目优化</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">LuneShao</a> with ♥ 
                 <span class="post-time">
@@ -130,7 +130,7 @@
                 </span>
                 in
                 
-                <span id="/2020/2020-05-20-vue-perf/" class="leancloud_visitors post-meta" data-flag-title="Vue 优化">
+                <span id="/2020/2020-05-20-vue-perf/" class="leancloud_visitors post-meta" data-flag-title="Vue 项目优化">
                     <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
                 </span>
         </div>
@@ -153,15 +153,148 @@
 
           
 
-<h2 id="1-字体包压缩">1、字体包压缩</h2>
+<h2 id="1-字体优化">1、字体优化</h2>
+
+<h3 id="1-1-字体包压缩">1.1 字体包压缩</h3>
 
 <p>使用 <a href="https://github.com/ecomfe/fontmin" rel="nofollow noreferrer" target="_blank">fontmin</a> 这个库压缩字体包。（字体下载地址 <a href="http://www.font168.com/" rel="nofollow noreferrer" target="_blank">字体下载网</a> ，这个下载的苹方简-常规可以被格式化。）</p>
+
+<pre><code class="language-js">const Fontmin = require('fontmin')
+
+const srcPath = './path/*.ttf' // 字体源文件
+const destPath = './path' // 输出路径
+const text = 'text'
+
+var fontmin = new Fontmin()
+  .src(srcPath)
+  .dest(destPath)
+  .use(
+    Fontmin.glyph({
+      text: text,
+      hinting: false // keep ttf hint info (fpgm, prep, cvt). default = true
+    })
+  )
+
+// 执行
+fontmin.run(function (err, files, stream) {
+  if (err) {
+    console.error(err) // 异常捕捉
+  }
+  console.log('done') // 成功
+})
+</code></pre>
+
+<h3 id="1-2-优化字体包加载前的文本隐藏-from-font-display-的用法-https-www-w3cplus-com-css-font-display-masses-html">1.2 优化字体包加载前的文本隐藏 [from <a href="https://www.w3cplus.com/css/font-display-masses.html" rel="nofollow noreferrer" target="_blank">font-display 的用法</a>]</h3>
+
+<ol>
+<li><p><code>@font-face</code> 中使用 <code>font-display</code> 属性</p>
+
+<pre><code class="language-css">/* style.css */
+@font-face {
+font-family: 'test'; /* 所指定的字体名字将会被用于font或font-family属性 */
+/* 
+src描述符指定了包含字体数据的资源。
+远程字体文件位置的URL或者用户计算机上的字体名称，
+可以使用local语法通过名称指定用户的本地计算机上的字体。
+如果找不到该字体，将会尝试其他来源，直到找到它。
+*/
+src: url('test.woff2') format('woff2');
+font-display: swap;
+}
+</code></pre></li>
+
+<li><p>考虑兼容性，使用 js 判断字体包加载完毕后，添加字体设置。</p>
+
+<pre><code class="language-js">// font.js
+if ('fontDisplay' in document.body.style === false) {
+if ('fonts' in document) {
+  document.fonts.load('test')
+  document.fonts.ready.then((fontFaceSet) =&gt; {
+    document.documentElement.className += ' fonts-loaded' 
+  })
+}
+}
+</code></pre></li>
+</ol>
+
+<h3 id="相关知识补充">相关知识补充</h3>
+
+<ul>
+<li><p><code>font-display</code> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@font-face/font-display" rel="nofollow noreferrer" target="_blank">font-display MDN</a></p>
+
+<p>font-display属性必须在@font-face指令内使用。因为你不能控制第三方字体供应商的CSS文件，所以你没有办法控制font-display属性更用说给他传递值了。
+决定了一个@font-face 在不同的下载时间和可用时间下是如何展示的。</p>
+
+<p><strong>字体显示时间轴</strong></p>
+
+<p>字体显示时间线基于一个计时器，该计时器在用户代理尝试使用给定下载字体的那一刻开始。时间线分为三个时间段，在这三个时间段中指定使用字体的元素的渲染行为。</p>
+
+<ul>
+<li><p><strong>字体阻塞周期</strong>
+如果未加载字体，任何试图使用它的元素都必须渲染不可见的后备字体。如果在此期间字体已成功加载，则正常使用它。</p></li>
+
+<li><p><strong>字体交换周期</strong>
+如果未加载字体，任何尝试使用它的元素都必须呈现后备字体。如果在此期间字体已成功加载，则正常使用它。</p></li>
+
+<li><p><strong>字体失败周期</strong>
+如果未加载字体，用户代理将其视为导致正常字体回退的失败加载。</p></li>
+</ul>
+
+<p><strong>属性值</strong></p>
+
+<ul>
+<li><code>auto</code> 默认值，字体显示策略由用户代理定义。自定义字体的文本会被先隐藏，直到字体加载结束才会显示。</li>
+<li><code>block</code> 为字体提供一个短暂的阻塞周期和无限的交换周期。</li>
+<li><code>swap</code> 为字体提供一个非常小的阻塞周期和无限的交换周期。后备文本立即显示直到自定义字体加载完成后再使用自定义字体渲染文本。</li>
+<li><code>fallback</code> 为字体提供一个非常小的阻塞周期和短暂的交换周期。需要使用自定义字体渲染的文本会在较短时间内不可见，如果自定义字体还没加载结束，就先加载无样式文本。一旦自定义字体加载结束，那么文本就会被正确赋予样式。</li>
+<li><code>optional</code> 为字体提供一个非常小的阻塞周期，并且没有交换周期。效果和fallback几乎一样，不过 optional 可以让浏览器自由决定是否使用自定义字体，很大程度上取决于浏览器的连接速度。如果速度很慢，那自定义字体将不会被使用。</li>
+</ul></li>
+
+<li><p><code>@font-face</code> 中 src 属性的 format 函数</p>
+
+<p>format() 函数描述该URL引用的字体资源的格式的可选提示。
+格式提示包含逗号分隔的格式字符串列表，这些字符串表示众所周知的字体格式。
+如果用户代理不支持指定的格式，它将跳过下载字体资源。如果没有提供格式提示，则始终下载字体资源。</p></li>
+
+<li><p><code>document.documentElement</code></p>
+
+<p>对于任何非空 HTML 文档，调用 <code>document.documentElement</code> 总是会返回一个 <code>&lt;html&gt;</code> 元素，且它一定是该文档的根元素。借助这个只读属性，能方便地获取到任意文档的根元素。
+HTML 文档通常包含一个子节点 <html>，但在它前面可能还有个 DOCTYPE 声明。XML 文档通常包含多个子节点：根元素，DOCTYPE 声明，和 processing instructions。</p>
+
+<p>所以，应当使用 document.documentElement 来获取根元素, 而不是 document.firstChild。</p></li>
+
+<li><p><code>document.fonts</code></p>
+
+<p>document.fonts 返回文档的 <code>FontFaceSet</code> 接口。<code>FontFaceSet</code> 接口对于加载新字体，检查先前加载的字体的状态等非常有用。</p>
+
+<p><strong>属性</strong> (不全面)</p>
+
+<ul>
+<li><code>FontFaceSet.status</code> 指示字体的加载状态。将是 &lsquo;loading&rsquo; or &lsquo;loaded&rsquo;。</li>
+<li><code>FontFaceSet.ready</code> Promise 会在字体加载和布局操作完成后 resolves。</li>
+</ul>
+
+<p><strong>方法</strong> (不全面)</p>
+
+<ul>
+<li><code>FontFaceSet.check()</code> 返回一个布尔值，指示字体是否加载，但未加载时不启动加载。</li>
+
+<li><p><code>FontFaceSet.load()</code> <a href="https://developer.mozilla.org/en-US/docs/Web/API/FontFaceSet/load" rel="nofollow noreferrer" target="_blank">FontFaceSet.load() MDN</a> 该方法强制加载参数中给定的所有字体。返回一个Promise，该Promise解析为所请求字体的字体数组。</p>
+
+<p><strong>参数</strong>：</p>
+
+<ul>
+<li>font: 参照 css 语法中 font 属性的格式。eg: &lsquo;italic bold 16px Roboto&rsquo;</li>
+<li>text: 限制 font faces 编码范围至少要包含的字符。</li>
+</ul></li>
+</ul></li>
+</ul>
 
 <h2 id="2-图片使用懒加载">2、图片使用懒加载</h2>
 
 <p>使用 <a href="https://www.npmjs.com/package/vue-lazyload" rel="nofollow noreferrer" target="_blank">vue-lazyload</a> 库优化图片加载，滚动到某处再加载图片。</p>
 
-<h2 id="3-打包线上版本-使用cdn引入包">3、打包线上版本，使用cdn引入包</h2>
+<h2 id="3-打包线上版本-使用-cdn-引入包">3、打包线上版本，使用 cdn 引入包</h2>
 
 <pre><code class="language-js">// --------------
 // .env
@@ -182,52 +315,54 @@ const assetsCDN = {
     'vue-lazyload': 'VueLazyload',
   },
   css: ['//cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css'],
-  // https://unpkg.com/browse/vue@2.6.10/
   js: [
     '//cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js',
     '//cdn.jsdelivr.net/npm/vue-router@3.1.6/dist/vue-router.min.js',
     '//cdn.jsdelivr.net/npm/vue-lazyload@1.3.3/vue-lazyload.min.js',
-  ]
+  ],
 }
 
 module.exports = {
-  configureWebpack: config =&gt; {
+  configureWebpack: (config) =&gt; {
     if (isProd) {
       return {
-        resolve: {
-          alias: {
-            '@ant-design/icons/lib/dist$': resolve('./src/core/antd/icons.js')
-          }
-        },
+        // resolve: {
+        //   alias: {
+        //     '@ant-design/icons/lib/dist$': resolve('./src/core/antd/icons.js'),
+        //   },
+        // },
         externals: assetsCDN.externals,
-        plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)]
+        // plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)],
       }
     }
   },
 
-  chainWebpack: config =&gt; {
-    config.plugin('html').tap(args =&gt; {
+  chainWebpack: (config) =&gt; {
+    config.plugin('html').tap((args) =&gt; {
       args[0].title = process.env.VUE_APP_TITLE
       if (isProd) {
         args[0].cdn = assetsCDN
       }
       return args
     })
-  }
+  },
 }
 </code></pre>
 
 <pre><code class="language-html">&lt;!-- index.html --&gt;
 ...
 &lt;!-- require cdn assets css --&gt;
-  &lt;% for (var i in htmlWebpackPlugin.options.cdn &amp;&amp; htmlWebpackPlugin.options.cdn.css) { %&gt;
-  &lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;%= htmlWebpackPlugin.options.cdn.css[i] %&gt;&quot; /&gt;
-  &lt;% } %&gt;
+&lt;% for (var i in htmlWebpackPlugin.options.cdn &amp;&amp; htmlWebpackPlugin.options.cdn.css) { %&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;%= htmlWebpackPlugin.options.cdn.css[i] %&gt;&quot; /&gt;
+&lt;% } %&gt; 
 ...
 &lt;!-- require cdn assets js --&gt;
-  &lt;% for (var i in htmlWebpackPlugin.options.cdn &amp;&amp; htmlWebpackPlugin.options.cdn.js) { %&gt;
-  &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%= htmlWebpackPlugin.options.cdn.js[i] %&gt;&quot;&gt;&lt;/script&gt;
-  &lt;% } %&gt;
+&lt;% for (var i in htmlWebpackPlugin.options.cdn &amp;&amp; htmlWebpackPlugin.options.cdn.js) { %&gt;
+&lt;script
+  type=&quot;text/javascript&quot;
+  src=&quot;&lt;%= htmlWebpackPlugin.options.cdn.js[i] %&gt;&quot;
+&gt;&lt;/script&gt;
+&lt;% } %&gt;
 </code></pre>
 
 <h2 id="4-ant-design-vue-相关">4、ant-design-vue 相关</h2>

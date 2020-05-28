@@ -1,17 +1,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>lune&#39;s garden on lune&#39;s garden</title>
+    <title>Luneshao on Luneshao</title>
     <link>https://luneshao.github.io/</link>
-    <description>Recent content in lune&#39;s garden on lune&#39;s garden</description>
+    <description>Recent content in Luneshao on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 May 2020 14:27:32 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2020 22:00:37 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Posts</title>
       <link>https://luneshao.github.io/posts/</link>
-      <pubDate>Tue, 26 May 2020 14:27:32 +0800</pubDate>
+      <pubDate>Wed, 27 May 2020 22:00:37 +0800</pubDate>
       
       <guid>https://luneshao.github.io/posts/</guid>
       <description></description>

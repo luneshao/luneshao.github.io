@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vue on lune&#39;s garden</title>
+    <title>vue on Luneshao</title>
     <link>https://luneshao.github.io/tags/vue/</link>
-    <description>Recent content in vue on lune&#39;s garden</description>
+    <description>Recent content in vue on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 26 May 2020 14:27:32 +0800</lastBuildDate>
@@ -24,14 +24,13 @@
     </item>
     
     <item>
-      <title>Vue 优化</title>
+      <title>Vue 项目优化</title>
       <link>https://luneshao.github.io/2020/2020-05-20-vue-perf/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://luneshao.github.io/2020/2020-05-20-vue-perf/</guid>
-      <description>1、字体包压缩 使用 fontmin 这个库压缩字体包。（字体下载地址 字体下载网 ，这个下载的苹方简-常规可以被格式化。）
-2、图片使用懒加载 使用 vue-lazyload 库优化图片加载，滚动到某处再加载图片。
-3、打包线上版本，使用cdn引入包 // -------------- // .env // -------------- NODE_ENV === &#39;production&#39; // -------------- // vue.config.js // -------------- const isProd = process.env.NODE_ENV === &#39;production&#39; const assetsCDN = { // webpack build externals externals: { vue: &#39;Vue&#39;, &#39;vue-router&#39;: &#39;VueRouter&#39;, &#39;vue-lazyload&#39;: &#39;VueLazyload&#39;, }, css: [&#39;//cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css&#39;], // https://unpkg.com/browse/vue@2.6.10/ js: [ &#39;//cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js&#39;, &#39;//cdn.jsdelivr.net/npm/vue-router@3.1.6/dist/vue-router.min.js&#39;, &#39;//cdn.jsdelivr.net/npm/vue-lazyload@1.3.3/vue-lazyload.min.js&#39;, ] } module.exports = { configureWebpack: config =&amp;gt; { if (isProd) { return { resolve: { alias: { &#39;@ant-design/icons/lib/dist$&#39;: resolve(&#39;.</description>
+      <description>1、字体优化 1.1 字体包压缩 使用 fontmin 这个库压缩字体包。（字体下载地址 字体下载网 ，这个下载的苹方简-常规可以被格式化。）
+const Fontmin = require(&#39;fontmin&#39;) const srcPath = &#39;./path/*.ttf&#39; // 字体源文件 const destPath = &#39;./path&#39; // 输出路径 const text = &#39;text&#39; var fontmin = new Fontmin() .src(srcPath) .dest(destPath) .use( Fontmin.glyph({ text: text, hinting: false // keep ttf hint info (fpgm, prep, cvt). default = true }) ) // 执行 fontmin.run(function (err, files, stream) { if (err) { console.error(err) // 异常捕捉 } console.log(&#39;done&#39;) // 成功 })  1.</description>
     </item>
     
     <item>

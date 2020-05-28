@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>chrome on lune&#39;s garden</title>
+    <title>chrome on Luneshao</title>
     <link>https://luneshao.github.io/tags/chrome/</link>
-    <description>Recent content in chrome on lune&#39;s garden</description>
+    <description>Recent content in chrome on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Apr 2020 09:50:55 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2020 22:00:37 +0800</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>借助 Chrome 进行性能优化</title>
+      <link>https://luneshao.github.io/2020/2020-05-27-chrome-performance/</link>
+      <pubDate>Wed, 27 May 2020 22:00:37 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-05-27-chrome-performance/</guid>
+      <description>运行时性能是指页面运行时的表现，而不是加载时的表现。本教程将教您如何使用 Chrome DevTools 性能面板分析运行时性能。就 RAIL 模型而言，本教程中学习的技能对于分析页面的响应、动画和空闲阶段非常有用。
+分析结果 1. 分析每秒的帧数 衡量任何动画性能的主要指标是每秒帧数（FPS）。当动画以 60 FPS 运行时，用户会感到舒适。
+ 查看 FPS 图表。只要您在 FPS 上方看到红色条，就表示帧速率下降得很低，以至于可能损害用户体验。通常，绿色条越高，FPS 越高。 在 FPS 图表下方，您会看到 CPU 图表。 CPU 图表中的颜色与 Performance 面板底部的 Summary 选项卡中的颜色相对应。CPU 图表充满色彩的事实意味着在记录过程中 CPU 已满。每当您看到 CPU 长时间长时间处于工作状态时，它意味着需要寻找办法减少工作。 将鼠标悬停在 FPS，CPU 或 NET 图表上。 DevTools 将显示该时间点的页面截图。左右移动鼠标以重播记录。这称为 scrubbing ，对于手动分析动画的进度很有用。 在 Frames 部分中，将鼠标悬停在绿色方块之一上。 DevTools 为您显示该特定框架的 FPS。每帧可能远低于 60 FPS 的目标。 当然，通过此 demo，很明显页面效果不佳。但是在实际情况下，可能还不是很清楚，因此拥有所有这些工具进行测量非常方便。  打开 FPS 仪表 另一个方便的工具是 FPS 测量仪，它可以在页面运行时提供 FPS 的实时估算。
+ 按 Command + Shift + P（Mac）或 Control + Shift + P（Windows，Linux）打开“命令”菜单。 开始在“命令”菜单中键入 Rendering，然后选择 Show Rendering 在 Rendering 选项卡中，启用 FPS Meter。新的叠加层将显示在视口的右上角。 禁用 FPS Meter，按 Escape 键以关闭 Rendering 选项卡。在本教程中您将不会使用它  2.</description>
+    </item>
     
     <item>
       <title>Chrome 上网插件 setupVPN</title>

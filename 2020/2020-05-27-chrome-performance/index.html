@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
+  
+  <link rel="prev" href="https://luneshao.github.io/2020/2020-05-26-vue-amap/" />
+  
+  <link rel="canonical" href="https://luneshao.github.io/2020/2020-05-27-chrome-performance/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/img/favicon.ico" />
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           借助 Chrome 进行性能优化 | Luneshao
+       
+  </title>
+  <meta name="title" content="借助 Chrome 进行性能优化 | Luneshao">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "借助 Chrome 进行性能优化",
+    "headline" : "借助 Chrome 进行性能优化",
+    "description" : "Chrome Performance面板笔记",
+    "inLanguage" : "en-us",
+    "author" : "luneShao",
+    "creator" : "luneShao",
+    "publisher": "luneShao",
+    "accountablePerson" : "luneShao",
+    "copyrightHolder" : "luneShao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-05-27 22:00:37 \x2b0800 CST",
+    "dateModified" : "2020-05-27 22:00:37 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2020\/2020-05-27-chrome-performance\/",
+    "wordCount" : "282",
+    "keywords" : [ "chrome", "Luneshao"]
+}
+</script>
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">Luneshao</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/about/" title=""></a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">Luneshao</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/about/" title=""></a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">借助 Chrome 进行性能优化</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneShao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-05-27 itemprop="datePublished">May 27, 2020</time>
+                </span>
+                in
+                
+                <span id="/2020/2020-05-27-chrome-performance/" class="leancloud_visitors post-meta" data-flag-title="借助 Chrome 进行性能优化">
+                    <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>运行时性能是指页面运行时的表现，而不是加载时的表现。本教程将教您如何使用 Chrome DevTools 性能面板分析运行时性能。就 RAIL 模型而言，本教程中学习的技能对于分析页面的响应、动画和空闲阶段非常有用。</p>
+
+<h2 id="分析结果">分析结果</h2>
+
+<h3 id="1-分析每秒的帧数">1. 分析每秒的帧数</h3>
+
+<p>衡量任何动画性能的主要指标是每秒帧数（FPS）。当动画以 60 FPS 运行时，用户会感到舒适。</p>
+
+<ol>
+<li>查看 FPS 图表。只要您在 FPS 上方看到红色条，就表示帧速率下降得很低，以至于可能损害用户体验。通常，绿色条越高，FPS 越高。</li>
+<li>在 FPS 图表下方，您会看到 CPU 图表。 CPU 图表中的颜色与 Performance 面板底部的 <strong>Summary</strong> 选项卡中的颜色相对应。CPU 图表充满色彩的事实意味着在记录过程中 CPU 已满。每当您看到 CPU 长时间长时间处于工作状态时，它意味着需要寻找办法减少工作。</li>
+<li>将鼠标悬停在 FPS，CPU 或 NET 图表上。 DevTools 将显示该时间点的页面截图。左右移动鼠标以重播记录。这称为 scrubbing ，对于手动分析动画的进度很有用。</li>
+<li>在 <strong>Frames</strong> 部分中，将鼠标悬停在绿色方块之一上。 DevTools 为您显示该特定框架的 FPS。每帧可能远低于 60 FPS 的目标。
+当然，通过此 demo，很明显页面效果不佳。但是在实际情况下，可能还不是很清楚，因此拥有所有这些工具进行测量非常方便。</li>
+</ol>
+
+<h4 id="打开-fps-仪表">打开 FPS 仪表</h4>
+
+<p>另一个方便的工具是 FPS 测量仪，它可以在页面运行时提供 FPS 的实时估算。</p>
+
+<ol>
+<li>按 Command + Shift + P（Mac）或 Control + Shift + P（Windows，Linux）打开“命令”菜单。</li>
+<li>开始在“命令”菜单中键入 <code>Rendering</code>，然后选择 <strong>Show Rendering</strong></li>
+<li>在 <strong>Rendering</strong> 选项卡中，启用 <strong>FPS Meter</strong>。新的叠加层将显示在视口的右上角。</li>
+<li>禁用 <strong>FPS Meter</strong>，按 Escape 键以关闭 <strong>Rendering</strong> 选项卡。在本教程中您将不会使用它</li>
+</ol>
+
+<h3 id="2-找到瓶颈">2. 找到瓶颈</h3>
+
+<ol>
+<li>注意 summary 选项卡。当没有选择事件时，这个选项卡显示的是活动的细分。该页面花费了大部分时间进行渲染。由于性能是少做工作的艺术，因此您的目标是减少花费在进行渲染工作上的时间。</li>
+<li>展开 <strong>Main</strong> 部分。 DevTools 向您显示了主线程随时间变化的活动图表。x 轴表示一段时间内的记录。每个条形代表一个事件。宽条表示该事件花费了更长的时间。 y 轴表示调用堆栈。当您看到事件相互叠加时，说明上面的事件引起了下面的事件。</li>
+<li>recording 里有很多数据。通过点击、按住并拖动鼠标在 &ldquo;概览&rdquo;（Overview）部分，即包括 FPS、CPU 和 NET 图表的部分，来放大单个动画帧触发事件。Main 部分和 Summary 选项卡只显示记录中所选部分的信息。</li>
+<li>注意右上角的红色三角形在 <strong>Animation Frame Fired</strong> 事件的右上角。每当你看到一个红色的三角形时，它是一个警告，说明可能存在与此事件相关的问题。
+&gt; 每当执行一个 requestAnimationFrame()回调时，动画帧触发事件就会发生。</li>
+<li>单击 <strong>Animation Frame Fired</strong>。现在，Summary 选项卡会显示有关该事件的信息。请注意 <strong>reveal</strong> 链接。点击它，DevTools 会高亮显示发起 <strong>Animation Frame Fired</strong> 的事件。另外，请注意 app.js:94 链接。点击它可以跳转到源码中的相关行。</li>
+<li>在 <strong>app.update</strong> 事件下面，有一堆紫色的事件。如果它们比较宽，看起来每个事件上可能都有一个红色的三角形。现在点击其中一个紫色的 <strong>Layout</strong> 事件。DevTools 在 <strong>Summary</strong> 选项卡中提供了更多关于该事件的信息。的确，这里有一个关于强制 reflows（另一个词叫 layout ）的警告。</li>
+<li>在 Summary 选项卡中，点击 <strong>Layout Forced</strong> 下的 <strong>app.js:70</strong> 链接。DevTools 会带你到强制布局的代码行。</li>
+</ol>
+
+<h3 id="3-下一步">3. 下一步</h3>
+
+<p>了解性能的基础是 RAIL 模型。这个模型教你如何衡量对用户最重要的性能指标。请参见 &ldquo;用 RAIL 模型来衡量绩效 &ldquo;来了解更多信息。</p>
+
+<p>要想对性能面板更加适应，实践出真知。尝试分析你自己的页面并分析结果。如果你对自己的结果有任何疑问，请打开一个以 google-chrome-devtools 为标签的 Stack Overflow 问题。如果可能的话，包括截图或链接到可重现的页面。</p>
+
+<p>要真正掌握运行时性能，你必须学习浏览器如何将 HTML、CSS 和 JS 转化为屏幕上的像素。最好的开始是 &ldquo;渲染性能概述&rdquo;（Rendering Performance Overview）。The Anatomy Of A Frame 将详细介绍更多的内容。</p>
+
+<p>最后，有很多方法可以提高运行时的性能。本教程重点介绍了一个特定的动画瓶颈，让你在性能面板上有重点地参观一下，但这只是你可能遇到的众多瓶颈之一。在《渲染性能》系列的其他内容中，有很多提高运行时性能的各方面的好方法。</p>
+
+<h2 id="使用-chrome-devtools-优化网站速度">使用 Chrome DevTools 优化网站速度</h2>
+
+<h3 id="step-1-audit-the-site">Step 1: Audit the site</h3>
+
+<p>每当您打算提高站点的负载性能时，<strong>请始终从 audit 开始</strong>。审核具有 2 个重要功能：</p>
+
+<ul>
+<li>它为您创建了一个基准，以衡量后续的更改。</li>
+<li>它为您提供了可行的提示，说明哪些更改将产生最大的影响。</li>
+</ul>
+
+<h4 id="建立基线">建立基线</h4>
+
+<ol>
+<li><p>单击 <strong>Audits</strong> 选项卡。它可能隐藏在 More 按钮后面。该面板上有一个 Lighthouse，因为为 Audits 面板供电的项目称为 Lighthouse。
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/2020-05-27-chrome-audits.png" alt="Audits配置" class="lazyload"><figcaption class="image-caption">Audits配置</figcaption></figure></p></li>
+
+<li><p>将您的审核配置设置与图中的设置进行匹配。这是不同选项的说明：</p></li>
+</ol>
+
+<ul>
+<li><strong>Device</strong> 设置为 <strong>Mobile</strong> 会更改用户代理字符串并模拟移动视口。设置为 <strong>Desktop</strong> 几乎可以禁用 <strong>Mobile</strong> 更改。</li>
+<li><strong>Audits</strong> 禁用 category 可防止 Audits 面板运行这些 audits，并将那些审核从报告中排除。如果要查看它们提供的建议类型，可以将其他类别保持启用状态。禁用类别会稍微加快审核过程。</li>
+<li><strong>Throttling (节流)</strong> 设置为 Simulated Fast 3G，4x CPU Slowdown 可以模拟在移动设备上浏览的典型条件。之所以称为“模拟”，是因为 Audits 面板在审核过程中实际上并未节流。相反，它只是推断在移动条件下页面加载所需的时间。另一方面，<strong>Applied..</strong> 设置实际上会限制您的 CPU 和网络，但需要权衡较长的审核过程。</li>
+<li><strong>Clear Storage</strong> 启用此复选框会在每次审核之前清除与该页面关联的所有存储。如果要审核首次访问者如何体验您的网站，请保留此设置。当您需要重复访问体验时，请禁用此设置。</li>
+</ul>
+
+<ol>
+<li>单击 <strong>Generate report</strong>。 10 到 30 秒后，“审核”面板将向您显示该站点的性能报告。</li>
+</ol>
+
+<h4 id="处理报告错误">处理报告错误</h4>
+
+<p>如果您在“审核”面板报告中遇到错误，请尝试从隐身窗口运行“演示”选项卡，而未打开其他选项卡。这样可以确保您在干净状态下运行Chrome。特别是Chrome扩展程序经常会干扰审核过程。</p>
+
+<h4 id="了解您的报告">了解您的报告</h4>
+
+<p>报告顶部的数字是该网站的总体效果得分。稍后，当您对代码进行更改时，应该看到这个数字增加了。分数越高表示性能越好。</p>
+
+<ul>
+<li><strong>Metrics</strong> 部分提供了站点性能的定量度量。每个指标都可以洞悉性能的不同方面。例如，<strong>First Contentful Paint</strong> 会告诉您何时将内容首次绘制到屏幕上，这是用户感知页面加载的重要里程碑，而 <strong>Time To Interactive</strong> 则标记页面显示为足以应付用户交互的就绪点。</li>
+</ul>
+
+<p>将鼠标悬停在指标上以查看其说明，然后单击 <strong>Learn More</strong> 以阅读有关该指标的文档。
+Metrics 下方是屏幕截图的集合，这些截图显示了页面加载时的外观。</p>
+
+<ul>
+<li><p><strong>Opportunities</strong> 部分提供了有关如何改善此特定页面的加载性能的特定提示。
+单击 opportunity 以了解更多信息。
+单击 <strong>Learn More</strong> 以查看有关 opportunity 为何如此重要的文档，以及有关如何解决的具体建议。</p></li>
+
+<li><p><strong>Diagnostics</strong> 部分提供了有关影响页面加载时间的因素的更多信息。</p></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2020/2020-05-27-chrome-performance/>https://luneshao.github.io/2020/2020-05-27-chrome-performance/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/chrome/">
+                    #chrome</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2020/2020-05-26-vue-amap/" class="prev" rel="prev" title="Vue 中异步加载 AMap"><i class="iconfont icon-left"></i>&nbsp;Vue 中异步加载 AMap</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+        <div id="vcomment"></div>
+          
+                 
+          
+    </div>
+    <script>
+        new Valine({
+          el: '#vcomment' ,
+          appId: 'VMtRNdHhQOQVoiWu2y2dQnJb-gzGzoHsz',
+          appKey: '073437m7LGtKY9mmCQioFbKI',
+          notify:true, 
+          verify:false, 
+          avatar:'wavatar', 
+          recordIP: true,
+          visitor: true, 
+          placeholder: '你好哇，快来戳我吐槽吧！🎉' 
+        })
+    </script>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
