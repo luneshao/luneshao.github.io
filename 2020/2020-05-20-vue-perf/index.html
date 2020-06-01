@@ -58,7 +58,7 @@
     "datePublished": "2020-05-20 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-05-20 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/luneshao.github.io\/2020\/2020-05-20-vue-perf\/",
-    "wordCount" : "412",
+    "wordCount" : "486",
     "keywords" : [ "vue","前端", "Luneshao"]
 }
 </script>
@@ -193,10 +193,10 @@ fontmin.run(function (err, files, stream) {
 @font-face {
 font-family: 'test'; /* 所指定的字体名字将会被用于font或font-family属性 */
 /* 
-src描述符指定了包含字体数据的资源。
-远程字体文件位置的URL或者用户计算机上的字体名称，
-可以使用local语法通过名称指定用户的本地计算机上的字体。
-如果找不到该字体，将会尝试其他来源，直到找到它。
+  src描述符指定了包含字体数据的资源。
+  远程字体文件位置的URL或者用户计算机上的字体名称，
+  可以使用local语法通过名称指定用户的本地计算机上的字体。
+  如果找不到该字体，将会尝试其他来源，直到找到它。
 */
 src: url('test.woff2') format('woff2');
 font-display: swap;
@@ -207,15 +207,44 @@ font-display: swap;
 
 <pre><code class="language-js">// font.js
 if ('fontDisplay' in document.body.style === false) {
-if ('fonts' in document) {
-  document.fonts.load('test')
-  document.fonts.ready.then((fontFaceSet) =&gt; {
-    document.documentElement.className += ' fonts-loaded' 
-  })
-}
+  if ('fonts' in document) {
+    document.fonts.load('test')
+    document.fonts.ready.then((fontFaceSet) =&gt; {
+      document.documentElement.className += ' fonts-loaded' 
+    })
+  }
 }
 </code></pre></li>
+
+<li><p>字体包 preload
+添加 preload-webpack-plugin 包</p>
+
+<pre><code class="language-cmd">$ yarn add preload-webpack-plugin --dev
+</code></pre></li>
 </ol>
+
+<p>在 vue.config.js 中配置</p>
+
+<pre><code class="language-js">  // vue.config.js
+  const PreloadWebpackPlugin = require('preload-webpack-plugin')
+
+  module.exports = {
+    configureWebpack: config =&gt; {
+      return {
+        plugins: [new PreloadWebpackPlugin({
+          rel: 'preload',
+          include: 'allAssets',
+          as (entry) { // link as 属性
+            if (/\.ttf$/.test(entry)) return 'font'
+            if (/\.jpg$/.test(entry)) return 'image'
+            return 'script'
+          },
+          fileWhitelist: [/\.ttf/, /banner[^-]*\.jpg/] // 白名单
+        })]
+      }
+    }
+  }
+</code></pre>
 
 <h3 id="相关知识补充">相关知识补充</h3>
 
@@ -223,43 +252,41 @@ if ('fonts' in document) {
 <li><p><code>font-display</code> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@font-face/font-display" rel="nofollow noreferrer" target="_blank">font-display MDN</a></p>
 
 <p>font-display属性必须在@font-face指令内使用。因为你不能控制第三方字体供应商的CSS文件，所以你没有办法控制font-display属性更用说给他传递值了。
-决定了一个@font-face 在不同的下载时间和可用时间下是如何展示的。</p>
+  决定了一个@font-face 在不同的下载时间和可用时间下是如何展示的。</p>
 
 <p><strong>字体显示时间轴</strong></p>
 
 <p>字体显示时间线基于一个计时器，该计时器在用户代理尝试使用给定下载字体的那一刻开始。时间线分为三个时间段，在这三个时间段中指定使用字体的元素的渲染行为。</p>
 
-<ul>
-<li><p><strong>字体阻塞周期</strong>
-如果未加载字体，任何试图使用它的元素都必须渲染不可见的后备字体。如果在此期间字体已成功加载，则正常使用它。</p></li>
+<pre><code>- **字体阻塞周期**
+  如果未加载字体，任何试图使用它的元素都必须渲染不可见的后备字体。如果在此期间字体已成功加载，则正常使用它。
 
-<li><p><strong>字体交换周期</strong>
-如果未加载字体，任何尝试使用它的元素都必须呈现后备字体。如果在此期间字体已成功加载，则正常使用它。</p></li>
+- **字体交换周期**
+  如果未加载字体，任何尝试使用它的元素都必须呈现后备字体。如果在此期间字体已成功加载，则正常使用它。
 
-<li><p><strong>字体失败周期</strong>
-如果未加载字体，用户代理将其视为导致正常字体回退的失败加载。</p></li>
-</ul>
+- **字体失败周期**
+  如果未加载字体，用户代理将其视为导致正常字体回退的失败加载。
+</code></pre>
 
 <p><strong>属性值</strong></p>
 
-<ul>
-<li><code>auto</code> 默认值，字体显示策略由用户代理定义。自定义字体的文本会被先隐藏，直到字体加载结束才会显示。</li>
-<li><code>block</code> 为字体提供一个短暂的阻塞周期和无限的交换周期。</li>
-<li><code>swap</code> 为字体提供一个非常小的阻塞周期和无限的交换周期。后备文本立即显示直到自定义字体加载完成后再使用自定义字体渲染文本。</li>
-<li><code>fallback</code> 为字体提供一个非常小的阻塞周期和短暂的交换周期。需要使用自定义字体渲染的文本会在较短时间内不可见，如果自定义字体还没加载结束，就先加载无样式文本。一旦自定义字体加载结束，那么文本就会被正确赋予样式。</li>
-<li><code>optional</code> 为字体提供一个非常小的阻塞周期，并且没有交换周期。效果和fallback几乎一样，不过 optional 可以让浏览器自由决定是否使用自定义字体，很大程度上取决于浏览器的连接速度。如果速度很慢，那自定义字体将不会被使用。</li>
-</ul></li>
+<pre><code>- `auto` 默认值，字体显示策略由用户代理定义。自定义字体的文本会被先隐藏，直到字体加载结束才会显示。
+- `block` 为字体提供一个短暂的阻塞周期和无限的交换周期。
+- `swap` 为字体提供一个非常小的阻塞周期和无限的交换周期。后备文本立即显示直到自定义字体加载完成后再使用自定义字体渲染文本。
+- `fallback` 为字体提供一个非常小的阻塞周期和短暂的交换周期。需要使用自定义字体渲染的文本会在较短时间内不可见，如果自定义字体还没加载结束，就先加载无样式文本。一旦自定义字体加载结束，那么文本就会被正确赋予样式。
+- `optional` 为字体提供一个非常小的阻塞周期，并且没有交换周期。效果和fallback几乎一样，不过 optional 可以让浏览器自由决定是否使用自定义字体，很大程度上取决于浏览器的连接速度。如果速度很慢，那自定义字体将不会被使用。
+</code></pre></li>
 
 <li><p><code>@font-face</code> 中 src 属性的 format 函数</p>
 
 <p>format() 函数描述该URL引用的字体资源的格式的可选提示。
-格式提示包含逗号分隔的格式字符串列表，这些字符串表示众所周知的字体格式。
-如果用户代理不支持指定的格式，它将跳过下载字体资源。如果没有提供格式提示，则始终下载字体资源。</p></li>
+  格式提示包含逗号分隔的格式字符串列表，这些字符串表示众所周知的字体格式。
+  如果用户代理不支持指定的格式，它将跳过下载字体资源。如果没有提供格式提示，则始终下载字体资源。</p></li>
 
 <li><p><code>document.documentElement</code></p>
 
 <p>对于任何非空 HTML 文档，调用 <code>document.documentElement</code> 总是会返回一个 <code>&lt;html&gt;</code> 元素，且它一定是该文档的根元素。借助这个只读属性，能方便地获取到任意文档的根元素。
-HTML 文档通常包含一个子节点 <html>，但在它前面可能还有个 DOCTYPE 声明。XML 文档通常包含多个子节点：根元素，DOCTYPE 声明，和 processing instructions。</p>
+  HTML 文档通常包含一个子节点 <html>，但在它前面可能还有个 DOCTYPE 声明。XML 文档通常包含多个子节点：根元素，DOCTYPE 声明，和 processing instructions。</p>
 
 <p>所以，应当使用 document.documentElement 来获取根元素, 而不是 document.firstChild。</p></li>
 
@@ -288,6 +315,8 @@ HTML 文档通常包含一个子节点 <html>，但在它前面可能还有个 D
 <li>text: 限制 font faces 编码范围至少要包含的字符。</li>
 </ul></li>
 </ul></li>
+
+<li><p><code>&lt;link ref=&quot;preload&quot; ... &gt;</code></p></li>
 </ul>
 
 <h2 id="2-图片使用懒加载">2、图片使用懒加载</h2>
