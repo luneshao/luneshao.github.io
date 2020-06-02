@@ -8,7 +8,7 @@
   <meta name="author" content="LuneShao">
   <meta name="description" content="这里是lune的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
   <meta name="keywords" content="luneshao，一瓶肥宅快乐水，博客，前端，小骨鱼">
-  
+  <meta name="google-site-verification" content="Gu27F60AgLNf8h9KCAXsLXjKd7O-e1oZpSGeblt5w70" />
   <link rel="prev" href="https://luneshao.github.io/2020/2020-05-26-vue-amap/" />
   
   <link rel="canonical" href="https://luneshao.github.io/2020/2020-05-27-chrome-performance/" />
@@ -58,12 +58,13 @@
     "datePublished": "2020-05-27 22:00:37 \x2b0800 CST",
     "dateModified" : "2020-05-27 22:00:37 \x2b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2020\/2020-05-27-chrome-performance\/",
-    "wordCount" : "349",
+    "wordCount" : "475",
     "keywords" : [ "chrome", "Luneshao"]
 }
 </script>
 
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1858143_e4r74dhzeku.css">
 </head>
 
   
@@ -198,9 +199,14 @@
 
 <li><p>recording 里有很多数据。通过点击、按住并拖动鼠标在 &ldquo;概览&rdquo;（Overview）部分，即包括 FPS、CPU 和 NET 图表的部分，来放大单个动画帧触发事件。Main 部分和 Summary 选项卡只显示记录中所选部分的信息。</p></li>
 
-<li><p>注意右上角的红色三角形在 <strong>Animation Frame Fired</strong> 事件的右上角。每当你看到一个红色的三角形时，它是一个警告，说明可能存在与此事件相关的问题。
-&gt; 每当执行一个 requestAnimationFrame()回调时，动画帧触发事件就会发生。</p></li>
+<li><p>注意右上角的红色三角形在 <strong>Animation Frame Fired</strong> 事件的右上角。每当你看到一个红色的三角形时，它是一个警告，说明可能存在与此事件相关的问题。</p></li>
+</ol>
 
+<blockquote>
+<p>每当执行一个 requestAnimationFrame()回调时，动画帧触发事件就会发生。</p>
+</blockquote>
+
+<ol>
 <li><p>单击 <strong>Animation Frame Fired</strong>。现在，Summary 选项卡会显示有关该事件的信息。请注意 <strong>reveal</strong> 链接。点击它，DevTools 会高亮显示发起 <strong>Animation Frame Fired</strong> 的事件。另外，请注意 app.js:94 链接。点击它可以跳转到源码中的相关行。</p></li>
 
 <li><p>在 <strong>app.update</strong> 事件下面，有一堆紫色的事件。如果它们比较宽，看起来每个事件上可能都有一个红色的三角形。现在点击其中一个紫色的 <strong>Layout</strong> 事件。DevTools 在 <strong>Summary</strong> 选项卡中提供了更多关于该事件的信息。的确，这里有一个关于强制 reflows（另一个词叫 layout ）的警告。</p></li>
@@ -252,24 +258,27 @@
 
 <h4 id="处理报告错误">处理报告错误</h4>
 
-<p>如果您在“审核”面板报告中遇到错误，请尝试从隐身窗口运行“演示”选项卡，而未打开其他选项卡。这样可以确保您在干净状态下运行Chrome。特别是Chrome扩展程序经常会干扰审核过程。</p>
+<p>如果您在“审核”面板报告中遇到错误，请尝试从隐身窗口运行“演示”选项卡，而未打开其他选项卡。这样可以确保您在干净状态下运行 Chrome。特别是 Chrome 扩展程序经常会干扰审核过程。</p>
 
 <h4 id="了解您的报告">了解您的报告</h4>
 
 <p>报告顶部的数字是该网站的总体效果得分。稍后，当您对代码进行更改时，应该看到这个数字增加了。分数越高表示性能越好。</p>
 
 <ul>
-<li><p><strong>Metrics</strong> 部分提供了站点性能的定量度量。每个指标都可以洞悉性能的不同方面。例如，<strong>First Contentful Paint</strong> 会告诉您何时将内容首次绘制到屏幕上，这是用户感知页面加载的重要里程碑，而 <strong>Time To Interactive</strong> 则标记页面显示为足以应付用户交互的就绪点。</p>
-
-<p>将鼠标悬停在指标上以查看其说明，然后单击 <strong>Learn More</strong> 以阅读有关该指标的文档。
-Metrics 下方是屏幕截图的集合，这些截图显示了页面加载时的外观。</p>
-
-<ul>
-<li><strong>First Meaningful Paint</strong>
-&gt; First Meaningful Paint (FMP) is deprecated in Lighthouse 6.0.</li>
+<li><strong>Metrics</strong> 部分提供了站点性能的定量度量。每个指标都可以洞悉性能的不同方面。例如，<strong>First Contentful Paint</strong> 会告诉您何时将内容首次绘制到屏幕上，这是用户感知页面加载的重要里程碑，而 <strong>Time To Interactive</strong> 则标记页面显示为足以应付用户交互的就绪点。</li>
 </ul>
 
-<p>FMP衡量用户何时可以看到页面的主要内容。 FMP的原始分数是用户启动页面加载与呈现首屏内容之间的时间（以秒为单位）。FMP本质上显示了最大的 above-the-fold 布局发生了变化绘制的时间。</p>
+<p>将鼠标悬停在指标上以查看其说明，然后单击 <strong>Learn More</strong> 以阅读有关该指标的文档。
+  Metrics 下方是屏幕截图的集合，这些截图显示了页面加载时的外观。</p>
+
+<ul>
+<li><p><strong>First Meaningful Paint</strong></p>
+
+<blockquote>
+<p>First Meaningful Paint (FMP) is deprecated in Lighthouse 6.0.</p>
+</blockquote>
+
+<p>FMP 衡量用户何时可以看到页面的主要内容。 FMP 的原始分数是用户启动页面加载与呈现首屏内容之间的时间（以秒为单位）。FMP 本质上显示了最大的 above-the-fold 布局发生了变化绘制的时间。</p>
 
 <p>当页面上呈现的第一部分内容包括折页上方的内容时，FCP 和 FMP 通常是相同的。但是，当某个 iframe 中的内容超出首屏时，这些指标可能会有所不同。当 iframe 中的内容对用户可见时，FMP 进行注册，而 FCP 不包含 iframe 内容。</p></li>
 
@@ -294,14 +303,72 @@ Metrics 下方是屏幕截图的集合，这些截图显示了页面加载时的
 
 <ol>
 <li>Click the Network tab.</li>
-<li>单击Use Large Request Rows。网络请求表中的行的高度增加。</li>
+<li>单击 Use Large Request Rows。网络请求表中的行的高度增加。</li>
 <li>如果在网络请求表中没有看到 size 列，请单击表标题，然后选择 size。</li>
 </ol>
 
 <p>每个 size 单元格显示两个值。上面的是下载资源的大小。下面的是未压缩资源的大小。如果两个值相同，则在通过网络发送资源时不会对其进行压缩。</p>
 
-<p>也可以通过检查资源的HTTP标头来检查压缩情况：
-  1. 点击资源的 header 选项卡，在 <strong>Response Headers</strong> 部分中搜索 <code>content-encoding</code> 。如果没有这个属性，意味着资源没有被压缩。</p>
+<p>也可以通过检查资源的 HTTP 标头来检查压缩情况：</p>
+
+<ol>
+<li>点击资源的 header 选项卡，在 <strong>Response Headers</strong> 部分中搜索 <code>content-encoding</code> 。如果没有这个属性，意味着资源没有被压缩。</li>
+</ol>
+
+<h4 id="消除渲染阻止资源">消除渲染阻止资源</h4>
+
+<h5 id="coverage">Coverage</h5>
+
+<ol>
+<li>键入 Command+Shift+P (Mac) or Control+Shift+P (Windows, Linux, Chrome OS) 打开“命令”菜单，开始键入 Coverage，然后选择 <strong>Show Coverage</strong></li>
+<li>从 Audits 面板中打开“命令”菜单</li>
+<li>Click <strong>Reload</strong>。Coverage 选项卡概述了页面加载时正在执行 *.js 中的多少代码。</li>
+<li>单击 *.js 行。 DevTools 在 Sources 面板中打开文件。如果一行代码旁边有绿色的条，则表示该代码行已执行。红色条表示未执行，并且绝对不需要在页面加载时使用。</li>
+<li>滚动浏览一下 jQuery 代码。一些被“执行”的行实际上只是注释。通过剥离注释的压缩程序运行此代码是减小此文件大小的另一种方法。</li>
+</ol>
+
+<h5 id="show-request-blocking">Show Request Blocking</h5>
+
+<ol>
+<li>键入 Command+Shift+P (Mac) or Control+Shift+P (Windows, Linux, Chrome OS) 打开“命令”菜单，开始键入 Blocking，然后选择 <strong>Show Request Blocking</strong></li>
+<li>点击 ➕ 号，输入 <code>/libs/*</code> 键入回车确认。</li>
+<li>重新加载页面。 jQuery和Lodash请求为红色，表示它们已被阻止。该页面仍处于加载状态并且是交互式的，因此看起来这些资源都是不需要的！</li>
+<li>单击 <strong>Remove all patterns</strong> 以删除/ libs / *阻止模式。
+通常，Request Blocking 选项卡可用于在任何给定资源不可用时模拟页面的行为。</li>
+</ol>
+
+<h4 id="在现实世界中优化关键渲染路径">在现实世界中优化关键渲染路径</h4>
+
+<p>关键渲染路径是指加载页面所需的代码。通常，您可以通过仅在页面加载过程中交付关键代码，然后延迟加载其他所有内容来加快页面加载速度。</p>
+
+<ul>
+<li>您不太可能找到可以完全删除的脚本，但是您经常会发现在页面加载期间不需要请求许多脚本，而可以异步请求。请参阅使用异步或延迟。</li>
+<li>如果您使用的是框架，请检查框架是否具有生产模式。此模式可以使用诸如摇树之类的功能，以消除阻塞关键渲染的不必要代码。</li>
+</ul>
+
+<h4 id="减少主线程工作">减少主线程工作</h4>
+
+<p>主线程是浏览器完成显示页面所需的大部分工作的地方，例如解析和执行HTML，CSS和JavaScript。</p>
+
+<p>目的是使用“性能”面板来分析页面加载时主线程正在进行的工作，并找到推迟或删除不必要工作的方法。</p>
+
+<ol>
+<li>Click the <strong>Performance</strong> tab.</li>
+<li>Click <strong>Capture Settings</strong>.</li>
+<li>Set <strong>Network</strong> to <strong>Slow 3G</strong> and <strong>CPU to 6x slowdown</strong>.移动设备通常比笔记本电脑或台式机具有更多的硬件限制，因此这些设置使您可以像使用功能较弱的设备一样体验页面加载。</li>
+<li>Click <strong>Reload</strong>.DevTools重新加载页面，然后生成可视化效果以显示该页面。该可视化将被称为跟踪。</li>
+</ol>
+
+<p>轨迹从左到右按时间顺序显示活动。顶部的FPS，CPU和NET图表为您提供了每秒帧数，CPU活动和网络活动的概述。在图39中看到的黄色墙壁表示CPU完全忙于脚本活动。这是一条线索，您可以通过减少JavaScript工作来加快页面加载速度。</p>
+
+<p>调查跟踪以找到减少JavaScript工作的方法：</p>
+
+<ol>
+<li>浏览 <strong>Main</strong> 部分。本节从左到右显示了主线程活动的时间顺序日志。 y轴（从上到下）显示事件发生的原因。例如，在图41中，<code>Evaluate Script</code> 事件导致 <code>(anonymous)</code> 函数执行，导致 <code>../rbd/pnpm-volume/...</code> 执行，导致 <code>__webpack__require__</code> 执行，依此类推。</li>
+<li>向下滚动到主要部分的底部。使用框架时，大多数高级活动是由框架引起的，通常这是您无法控制的。您的应用程序引起的活动通常在底部。</li>
+<li>展开 <strong>Bottom-Up</strong> 部分。此标签可细分哪些活动占用最多的时间。如果在 <strong>Bottom-Up</strong> 部分没有看到任何内容，请单击 <strong>Main</strong> 部分的标签。<strong>Bottom-Up</strong> 部分仅显示有关当前所选活动或活动组的信息。
+<strong>Self Time</strong> 列显示您直接在每个活动中花费了多少时间。</li>
+</ol>
 
     </div>
 
