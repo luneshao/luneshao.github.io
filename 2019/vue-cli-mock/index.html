@@ -60,7 +60,7 @@
     "datePublished": "2019-07-09 16:27:20 \x2b0800 CST",
     "dateModified" : "2019-07-09 16:27:20 \x2b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2019\/vue-cli-mock\/",
-    "wordCount" : "411",
+    "wordCount" : "530",
     "keywords" : [ "Vue","Mock","webpack", "Luneshao"]
 }
 </script>
@@ -348,9 +348,68 @@ module.exports = {
   })
 </code></pre>
 
-<blockquote>
+<h2 id="2020-06-03-更新">2020-06-03 更新</h2>
+
+<p>或者可以安装 <code>mockjs2</code></p>
+
+<pre><code>yarn add mockjs2
+</code></pre>
+
+<p>然后创建 <code>mock/test.js</code> 文件</p>
+
+<p>查看官方 <a href="https://github.com/nuysoft/Mock/wiki" rel="nofollow noreferrer" target="_blank">api</a> 直接生成mock数据，可以参考<a href="http://mockjs.com/examples.html" rel="nofollow noreferrer" target="_blank">官方示例</a>。</p>
+
+<p>然后在需要的地方调用就可以了。</p>
+
+<h3 id="代码">代码</h3>
+
+<pre><code class="language-js">// mock/test.js
+import Mock from 'mockjs2'
+import { mapCompanys } from '@/data'
+/**
+ * 魔力象限数据
+ * @returns
+ * {
+ *  series: [ {data: [integer, integer, integer, integer, company, year-mm-dd]}, [] ... ]
+ * }
+ */
+function getMagic () {
+  const companys = Object.keys(mapCompanys)
+
+  return {
+    'series|24': [{ 'data|10-14': [['@integer(0, 100)', '@integer(0, 100)', '@integer(1, 4)', '@integer(1, 4)', `@pick(${companys})`, '@pick([2018, 2019, 2020])' + '-' + '@date(MM-dd)']] }]
+  }
+}
+
+Mock.mock('/api/getMagic', 'get', getMagic())
+
+export default Mock
+</code></pre>
+
+<pre><code class="language-js">// main.js
+import '@/mock'
+</code></pre>
+
+<pre><code class="language-vue">// test.vue
+&lt;template&gt;
+...
+&lt;/template&gt;
+
+&lt;script&gt;
+import Axios from 'axios'
+
+export default {
+  mounted () {
+    axios.get('/api/getMagic')
+      .then(res =&gt; {
+        console.log('mock res:', res)
+      })
+  }
+}
+&lt;/script&gt;
+</code></pre>
+
 <p>以上。🐵</p>
-</blockquote>
 
     </div>
 
