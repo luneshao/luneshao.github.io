@@ -6,10 +6,34 @@
     <description>Recent content in Posts on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 May 2020 22:00:37 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2020 12:16:22 +0800</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>网页的 Copyright 该如何书写</title>
+      <link>https://luneshao.github.io/2020/2020-07-16-copyright/</link>
+      <pubDate>Thu, 16 Jul 2020 12:16:22 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-07-16-copyright/</guid>
+      <description>copyright 格式 设公司名称是Apple Inc.
+1.Copyright
+© 通常可以代替Copyright, 但是不可以用©。
+单词“Copyright”（直译为版权）；
+2.[日期]怎么写？
+作品初次公开发表的年份；年份位置写网站创建至今的年份。
+3.作品的著作权拥有者名称，拥有者除作者、多作者外;也可以是拥有著作权的公司、企业；名称可以是可识别的拥有者全称外，也可以是名称缩写、可以是拥有者的其他为公众知晓的名称。如果是个人网站，也可以用你自己的名称。拼音的写法是你的名字的首字母，后面跟你的姓的全拼，首字母大写。
+[作者/拥有者]怎么写？ 有些网站的著作权声明中还会在著作权拥有者之后加一个后缀“All Rights Reserved.”（通常直译为“版权所有”）。 格式应该是：Copyright [dates] [author/owner] All rights Reserved. 例如:“Copyright2018XXX.All Rights Reserved.”
+介绍内容摘自此文
+示例1：年份位置一直显示当前年份（假设当前年份是2018） Copyright © 2018 Apple Inc. All rights reserved.
+© 2018 Apple Inc. All rights reserved.
+© 2018 Apple Inc. 版权所有
+Copyright © 2018 Apple Inc.
+© 2018 Apple Inc.
+Apple Inc. © 2018
+示例2：年份位置显示网站创建至今的年份（假设当前年份是2018） Copyright © 1996-2018 Apple Inc. All rights reserved.</description>
+    </item>
     
     <item>
       <title>借助 Chrome 进行性能优化</title>

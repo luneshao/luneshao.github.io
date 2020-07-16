@@ -60,7 +60,7 @@
     "datePublished": "2020-05-20 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-05-20 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/luneshao.github.io\/2020\/2020-05-20-vue-perf\/",
-    "wordCount" : "596",
+    "wordCount" : "598",
     "keywords" : [ "vue","前端", "Luneshao"]
 }
 </script>
@@ -421,11 +421,11 @@ module.exports = {
 
 <h3 id="5-1-nginx-配置-last-modify-和-etag">5.1 nginx 配置 last-modify 和 etag</h3>
 
-<pre><code class="language-nginx.conf">location ~.*\.(gif|jpg|jpeg|png|bmp|swf|ttf)$
+<pre><code class="language-nginx.conf">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|ttf)$
 {
     expires      60d;
 }
-location ~.*\.(js|css)?$
+location ~ .*\.(js|css)?$
 {
     expires      60d;
 }
