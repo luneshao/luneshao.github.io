@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="baidu-site-verification" content="8GUMFEgBhB" />
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是 LuneShao 的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="LuneShao, 一瓶肥宅快乐水, 博客, 前端, 小骨鱼">
+  <meta name="google-site-verification" content="Gu27F60AgLNf8h9KCAXsLXjKd7O-e1oZpSGeblt5w70" />
+  <link rel="prev" href="https://luneshao.github.io/2020/2020-07-16-copyright/" />
+  
+  <link rel="canonical" href="https://luneshao.github.io/2020/2020-07-21-vue-loader/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/img/favicon.ico" />
+  
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1858143_e4r74dhzeku.css">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Vue Loader笔记 | Luneshao
+       
+  </title>
+  <meta name="title" content="Vue Loader笔记 | Luneshao">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Vue Loader笔记",
+    "headline" : "Vue Loader笔记",
+    "description" : "记录Vue Loader文档中新学到的知识。",
+    "inLanguage" : "en-us",
+    "author" : "luneShao",
+    "creator" : "luneShao",
+    "publisher": "luneShao",
+    "accountablePerson" : "luneShao",
+    "copyrightHolder" : "luneShao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-21 17:06:16 \x2b0800 CST",
+    "dateModified" : "2020-07-21 17:06:16 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2020\/2020-07-21-vue-loader\/",
+    "wordCount" : "401",
+    "keywords" : [ "前端","vue", "Luneshao"]
+}
+</script>
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">Luneshao</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/about/" title=""></a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">Luneshao</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/about/" title=""></a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Vue Loader笔记</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneShao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-07-21 itemprop="datePublished">July 21, 2020</time>
+                </span>
+                in
+                
+                <span id="/2020/2020-07-21-vue-loader/" class="leancloud_visitors post-meta" data-flag-title="Vue Loader笔记">
+                    <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        <img src="/img/cover.jpg" class="featured_image">
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>Vue Loader 是一个 webpack 的 loader，它允许你以一种名为单文件组件 (SFCs)的格式撰写 Vue 组件。</p>
+
+<ul>
+<li><p>允许为 <code>Vue</code> 组件的每个部分使用其它的 <code>webpack loader</code>；</p></li>
+
+<li><p>允许在一个 <code>.vue</code> 文件中使用自定义块，并对其运用自定义的 <code>loader</code> 链；</p></li>
+
+<li><p>使用 <code>webpack loader</code> 将 <code>&lt;style&gt;</code> 和 <code>&lt;template&gt;</code> 中引用的资源当作模块依赖来处理；</p></li>
+
+<li><p>为每个组件模拟出 scoped CSS；</p></li>
+
+<li><p>在开发过程中使用热重载来保持状态。</p></li>
+</ul>
+
+<h2 id="起步">起步</h2>
+
+<p>每个 vue 包的新版本发布时，一个相应版本的 <code>vue-template-compiler</code> 也会随之发布。编译器的版本必须和基本的 vue 包保持同步，这样 <code>vue-loader</code> 就会生成兼容运行时的代码。<strong>这意味着你每次升级项目中的 vue 包时，也应该匹配升级 vue-template-compiler。</strong></p>
+
+<h3 id="webpack-配置">webpack 配置</h3>
+
+<p>除了通过一条规则将 <code>vue-loader</code> 应用到所有扩展名为 <code>.vue</code> 的文件上之外，请确保在你的 <code>webpack</code> 配置中添加 <code>Vue Loader</code> 的插件：</p>
+
+<pre><code class="language-js">// webpack.config.js
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
+module.exports = {
+  module: {
+    rules: [
+      // ... 其它规则
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
+    ]
+  },
+  plugins: [new VueLoaderPlugin()]
+}
+</code></pre>
+
+<p><strong>这个插件是必须的！</strong> 它的职责是将你定义过的其它规则复制并应用到 <code>.vue</code> 文件里相应语言的块。</p>
+
+<h3 id="处理资源路径">处理资源路径</h3>
+
+<p>当 Vue Loader 编译单文件组件中的 <template> 块时，它也会将所有遇到的<strong>资源 URL 转换为 webpack 模块请求</strong>。</p>
+
+<h3 id="使用预处理器">使用预处理器</h3>
+
+<h4 id="sass-vs-scss">Sass vs SCSS</h4>
+
+<p>注意 <code>sass-loader</code> 会默认处理不基于缩进的 <code>scss</code> 语法。为了使用基于缩进的 <code>sass</code> 语法，你需要向这个 <code>loader</code> 传递选项：</p>
+
+<pre><code class="language-js">// webpack.config.js -&gt; module.rules
+{
+  test: /\.sass/,
+  use: [
+    'vue-style-loader',
+    'css-loader',
+    {
+      loader: 'sass-loader',
+      options: {
+        indentedSyntax: true,
+        // sass-loader version &gt;= 8
+        sassOptions: {
+          indentedSyntax: true
+        }
+      }
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="共享全局变量">共享全局变量</h4>
+
+<p><code>sass-loader</code> 也支持一个 <code>prependData</code> 选项，这个选项允许你在所有被处理的文件之间共享常见的变量，而不需要显式地导入它们：</p>
+
+<pre><code class="language-js">// webpack.config.js -&gt; module.rules
+{
+  test: /\.scss$/,
+  use: [
+    'vue-style-loader',
+    'css-loader',
+    {
+      loader: 'sass-loader',
+      options: {
+        // 你也可以从一个文件读取，例如 `variables.scss`
+        // 如果 sass-loader 版本 &lt; 8，这里使用 `data` 字段
+        prependData: `$color: red;`
+      }
+    }
+  ]
+}
+</code></pre>
+
+<h3 id="scoped-css">Scoped CSS</h3>
+
+<h4 id="深度作用选择器">深度作用选择器</h4>
+
+<p>如果你希望 scoped 样式中的一个选择器能够作用得“更深”，例如影响子组件，你可以使用 &gt;&gt;&gt; 操作符：</p>
+
+<pre><code class="language-scss">&lt;style scoped&gt;
+.a &gt;&gt;&gt; .b { /* ... */ }
+&lt;/style&gt;
+</code></pre>
+
+<p>有些像 Sass 之类的预处理器无法正确解析 <code>&gt;&gt;&gt;</code>。这种情况下你可以使用 <code>/deep/</code> 或 <code>::v-deep</code> 操作符取而代之——两者都是 <code>&gt;&gt;&gt;</code> 的别名，同样可以正常工作。</p>
+
+<h4 id="动态生成的内容">动态生成的内容</h4>
+
+<p>通过 <code>v-html</code> 创建的 <code>DOM</code> 内容<strong>不受</strong> <code>scoped</code> 样式影响，但是你仍然可以通过深度作用选择器来为他们设置样式。</p>
+
+<h3 id="css-modules">CSS Modules</h3>
+
+<h4 id="用法">用法</h4>
+
+<p>首先，CSS Modules 必须通过向 <code>css-loader</code> 传入 <code>modules: true</code> 来开启：</p>
+
+<pre><code class="language-js">// webpack.config.js
+{
+  module: {
+    rules: [
+      // ... 其它规则省略
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              // 开启 CSS Modules
+              modules: true,
+              // 自定义生成的类名
+              localIdentName: '[local]_[hash:base64:8]'
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+</code></pre>
+
+<p>然后在你的 <code>&lt;style&gt;</code> 上添加 <code>module</code> 特性：</p>
+
+<pre><code class="language-vue">&lt;style module&gt;
+.red {
+  color: red;
+}
+.bold {
+  font-weight: bold;
+}
+&lt;/style&gt;
+</code></pre>
+
+<p>这个 <code>module</code> 特性指引 Vue Loader 作为名为 <code>$style</code> 的计算属性，向组件注入 CSS Modules 局部对象。然后你就可以在模板中通过一个动态类绑定来使用它了：</p>
+
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;p :class=&quot;$style.red&quot;&gt;
+    This should be red
+  &lt;/p&gt;
+&lt;/template&gt;
+</code></pre>
+
+<h4 id="可选用法">可选用法</h4>
+
+<p>如果你只想在某些 Vue 组件中使用 CSS Modules，你可以使用 <code>oneOf</code> 规则并在 <code>resourceQuery</code> 字符串中检查 <code>module</code> 字符串：</p>
+
+<pre><code class="language-js">// webpack.config.js -&gt; module.rules
+{
+  test: /\.css$/,
+  oneOf: [
+    // 这里匹配 `&lt;style module&gt;`
+    {
+      resourceQuery: /module/,
+      use: [
+        'vue-style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            localIdentName: '[local]_[hash:base64:5]'
+          }
+        }
+      ]
+    },
+    // 这里匹配普通的 `&lt;style&gt;` 或 `&lt;style scoped&gt;`
+    {
+      use: [
+        'vue-style-loader',
+        'css-loader'
+      ]
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="自定义的注入名称">自定义的注入名称</h4>
+
+<p>在 <code>.vue</code> 中你可以定义不止一个 <code>&lt;style&gt;</code>，为了避免被覆盖，你可以通过设置 <code>module</code> 属性来为它们定义注入后计算属性的名称。</p>
+
+<pre><code class="language-vue">&lt;style module=&quot;a&quot;&gt;
+  /* 注入标识符 a */
+&lt;/style&gt;
+
+&lt;style module=&quot;b&quot;&gt;
+  /* 注入标识符 b */
+&lt;/style&gt;
+</code></pre>
+
+<h3 id="热重载">热重载</h3>
+
+<h4 id="状态保留规则">状态保留规则</h4>
+
+<ul>
+<li><p>当编辑一个组件的 <code>&lt;template&gt;</code> 时，这个组件实例将就地重新渲染，并保留当前所有的私有状态。能够做到这一点是因为模板被编译成了新的无副作用的渲染函数。</p></li>
+
+<li><p>当编辑一个组件的 <code>&lt;script&gt;</code> 时，这个组件实例将就地销毁并重新创建。(应用中其它组件的状态将会被保留) 是因为 <code>&lt;script&gt;</code> 可能包含带有副作用的生命周期钩子，所以将重新渲染替换为重新加载是必须的，这样做可以确保组件行为的一致性。这也意味着，如果你的组件带有全局副作用，则整个页面将会被重新加载。</p></li>
+
+<li><p><code>&lt;style&gt;</code> 会通过 <code>vue-style-loader</code> 自行热重载，所以它不会影响应用的状态。</p></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2020/2020-07-21-vue-loader/>https://luneshao.github.io/2020/2020-07-21-vue-loader/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF/">
+                    #前端</a></span>
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/vue/">
+                    #vue</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2020/2020-07-16-copyright/" class="prev" rel="prev" title="网页的 Copyright 及备案信息该如何书写"><i class="iconfont icon-left"></i>&nbsp;网页的 Copyright 及备案信息该如何书写</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+        <div id="vcomment"></div>
+          
+                 
+          
+    </div>
+    <script>
+        new Valine({
+          el: '#vcomment' ,
+          appId: 'VMtRNdHhQOQVoiWu2y2dQnJb-gzGzoHsz',
+          appKey: '073437m7LGtKY9mmCQioFbKI',
+          notify:true, 
+          verify:false, 
+          avatar:'wavatar', 
+          recordIP: true,
+          visitor: true, 
+          placeholder: '你好哇，快来戳我吐槽吧！🎉' 
+        })
+    </script>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

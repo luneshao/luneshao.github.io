@@ -6,33 +6,40 @@
     <description>Recent content in Posts on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 Jul 2020 12:16:22 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jul 2020 17:06:16 +0800</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>网页的 Copyright 该如何书写</title>
+      <title>Vue Loader笔记</title>
+      <link>https://luneshao.github.io/2020/2020-07-21-vue-loader/</link>
+      <pubDate>Tue, 21 Jul 2020 17:06:16 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-07-21-vue-loader/</guid>
+      <description>Vue Loader 是一个 webpack 的 loader，它允许你以一种名为单文件组件 (SFCs)的格式撰写 Vue 组件。
+ 允许为 Vue 组件的每个部分使用其它的 webpack loader；
+ 允许在一个 .vue 文件中使用自定义块，并对其运用自定义的 loader 链；
+ 使用 webpack loader 将 &amp;lt;style&amp;gt; 和 &amp;lt;template&amp;gt; 中引用的资源当作模块依赖来处理；
+ 为每个组件模拟出 scoped CSS；
+ 在开发过程中使用热重载来保持状态。
+  起步 每个 vue 包的新版本发布时，一个相应版本的 vue-template-compiler 也会随之发布。编译器的版本必须和基本的 vue 包保持同步，这样 vue-loader 就会生成兼容运行时的代码。这意味着你每次升级项目中的 vue 包时，也应该匹配升级 vue-template-compiler。
+webpack 配置 除了通过一条规则将 vue-loader 应用到所有扩展名为 .vue 的文件上之外，请确保在你的 webpack 配置中添加 Vue Loader 的插件：
+// webpack.config.js const VueLoaderPlugin = require(&#39;vue-loader/lib/plugin&#39;) module.</description>
+    </item>
+    
+    <item>
+      <title>网页的 Copyright 及备案信息该如何书写</title>
       <link>https://luneshao.github.io/2020/2020-07-16-copyright/</link>
       <pubDate>Thu, 16 Jul 2020 12:16:22 +0800</pubDate>
       
       <guid>https://luneshao.github.io/2020/2020-07-16-copyright/</guid>
-      <description>copyright 格式 设公司名称是Apple Inc.
-1.Copyright
-© 通常可以代替Copyright, 但是不可以用©。
-单词“Copyright”（直译为版权）；
-2.[日期]怎么写？
-作品初次公开发表的年份；年份位置写网站创建至今的年份。
-3.作品的著作权拥有者名称，拥有者除作者、多作者外;也可以是拥有著作权的公司、企业；名称可以是可识别的拥有者全称外，也可以是名称缩写、可以是拥有者的其他为公众知晓的名称。如果是个人网站，也可以用你自己的名称。拼音的写法是你的名字的首字母，后面跟你的姓的全拼，首字母大写。
-[作者/拥有者]怎么写？ 有些网站的著作权声明中还会在著作权拥有者之后加一个后缀“All Rights Reserved.”（通常直译为“版权所有”）。 格式应该是：Copyright [dates] [author/owner] All rights Reserved. 例如:“Copyright2018XXX.All Rights Reserved.”
-介绍内容摘自此文
-示例1：年份位置一直显示当前年份（假设当前年份是2018） Copyright © 2018 Apple Inc. All rights reserved.
-© 2018 Apple Inc. All rights reserved.
-© 2018 Apple Inc. 版权所有
-Copyright © 2018 Apple Inc.
-© 2018 Apple Inc.
-Apple Inc. © 2018
-示例2：年份位置显示网站创建至今的年份（假设当前年份是2018） Copyright © 1996-2018 Apple Inc. All rights reserved.</description>
+      <description>copyright 格式 [symbol] [date] [author&amp;rsquo;s name] [statement of rights]
+Copyright - 标记  The universally accepted symbol for a copyright is the letter C in a circle: ©. You can also use the word &amp;ldquo;copyright&amp;rdquo;.
+ 版权的通用符号是一个圆圈中的字母C：©。 您也可以使用“copyright”一词。这个标记需要放在版权标识的最前方。
+copyright - 日期  For the copyright date, you&amp;rsquo;ll want to use only a year or years. Months or days are not used.
+ 您只需要写一年或年份范围，不需要写月、日。
+一年或年份范围  If you keep a mix of old and new content in your copyrighted medium, your copyright date may be a range rather than a single year.</description>
     </item>
     
     <item>

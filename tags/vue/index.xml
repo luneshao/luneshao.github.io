@@ -6,10 +6,27 @@
     <description>Recent content in vue on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 May 2020 14:27:32 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jul 2020 17:06:16 +0800</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue Loader笔记</title>
+      <link>https://luneshao.github.io/2020/2020-07-21-vue-loader/</link>
+      <pubDate>Tue, 21 Jul 2020 17:06:16 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-07-21-vue-loader/</guid>
+      <description>Vue Loader 是一个 webpack 的 loader，它允许你以一种名为单文件组件 (SFCs)的格式撰写 Vue 组件。
+ 允许为 Vue 组件的每个部分使用其它的 webpack loader；
+ 允许在一个 .vue 文件中使用自定义块，并对其运用自定义的 loader 链；
+ 使用 webpack loader 将 &amp;lt;style&amp;gt; 和 &amp;lt;template&amp;gt; 中引用的资源当作模块依赖来处理；
+ 为每个组件模拟出 scoped CSS；
+ 在开发过程中使用热重载来保持状态。
+  起步 每个 vue 包的新版本发布时，一个相应版本的 vue-template-compiler 也会随之发布。编译器的版本必须和基本的 vue 包保持同步，这样 vue-loader 就会生成兼容运行时的代码。这意味着你每次升级项目中的 vue 包时，也应该匹配升级 vue-template-compiler。
+webpack 配置 除了通过一条规则将 vue-loader 应用到所有扩展名为 .vue 的文件上之外，请确保在你的 webpack 配置中添加 Vue Loader 的插件：
+// webpack.config.js const VueLoaderPlugin = require(&#39;vue-loader/lib/plugin&#39;) module.</description>
+    </item>
     
     <item>
       <title>Vue 中异步加载 AMap</title>
