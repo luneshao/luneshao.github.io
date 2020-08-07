@@ -11,7 +11,7 @@
   <meta name="keywords" content="LuneShao, 一瓶肥宅快乐水, 博客, 前端, 小骨鱼">
   <meta name="google-site-verification" content="Gu27F60AgLNf8h9KCAXsLXjKd7O-e1oZpSGeblt5w70" />
   <link rel="prev" href="https://luneshao.github.io/2020/2020-07-16-copyright/" />
-  
+  <link rel="next" href="https://luneshao.github.io/2020/2020-08-07-c-ysf/" />
   <link rel="canonical" href="https://luneshao.github.io/2020/2020-07-21-vue-loader/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -60,7 +60,7 @@
     "datePublished": "2020-07-21 17:06:16 \x2b0800 CST",
     "dateModified" : "2020-07-21 17:06:16 \x2b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2020\/2020-07-21-vue-loader\/",
-    "wordCount" : "401",
+    "wordCount" : "431",
     "keywords" : [ "前端","vue", "Luneshao"]
 }
 </script>
@@ -146,7 +146,6 @@
 
         
 
-        <img src="/img/cover.jpg" class="featured_image">
         
         
      
@@ -203,7 +202,20 @@ module.exports = {
 
 <h3 id="处理资源路径">处理资源路径</h3>
 
-<p>当 Vue Loader 编译单文件组件中的 <template> 块时，它也会将所有遇到的<strong>资源 URL 转换为 webpack 模块请求</strong>。</p>
+<p>当 Vue Loader 编译单文件组件中的 <code>&lt;template&gt;</code> 块时，它也会将所有遇到的<strong>资源 URL 转换为 webpack 模块请求</strong>。</p>
+
+<ul>
+<li><p>如果路径是绝对路径 (例如 <code>/images/foo.png</code>)，会原样保留。</p></li>
+
+<li><p>如果路径以 <code>.</code> 开头，将会被看作相对的模块依赖，并按照你的本地文件系统上的目录结构进行解析。</p></li>
+
+<li><p>如果路径以 <code>~</code> 开头，其后的部分将会被看作模块依赖。这意味着你可以用该特性来引用一个 Node 依赖中的资源：</p>
+
+<pre><code class="language-html">&lt;img src=&quot;~some-npm-package/foo.png&quot;&gt;
+</code></pre></li>
+
+<li><p>如果路径以 <code>@</code> 开头，也会被看作模块依赖。如果你的 <code>webpack</code> 配置中给 <code>@</code> 配置了 <code>alias</code>，这就很有用了。所有 <code>vue-cli</code> 创建的项目都默认配置了将 <code>@</code> 指向 <code>/src</code>。</p></li>
+</ul>
 
 <h3 id="使用预处理器">使用预处理器</h3>
 
@@ -380,6 +392,8 @@ module.exports = {
 <li><p><code>&lt;style&gt;</code> 会通过 <code>vue-style-loader</code> 自行热重载，所以它不会影响应用的状态。</p></li>
 </ul>
 
+<p><a href="https://vue-loader.vuejs.org/zh/" rel="nofollow noreferrer" target="_blank">Vue Loader 文档</a></p>
+
     </div>
 
     <div class="post-copyright">
@@ -426,6 +440,8 @@ module.exports = {
         
         <a href="https://luneshao.github.io/2020/2020-07-16-copyright/" class="prev" rel="prev" title="网页的 Copyright 及备案信息该如何书写"><i class="iconfont icon-left"></i>&nbsp;网页的 Copyright 及备案信息该如何书写</a>
          
+        
+        <a href="https://luneshao.github.io/2020/2020-08-07-c-ysf/" class="next" rel="next" title="关于 C 语言关系运算符与相等性运算符的优先级的疑惑">关于 C 语言关系运算符与相等性运算符的优先级的疑惑&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
