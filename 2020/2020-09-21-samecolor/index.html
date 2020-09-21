@@ -10,9 +10,9 @@
   <meta name="description" content="这里是 LuneShao 的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
   <meta name="keywords" content="LuneShao, 一瓶肥宅快乐水, 博客, 前端, 小骨鱼">
   <meta name="google-site-verification" content="Gu27F60AgLNf8h9KCAXsLXjKd7O-e1oZpSGeblt5w70" />
-  <link rel="prev" href="https://luneshao.github.io/2020/2020-07-21-vue-loader/" />
-  <link rel="next" href="https://luneshao.github.io/2020/2020-09-21-samecolor/" />
-  <link rel="canonical" href="https://luneshao.github.io/2020/2020-08-07-c-ysf/" />
+  <link rel="prev" href="https://luneshao.github.io/2020/2020-08-07-c-ysf/" />
+  
+  <link rel="canonical" href="https://luneshao.github.io/2020/2020-09-21-samecolor/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -25,10 +25,10 @@
   <title>
        
        
-           关于 C 语言关系运算符与相等性运算符的优先级的疑惑 | Luneshao
+           用数学计算同色系配色 | Luneshao
        
   </title>
-  <meta name="title" content="关于 C 语言关系运算符与相等性运算符的优先级的疑惑 | Luneshao">
+  <meta name="title" content="用数学计算同色系配色 | Luneshao">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -47,9 +47,9 @@
          "@id": "https:\/\/luneshao.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : "关于 C 语言关系运算符与相等性运算符的优先级的疑惑",
-    "headline" : "关于 C 语言关系运算符与相等性运算符的优先级的疑惑",
-    "description" : "教材内容与本机测试结果不符。",
+    "name" : "用数学计算同色系配色",
+    "headline" : "用数学计算同色系配色",
+    "description" : "分享同色系配色文章。",
     "inLanguage" : "en-us",
     "author" : "luneShao",
     "creator" : "luneShao",
@@ -57,11 +57,11 @@
     "accountablePerson" : "luneShao",
     "copyrightHolder" : "luneShao",
     "copyrightYear" : "2020",
-    "datePublished": "2020-08-07 14:32:02 \x2b0800 CST",
-    "dateModified" : "2020-08-07 14:32:02 \x2b0800 CST",
-    "url" : "https:\/\/luneshao.github.io\/2020\/2020-08-07-c-ysf\/",
-    "wordCount" : "43",
-    "keywords" : [ "c", "Luneshao"]
+    "datePublished": "2020-09-21 09:24:34 \x2b0800 CST",
+    "dateModified" : "2020-09-21 09:24:34 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2020\/2020-09-21-samecolor\/",
+    "wordCount" : "27",
+    "keywords" : [ "颜色", "Luneshao"]
 }
 </script>
 
@@ -128,15 +128,15 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">关于 C 语言关系运算符与相等性运算符的优先级的疑惑</h1>
+        <h1 class="post-title" itemprop="name headline">用数学计算同色系配色</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneShao</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2020-08-07 itemprop="datePublished">August 7, 2020</time>
+                on <time datetime=2020-09-21 itemprop="datePublished">September 21, 2020</time>
                 </span>
                 in
                 
-                <span id="/2020/2020-08-07-c-ysf/" class="leancloud_visitors post-meta" data-flag-title="关于 C 语言关系运算符与相等性运算符的优先级的疑惑">
+                <span id="/2020/2020-09-21-samecolor/" class="leancloud_visitors post-meta" data-flag-title="用数学计算同色系配色">
                     <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
                 </span>
         </div>
@@ -158,24 +158,25 @@
           
           
 
-          <blockquote>
-<p>关系运算符包括一下几个运算符：&gt;、&gt;=、&lt;、&lt;= 它们具有相同的优先级。优先级仅次于相等性运算符：==、!=。 &ndash;摘自《C语言程序设计》</p>
-</blockquote>
+          
 
-<p>但是我本机测试的例子：</p>
+<p>本片重点是安利一篇文章，用数学计算出同色系的配色，巨赞！</p>
 
-<pre><code class="language-c">printf(&quot;%d\n&quot;, 0 &lt;= 1 == 0);
+<p>先敬出地址 <a href="http://www.woshipm.com/pd/3460402.html" rel="nofollow noreferrer" target="_blank">用理性与数学，推导产品色彩系统</a></p>
 
-// 0
-</code></pre>
+<h4 id="原由">原由</h4>
 
-<p>如果相等性运算符的优先级高的话，运算顺序应为: <code>1 == 0 =&gt; 0 =&gt; 0 &lt;= 0 =&gt; 1</code> 应该得到结果 <code>1</code>,</p>
+<p>最近用 uniapp 在做小程序项目，emmm，我以前从来没用过啊喂 #-# 总之，就那么上手了，然后还做到第一个版本已经可以跑通流程了，虽然很粗制滥造。</p>
 
-<p>但是我用 Xcode 跑出来的结果为 <code>0</code>。我猜测，运算顺序为从左向右：<code>0 &lt;= 1 =&gt; 1 =&gt; 1 == 0 =&gt; 0</code>。</p>
+<p>项目要同时复用给b端和c端，给的时间短，第一版没有考虑周全。现在已经重构了，用 cli 重新修改框架，为了以后版本更新。考虑用 nodejs 写 <code>pages.json</code> 文件，节省人力。api区分就用 <code>.env</code> 文件，不同的配置，运行不同的配置文件。</p>
 
-<p>所以，我猜测关系运算符与相等性运算符的优先级是不是相等的？</p>
+<p>项目用的 uview 框架，也有设计图，也只有设计图。emmm，没有给出一套色卡。我们改了 uview 的主色，但是主色对应的邻近色不是自动计算，而是死值，所以紫色按钮点击下去的颜色是深蓝色。啊。。。我忍不了。就搜了一下相关文章，就是上面的那篇文章，把对应的颜色修改了。</p>
 
-<p>还望各位大佬解惑 orz</p>
+<p>还参考了阿里的计算方法。 <a href="https://github.com/vueComponent/ant-design-vue/blob/master/components/style/color/colorPalette.less" rel="nofollow noreferrer" target="_blank">antv&ndash;colorPalette.less</a></p>
+
+<p>以上。</p>
+
+<p>如果不对，请多指教，十分感谢。</p>
 
     </div>
 
@@ -190,7 +191,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://luneshao.github.io/2020/2020-08-07-c-ysf/>https://luneshao.github.io/2020/2020-08-07-c-ysf/</span>
+                    <a href=https://luneshao.github.io/2020/2020-09-21-samecolor/>https://luneshao.github.io/2020/2020-09-21-samecolor/</span>
             </p>
             
              
@@ -205,8 +206,8 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://luneshao.github.io/tags/c/">
-                    #c</a></span>
+            <span class="tag"><a href="https://luneshao.github.io/tags/%E9%A2%9C%E8%89%B2/">
+                    #颜色</a></span>
             
             </section>
         
@@ -218,10 +219,8 @@
 
     <div class="post-nav">
         
-        <a href="https://luneshao.github.io/2020/2020-07-21-vue-loader/" class="prev" rel="prev" title="Vue Loader笔记"><i class="iconfont icon-left"></i>&nbsp;Vue Loader笔记</a>
+        <a href="https://luneshao.github.io/2020/2020-08-07-c-ysf/" class="prev" rel="prev" title="关于 C 语言关系运算符与相等性运算符的优先级的疑惑"><i class="iconfont icon-left"></i>&nbsp;关于 C 语言关系运算符与相等性运算符的优先级的疑惑</a>
          
-        
-        <a href="https://luneshao.github.io/2020/2020-09-21-samecolor/" class="next" rel="next" title="用数学计算同色系配色">用数学计算同色系配色&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
