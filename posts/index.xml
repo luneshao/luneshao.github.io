@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Sep 2020 09:24:34 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2020 16:50:54 +0800</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>如何推送到github私有仓库</title>
+      <link>https://luneshao.github.io/2020/2020-11-04-how-push-to-github-private-rep/</link>
+      <pubDate>Wed, 04 Nov 2020 16:50:54 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-11-04-how-push-to-github-private-rep/</guid>
+      <description>if you add origin remote,please remove it first:
+git remote rm origin  ant then:
+git remote add origin https://USERNAME:PASSWORD@github.com/username/reponame.git  from: stackoverflow</description>
+    </item>
     
     <item>
       <title>用数学计算同色系配色</title>
