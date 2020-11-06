@@ -23,6 +23,17 @@ git remote add origin https://USERNAME:PASSWORD@github.com/username/reponame.git
     </item>
     
     <item>
+      <title>一些js动画库</title>
+      <link>https://luneshao.github.io/2020/2020-11-03-animate/</link>
+      <pubDate>Tue, 03 Nov 2020 14:13:14 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-11-03-animate/</guid>
+      <description>vivus 让svg动起来的库
+使用方法参考这篇blog
+svg库使用iconfinder</description>
+    </item>
+    
+    <item>
       <title>用数学计算同色系配色</title>
       <link>https://luneshao.github.io/2020/2020-09-21-samecolor/</link>
       <pubDate>Mon, 21 Sep 2020 09:24:34 +0800</pubDate>

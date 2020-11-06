@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>动画库 on Luneshao</title>
+    <link>https://luneshao.github.io/tags/%E5%8A%A8%E7%94%BB%E5%BA%93/</link>
+    <description>Recent content in 动画库 on Luneshao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Nov 2020 14:13:14 +0800</lastBuildDate>
+    
+	<atom:link href="https://luneshao.github.io/tags/%E5%8A%A8%E7%94%BB%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>一些js动画库</title>
+      <link>https://luneshao.github.io/2020/2020-11-03-animate/</link>
+      <pubDate>Tue, 03 Nov 2020 14:13:14 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-11-03-animate/</guid>
+      <description>vivus 让svg动起来的库
+使用方法参考这篇blog
+svg库使用iconfinder</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,10 +6,21 @@
     <description>Recent content in 前端 on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Jul 2020 17:06:16 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2020 14:13:14 +0800</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>一些js动画库</title>
+      <link>https://luneshao.github.io/2020/2020-11-03-animate/</link>
+      <pubDate>Tue, 03 Nov 2020 14:13:14 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-11-03-animate/</guid>
+      <description>vivus 让svg动起来的库
+使用方法参考这篇blog
+svg库使用iconfinder</description>
+    </item>
     
     <item>
       <title>Vue Loader笔记</title>
