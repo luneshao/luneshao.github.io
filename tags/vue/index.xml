@@ -6,10 +6,19 @@
     <description>Recent content in vue on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Jul 2020 17:06:16 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 04 Dec 2020 09:46:14 +0800</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>vue创建项目流程记录</title>
+      <link>https://luneshao.github.io/2020/2020-12-04-vue-create/</link>
+      <pubDate>Fri, 04 Dec 2020 09:46:14 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2020/2020-12-04-vue-create/</guid>
+      <description>step1、创建 $ vue create testProject // 【说明】testProject 是自己的项目名，可自定义。  step2、安装 less、less-loader yarn add less less-loader --dev  step3、配置 vue.config.js // vue.config.js module.exports = { // 这里的配置，就可以部署在服务器非根目录下了 publicPuth: &#39;&#39;, chainWebpack: config =&amp;gt; { // 配置 eslint 保存时自动修复 config.module .rule(&#39;eslint&#39;) .use(&#39;eslink-loader&#39;) .tap(options =&amp;gt; { // 修改它的选项... options.fix = true return options }) // 配置 html 文件 title config .plugin(&#39;html&#39;) .taps(args =&amp;gt; { args[0].title = process.env.VUE_APP_TITLE }) } }  以上这样就完成了我日常需要的简单配置了。 o^o</description>
+    </item>
     
     <item>
       <title>Vue Loader笔记</title>

@@ -10,9 +10,9 @@
   <meta name="description" content="这里是 LuneShao 的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
   <meta name="keywords" content="LuneShao, 一瓶肥宅快乐水, 博客, 前端, 小骨鱼">
   <meta name="google-site-verification" content="Gu27F60AgLNf8h9KCAXsLXjKd7O-e1oZpSGeblt5w70" />
-  <link rel="prev" href="https://luneshao.github.io/2020/2020-11-03-animate/" />
-  <link rel="next" href="https://luneshao.github.io/2020/2020-12-04-vue-create/" />
-  <link rel="canonical" href="https://luneshao.github.io/2020/2020-11-04-how-push-to-github-private-rep/" />
+  <link rel="prev" href="https://luneshao.github.io/2020/2020-11-04-how-push-to-github-private-rep/" />
+  
+  <link rel="canonical" href="https://luneshao.github.io/2020/2020-12-04-vue-create/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -25,10 +25,10 @@
   <title>
        
        
-           如何推送到github私有仓库 | Luneshao
+           vue创建项目流程记录 | Luneshao
        
   </title>
-  <meta name="title" content="如何推送到github私有仓库 | Luneshao">
+  <meta name="title" content="vue创建项目流程记录 | Luneshao">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -47,9 +47,9 @@
          "@id": "https:\/\/luneshao.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : "如何推送到github私有仓库",
-    "headline" : "如何推送到github私有仓库",
-    "description" : "做记录用。",
+    "name" : "vue创建项目流程记录",
+    "headline" : "vue创建项目流程记录",
+    "description" : "从脚手架创建一个项目开始，到初步开发的配置。",
     "inLanguage" : "en-us",
     "author" : "luneShao",
     "creator" : "luneShao",
@@ -57,11 +57,11 @@
     "accountablePerson" : "luneShao",
     "copyrightHolder" : "luneShao",
     "copyrightYear" : "2020",
-    "datePublished": "2020-11-04 16:50:54 \x2b0800 CST",
-    "dateModified" : "2020-11-04 16:50:54 \x2b0800 CST",
-    "url" : "https:\/\/luneshao.github.io\/2020\/2020-11-04-how-push-to-github-private-rep\/",
-    "wordCount" : "21",
-    "keywords" : [ "github", "Luneshao"]
+    "datePublished": "2020-12-04 09:46:14 \x2b0800 CST",
+    "dateModified" : "2020-12-04 09:46:14 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2020\/2020-12-04-vue-create\/",
+    "wordCount" : "68",
+    "keywords" : [ "vue", "Luneshao"]
 }
 </script>
 
@@ -128,15 +128,15 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">如何推送到github私有仓库</h1>
+        <h1 class="post-title" itemprop="name headline">vue创建项目流程记录</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneShao</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2020-11-04 itemprop="datePublished">November 4, 2020</time>
+                on <time datetime=2020-12-04 itemprop="datePublished">December 4, 2020</time>
                 </span>
                 in
                 
-                <span id="/2020/2020-11-04-how-push-to-github-private-rep/" class="leancloud_visitors post-meta" data-flag-title="如何推送到github私有仓库">
+                <span id="/2020/2020-12-04-vue-create/" class="leancloud_visitors post-meta" data-flag-title="vue创建项目流程记录">
                     <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
                 </span>
         </div>
@@ -146,7 +146,7 @@
 
         
 
-        <img src="/img/cover.jpg" class="featured_image">
+        <img src="/img/cover.jpeg" class="featured_image">
         
         
      
@@ -158,17 +158,51 @@
           
           
 
-          <p>if you add origin remote,please remove it first:</p>
+          
 
-<pre><code>git remote rm origin
+<h2 id="step1-创建">step1、创建</h2>
+
+<pre><code class="language-cmd">$ vue create testProject // 【说明】testProject 是自己的项目名，可自定义。
 </code></pre>
 
-<p>ant then:</p>
+<h2 id="step2-安装-less-less-loader">step2、安装 less、less-loader</h2>
 
-<pre><code>git remote add origin  https://USERNAME:PASSWORD@github.com/username/reponame.git
+<pre><code class="language-cmd">yarn add less less-loader --dev
 </code></pre>
 
-<p>from: <a href="https://stackoverflow.com/questions/10116373/git-push-error-repository-not-found" rel="nofollow noreferrer" target="_blank">stackoverflow</a></p>
+<h2 id="step3-配置-vue-config-js">step3、配置 vue.config.js</h2>
+
+<pre><code class="language-js">// vue.config.js
+module.exports = {
+  // 这里的配置，就可以部署在服务器非根目录下了
+  publicPuth: '',
+  chainWebpack: config =&gt; {
+    // 配置 eslint 保存时自动修复
+    config.module
+    .rule('eslint')
+    .use('eslink-loader')
+    .tap(options =&gt; {
+      // 修改它的选项...
+      options.fix = true
+
+      return options
+    })
+
+    // 配置 html 文件 title
+    config
+    .plugin('html')
+    .taps(args =&gt; {
+      args[0].title = process.env.VUE_APP_TITLE
+    })
+  }
+}
+</code></pre>
+
+<p>以上这样就完成了我日常需要的简单配置了。 o^o</p>
+
+<p>有什么意见或建议欢迎一起讨论。</p>
+
+<p>以上。</p>
 
     </div>
 
@@ -183,7 +217,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://luneshao.github.io/2020/2020-11-04-how-push-to-github-private-rep/>https://luneshao.github.io/2020/2020-11-04-how-push-to-github-private-rep/</span>
+                    <a href=https://luneshao.github.io/2020/2020-12-04-vue-create/>https://luneshao.github.io/2020/2020-12-04-vue-create/</span>
             </p>
             
              
@@ -198,8 +232,8 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://luneshao.github.io/tags/github/">
-                    #github</a></span>
+            <span class="tag"><a href="https://luneshao.github.io/tags/vue/">
+                    #vue</a></span>
             
             </section>
         
@@ -211,10 +245,8 @@
 
     <div class="post-nav">
         
-        <a href="https://luneshao.github.io/2020/2020-11-03-animate/" class="prev" rel="prev" title="一些js动画库"><i class="iconfont icon-left"></i>&nbsp;一些js动画库</a>
+        <a href="https://luneshao.github.io/2020/2020-11-04-how-push-to-github-private-rep/" class="prev" rel="prev" title="如何推送到github私有仓库"><i class="iconfont icon-left"></i>&nbsp;如何推送到github私有仓库</a>
          
-        
-        <a href="https://luneshao.github.io/2020/2020-12-04-vue-create/" class="next" rel="next" title="vue创建项目流程记录">vue创建项目流程记录&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
