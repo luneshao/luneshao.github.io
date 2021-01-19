@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="baidu-site-verification" content="8GUMFEgBhB" />
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是 LuneShao 的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="LuneShao, 一瓶肥宅快乐水, 博客, 前端, 小骨鱼">
+  <meta name="google-site-verification" content="Gu27F60AgLNf8h9KCAXsLXjKd7O-e1oZpSGeblt5w70" />
+  <link rel="prev" href="https://luneshao.github.io/2020/2020-12-04-vue-create/" />
+  
+  <link rel="canonical" href="https://luneshao.github.io/2021/2021-01-19-docker/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/img/favicon.ico" />
+  
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1858143_e4r74dhzeku.css">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           docker 创建镜像、容器及容器链接 | Luneshao
+       
+  </title>
+  <meta name="title" content="docker 创建镜像、容器及容器链接 | Luneshao">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "docker 创建镜像、容器及容器链接",
+    "headline" : "docker 创建镜像、容器及容器链接",
+    "description" : "记录 docker 基本概念和操作指令。",
+    "inLanguage" : "en-us",
+    "author" : "luneShao",
+    "creator" : "luneShao",
+    "publisher": "luneShao",
+    "accountablePerson" : "luneShao",
+    "copyrightHolder" : "luneShao",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-01-19 11:14:50 \x2b0800 CST",
+    "dateModified" : "2021-01-19 11:14:50 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2021\/2021-01-19-docker\/",
+    "wordCount" : "241",
+    "keywords" : [ "docker", "Luneshao"]
+}
+</script>
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">Luneshao</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/about/" title=""></a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">Luneshao</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/about/" title=""></a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">docker 创建镜像、容器及容器链接</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneShao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2021-01-19 itemprop="datePublished">January 19, 2021</time>
+                </span>
+                in
+                
+                <span id="/2021/2021-01-19-docker/" class="leancloud_visitors post-meta" data-flag-title="docker 创建镜像、容器及容器链接">
+                    <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        <img src="/img/cover.jpg" class="featured_image">
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="docker-包括三个基本概念">Docker 包括三个基本概念:</h2>
+
+<ul>
+<li><strong>镜像(image)</strong>：相当于一个root文件系统。</li>
+<li><strong>容器(Container)</strong>：镜像和容器的关系就像面向对象的类和实体的关系。镜像是静态的定义，容器是运行的实体。</li>
+<li><strong>仓库(Repository)</strong>：仓库可以看成一个代码控制中心，用来保存镜像。</li>
+</ul>
+
+<h2 id="docker-使用">Docker 使用</h2>
+
+<h3 id="镜像使用">镜像使用</h3>
+
+<h4 id="列出镜像列表">列出镜像列表</h4>
+
+<pre><code class="language-cmd">$ docker images  
+</code></pre>
+
+<p>同一仓库源可以有多个 TAG，代表这个仓库源的不同个版本。我们使用 REPOSITORY:TAG 来定义不同的镜像。</p>
+
+<p>例如，我们如果要使用版本为15.10的ubuntu系统镜像来运行容器时，命令如下：</p>
+
+<pre><code class="language-cmd">$ docker run -t -i ubuntu:15.10 /bin/bash 
+root@d77ccb2e5cca:/#
+</code></pre>
+
+<h5 id="参数说明">参数说明：</h5>
+
+<p><code>-i</code> 交互式操作；
+<code>-t</code>: 终端；
+<code>ubuntu:15.10</code>: 镜像:版本；
+<code>/bin/bash</code>：命令。</p>
+
+<h4 id="获取一个新的镜像">获取一个新的镜像</h4>
+
+<pre><code class="language-cmd">$ docker pull ubuntu:13.10
+</code></pre>
+
+<h4 id="查找镜像">查找镜像</h4>
+
+<pre><code class="language-cmd">$  docker search httpd
+</code></pre>
+
+<h4 id="删除镜像">删除镜像</h4>
+
+<pre><code class="language-cmd">$ docker rmi hello-world
+</code></pre>
+
+<h4 id="创建镜像-dokerfile">创建镜像(Dokerfile)</h4>
+
+<p>创建一个 <code>Dockerfile</code> 文件，其中包含一组指令来告诉 <code>Docker</code> 如何构建我们的镜像。</p>
+
+<pre><code class="language-cmd">$ cat Dockerfile 
+FROM    centos:6.7
+MAINTAINER      Fisher &quot;fisher@sudops.com&quot;
+
+RUN     /bin/echo 'root:123456' |chpasswd
+RUN     useradd runoob
+RUN     /bin/echo 'runoob:123456' |chpasswd
+RUN     /bin/echo -e &quot;LANG=\&quot;en_US.UTF-8\&quot;&quot; &gt;/etc/default/local
+EXPOSE  22
+EXPOSE  80
+CMD     /usr/sbin/sshd -D
+</code></pre>
+
+<p>每一个指令都会在镜像上创建一个新的层，每一个指令的前缀都必须是 <strong>大写</strong> 的。</p>
+
+<p>第一条FROM，指定使用哪个镜像源</p>
+
+<p>RUN 指令告诉docker 在镜像内执行命令，安装了什么。。。</p>
+
+<p>然后，我们使用 Dockerfile 文件，通过 docker build 命令来构建一个镜像。</p>
+
+<h4 id="构建镜像">构建镜像</h4>
+
+<pre><code class="language-cmd">$ docker build -t runoob/centos:6.7 .
+</code></pre>
+
+<p>参数说明：
+<code>-t</code> ：指定要创建的目标镜像名
+<code>.</code> ：Dockerfile 文件所在目录，可以指定Dockerfile 的绝对路径</p>
+
+<pre><code class="language-cmd">$ docker images  # 查看创建的镜像已经在列表中存在，我们可以使用新的镜像来创建容器。
+</code></pre>
+
+<h4 id="设置镜像标签">设置镜像标签</h4>
+
+<pre><code class="language-cmd">$ docker tag &lt;镜像 ID&gt; runoob/centos:dev
+</code></pre>
+
+<p>docker tag 镜像ID，这里是 860c279d2fec ,用户名称、镜像源名(repository name)和新的标签名(tag)</p>
+
+<h3 id="容器使用">容器使用</h3>
+
+<h4 id="启动容器">启动容器</h4>
+
+<pre><code class="language-cmd">$ docker run -it ubuntu /bin/bash
+</code></pre>
+
+<h5 id="参数说明-1">参数说明</h5>
+
+<p><code>-t</code>: 在新容器内指定一个伪终端或终端；
+<code>-i</code>: 允许你对容器内的标准输入 (STDIN) 进行交互；
+<code>ubuntu</code>: ubuntu 镜像；
+<code>/bin/bash</code>：放在镜像名后的是命令。</p>
+
+<p>退出终端，直接输入 exit:</p>
+
+<pre><code class="language-cmd">root@ed09e4490c57:/# exit
+</code></pre>
+
+<h4 id="启动已停止运行的容器">启动已停止运行的容器</h4>
+
+<p>查看所有的容器</p>
+
+<pre><code class="language-cmd">$ docker ps -a
+</code></pre>
+
+<p>使用 docker start 启动一个已停止的容器</p>
+
+<pre><code class="language-cmd">$ docker start &lt;容器 ID&gt; 
+</code></pre>
+
+<h4 id="后台运行">后台运行</h4>
+
+<pre><code class="language-cmd">$ docker run -itd --name ubuntu-test ubuntu /bin/bash
+</code></pre>
+
+<p><strong>注</strong>：加了 -d 参数默认不会进入容器。</p>
+
+<h4 id="停止一个容器">停止一个容器</h4>
+
+<pre><code class="language-cmd">$ docker stop &lt;容器 ID&gt;
+</code></pre>
+
+<p>重启</p>
+
+<pre><code class="language-cmd">$ docker restart &lt;容器 ID&gt;
+</code></pre>
+
+<h4 id="进入容器">进入容器</h4>
+
+<h5 id="attach-命令">attach 命令</h5>
+
+<pre><code class="language-cmd">$ docker attach &lt;容器 ID&gt; 
+</code></pre>
+
+<p><strong>注</strong>： 如果从这个容器退出，会导致容器的停止。</p>
+
+<h5 id="exec-命令">exec 命令</h5>
+
+<pre><code class="language-cmd">$ docker exec -it &lt;容器 ID&gt; /bin/bash
+</code></pre>
+
+<p><strong>注</strong>： 如果从这个容器退出，容器不会停止。</p>
+
+<h4 id="删除容器">删除容器</h4>
+
+<pre><code class="language-cmd">$ docker rm -f &lt;容器 ID&gt;
+</code></pre>
+
+<h3 id="容器连接">容器连接</h3>
+
+<pre><code class="language-cmd">runoob@runoob:~$ docker run -d -p 5000:5000 training/webapp python app.py
+33e4523d30aaf0258915c368e66e03b49535de0ef20317d3f639d40222ba6bc0
+</code></pre>
+
+<p>我们可以使用 <code>-p</code>、<code>-P</code> 标识来指定容器端口绑定到主机端口。</p>
+
+<h5 id="参数说明-2">参数说明</h5>
+
+<p><code>-p</code>: 是容器内部端口绑定到<strong>指定</strong>的主机端口。
+<code>-P</code>: 是容器内部端口<strong>随机</strong>映射到主机的高端口。</p>
+
+<h3 id="参考文献">参考文献</h3>
+
+<p><a href="https://www.runoob.com/docker/docker-architecture.html" rel="nofollow noreferrer" target="_blank">runoob</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2021/2021-01-19-docker/>https://luneshao.github.io/2021/2021-01-19-docker/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/docker/">
+                    #docker</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2020/2020-12-04-vue-create/" class="prev" rel="prev" title="vue创建项目流程记录"><i class="iconfont icon-left"></i>&nbsp;vue创建项目流程记录</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+        <div id="vcomment"></div>
+          
+                 
+          
+    </div>
+    <script>
+        new Valine({
+          el: '#vcomment' ,
+          appId: 'VMtRNdHhQOQVoiWu2y2dQnJb-gzGzoHsz',
+          appKey: '073437m7LGtKY9mmCQioFbKI',
+          notify:true, 
+          verify:false, 
+          avatar:'wavatar', 
+          recordIP: true,
+          visitor: true, 
+          placeholder: '你好哇，快来戳我吐槽吧！🎉' 
+        })
+    </script>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

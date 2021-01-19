@@ -6,10 +6,23 @@
     <description>Recent content in Posts on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Dec 2020 09:46:14 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Jan 2021 11:14:50 +0800</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>docker 创建镜像、容器及容器链接</title>
+      <link>https://luneshao.github.io/2021/2021-01-19-docker/</link>
+      <pubDate>Tue, 19 Jan 2021 11:14:50 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2021/2021-01-19-docker/</guid>
+      <description>Docker 包括三个基本概念:  镜像(image)：相当于一个root文件系统。 容器(Container)：镜像和容器的关系就像面向对象的类和实体的关系。镜像是静态的定义，容器是运行的实体。 仓库(Repository)：仓库可以看成一个代码控制中心，用来保存镜像。  Docker 使用 镜像使用 列出镜像列表 $ docker images  同一仓库源可以有多个 TAG，代表这个仓库源的不同个版本。我们使用 REPOSITORY:TAG 来定义不同的镜像。
+例如，我们如果要使用版本为15.10的ubuntu系统镜像来运行容器时，命令如下：
+$ docker run -t -i ubuntu:15.10 /bin/bash root@d77ccb2e5cca:/#  参数说明： -i 交互式操作； -t: 终端； ubuntu:15.10: 镜像:版本； /bin/bash：命令。
+获取一个新的镜像 $ docker pull ubuntu:13.10  查找镜像 $ docker search httpd  删除镜像 $ docker rmi hello-world  创建镜像(Dokerfile) 创建一个 Dockerfile 文件，其中包含一组指令来告诉 Docker 如何构建我们的镜像。
+$ cat Dockerfile FROM centos:6.7 MAINTAINER Fisher &amp;quot;fisher@sudops.com&amp;quot; RUN /bin/echo &#39;root:123456&#39; |chpasswd RUN useradd runoob RUN /bin/echo &#39;runoob:123456&#39; |chpasswd RUN /bin/echo -e &amp;quot;LANG=\&amp;quot;en_US.</description>
+    </item>
     
     <item>
       <title>vue创建项目流程记录</title>
