@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Jan 2021 11:43:05 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 Jan 2021 10:11:28 +0800</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>uniapp 开发小程序压缩图片</title>
+      <link>https://luneshao.github.io/2021/2021-01-29-miniprogram/</link>
+      <pubDate>Fri, 29 Jan 2021 10:11:28 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2021/2021-01-29-miniprogram/</guid>
+      <description>uniapp 小程序压缩图片 小程序压缩图片和普通 html 压缩图片思路一致。
+步骤为：  获取图片信息 2，获取canvas 节点 创建图片对象 压缩图片  详细代码 /** * 获取图片信息 * @param {string} imgObj 图片对象path * @param {function} fn 回调函数 * @returns {ojbect} cbParams * { * height: 722, * width: 1366, * type: &#39;png&#39;, * path: &#39;&#39;, * orientation: &#39;up&#39;, * errMsg: &#39;&#39; * } */ function getImageObject (src, fn) { uni.getImageInfo({ src: src, success (res) { fn(res) } }) } /** * 压缩图片 * @param {object} img 图片 * @param {function} fn 回调函数 */ function compressImg (img, fn) { const selectorQuery = uni.</description>
+    </item>
     
     <item>
       <title>工具库记录</title>

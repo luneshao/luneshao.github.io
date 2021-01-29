@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="baidu-site-verification" content="8GUMFEgBhB" />
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是 LuneShao 的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="LuneShao, 一瓶肥宅快乐水, 博客, 前端, 小骨鱼">
+  <meta name="google-site-verification" content="Gu27F60AgLNf8h9KCAXsLXjKd7O-e1oZpSGeblt5w70" />
+  <link rel="prev" href="https://luneshao.github.io/2021/2021-01-25-markdowntool/" />
+  
+  <link rel="canonical" href="https://luneshao.github.io/2021/2021-01-29-miniprogram/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/img/favicon.ico" />
+  
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1858143_e4r74dhzeku.css">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           uniapp 开发小程序压缩图片 | Luneshao
+       
+  </title>
+  <meta name="title" content="uniapp 开发小程序压缩图片 | Luneshao">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "uniapp 开发小程序压缩图片",
+    "headline" : "uniapp 开发小程序压缩图片",
+    "description" : "uniapp 小程序压缩图片 小程序压缩图片和普通 html 压缩图片思路一致。\n步骤为：  获取图片信息 2，获取canvas 节点 创建图片对象 压缩图片  详细代码 \/** * 获取图片信息 * @param {string} imgObj 图片对象path * @param {function} fn 回调函数 * @returns {ojbect} cbParams * { * height: 722, * width: 1366, * type: \x27png\x27, * path: \x27\x27, * orientation: \x27up\x27, * errMsg: \x27\x27 * } *\/ function getImageObject (src, fn) { uni.getImageInfo({ src: src, success (res) { fn(res) } }) } \/** * 压缩图片 * @param {object} img 图片 * @param {function} fn 回调函数 *\/ function compressImg (img, fn) { const selectorQuery = uni.",
+    "inLanguage" : "en-us",
+    "author" : "luneShao",
+    "creator" : "luneShao",
+    "publisher": "luneShao",
+    "accountablePerson" : "luneShao",
+    "copyrightHolder" : "luneShao",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-01-29 10:11:28 \x2b0800 CST",
+    "dateModified" : "2021-01-29 10:11:28 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2021\/2021-01-29-miniprogram\/",
+    "wordCount" : "634",
+    "keywords" : [ "小程序", "Luneshao"]
+}
+</script>
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">Luneshao</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/about/" title=""></a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">Luneshao</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/about/" title=""></a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">uniapp 开发小程序压缩图片</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneShao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2021-01-29 itemprop="datePublished">January 29, 2021</time>
+                </span>
+                in
+                
+                <span id="/2021/2021-01-29-miniprogram/" class="leancloud_visitors post-meta" data-flag-title="uniapp 开发小程序压缩图片">
+                    <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        <img src="/img/cover.jpg" class="featured_image">
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h3 id="uniapp-小程序压缩图片">uniapp 小程序压缩图片</h3>
+
+<p>小程序压缩图片和普通 html 压缩图片思路一致。</p>
+
+<h4 id="步骤为">步骤为：</h4>
+
+<ol>
+<li>获取图片信息
+2，获取canvas 节点</li>
+<li>创建图片对象</li>
+<li>压缩图片</li>
+</ol>
+
+<h4 id="详细代码">详细代码</h4>
+
+<pre><code class="language-js">/**
+ * 获取图片信息
+ * @param {string} imgObj 图片对象path
+ * @param {function} fn 回调函数
+ * @returns {ojbect} cbParams 
+ * {
+ *  height: 722,
+ *  width: 1366,
+ *  type: 'png',
+ *  path: '',
+ *  orientation: 'up',
+ *  errMsg: ''
+ * }
+ */
+function getImageObject (src, fn) {
+  uni.getImageInfo({
+    src: src,
+    success (res) {
+      fn(res)
+    }
+  })
+}
+
+/**
+ * 压缩图片
+ * @param {object} img 图片
+ * @param {function} fn 回调函数
+ */
+function compressImg (img, fn) {
+  const selectorQuery = uni.createSelectorQuery()
+  selectorQuery.select('#canvas')
+    .fields({node: true, size: true})
+    .exec(res =&gt; {
+      const canvas = res[0].node
+      const ctx = canvas.getContext('2d')
+      canvas.height = img.height
+      canvas.width = img.width
+
+      let seal = canvas.createImage();
+      seal.src = img.path;
+      seal.onload = () =&gt; {
+        ctx.drawImage(seal, 0, 0, img.width, img.height)
+        const url = canvas.toDataURL('image/jpeg', .1)
+        fn(url)
+      }
+    })
+}
+</code></pre>
+
+<p>新发现</p>
+
+<p>base64字符的长度就是文件尺寸 :P</p>
+
+<p>(ps::::这也太厉害了 👍👍👍👍👍👍👍👍)</p>
+
+<pre><code class="language-js">/**
+ * 返回图片尺寸
+ * @param {string} url base64 url
+ * @param {functino} fn 返回图片尺寸
+ */
+function getSize(url, fn) {
+  let arr = url.split(',')[1],
+    bstr = atob(arr),
+    n = bstr.length;
+  fn(n)
+}
+</code></pre>
+
+<h4 id="使用方法">使用方法</h4>
+
+<pre><code class="language-js">getImageObject(list[0].file.path, img =&gt; {
+  compressImg(img, res =&gt; {
+    console.log(res);
+  })
+})
+</code></pre>
+
+<h3 id="普通压缩图片处理">普通压缩图片处理</h3>
+
+<p>这里假设压缩上传的文件。</p>
+
+<h4 id="步骤为-1">步骤为：</h4>
+
+<ol>
+<li>获取 <code>File</code> 文件</li>
+<li><code>File</code> &amp;&amp; filereader.readAsDataURL(file) 生成 <code>base64</code> 编码</li>
+<li>创建 <code>Image</code> 对象 &amp;&amp; <code>Image.src = base64 url</code></li>
+<li>创建 <code>canvas</code> &amp;&amp; <code>ctx.drawImage()</code> &amp;&amp; <code>canvas.toDataURL(type, encoderOptions)</code></li>
+<li>生成 <code>base64 url</code></li>
+</ol>
+
+<h4 id="详细代码-1">详细代码</h4>
+
+<pre><code class="language-js">  function Compress(obj) {
+    this.file = obj.file
+    this.fileType = this.file.type // mime tyoe
+    this.filename = this.file.name // 文件名
+    this.beforeSize = this.file.size
+    this.factor = obj.factor
+  }
+
+  /**
+  * 生成 base64 url
+  * @params { File } file 文件
+  * @params { function } fn 回调函数
+  * */
+  function toDataurl(file, fn) {
+    const filereader = new FileReader()
+    filereader.readAsDataURL(file)
+    
+    filereader.onload = () =&gt; {
+      const url = filereader.result
+      if (url) {
+        // ---------vvvvvvvv 测试句 vvvvvvvv---------
+        addImg(url)
+        // ---------^^^^^^^ 测试句 ^^^^^^^----------
+        fn(url)
+        console.info('before: ' + file.size)
+      } else {
+        console.error('filereader error');
+      }
+    }
+  }
+
+  /**
+  * 创建 image 对象
+  * @params { string } base64 url
+  * @params { string } filename 文件名
+  * @params { function } fn 回调函数
+  * */
+  function dataurl2File (url, filename, fn) {
+    let type = url.split(',')[0].replace(/^.*:(.*);.*$/, '$1'), 
+          arr = url.split(',')[1], 
+          bstr = atob(arr), 
+          n = bstr.length;
+    let u8arr = new Uint8Array(n); 
+  
+    while(n --) {
+      u8arr[n] = bstr.charCodeAt(n)
+    }
+
+    const file = new File([u8arr], filename, {type: type})
+    fn(file)
+  }
+
+  /**
+  * 创建 image 对象
+  * @params { string } base64 编码
+  * @params { function } fn 回调函数
+  * */
+  function createImg(dataurl, fn) {
+    const img = new Image()
+    img.src = dataurl
+    img.onload = () =&gt; {
+      fn(img)
+    }
+  }
+
+  Compress.prototype = {
+    /**
+    * 文件生成 base64 url =&gt; 创建 image 对象
+    * */
+    init() {
+      toDataurl(this.file, url =&gt; {
+        createImg(url, img =&gt; {
+          this.run(img)
+        })
+      })
+    },
+    /**
+    * 创建 canvas 对象 =&gt; 压缩并转化为图片
+    * */
+    run(img) {
+      const canvas = document.createElement('canvas')
+      const ctx = canvas.getContext('2d')
+      canvas.width = img.width
+      canvas.height = img.height
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+
+      // 此句为实现压缩关键句
+      this.newDataurl = canvas.toDataURL('image/jpeg', this.factor)
+      // ---------vvvvvvvv 测试句 vvvvvvvv---------
+      addImg(this.newDataurl)
+      // ---------^^^^^^^ 测试句 ^^^^^^^----------
+
+      dataurl2File(this.newDataurl, this.filename, (file) =&gt; {
+        console.info('after: ' + file.size);
+
+        if (this.beforeSize &gt; file.size) {
+          console.info('压缩成功');
+        } else {
+          console.error('压缩失败');
+        }
+      })
+    }
+  }
+  /**
+  * 对比压缩前后的两个图片
+  * */
+  function addImg (url) {
+    const img = new Image()
+    img.src = url
+
+    document.body.appendChild(img)
+  }
+</code></pre>
+
+<h4 id="使用方法-1">使用方法</h4>
+
+<pre><code class="language-js">  /**
+  * 获取上传文件，创建压缩图片实例，压缩图片
+  * */
+  function compressFile() {
+    const dom = document.querySelector('[name=file]')
+
+    dom.addEventListener('change', () =&gt; {
+      const file = dom.files[0]
+      const cp = new Compress({
+        file: file,
+        factor: 0.1
+      })
+      cp.init()
+    })
+  }
+
+  window.onload = function () {
+    compressFile()
+  }
+</code></pre>
+
+<h3 id="报错处理">报错处理</h3>
+
+<p>1、 小程序 canvas drawImage 报错：</p>
+
+<p><a href="https://developers.weixin.qq.com/community/develop/doc/00024466bc81d0b5510a9e63b51c00" rel="nofollow noreferrer" target="_blank">TypeError: Failed to execute &lsquo;drawImage&rsquo; 报错</a>
+<a href="https://developers.weixin.qq.com/community/develop/doc/000e801ba445d060cdb9b078b56000?_at=1583717387456&amp;jumpto=reply&amp;commentid=000ccc3025020865ccb96fc95514&amp;parent_commentid=00062a9c9ecc4873c3b9e2e46560" rel="nofollow noreferrer" target="_blank">解决办法</a></p>
+
+<pre><code class="language-js">let seal = canvas.createImage();
+seal.src = img.path;
+seal.onload = () =&gt; {
+  ctx.drawImage(seal, 0, 0, img.width, img.height)
+  // 压缩图片
+  const url = canvas.toDataURL('image/jpeg', .1)
+}
+</code></pre>
+
+<p>⚠️：压缩图片时要注意 <code>canvas.toDataURL</code> 的第一个参数是 <strong>image/jpeg</strong> 或 <strong>image/webp</strong> 时可以压缩。8-)</p>
+
+<blockquote>
+<p>在指定图片格式为 <strong>image/jpeg</strong> 或 <strong>image/webp</strong> 的情况下，可以从 0 到 1 的区间内选择图片的质量。如果超出取值范围，将会使用默认值 0.92。其他参数会被忽略。</p>
+</blockquote>
+
+<h3 id="参考文章">参考文章</h3>
+
+<p><a href="https://developer.51cto.com/art/202008/623099.htm" rel="nofollow noreferrer" target="_blank">了解JS压缩图片，这一篇就够了</a>
+<a href="https://www.jianshu.com/p/f46195810c3b" rel="nofollow noreferrer" target="_blank">使用canvas压缩图片大小</a>
+<a href="https://developer.mozilla.org/zh-cn/docs/Web/API/HTMLCanvasElement/toDataURL" rel="nofollow noreferrer" target="_blank">HTMLCanvasElement.toDataURL()</a>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array" rel="nofollow noreferrer" target="_blank">Uint8Array</a>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob" rel="nofollow noreferrer" target="_blank">Blob</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2021/2021-01-29-miniprogram/>https://luneshao.github.io/2021/2021-01-29-miniprogram/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                    #小程序</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2021/2021-01-25-markdowntool/" class="prev" rel="prev" title="工具库记录"><i class="iconfont icon-left"></i>&nbsp;工具库记录</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+        <div id="vcomment"></div>
+          
+                 
+          
+    </div>
+    <script>
+        new Valine({
+          el: '#vcomment' ,
+          appId: 'VMtRNdHhQOQVoiWu2y2dQnJb-gzGzoHsz',
+          appKey: '073437m7LGtKY9mmCQioFbKI',
+          notify:true, 
+          verify:false, 
+          avatar:'wavatar', 
+          recordIP: true,
+          visitor: true, 
+          placeholder: '你好哇，快来戳我吐槽吧！🎉' 
+        })
+    </script>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
