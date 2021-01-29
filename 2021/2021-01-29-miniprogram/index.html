@@ -49,7 +49,7 @@
     "articleSection" : "posts",
     "name" : "uniapp 开发小程序压缩图片",
     "headline" : "uniapp 开发小程序压缩图片",
-    "description" : "uniapp 小程序压缩图片 小程序压缩图片和普通 html 压缩图片思路一致。\n步骤为：  获取图片信息 2，获取canvas 节点 创建图片对象 压缩图片  详细代码 \/** * 获取图片信息 * @param {string} imgObj 图片对象path * @param {function} fn 回调函数 * @returns {ojbect} cbParams * { * height: 722, * width: 1366, * type: \x27png\x27, * path: \x27\x27, * orientation: \x27up\x27, * errMsg: \x27\x27 * } *\/ function getImageObject (src, fn) { uni.getImageInfo({ src: src, success (res) { fn(res) } }) } \/** * 压缩图片 * @param {object} img 图片 * @param {function} fn 回调函数 *\/ function compressImg (img, fn) { const selectorQuery = uni.",
+    "description" : "文件转base64、获取文件尺寸、压缩文件（微信小程序及普通js）、base64转文件",
     "inLanguage" : "en-us",
     "author" : "luneShao",
     "creator" : "luneShao",
@@ -60,7 +60,7 @@
     "datePublished": "2021-01-29 10:11:28 \x2b0800 CST",
     "dateModified" : "2021-01-29 10:11:28 \x2b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2021\/2021-01-29-miniprogram\/",
-    "wordCount" : "634",
+    "wordCount" : "635",
     "keywords" : [ "小程序", "Luneshao"]
 }
 </script>
@@ -433,7 +433,8 @@ seal.onload = () =&gt; {
 <a href="https://www.jianshu.com/p/f46195810c3b" rel="nofollow noreferrer" target="_blank">使用canvas压缩图片大小</a>
 <a href="https://developer.mozilla.org/zh-cn/docs/Web/API/HTMLCanvasElement/toDataURL" rel="nofollow noreferrer" target="_blank">HTMLCanvasElement.toDataURL()</a>
 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array" rel="nofollow noreferrer" target="_blank">Uint8Array</a>
-<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob" rel="nofollow noreferrer" target="_blank">Blob</a></p>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob" rel="nofollow noreferrer" target="_blank">Blob</a>
+<a href="https://www.cnblogs.com/garfieldzhong/p/6763614.html" rel="nofollow noreferrer" target="_blank">base64图片编码大小与原图文件大小之间的联系</a></p>
 
     </div>
 
