@@ -18,7 +18,7 @@
       
       <guid>https://luneshao.github.io/2021/2021-01-29-miniprogram/</guid>
       <description>uniapp 小程序压缩图片 小程序压缩图片和普通 html 压缩图片思路一致。
-步骤为：  获取图片信息 2，获取canvas 节点 创建图片对象 压缩图片  详细代码 /** * 获取图片信息 * @param {string} imgObj 图片对象path * @param {function} fn 回调函数 * @returns {ojbect} cbParams * { * height: 722, * width: 1366, * type: &#39;png&#39;, * path: &#39;&#39;, * orientation: &#39;up&#39;, * errMsg: &#39;&#39; * } */ function getImageObject (src, fn) { uni.getImageInfo({ src: src, success (res) { fn(res) } }) } /** * 压缩图片 * @param {object} img 图片 * @param {function} fn 回调函数 */ function compressImg (img, fn) { const selectorQuery = uni.</description>
+步骤为：  获取图片信息 获取canvas 节点 创建图片对象 压缩图片  详细代码 /** * 获取图片信息 * @param {string} imgObj 图片对象path * @param {function} fn 回调函数 * @returns {ojbect} cbParams * { * height: 722, * width: 1366, * type: &#39;png&#39;, * path: &#39;&#39;, * orientation: &#39;up&#39;, * errMsg: &#39;&#39; * } */ function getImageObject (src, fn) { uni.getImageInfo({ src: src, success (res) { fn(res) } }) } /** * 压缩图片 * @param {object} img 图片 * @param {function} fn 回调函数 */ function compressImg (img, fn) { const selectorQuery = uni.</description>
     </item>
     
     <item>
