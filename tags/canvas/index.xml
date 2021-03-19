@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>canvas on Luneshao</title>
+    <link>https://luneshao.github.io/tags/canvas/</link>
+    <description>Recent content in canvas on Luneshao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 19 Mar 2021 15:52:01 +0800</lastBuildDate>
+    
+	<atom:link href="https://luneshao.github.io/tags/canvas/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>canvas优化</title>
+      <link>https://luneshao.github.io/2021/2021-03-19-canvas-perf/</link>
+      <pubDate>Fri, 19 Mar 2021 15:52:01 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2021/2021-03-19-canvas-perf/</guid>
+      <description>写在前头 首先迫于 GitHub 突然就推不上去了，然后给电脑装了一只小猫，就开始呼吸自由的空气了。搜问题的时候发现了一个不错的网站，看到一篇canvas优化的文章，我最近也有写一个canvas的动画，一直觉得需要优化，就看了下文章今天优化了下。怕以后忘了（一定会忘的）就记录下来。
+正文 我在文章里主要学到的就是缓存。
+我的设计图是两个圆环向不同方向转，还有一些不动的圆环。
+之前已经把不动的圆环和动的圆环分别放到两个画布里分开绘制了。转动的地方我每次计算一个旋转角度，重新绘制圆环。😳 （我觉得这个地方处理的不好）看文章中优化的思路是 内容只绘制一次，利用另一个画布 drawImage() 这个 API 在不同的位置用多次绘制。
+我就改了之前每次动画都重新绘制的这个地方，改为只绘制一次，然后加一层中间画布，旋转中间画布，把内容画到中间画布上之后，再把中间画布画到目标画布中。
+表达能力欠缺，每讲明白还请见谅。
+代码 &amp;lt;!-- index.html --&amp;gt; &amp;lt;!-- ... --&amp;gt; &amp;lt;canvas width=&amp;quot;236px&amp;quot; height=&amp;quot;236px&amp;quot; id=&amp;quot;feverMonth&amp;quot;&amp;gt;&amp;lt;/canvas&amp;gt; &amp;lt;!-- ... --&amp;gt;  // index.js const lineCounts = 120 // 外层圆环线的个数 const _canvas = document.querySelector(&#39;#feverMonth&#39;) const _ctx = _canvas.getContext(&#39;2d&#39;) const center = _canvas.height / 2 // 中心 const height = _canvas.height const width = _canvas.width let rotate = 0 // 旋转角度 const RotateCircle = function () { this.</description>
+    </item>
+    
+  </channel>
+</rss>

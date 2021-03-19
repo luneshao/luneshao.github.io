@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="baidu-site-verification" content="8GUMFEgBhB" />
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是 LuneShao 的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="LuneShao, 一瓶肥宅快乐水, 博客, 前端, 小骨鱼">
+  <meta name="google-site-verification" content="Gu27F60AgLNf8h9KCAXsLXjKd7O-e1oZpSGeblt5w70" />
+  <link rel="prev" href="https://luneshao.github.io/2021/2021-01-29-miniprogram/" />
+  
+  <link rel="canonical" href="https://luneshao.github.io/2021/2021-03-19-canvas-perf/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/img/favicon.ico" />
+  
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1858143_e4r74dhzeku.css">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           canvas优化 | Luneshao
+       
+  </title>
+  <meta name="title" content="canvas优化 | Luneshao">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "canvas优化",
+    "headline" : "canvas优化",
+    "description" : "写在前头 首先迫于 GitHub 突然就推不上去了，然后给电脑装了一只小猫，就开始呼吸自由的空气了。搜问题的时候发现了一个不错的网站，看到一篇canvas优化的文章，我最近也有写一个canvas的动画，一直觉得需要优化，就看了下文章今天优化了下。怕以后忘了（一定会忘的）就记录下来。\n正文 我在文章里主要学到的就是缓存。\n我的设计图是两个圆环向不同方向转，还有一些不动的圆环。\n之前已经把不动的圆环和动的圆环分别放到两个画布里分开绘制了。转动的地方我每次计算一个旋转角度，重新绘制圆环。😳 （我觉得这个地方处理的不好）看文章中优化的思路是 内容只绘制一次，利用另一个画布 drawImage() 这个 API 在不同的位置用多次绘制。\n我就改了之前每次动画都重新绘制的这个地方，改为只绘制一次，然后加一层中间画布，旋转中间画布，把内容画到中间画布上之后，再把中间画布画到目标画布中。\n表达能力欠缺，每讲明白还请见谅。\n代码 \x26lt;!-- index.html --\x26gt; \x26lt;!-- ... --\x26gt; \x26lt;canvas width=\x26quot;236px\x26quot; height=\x26quot;236px\x26quot; id=\x26quot;feverMonth\x26quot;\x26gt;\x26lt;\/canvas\x26gt; \x26lt;!-- ... --\x26gt;  \/\/ index.js const lineCounts = 120 \/\/ 外层圆环线的个数 const _canvas = document.querySelector(\x27#feverMonth\x27) const _ctx = _canvas.getContext(\x272d\x27) const center = _canvas.height \/ 2 \/\/ 中心 const height = _canvas.height const width = _canvas.width let rotate = 0 \/\/ 旋转角度 const RotateCircle = function () { this.",
+    "inLanguage" : "en-us",
+    "author" : "luneShao",
+    "creator" : "luneShao",
+    "publisher": "luneShao",
+    "accountablePerson" : "luneShao",
+    "copyrightHolder" : "luneShao",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-19 15:52:01 \x2b0800 CST",
+    "dateModified" : "2021-03-19 15:52:01 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2021\/2021-03-19-canvas-perf\/",
+    "wordCount" : "278",
+    "keywords" : [ "canvas","perf", "Luneshao"]
+}
+</script>
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">Luneshao</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/about/" title=""></a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">Luneshao</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/about/" title=""></a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">canvas优化</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneShao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2021-03-19 itemprop="datePublished">March 19, 2021</time>
+                </span>
+                in
+                
+                <span id="/2021/2021-03-19-canvas-perf/" class="leancloud_visitors post-meta" data-flag-title="canvas优化">
+                    <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        <img src="/img/cover.jpg" class="featured_image">
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="写在前头">写在前头</h2>
+
+<p>首先迫于 GitHub 突然就推不上去了，然后给电脑装了一只小猫，就开始呼吸自由的空气了。搜问题的时候发现了一个不错的网站，看到一篇canvas优化的文章，我最近也有写一个canvas的动画，一直觉得需要优化，就看了下文章今天优化了下。怕以后忘了（一定会忘的）就记录下来。</p>
+
+<h2 id="正文">正文</h2>
+
+<p>我在文章里主要学到的就是缓存。</p>
+
+<p>我的设计图是两个圆环向不同方向转，还有一些不动的圆环。</p>
+
+<p>之前已经把不动的圆环和动的圆环分别放到两个画布里分开绘制了。转动的地方我每次计算一个旋转角度，重新绘制圆环。😳 （我觉得这个地方处理的不好）看文章中优化的思路是 <strong>内容只绘制一次，利用另一个画布 drawImage() 这个 API 在不同的位置用多次绘制</strong>。</p>
+
+<p>我就改了之前每次动画都重新绘制的这个地方，改为只绘制一次，然后加一层中间画布，旋转中间画布，把内容画到中间画布上之后，再把中间画布画到目标画布中。</p>
+
+<p>表达能力欠缺，每讲明白还请见谅。</p>
+
+<h2 id="代码">代码</h2>
+
+<pre><code class="language-html">&lt;!-- index.html --&gt;
+&lt;!-- ... --&gt;
+&lt;canvas width=&quot;236px&quot; height=&quot;236px&quot; id=&quot;feverMonth&quot;&gt;&lt;/canvas&gt;
+&lt;!-- ... --&gt;
+</code></pre>
+
+<pre><code class="language-js">// index.js
+const lineCounts = 120 // 外层圆环线的个数
+const _canvas = document.querySelector('#feverMonth')
+const _ctx = _canvas.getContext('2d')
+const center = _canvas.height / 2 // 中心
+const height = _canvas.height
+const width = _canvas.width
+let rotate = 0 // 旋转角度
+
+const RotateCircle = function () {
+  this.rotateDeg = 0
+  this.center = center
+  // 内容缓存画布
+  this.cacheCanvas = document.createElement('canvas')
+  this.cacheCanvas.width = width
+  this.cacheCanvas.height = height
+  this.cacheCtx = this.cacheCanvas.getContext('2d')
+  
+  // 中间画布
+  this.cachePaintCanvas = document.createElement('canvas')
+  this.cachePaintCanvas.width = width
+  this.cachePaintCanvas.height = height
+  this.cachePaintCtx = this.cachePaintCanvas.getContext('2d')
+  this.cachePaintCtx.translate(center, center)
+}
+
+RotateCircle.prototype = {
+  // 绘制外圆
+  outCircleShow () {
+    this.cacheCtx.strokeStyle = '#4ea5ff'
+    for (let i = 0; i &lt; lineCounts; ++i) {
+      this.cacheCtx.save()
+      this.cacheCtx.beginPath()
+      this.cacheCtx.translate(center, center)
+      this.cacheCtx.lineWidth = 1
+
+      this.cacheCtx.rotate(+((Math.PI * 2) / lineCounts * i + rotate).toFixed(2))
+      this.cacheCtx.moveTo(center, 0)
+      this.cacheCtx.lineTo(100, 0)
+
+      this.cacheCtx.rotate((Math.PI * 2) / lineCounts * i + rotate)
+      this.cacheCtx.closePath()
+      this.cacheCtx.stroke()
+      this.cacheCtx.restore()
+    }
+  },
+  // 绘制半圆
+  simicircleShow () {
+    this.cacheCtx.beginPath()
+    this.cacheCtx.strokeStyle = '#71b8ff'
+    this.cacheCtx.lineWidth = 20
+    this.cacheCtx.arc(center, center, 60, -rotate, Math.PI - rotate)
+    this.cacheCtx.stroke()
+    this.cacheCtx.closePath()
+  },
+  // 旋转
+  rotate (_rotate) {
+    this.rotateDeg = _rotate
+    this.cachePaintCtx.clearRect(-_canvas.height, -_canvas.height, _canvas.height * 2, _canvas.height * 2)
+    this.cachePaintCtx.save()
+    this.cachePaintCtx.rotate(this.rotateDeg)
+    this.cachePaintCtx.drawImage(this.cacheCanvas, -center, -center)
+    this.cachePaintCtx.restore()
+    this.paint()
+  },
+  // 绘制
+  paint () {
+    _ctx.drawImage(this.cachePaintCanvas, 0, 0)
+  }
+}
+
+// 外圆初始化
+const outCircle = new RotateCircle()
+outCircle.outCircleShow()
+
+// 半圆初始化
+const simicircle = new RotateCircle()
+simicircle.simicircleShow()
+
+// 动画
+function draw() {
+  if (rotate &gt;= 360) {
+    rotate = 0
+  }
+  rotate = +(rotate + 0.01).toFixed(2)
+  _ctx.clearRect(0, 0, _canvas.height + 2, _canvas.height + 2)
+  // 旋转
+  outCircle.rotate(rotate)
+  simicircle.rotate(-rotate)
+  window.requestAnimationFrame(draw)
+}
+draw()
+</code></pre>
+
+<h2 id="参考文章">参考文章</h2>
+
+<p><a href="https://chinese.freecodecamp.org/news/canvas-animation-performance-optimization-practice/" rel="nofollow noreferrer" target="_blank">原文链接</a></p>
+
+<h2 id="源码">源码</h2>
+
+<p><a href="https://github.com/luneShaoGM/Train/blob/main/rotateCircle.html" rel="nofollow noreferrer" target="_blank">GitHub</a></p>
+
+<p>以上，感谢。 ^_^</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2021/2021-03-19-canvas-perf/>https://luneshao.github.io/2021/2021-03-19-canvas-perf/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/canvas/">
+                    #canvas</a></span>
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/perf/">
+                    #perf</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2021/2021-01-29-miniprogram/" class="prev" rel="prev" title="uniapp 开发小程序压缩图片"><i class="iconfont icon-left"></i>&nbsp;uniapp 开发小程序压缩图片</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+        <div id="vcomment"></div>
+          
+                 
+          
+    </div>
+    <script>
+        new Valine({
+          el: '#vcomment' ,
+          appId: 'VMtRNdHhQOQVoiWu2y2dQnJb-gzGzoHsz',
+          appKey: '073437m7LGtKY9mmCQioFbKI',
+          notify:true, 
+          verify:false, 
+          avatar:'wavatar', 
+          recordIP: true,
+          visitor: true, 
+          placeholder: '你好哇，快来戳我吐槽吧！🎉' 
+        })
+    </script>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
