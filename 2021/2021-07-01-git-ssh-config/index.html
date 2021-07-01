@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="baidu-site-verification" content="8GUMFEgBhB" />
+  <meta name="author" content="LuneShao">
+  <meta name="description" content="这里是 LuneShao 的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
+  <meta name="keywords" content="LuneShao, 一瓶肥宅快乐水, 博客, 前端, 小骨鱼">
+  <meta name="google-site-verification" content="Gu27F60AgLNf8h9KCAXsLXjKd7O-e1oZpSGeblt5w70" />
+  <link rel="prev" href="https://luneshao.github.io/2021/2021-03-19-canvas-perf/" />
+  
+  <link rel="canonical" href="https://luneshao.github.io/2021/2021-07-01-git-ssh-config/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/img/favicon.ico" />
+  
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1858143_e4r74dhzeku.css">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           配置多个GitHub账号的ssh | Luneshao
+       
+  </title>
+  <meta name="title" content="配置多个GitHub账号的ssh | Luneshao">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/luneshao.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "配置多个GitHub账号的ssh",
+    "headline" : "配置多个GitHub账号的ssh",
+    "description" : "如题",
+    "inLanguage" : "en-us",
+    "author" : "luneShao",
+    "creator" : "luneShao",
+    "publisher": "luneShao",
+    "accountablePerson" : "luneShao",
+    "copyrightHolder" : "luneShao",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-07-01 10:25:21 \x2b0800 CST",
+    "dateModified" : "2021-07-01 10:25:21 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2021\/2021-07-01-git-ssh-config\/",
+    "wordCount" : "73",
+    "keywords" : [ "github","ssh", "Luneshao"]
+}
+</script>
+
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">Luneshao</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/about/" title=""></a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://luneshao.github.io/">Luneshao</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">首页</a>
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/about/" title=""></a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">配置多个GitHub账号的ssh</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneShao</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2021-07-01 itemprop="datePublished">July 1, 2021</time>
+                </span>
+                in
+                
+                <span id="/2021/2021-07-01-git-ssh-config/" class="leancloud_visitors post-meta" data-flag-title="配置多个GitHub账号的ssh">
+                    <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        <img src="/img/cover.jpg" class="featured_image">
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h3 id="前言">前言</h3>
+
+<p>“多年前”需要用两个 github 账号，就查了怎么配置两个ssh，配置好了之后，一直不好用，克隆私有库也克隆不下来，后来百度到用https的地址，也就是<a href="https://luneshao.github.io/2020/2020-11-04-how-push-to-github-private-rep/" rel="nofollow noreferrer" target="_blank">这篇文章</a>的方法，就一直这么用着😁
+一切都很顺利，最近不是GitHub推不上去，然后就***，昨天就一直报403，错误如下：</p>
+
+<pre><code>remote: Password authentication is temporarily disabled as part of a brownout. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/ for more information.
+fatal: unable to access 'https://github.com/chainland/qlchain.cn.git/': The requested URL returned error: 403
+</code></pre>
+
+<p>这就很尴尬，我就开始百度怎么整（ps：昨天什么也没动今天就推上去了。。。。）然后，我今天就想着一定要把ssh给配好，遂又百度了一番，终于。。。</p>
+
+<h3 id="正文">正文</h3>
+
+<p>我的问题是，配置两个ssh，但是执行测试句：<code>ssh -T git@**.github.com</code> 和 <code>ssh -T git@github.com</code>出来打招呼的都是同一个名字，就很不对劲。翻到了<a href="https://www.huaweicloud.com/articles/5e1b8d3cb0b673fae499eaa34a94205c.html" rel="nofollow noreferrer" target="_blank">这篇文章</a>，发现是因为我缺了【密钥添加到SSH agent中】这一步，执行完之后，神清气爽。ssh终于能用了，尴尬 (~_~;)</p>
+
+<blockquote>
+<p>引用一下解决方法</p>
+</blockquote>
+
+<p>因为默认只读取id_rsa，为了让SSH识别新的私钥，需将其添加到SSH agent中：</p>
+
+<pre><code>  ssh-add  ~/.ssh/id_rsa_user2
+</code></pre>
+
+<p>如果出现Could not open a connection to your authentication agent的错误，就试着用以下命令：</p>
+
+<pre><code>  ssh-agent  bash
+  ssh-add  ~/.ssh/id_rsa_user2
+</code></pre>
+
+<h3 id="补充">补充</h3>
+
+<p><a href="https://kangzhiheng.top/post/11-more-ssh-in-one-laptop/" rel="nofollow noreferrer" target="_blank">一篇写的很好的配置多个ssh密钥的文章</a></p>
+
+<p>以上😁</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>LuneShao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://luneshao.github.io/2021/2021-07-01-git-ssh-config/>https://luneshao.github.io/2021/2021-07-01-git-ssh-config/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/github/">
+                    #github</a></span>
+            
+            <span class="tag"><a href="https://luneshao.github.io/tags/ssh/">
+                    #ssh</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://luneshao.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://luneshao.github.io/2021/2021-03-19-canvas-perf/" class="prev" rel="prev" title="canvas优化"><i class="iconfont icon-left"></i>&nbsp;canvas优化</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+        <div id="vcomment"></div>
+          
+                 
+          
+    </div>
+    <script>
+        new Valine({
+          el: '#vcomment' ,
+          appId: 'VMtRNdHhQOQVoiWu2y2dQnJb-gzGzoHsz',
+          appKey: '073437m7LGtKY9mmCQioFbKI',
+          notify:true, 
+          verify:false, 
+          avatar:'wavatar', 
+          recordIP: true,
+          visitor: true, 
+          placeholder: '你好哇，快来戳我吐槽吧！🎉' 
+        })
+    </script>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://luneshao.github.io/">LuneShao</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
