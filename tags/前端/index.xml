@@ -6,10 +6,21 @@
     <description>Recent content in 前端 on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Nov 2020 14:13:14 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 13 Aug 2021 17:12:49 +0800</lastBuildDate>
     
 	<atom:link href="https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Table 相关的补充知识点</title>
+      <link>https://luneshao.github.io/2021/2021-08-13-table/</link>
+      <pubDate>Fri, 13 Aug 2021 17:12:49 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2021/2021-08-13-table/</guid>
+      <description>1、 HTML table表格 固定表头 tbody加滚动条
+2、 数字、字母文本溢出
+&amp;lt;table class=&amp;quot;table&amp;quot;&amp;gt; &amp;lt;thead class=&amp;quot;thead&amp;quot;&amp;gt; ... &amp;lt;/thead&amp;gt; &amp;lt;tbody class=&amp;quot;tbody&amp;quot;&amp;gt; &amp;lt;tr v-for=&amp;quot;(item, index) in data&amp;quot; :key=&amp;quot;index&amp;quot;&amp;gt; &amp;lt;td&amp;gt;{{ item.account }}&amp;lt;/td&amp;gt; &amp;lt;td width=&amp;quot;46%&amp;quot;&amp;gt;{{ item.option }}&amp;lt;/td&amp;gt; &amp;lt;td width=&amp;quot;24%&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;link&amp;quot;&amp;gt; {{ item.link }} &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;{{ item.duration }}&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt;  .table { .tbody { .link { word-wrap:break-word; word-break:break-all; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; //多行在这里修改数字即可 overflow:hidden; /* autoprefixer: ignore next */ -webkit-box-orient: vertical; } } }  3、 flex 布局 overflow 失效 Scrolling a flexbox with overflowing content</description>
+    </item>
     
     <item>
       <title>一些js动画库</title>

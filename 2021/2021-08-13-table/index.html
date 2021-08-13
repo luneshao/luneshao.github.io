@@ -10,9 +10,9 @@
   <meta name="description" content="这里是 LuneShao 的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
   <meta name="keywords" content="LuneShao, 一瓶肥宅快乐水, 博客, 前端, 小骨鱼">
   <meta name="google-site-verification" content="Gu27F60AgLNf8h9KCAXsLXjKd7O-e1oZpSGeblt5w70" />
-  <link rel="prev" href="https://luneshao.github.io/2021/2021-03-19-canvas-perf/" />
-  <link rel="next" href="https://luneshao.github.io/2021/2021-08-13-table/" />
-  <link rel="canonical" href="https://luneshao.github.io/2021/2021-07-01-git-ssh-config/" />
+  <link rel="prev" href="https://luneshao.github.io/2021/2021-07-01-git-ssh-config/" />
+  
+  <link rel="canonical" href="https://luneshao.github.io/2021/2021-08-13-table/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -25,10 +25,10 @@
   <title>
        
        
-           配置多个GitHub账号的ssh | Luneshao
+           Table 相关的补充知识点 | Luneshao
        
   </title>
-  <meta name="title" content="配置多个GitHub账号的ssh | Luneshao">
+  <meta name="title" content="Table 相关的补充知识点 | Luneshao">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -47,9 +47,9 @@
          "@id": "https:\/\/luneshao.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : "配置多个GitHub账号的ssh",
-    "headline" : "配置多个GitHub账号的ssh",
-    "description" : "如题",
+    "name" : "Table 相关的补充知识点",
+    "headline" : "Table 相关的补充知识点",
+    "description" : "做原生表格时遇到的一些问题，补充相关知识点",
     "inLanguage" : "en-us",
     "author" : "luneShao",
     "creator" : "luneShao",
@@ -57,11 +57,11 @@
     "accountablePerson" : "luneShao",
     "copyrightHolder" : "luneShao",
     "copyrightYear" : "2021",
-    "datePublished": "2021-07-01 10:25:21 \x2b0800 CST",
-    "dateModified" : "2021-07-01 10:25:21 \x2b0800 CST",
-    "url" : "https:\/\/luneshao.github.io\/2021\/2021-07-01-git-ssh-config\/",
-    "wordCount" : "73",
-    "keywords" : [ "github","ssh", "Luneshao"]
+    "datePublished": "2021-08-13 17:12:49 \x2b0800 CST",
+    "dateModified" : "2021-08-13 17:12:49 \x2b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2021\/2021-08-13-table\/",
+    "wordCount" : "110",
+    "keywords" : [ "前端","table", "Luneshao"]
 }
 </script>
 
@@ -128,15 +128,15 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">配置多个GitHub账号的ssh</h1>
+        <h1 class="post-title" itemprop="name headline">Table 相关的补充知识点</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneShao</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2021-07-01 itemprop="datePublished">July 1, 2021</time>
+                on <time datetime=2021-08-13 itemprop="datePublished">August 13, 2021</time>
                 </span>
                 in
                 
-                <span id="/2021/2021-07-01-git-ssh-config/" class="leancloud_visitors post-meta" data-flag-title="配置多个GitHub账号的ssh">
+                <span id="/2021/2021-08-13-table/" class="leancloud_visitors post-meta" data-flag-title="Table 相关的补充知识点">
                     <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
                 </span>
         </div>
@@ -158,44 +158,52 @@
           
           
 
-          
+          <p>1、 <a href="https://blog.csdn.net/muguli2008/article/details/103787152" rel="nofollow noreferrer" target="_blank">HTML table表格 固定表头 tbody加滚动条</a></p>
 
-<h3 id="前言">前言</h3>
+<p>2、 数字、字母文本溢出</p>
 
-<p>“多年前”需要用两个 github 账号，就查了怎么配置两个ssh，配置好了之后，一直不好用，克隆私有库也克隆不下来，后来百度到用https的地址，也就是<a href="https://luneshao.github.io/2020/2020-11-04-how-push-to-github-private-rep/" rel="nofollow noreferrer" target="_blank">这篇文章</a>的方法，就一直这么用着😁
-一切都很顺利，最近不是GitHub推不上去，然后就***，昨天就一直报403，错误如下：</p>
-
-<pre><code>remote: Password authentication is temporarily disabled as part of a brownout. Please use a personal access token instead.
-remote: Please see https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/ for more information.
-fatal: unable to access 'https://github.com/chainland/qlchain.cn.git/': The requested URL returned error: 403
+<pre><code class="language-html">&lt;table class=&quot;table&quot;&gt;
+  &lt;thead class=&quot;thead&quot;&gt;
+    ...
+  &lt;/thead&gt;
+  &lt;tbody class=&quot;tbody&quot;&gt;
+    &lt;tr v-for=&quot;(item, index) in data&quot; :key=&quot;index&quot;&gt;
+      &lt;td&gt;{{ item.account }}&lt;/td&gt;
+      &lt;td width=&quot;46%&quot;&gt;{{ item.option }}&lt;/td&gt;
+      &lt;td width=&quot;24%&quot;&gt;
+        &lt;div class=&quot;link&quot;&gt;
+          {{ item.link }}
+        &lt;/div&gt;
+      &lt;/td&gt;
+      &lt;td&gt;{{ item.duration }}&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </code></pre>
 
-<p>这就很尴尬，我就开始百度怎么整（ps：昨天什么也没动今天就推上去了。。。。）然后，我今天就想着一定要把ssh给配好，遂又百度了一番，终于。。。</p>
+<pre><code class="language-css">.table {
+  .tbody {
+    .link {
+      word-wrap:break-word;
+      word-break:break-all;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1; //多行在这里修改数字即可
+      overflow:hidden;
+      /* autoprefixer: ignore next */
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+</code></pre>
 
-<h3 id="正文">正文</h3>
-
-<p>我的问题是，配置两个ssh，但是执行测试句：<code>ssh -T git@**.github.com</code> 和 <code>ssh -T git@github.com</code>出来打招呼的都是同一个名字，就很不对劲。翻到了<a href="https://www.huaweicloud.com/articles/5e1b8d3cb0b673fae499eaa34a94205c.html" rel="nofollow noreferrer" target="_blank">这篇文章</a>，发现是因为我缺了【密钥添加到SSH agent中】这一步，执行完之后，神清气爽。ssh终于能用了，尴尬 (~_~;)</p>
+<p>3、 flex 布局 overflow 失效
+<a href="https://stackoverflow.com/questions/21515042/scrolling-a-flexbox-with-overflowing-content" rel="nofollow noreferrer" target="_blank">Scrolling a flexbox with overflowing content
+</a></p>
 
 <blockquote>
-<p>引用一下解决方法</p>
+<p>Basically, to make a flexbox cell scrollable, you have to make all its parents overflow: hidden;, or it will just ignore your overflow settings and make the parent larger instead.</p>
 </blockquote>
-
-<p>因为默认只读取id_rsa，为了让SSH识别新的私钥，需将其添加到SSH agent中：</p>
-
-<pre><code>  ssh-add  ~/.ssh/id_rsa_user2
-</code></pre>
-
-<p>如果出现Could not open a connection to your authentication agent的错误，就试着用以下命令：</p>
-
-<pre><code>  ssh-agent  bash
-  ssh-add  ~/.ssh/id_rsa_user2
-</code></pre>
-
-<h3 id="补充">补充</h3>
-
-<p><a href="https://kangzhiheng.top/post/11-more-ssh-in-one-laptop/" rel="nofollow noreferrer" target="_blank">一篇写的很好的配置多个ssh密钥的文章</a></p>
-
-<p>以上😁</p>
 
     </div>
 
@@ -210,7 +218,7 @@ fatal: unable to access 'https://github.com/chainland/qlchain.cn.git/': The requ
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://luneshao.github.io/2021/2021-07-01-git-ssh-config/>https://luneshao.github.io/2021/2021-07-01-git-ssh-config/</span>
+                    <a href=https://luneshao.github.io/2021/2021-08-13-table/>https://luneshao.github.io/2021/2021-08-13-table/</span>
             </p>
             
              
@@ -225,11 +233,11 @@ fatal: unable to access 'https://github.com/chainland/qlchain.cn.git/': The requ
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://luneshao.github.io/tags/github/">
-                    #github</a></span>
+            <span class="tag"><a href="https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF/">
+                    #前端</a></span>
             
-            <span class="tag"><a href="https://luneshao.github.io/tags/ssh/">
-                    #ssh</a></span>
+            <span class="tag"><a href="https://luneshao.github.io/tags/table/">
+                    #table</a></span>
             
             </section>
         
@@ -241,10 +249,8 @@ fatal: unable to access 'https://github.com/chainland/qlchain.cn.git/': The requ
 
     <div class="post-nav">
         
-        <a href="https://luneshao.github.io/2021/2021-03-19-canvas-perf/" class="prev" rel="prev" title="canvas优化"><i class="iconfont icon-left"></i>&nbsp;canvas优化</a>
+        <a href="https://luneshao.github.io/2021/2021-07-01-git-ssh-config/" class="prev" rel="prev" title="配置多个GitHub账号的ssh"><i class="iconfont icon-left"></i>&nbsp;配置多个GitHub账号的ssh</a>
          
-        
-        <a href="https://luneshao.github.io/2021/2021-08-13-table/" class="next" rel="next" title="Table 相关的补充知识点">Table 相关的补充知识点&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
