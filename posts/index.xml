@@ -6,7 +6,21 @@
     <description>Recent content in Posts on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Aug 2021 17:12:49 +0800</lastBuildDate><atom:link href="https://luneshao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Dec 2021 10:52:26 +0800</lastBuildDate><atom:link href="https://luneshao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vue-router在history模式下的相关配置</title>
+      <link>https://luneshao.github.io/2021/2021-12-02-vue-router-history-config/</link>
+      <pubDate>Thu, 02 Dec 2021 10:52:26 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2021/2021-12-02-vue-router-history-config/</guid>
+      <description>Step1 nginx配置 众所周知，vue-router 在使用 history 模式时如果服务器没有相关的配置，刷新会404.文档有给出解决方案。文档中给出的是打包文件在根目录的配置，如果在二级目录下需要做一些修改。
+# 例如我的打包文件要放在test目录下，配置如下  server { listen 80; server_name testhistory.com; location /test { try_files $uri $uri/ /test/index.html; } } 我是在这篇文章找到的解决方案【nginx】History模式的配置细节
+修改后运行 nginx -t 检查配置是否正确后运行 nginx -s reload 重启。
+Step2 vue.config.js 配置  在 vue.config.js 中配置上公共资源目录
+ module.exports = { publicPath: process.env.NODE_ENV === &amp;#39;production&amp;#39; ? &amp;#39;/test/&amp;#39; : &amp;#39;/&amp;#39;, outputDir: &amp;#39;test&amp;#39;, // 加上这个配置，让打包出来的目录由默认的dist改为h5，方便写部署脚本  ... } Step3 vue-router 配置  除了 js、css 公共资源目录，还有路由配置也要增加基本前缀，为了保证前端路由和服务器的一致
+ const router = new VueRouter({ mode: &amp;#39;history&amp;#39;, base: &amp;#39;/test/&amp;#39;, // 目标目录  routes }) </description>
+    </item>
+    
     <item>
       <title>Table 相关的补充知识点</title>
       <link>https://luneshao.github.io/2021/2021-08-13-table/</link>

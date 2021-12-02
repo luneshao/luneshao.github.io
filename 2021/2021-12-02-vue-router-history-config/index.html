@@ -10,9 +10,9 @@
   <meta name="description" content="这里是 LuneShao 的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
   <meta name="keywords" content="LuneShao, 一瓶肥宅快乐水, 博客, 前端, 小骨鱼">
   <meta name="google-site-verification" content="Gu27F60AgLNf8h9KCAXsLXjKd7O-e1oZpSGeblt5w70" />
-  <link rel="prev" href="https://luneshao.github.io/2021/2021-07-01-git-ssh-config/" />
-  <link rel="next" href="https://luneshao.github.io/2021/2021-12-02-vue-router-history-config/" />
-  <link rel="canonical" href="https://luneshao.github.io/2021/2021-08-13-table/" />
+  <link rel="prev" href="https://luneshao.github.io/2021/2021-08-13-table/" />
+  
+  <link rel="canonical" href="https://luneshao.github.io/2021/2021-12-02-vue-router-history-config/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -25,10 +25,10 @@
   <title>
        
        
-           Table 相关的补充知识点 | Luneshao
+           vue-router在history模式下的相关配置 | Luneshao
        
   </title>
-  <meta name="title" content="Table 相关的补充知识点 | Luneshao">
+  <meta name="title" content="vue-router在history模式下的相关配置 | Luneshao">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -47,9 +47,9 @@
          "@id": "https:\/\/luneshao.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : "Table 相关的补充知识点",
-    "headline" : "Table 相关的补充知识点",
-    "description" : "做原生表格时遇到的一些问题，补充相关知识点",
+    "name" : "vue-router在history模式下的相关配置",
+    "headline" : "vue-router在history模式下的相关配置",
+    "description" : "解决vue-router在history模式下，部署到二级目录，nginx以及vue的配置",
     "inLanguage" : "en-us",
     "author" : "luneShao",
     "creator" : "luneShao",
@@ -57,11 +57,11 @@
     "accountablePerson" : "luneShao",
     "copyrightHolder" : "luneShao",
     "copyrightYear" : "2021",
-    "datePublished": "2021-08-13 17:12:49 \u002b0800 CST",
-    "dateModified" : "2021-08-13 17:12:49 \u002b0800 CST",
-    "url" : "https:\/\/luneshao.github.io\/2021\/2021-08-13-table\/",
-    "wordCount" : "110",
-    "keywords" : [ "前端","table", "Luneshao"]
+    "datePublished": "2021-12-02 10:52:26 \u002b0800 CST",
+    "dateModified" : "2021-12-02 10:52:26 \u002b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2021\/2021-12-02-vue-router-history-config\/",
+    "wordCount" : "74",
+    "keywords" : [ "vue", "Luneshao"]
 }
 </script>
 
@@ -128,15 +128,15 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Table 相关的补充知识点</h1>
+        <h1 class="post-title" itemprop="name headline">vue-router在history模式下的相关配置</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneShao</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2021-08-13 itemprop="datePublished">August 13, 2021</time>
+                on <time datetime=2021-12-02 itemprop="datePublished">December 2, 2021</time>
                 </span>
                 in
                 
-                <span id="/2021/2021-08-13-table/" class="leancloud_visitors post-meta" data-flag-title="Table 相关的补充知识点">
+                <span id="/2021/2021-12-02-vue-router-history-config/" class="leancloud_visitors post-meta" data-flag-title="vue-router在history模式下的相关配置">
                     <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
                 </span>
         </div>
@@ -158,46 +158,41 @@
           
           
 
-          <p>1、 <a href="https://blog.csdn.net/muguli2008/article/details/103787152">HTML table表格 固定表头 tbody加滚动条</a></p>
-<p>2、 数字、字母文本溢出</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">table</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;table&#34;</span>&gt;
-  &lt;<span style="color:#f92672">thead</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;thead&#34;</span>&gt;
-    ...
-  &lt;/<span style="color:#f92672">thead</span>&gt;
-  &lt;<span style="color:#f92672">tbody</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tbody&#34;</span>&gt;
-    &lt;<span style="color:#f92672">tr</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(item, index) in data&#34;</span> <span style="color:#a6e22e">:key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;index&#34;</span>&gt;
-      &lt;<span style="color:#f92672">td</span>&gt;{{ item.account }}&lt;/<span style="color:#f92672">td</span>&gt;
-      &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;46%&#34;</span>&gt;{{ item.option }}&lt;/<span style="color:#f92672">td</span>&gt;
-      &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;24%&#34;</span>&gt;
-        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;link&#34;</span>&gt;
-          {{ item.link }}
-        &lt;/<span style="color:#f92672">div</span>&gt;
-      &lt;/<span style="color:#f92672">td</span>&gt;
-      &lt;<span style="color:#f92672">td</span>&gt;{{ item.duration }}&lt;/<span style="color:#f92672">td</span>&gt;
-    &lt;/<span style="color:#f92672">tr</span>&gt;
-  &lt;/<span style="color:#f92672">tbody</span>&gt;
-&lt;/<span style="color:#f92672">table</span>&gt;
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">table</span> {
-  <span style="color:#960050;background-color:#1e0010">.tbody</span> <span style="color:#960050;background-color:#1e0010">{</span>
-    <span style="color:#960050;background-color:#1e0010">.link</span> <span style="color:#960050;background-color:#1e0010">{</span>
-      <span style="color:#66d9ef">word-wrap</span>:<span style="color:#66d9ef">break-word</span>;
-      <span style="color:#66d9ef">word-break</span>:break-all;
-      <span style="color:#66d9ef">overflow</span>: <span style="color:#66d9ef">hidden</span>;
-      <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">-webkit-</span>box;
-      <span style="color:#66d9ef">-webkit-</span>line-clamp: <span style="color:#ae81ff">1</span>; <span style="color:#960050;background-color:#1e0010">//多行在这里修改数字即可</span>
-      <span style="color:#66d9ef">overflow</span>:<span style="color:#66d9ef">hidden</span>;
-      <span style="color:#75715e">/* autoprefixer: ignore next */</span>
-      <span style="color:#66d9ef">-webkit-</span>box-orient: <span style="color:#66d9ef">vertical</span>;
+          <h2 id="step1-nginx配置">Step1 nginx配置</h2>
+<p>众所周知，<code>vue-router</code> 在使用  <code>history</code> 模式时如果服务器没有相关的配置，刷新会404.文档有给出<a href="https://router.vuejs.org/zh/guide/essentials/history-mode.html#%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BE%8B%E5%AD%90">解决方案</a>。文档中给出的是打包文件在根目录的配置，如果在二级目录下需要做一些修改。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#75715e"># 例如我的打包文件要放在test目录下，配置如下
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">server</span> {
+    <span style="color:#f92672">listen</span>       <span style="color:#ae81ff">80</span>;
+    <span style="color:#f92672">server_name</span> <span style="color:#e6db74">testhistory.com</span>;
+   
+    <span style="color:#f92672">location</span> <span style="color:#e6db74">/test</span> {
+      <span style="color:#f92672">try_files</span> $uri $uri/ <span style="color:#e6db74">/test/index.html</span>;
     }
-  <span style="color:#960050;background-color:#1e0010">}</span>
-<span style="color:#960050;background-color:#1e0010">}</span>
-</code></pre></div><p>3、 flex 布局 overflow 失效
-<a href="https://stackoverflow.com/questions/21515042/scrolling-a-flexbox-with-overflowing-content">Scrolling a flexbox with overflowing content
-</a></p>
+}
+</code></pre></div><p>我是在这篇文章找到的解决方案<a href="https://juejin.cn/post/6926785971287490573">【nginx】History模式的配置细节</a></p>
+<p>修改后运行 <code>nginx -t</code> 检查配置是否正确后运行 <code>nginx -s reload</code> 重启。</p>
+<h2 id="step2-vueconfigjs-配置">Step2 vue.config.js 配置</h2>
 <blockquote>
-<p>Basically, to make a flexbox cell scrollable, you have to make all its parents overflow: hidden;, or it will just ignore your overflow settings and make the parent larger instead.</p>
+<p>在 vue.config.js 中配置上公共资源目录</p>
 </blockquote>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">publicPath</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">NODE_ENV</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;production&#39;</span>
+    <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;/test/&#39;</span>
+    <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/&#39;</span>,
+    <span style="color:#a6e22e">outputDir</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;test&#39;</span>, <span style="color:#75715e">// 加上这个配置，让打包出来的目录由默认的dist改为h5，方便写部署脚本
+</span><span style="color:#75715e"></span>    ...
+}
+</code></pre></div><h2 id="step3-vue-router-配置">Step3 vue-router 配置</h2>
+<blockquote>
+<p>除了 js、css 公共资源目录，还有路由配置也要增加基本前缀，为了保证前端路由和服务器的一致</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">VueRouter</span>({
+  <span style="color:#a6e22e">mode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;history&#39;</span>,
+  <span style="color:#a6e22e">base</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/test/&#39;</span>, <span style="color:#75715e">// 目标目录
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">routes</span>
+})
+</code></pre></div>
     </div>
 
     <div class="post-copyright">
@@ -211,7 +206,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://luneshao.github.io/2021/2021-08-13-table/>https://luneshao.github.io/2021/2021-08-13-table/</span>
+                    <a href=https://luneshao.github.io/2021/2021-12-02-vue-router-history-config/>https://luneshao.github.io/2021/2021-12-02-vue-router-history-config/</span>
             </p>
             
              
@@ -226,11 +221,8 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF/">
-                    #前端</a></span>
-            
-            <span class="tag"><a href="https://luneshao.github.io/tags/table/">
-                    #table</a></span>
+            <span class="tag"><a href="https://luneshao.github.io/tags/vue/">
+                    #vue</a></span>
             
             </section>
         
@@ -242,10 +234,8 @@
 
     <div class="post-nav">
         
-        <a href="https://luneshao.github.io/2021/2021-07-01-git-ssh-config/" class="prev" rel="prev" title="配置多个GitHub账号的ssh"><i class="iconfont icon-left"></i>&nbsp;配置多个GitHub账号的ssh</a>
+        <a href="https://luneshao.github.io/2021/2021-08-13-table/" class="prev" rel="prev" title="Table 相关的补充知识点"><i class="iconfont icon-left"></i>&nbsp;Table 相关的补充知识点</a>
          
-        
-        <a href="https://luneshao.github.io/2021/2021-12-02-vue-router-history-config/" class="next" rel="next" title="vue-router在history模式下的相关配置">vue-router在history模式下的相关配置&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
