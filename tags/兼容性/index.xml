@@ -6,11 +6,7 @@
     <description>Recent content in 兼容性 on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 May 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://luneshao.github.io/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 09 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://luneshao.github.io/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前端属性兼容性整理</title>
       <link>https://luneshao.github.io/2019/comp/</link>
@@ -19,9 +15,9 @@
       <guid>https://luneshao.github.io/2019/comp/</guid>
       <description>1.document 相关 1.1 addEventListen
 兼容写法：
-function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget.addEventListen(eType, eHandle) } else { // ie 浏览器 if (eTarget.attachEvent) { eType = &#39;on&#39; + eType eTarget.attachEvent(eType, eHandle) } else { eventTarget[&#39;on&#39; + eventType] = eventHandler } } }  1.2 scrollTop()
+function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget.addEventListen(eType, eHandle) } else { // ie 浏览器  if (eTarget.attachEvent) { eType = &amp;#39;on&amp;#39; + eType eTarget.attachEvent(eType, eHandle) } else { eventTarget[&amp;#39;on&amp;#39; + eventType] = eventHandler } } } 1.2 scrollTop()
 兼容写法：
-// 因为 0 || undefine =&amp;gt; undefined const st = document.pageYOffset.scrollTop || document.documentElement.scrollTop || document.body.scrollTop || 0  // ie6/7/8 1. 没有 doctype 声明的页面： const st = document.</description>
+// 因为 0 || undefine =&amp;gt; undefined const st = document.pageYOffset.scrollTop || document.documentElement.scrollTop || document.body.scrollTop || 0 // ie6/7/8 1. 没有 doctype 声明的页面： const st = document.</description>
     </item>
     
   </channel>

@@ -57,8 +57,8 @@
     "accountablePerson" : "luneShao",
     "copyrightHolder" : "luneShao",
     "copyrightYear" : "2020",
-    "datePublished": "2020-05-27 22:00:37 \x2b0800 CST",
-    "dateModified" : "2020-05-27 22:00:37 \x2b0800 CST",
+    "datePublished": "2020-05-27 22:00:37 \u002b0800 CST",
+    "dateModified" : "2020-05-27 22:00:37 \u002b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2020\/2020-05-27-chrome-performance\/",
     "wordCount" : "475",
     "keywords" : [ "chrome", "Luneshao"]
@@ -159,171 +159,156 @@
           
           
 
-          
-
-<p>运行时性能是指页面运行时的表现，而不是加载时的表现。本教程将教您如何使用 Chrome DevTools 性能面板分析运行时性能。就 RAIL 模型而言，本教程中学习的技能对于分析页面的响应、动画和空闲阶段非常有用。</p>
-
+          <p>运行时性能是指页面运行时的表现，而不是加载时的表现。本教程将教您如何使用 Chrome DevTools 性能面板分析运行时性能。就 RAIL 模型而言，本教程中学习的技能对于分析页面的响应、动画和空闲阶段非常有用。</p>
 <h2 id="分析结果">分析结果</h2>
-
 <h3 id="1-分析每秒的帧数">1. 分析每秒的帧数</h3>
-
 <p>衡量任何动画性能的主要指标是每秒帧数（FPS）。当动画以 60 FPS 运行时，用户会感到舒适。</p>
-
 <ol>
-<li><p>查看 FPS 图表。只要您在 FPS 上方看到红色条，就表示帧速率下降得很低，以至于可能损害用户体验。通常，绿色条越高，FPS 越高。</p></li>
-
-<li><p>在 FPS 图表下方，您会看到 CPU 图表。 CPU 图表中的颜色与 Performance 面板底部的 <strong>Summary</strong> 选项卡中的颜色相对应。CPU 图表充满色彩的事实意味着在记录过程中 CPU 已满。每当您看到 CPU 长时间长时间处于工作状态时，它意味着需要寻找办法减少工作。</p></li>
-
-<li><p>将鼠标悬停在 FPS，CPU 或 NET 图表上。 DevTools 将显示该时间点的页面截图。左右移动鼠标以重播记录。这称为 scrubbing ，对于手动分析动画的进度很有用。</p></li>
-
-<li><p>在 <strong>Frames</strong> 部分中，将鼠标悬停在绿色方块之一上。 DevTools 为您显示该特定框架的 FPS。每帧可能远低于 60 FPS 的目标。</p></li>
+<li>
+<p>查看 FPS 图表。只要您在 FPS 上方看到红色条，就表示帧速率下降得很低，以至于可能损害用户体验。通常，绿色条越高，FPS 越高。</p>
+</li>
+<li>
+<p>在 FPS 图表下方，您会看到 CPU 图表。 CPU 图表中的颜色与 Performance 面板底部的 <strong>Summary</strong> 选项卡中的颜色相对应。CPU 图表充满色彩的事实意味着在记录过程中 CPU 已满。每当您看到 CPU 长时间长时间处于工作状态时，它意味着需要寻找办法减少工作。</p>
+</li>
+<li>
+<p>将鼠标悬停在 FPS，CPU 或 NET 图表上。 DevTools 将显示该时间点的页面截图。左右移动鼠标以重播记录。这称为 scrubbing ，对于手动分析动画的进度很有用。</p>
+</li>
+<li>
+<p>在 <strong>Frames</strong> 部分中，将鼠标悬停在绿色方块之一上。 DevTools 为您显示该特定框架的 FPS。每帧可能远低于 60 FPS 的目标。</p>
+</li>
 </ol>
-
 <p>当然，通过此 demo，很明显页面效果不佳。但是在实际情况下，可能还不是很清楚，因此拥有所有这些工具进行测量非常方便。</p>
-
 <h4 id="打开-fps-仪表">打开 FPS 仪表</h4>
-
 <p>另一个方便的工具是 FPS 测量仪，它可以在页面运行时提供 FPS 的实时估算。</p>
-
 <ol>
-<li><p>按 Command + Shift + P（Mac）或 Control + Shift + P（Windows，Linux）打开“命令”菜单。</p></li>
-
-<li><p>开始在“命令”菜单中键入 <code>Rendering</code>，然后选择 <strong>Show Rendering</strong></p></li>
-
-<li><p>在 <strong>Rendering</strong> 选项卡中，启用 <strong>FPS Meter</strong>。新的叠加层将显示在视口的右上角。</p></li>
-
-<li><p>禁用 <strong>FPS Meter</strong>，按 Escape 键以关闭 <strong>Rendering</strong> 选项卡。在本教程中您将不会使用它</p></li>
+<li>
+<p>按 Command + Shift + P（Mac）或 Control + Shift + P（Windows，Linux）打开“命令”菜单。</p>
+</li>
+<li>
+<p>开始在“命令”菜单中键入 <code>Rendering</code>，然后选择 <strong>Show Rendering</strong></p>
+</li>
+<li>
+<p>在 <strong>Rendering</strong> 选项卡中，启用 <strong>FPS Meter</strong>。新的叠加层将显示在视口的右上角。</p>
+</li>
+<li>
+<p>禁用 <strong>FPS Meter</strong>，按 Escape 键以关闭 <strong>Rendering</strong> 选项卡。在本教程中您将不会使用它</p>
+</li>
 </ol>
-
 <h3 id="2-找到瓶颈">2. 找到瓶颈</h3>
-
 <ol>
-<li><p>注意 summary 选项卡。当没有选择事件时，这个选项卡显示的是活动的细分。该页面花费了大部分时间进行渲染。由于性能是少做工作的艺术，因此您的目标是减少花费在进行渲染工作上的时间。</p></li>
-
-<li><p>展开 <strong>Main</strong> 部分。 DevTools 向您显示了主线程随时间变化的活动图表。x 轴表示一段时间内的记录。每个条形代表一个事件。宽条表示该事件花费了更长的时间。 y 轴表示调用堆栈。当您看到事件相互叠加时，说明上面的事件引起了下面的事件。</p></li>
-
-<li><p>recording 里有很多数据。通过点击、按住并拖动鼠标在 &ldquo;概览&rdquo;（Overview）部分，即包括 FPS、CPU 和 NET 图表的部分，来放大单个动画帧触发事件。Main 部分和 Summary 选项卡只显示记录中所选部分的信息。</p></li>
-
-<li><p>注意右上角的红色三角形在 <strong>Animation Frame Fired</strong> 事件的右上角。每当你看到一个红色的三角形时，它是一个警告，说明可能存在与此事件相关的问题。</p></li>
-</ol>
-
+<li>
+<p>注意 summary 选项卡。当没有选择事件时，这个选项卡显示的是活动的细分。该页面花费了大部分时间进行渲染。由于性能是少做工作的艺术，因此您的目标是减少花费在进行渲染工作上的时间。</p>
+</li>
+<li>
+<p>展开 <strong>Main</strong> 部分。 DevTools 向您显示了主线程随时间变化的活动图表。x 轴表示一段时间内的记录。每个条形代表一个事件。宽条表示该事件花费了更长的时间。 y 轴表示调用堆栈。当您看到事件相互叠加时，说明上面的事件引起了下面的事件。</p>
+</li>
+<li>
+<p>recording 里有很多数据。通过点击、按住并拖动鼠标在 &ldquo;概览&rdquo;（Overview）部分，即包括 FPS、CPU 和 NET 图表的部分，来放大单个动画帧触发事件。Main 部分和 Summary 选项卡只显示记录中所选部分的信息。</p>
+</li>
+<li>
+<p>注意右上角的红色三角形在 <strong>Animation Frame Fired</strong> 事件的右上角。每当你看到一个红色的三角形时，它是一个警告，说明可能存在与此事件相关的问题。</p>
 <blockquote>
 <p>每当执行一个 requestAnimationFrame()回调时，动画帧触发事件就会发生。</p>
 </blockquote>
-
-<ol>
-<li><p>单击 <strong>Animation Frame Fired</strong>。现在，Summary 选项卡会显示有关该事件的信息。请注意 <strong>reveal</strong> 链接。点击它，DevTools 会高亮显示发起 <strong>Animation Frame Fired</strong> 的事件。另外，请注意 app.js:94 链接。点击它可以跳转到源码中的相关行。</p></li>
-
-<li><p>在 <strong>app.update</strong> 事件下面，有一堆紫色的事件。如果它们比较宽，看起来每个事件上可能都有一个红色的三角形。现在点击其中一个紫色的 <strong>Layout</strong> 事件。DevTools 在 <strong>Summary</strong> 选项卡中提供了更多关于该事件的信息。的确，这里有一个关于强制 reflows（另一个词叫 layout ）的警告。</p></li>
-
-<li><p>在 Summary 选项卡中，点击 <strong>Layout Forced</strong> 下的 <strong>app.js:70</strong> 链接。DevTools 会带你到强制布局的代码行。</p></li>
+</li>
+<li>
+<p>单击 <strong>Animation Frame Fired</strong>。现在，Summary 选项卡会显示有关该事件的信息。请注意 <strong>reveal</strong> 链接。点击它，DevTools 会高亮显示发起 <strong>Animation Frame Fired</strong> 的事件。另外，请注意 app.js:94 链接。点击它可以跳转到源码中的相关行。</p>
+</li>
+<li>
+<p>在 <strong>app.update</strong> 事件下面，有一堆紫色的事件。如果它们比较宽，看起来每个事件上可能都有一个红色的三角形。现在点击其中一个紫色的 <strong>Layout</strong> 事件。DevTools 在 <strong>Summary</strong> 选项卡中提供了更多关于该事件的信息。的确，这里有一个关于强制 reflows（另一个词叫 layout ）的警告。</p>
+</li>
+<li>
+<p>在 Summary 选项卡中，点击 <strong>Layout Forced</strong> 下的 <strong>app.js:70</strong> 链接。DevTools 会带你到强制布局的代码行。</p>
+</li>
 </ol>
-
 <h3 id="3-下一步">3. 下一步</h3>
-
 <p>了解性能的基础是 RAIL 模型。这个模型教你如何衡量对用户最重要的性能指标。请参见 &ldquo;用 RAIL 模型来衡量绩效 &ldquo;来了解更多信息。</p>
-
 <p>要想对性能面板更加适应，实践出真知。尝试分析你自己的页面并分析结果。如果你对自己的结果有任何疑问，请打开一个以 google-chrome-devtools 为标签的 Stack Overflow 问题。如果可能的话，包括截图或链接到可重现的页面。</p>
-
 <p>要真正掌握运行时性能，你必须学习浏览器如何将 HTML、CSS 和 JS 转化为屏幕上的像素。最好的开始是 &ldquo;渲染性能概述&rdquo;（Rendering Performance Overview）。The Anatomy Of A Frame 将详细介绍更多的内容。</p>
-
 <p>最后，有很多方法可以提高运行时的性能。本教程重点介绍了一个特定的动画瓶颈，让你在性能面板上有重点地参观一下，但这只是你可能遇到的众多瓶颈之一。在《渲染性能》系列的其他内容中，有很多提高运行时性能的各方面的好方法。</p>
-
 <h2 id="使用-chrome-devtools-优化网站速度">使用 Chrome DevTools 优化网站速度</h2>
-
 <h3 id="step-1-audit-the-site">Step 1: Audit the site</h3>
-
 <p>每当您打算提高站点的负载性能时，<strong>请始终从 audit 开始</strong>。审核具有 2 个重要功能：</p>
-
 <ul>
 <li>它为您创建了一个基准，以衡量后续的更改。</li>
 <li>它为您提供了可行的提示，说明哪些更改将产生最大的影响。</li>
 </ul>
-
 <h4 id="建立基线">建立基线</h4>
-
 <ol>
-<li><p>单击 <strong>Audits</strong> 选项卡。它可能隐藏在 More 按钮后面。该面板上有一个 Lighthouse，因为为 Audits 面板供电的项目称为 Lighthouse。
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/2020-05-27-chrome-audits.png" alt="Audits配置" class="lazyload"><figcaption class="image-caption">Audits配置</figcaption></figure></p></li>
-
-<li><p>将您的审核配置设置与图中的设置进行匹配。这是不同选项的说明：</p>
-
+<li>
+<p>单击 <strong>Audits</strong> 选项卡。它可能隐藏在 More 按钮后面。该面板上有一个 Lighthouse，因为为 Audits 面板供电的项目称为 Lighthouse。
+<img src="/img/2020-05-27-chrome-audits.png" alt="Audits配置"></p>
+</li>
+<li>
+<p>将您的审核配置设置与图中的设置进行匹配。这是不同选项的说明：</p>
 <ul>
-<li><p><strong>Device</strong> 设置为 <strong>Mobile</strong> 会更改用户代理字符串并模拟移动视口。设置为 <strong>Desktop</strong> 几乎可以禁用 <strong>Mobile</strong> 更改。</p></li>
-
-<li><p><strong>Audits</strong> 禁用 category 可防止 Audits 面板运行这些 audits，并将那些审核从报告中排除。如果要查看它们提供的建议类型，可以将其他类别保持启用状态。禁用类别会稍微加快审核过程。</p></li>
-
-<li><p><strong>Throttling (节流)</strong> 设置为 Simulated Fast 3G，4x CPU Slowdown 可以模拟在移动设备上浏览的典型条件。之所以称为“模拟”，是因为 Audits 面板在审核过程中实际上并未节流。相反，它只是推断在移动条件下页面加载所需的时间。另一方面，<strong>Applied..</strong> 设置实际上会限制您的 CPU 和网络，但需要权衡较长的审核过程。</p></li>
-
-<li><p><strong>Clear Storage</strong> 启用此复选框会在每次审核之前清除与该页面关联的所有存储。如果要审核首次访问者如何体验您的网站，请保留此设置。当您需要重复访问体验时，请禁用此设置。</p></li>
-</ul></li>
-
-<li><p>单击 <strong>Generate report</strong>。 10 到 30 秒后，“审核”面板将向您显示该站点的性能报告。</p></li>
-</ol>
-
-<h4 id="处理报告错误">处理报告错误</h4>
-
-<p>如果您在“审核”面板报告中遇到错误，请尝试从隐身窗口运行“演示”选项卡，而未打开其他选项卡。这样可以确保您在干净状态下运行 Chrome。特别是 Chrome 扩展程序经常会干扰审核过程。</p>
-
-<h4 id="了解您的报告">了解您的报告</h4>
-
-<p>报告顶部的数字是该网站的总体效果得分。稍后，当您对代码进行更改时，应该看到这个数字增加了。分数越高表示性能越好。</p>
-
-<ul>
-<li><strong>Metrics</strong> 部分提供了站点性能的定量度量。每个指标都可以洞悉性能的不同方面。例如，<strong>First Contentful Paint</strong> 会告诉您何时将内容首次绘制到屏幕上，这是用户感知页面加载的重要里程碑，而 <strong>Time To Interactive</strong> 则标记页面显示为足以应付用户交互的就绪点。</li>
+<li>
+<p><strong>Device</strong> 设置为 <strong>Mobile</strong> 会更改用户代理字符串并模拟移动视口。设置为 <strong>Desktop</strong> 几乎可以禁用 <strong>Mobile</strong> 更改。</p>
+</li>
+<li>
+<p><strong>Audits</strong> 禁用 category 可防止 Audits 面板运行这些 audits，并将那些审核从报告中排除。如果要查看它们提供的建议类型，可以将其他类别保持启用状态。禁用类别会稍微加快审核过程。</p>
+</li>
+<li>
+<p><strong>Throttling (节流)</strong> 设置为 Simulated Fast 3G，4x CPU Slowdown 可以模拟在移动设备上浏览的典型条件。之所以称为“模拟”，是因为 Audits 面板在审核过程中实际上并未节流。相反，它只是推断在移动条件下页面加载所需的时间。另一方面，<strong>Applied..</strong> 设置实际上会限制您的 CPU 和网络，但需要权衡较长的审核过程。</p>
+</li>
+<li>
+<p><strong>Clear Storage</strong> 启用此复选框会在每次审核之前清除与该页面关联的所有存储。如果要审核首次访问者如何体验您的网站，请保留此设置。当您需要重复访问体验时，请禁用此设置。</p>
+</li>
 </ul>
-
-<p>将鼠标悬停在指标上以查看其说明，然后单击 <strong>Learn More</strong> 以阅读有关该指标的文档。
-  Metrics 下方是屏幕截图的集合，这些截图显示了页面加载时的外观。</p>
-
+</li>
+<li>
+<p>单击 <strong>Generate report</strong>。 10 到 30 秒后，“审核”面板将向您显示该站点的性能报告。</p>
+</li>
+</ol>
+<h4 id="处理报告错误">处理报告错误</h4>
+<p>如果您在“审核”面板报告中遇到错误，请尝试从隐身窗口运行“演示”选项卡，而未打开其他选项卡。这样可以确保您在干净状态下运行 Chrome。特别是 Chrome 扩展程序经常会干扰审核过程。</p>
+<h4 id="了解您的报告">了解您的报告</h4>
+<p>报告顶部的数字是该网站的总体效果得分。稍后，当您对代码进行更改时，应该看到这个数字增加了。分数越高表示性能越好。</p>
 <ul>
-<li><p><strong>First Meaningful Paint</strong></p>
-
+<li>
+<p><strong>Metrics</strong> 部分提供了站点性能的定量度量。每个指标都可以洞悉性能的不同方面。例如，<strong>First Contentful Paint</strong> 会告诉您何时将内容首次绘制到屏幕上，这是用户感知页面加载的重要里程碑，而 <strong>Time To Interactive</strong> 则标记页面显示为足以应付用户交互的就绪点。</p>
+<p>将鼠标悬停在指标上以查看其说明，然后单击 <strong>Learn More</strong> 以阅读有关该指标的文档。
+Metrics 下方是屏幕截图的集合，这些截图显示了页面加载时的外观。</p>
+<ul>
+<li>
+<p><strong>First Meaningful Paint</strong></p>
 <blockquote>
 <p>First Meaningful Paint (FMP) is deprecated in Lighthouse 6.0.</p>
 </blockquote>
-
 <p>FMP 衡量用户何时可以看到页面的主要内容。 FMP 的原始分数是用户启动页面加载与呈现首屏内容之间的时间（以秒为单位）。FMP 本质上显示了最大的 above-the-fold 布局发生了变化绘制的时间。</p>
-
-<p>当页面上呈现的第一部分内容包括折页上方的内容时，FCP 和 FMP 通常是相同的。但是，当某个 iframe 中的内容超出首屏时，这些指标可能会有所不同。当 iframe 中的内容对用户可见时，FMP 进行注册，而 FCP 不包含 iframe 内容。</p></li>
-
-<li><p><strong>Opportunities</strong> 部分提供了有关如何改善此特定页面的加载性能的特定提示。
-单击 opportunity 以了解更多信息。
-单击 <strong>Learn More</strong> 以查看有关 opportunity 为何如此重要的文档，以及有关如何解决的具体建议。</p></li>
-
-<li><p><strong>Diagnostics</strong> 部分提供了有关影响页面加载时间的因素的更多信息。</p></li>
-
-<li><p><strong>Passed Audits</strong> 部分向您显示该站点的正常运行情况。单击以展开该部分。</p></li>
+<p>当页面上呈现的第一部分内容包括折页上方的内容时，FCP 和 FMP 通常是相同的。但是，当某个 iframe 中的内容超出首屏时，这些指标可能会有所不同。当 iframe 中的内容对用户可见时，FMP 进行注册，而 FCP 不包含 iframe 内容。</p>
+</li>
 </ul>
-
+</li>
+<li>
+<p><strong>Opportunities</strong> 部分提供了有关如何改善此特定页面的加载性能的特定提示。
+单击 opportunity 以了解更多信息。
+单击 <strong>Learn More</strong> 以查看有关 opportunity 为何如此重要的文档，以及有关如何解决的具体建议。</p>
+</li>
+<li>
+<p><strong>Diagnostics</strong> 部分提供了有关影响页面加载时间的因素的更多信息。</p>
+</li>
+<li>
+<p><strong>Passed Audits</strong> 部分向您显示该站点的正常运行情况。单击以展开该部分。</p>
+</li>
+</ul>
 <h3 id="step-2-experiment">Step 2: Experiment</h3>
-
 <p>审核报告的 Opportunities 部分为您提供有关如何改善页面性能的提示。在本部分中，您将对代码库实施建议的更改，并在每次更改后审核站点，以衡量它如何影响站点速度。</p>
-
 <h4 id="启用文字压缩">启用文字压缩</h4>
-
 <p>文本压缩是指在通过网络发送文本文件之前，减小或压缩文本文件的大小。有点像您在通过电子邮件发送文件夹以减小其大小之前如何对其进行压缩。</p>
-
 <p>在启用压缩之前，您可以通过以下两种方法手动检查文本资源是否已压缩。</p>
-
 <ol>
 <li>Click the Network tab.</li>
 <li>单击 Use Large Request Rows。网络请求表中的行的高度增加。</li>
 <li>如果在网络请求表中没有看到 size 列，请单击表标题，然后选择 size。</li>
 </ol>
-
 <p>每个 size 单元格显示两个值。上面的是下载资源的大小。下面的是未压缩资源的大小。如果两个值相同，则在通过网络发送资源时不会对其进行压缩。</p>
-
 <p>也可以通过检查资源的 HTTP 标头来检查压缩情况：</p>
-
 <ol>
 <li>点击资源的 header 选项卡，在 <strong>Response Headers</strong> 部分中搜索 <code>content-encoding</code> 。如果没有这个属性，意味着资源没有被压缩。</li>
 </ol>
-
 <h4 id="消除渲染阻止资源">消除渲染阻止资源</h4>
-
 <h5 id="coverage">Coverage</h5>
-
 <ol>
 <li>键入 Command+Shift+P (Mac) or Control+Shift+P (Windows, Linux, Chrome OS) 打开“命令”菜单，开始键入 Coverage，然后选择 <strong>Show Coverage</strong></li>
 <li>从 Audits 面板中打开“命令”菜单</li>
@@ -331,9 +316,7 @@
 <li>单击 *.js 行。 DevTools 在 Sources 面板中打开文件。如果一行代码旁边有绿色的条，则表示该代码行已执行。红色条表示未执行，并且绝对不需要在页面加载时使用。</li>
 <li>滚动浏览一下 jQuery 代码。一些被“执行”的行实际上只是注释。通过剥离注释的压缩程序运行此代码是减小此文件大小的另一种方法。</li>
 </ol>
-
 <h5 id="show-request-blocking">Show Request Blocking</h5>
-
 <ol>
 <li>键入 Command+Shift+P (Mac) or Control+Shift+P (Windows, Linux, Chrome OS) 打开“命令”菜单，开始键入 Blocking，然后选择 <strong>Show Request Blocking</strong></li>
 <li>点击 ➕ 号，输入 <code>/libs/*</code> 键入回车确认。</li>
@@ -341,33 +324,23 @@
 <li>单击 <strong>Remove all patterns</strong> 以删除/ libs / *阻止模式。
 通常，Request Blocking 选项卡可用于在任何给定资源不可用时模拟页面的行为。</li>
 </ol>
-
 <h4 id="在现实世界中优化关键渲染路径">在现实世界中优化关键渲染路径</h4>
-
 <p>关键渲染路径是指加载页面所需的代码。通常，您可以通过仅在页面加载过程中交付关键代码，然后延迟加载其他所有内容来加快页面加载速度。</p>
-
 <ul>
 <li>您不太可能找到可以完全删除的脚本，但是您经常会发现在页面加载期间不需要请求许多脚本，而可以异步请求。请参阅使用异步或延迟。</li>
 <li>如果您使用的是框架，请检查框架是否具有生产模式。此模式可以使用诸如摇树之类的功能，以消除阻塞关键渲染的不必要代码。</li>
 </ul>
-
 <h4 id="减少主线程工作">减少主线程工作</h4>
-
 <p>主线程是浏览器完成显示页面所需的大部分工作的地方，例如解析和执行HTML，CSS和JavaScript。</p>
-
 <p>目的是使用“性能”面板来分析页面加载时主线程正在进行的工作，并找到推迟或删除不必要工作的方法。</p>
-
 <ol>
 <li>Click the <strong>Performance</strong> tab.</li>
 <li>Click <strong>Capture Settings</strong>.</li>
 <li>Set <strong>Network</strong> to <strong>Slow 3G</strong> and <strong>CPU to 6x slowdown</strong>.移动设备通常比笔记本电脑或台式机具有更多的硬件限制，因此这些设置使您可以像使用功能较弱的设备一样体验页面加载。</li>
 <li>Click <strong>Reload</strong>.DevTools重新加载页面，然后生成可视化效果以显示该页面。该可视化将被称为跟踪。</li>
 </ol>
-
 <p>轨迹从左到右按时间顺序显示活动。顶部的FPS，CPU和NET图表为您提供了每秒帧数，CPU活动和网络活动的概述。在图39中看到的黄色墙壁表示CPU完全忙于脚本活动。这是一条线索，您可以通过减少JavaScript工作来加快页面加载速度。</p>
-
 <p>调查跟踪以找到减少JavaScript工作的方法：</p>
-
 <ol>
 <li>浏览 <strong>Main</strong> 部分。本节从左到右显示了主线程活动的时间顺序日志。 y轴（从上到下）显示事件发生的原因。例如，在图41中，<code>Evaluate Script</code> 事件导致 <code>(anonymous)</code> 函数执行，导致 <code>../rbd/pnpm-volume/...</code> 执行，导致 <code>__webpack__require__</code> 执行，依此类推。</li>
 <li>向下滚动到主要部分的底部。使用框架时，大多数高级活动是由框架引起的，通常这是您无法控制的。您的应用程序引起的活动通常在底部。</li>

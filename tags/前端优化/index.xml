@@ -6,19 +6,16 @@
     <description>Recent content in 前端优化 on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 May 2020 09:36:26 +0800</lastBuildDate>
-    
-	<atom:link href="https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 26 May 2020 09:36:26 +0800</lastBuildDate><atom:link href="https://luneshao.github.io/tags/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>网页加载相关事件梳理</title>
       <link>https://luneshao.github.io/2020/2020-05-26-perfomace/</link>
       <pubDate>Tue, 26 May 2020 09:36:26 +0800</pubDate>
       
       <guid>https://luneshao.github.io/2020/2020-05-26-perfomace/</guid>
-      <description>浏览器的页面的加载流程 [from Chrome的First Paint]  浏览器输入 url，浏览器发送请求到服务器，服务器将请求的HTML返回给浏览器。 浏览器下载完成 HTML(Finish Loading HTML) 之后，便开始从上到下解析。 解析的过程中碰到 css 和 js 外链（其实 HTML 的下载也是这个流程）都会执行以下过程：  Send Request: 表示给这个外链对应的服务器发送请求 Receive Response: 表示接收响应，这里是表示告诉浏览器可以开始从网络接收数据了 Receive Data: 表示开始接收数据 Finish Loading: 表示已经完成下载数据。 Parse Stylesheet/Evaluate（默认情况下 js 下载完成之后执行 Evaluate，css 下载完成后会进行Parse Stylesheet）  所有的 css 下载完成后 Parse Stylesheet 然后开始构建 CSSOM DOM（文档对象模型）和 CSSOM（CSS对象模型）会合并生成一个渲染树(Render Tree) 根据渲染树的内容计算出各个节点在网页中的大小和位置（Layout，可以理解为“刻章”） 根据 Layout 绘制内容在浏览器上（Paint，可以理解为“盖章”）。  页面加载相关事件名词解释 [图片 from Chrome的First Paint]
- FP(First Paint)  First paint，直译过来的意思就是浏览器第一次渲染(paint)，在 First paint 之前是白屏，在这个时间点之后用户就能看到（部分）页面内容。[from Chrome的First Paint]</description>
+      <description>浏览器的页面的加载流程 [from Chrome的First Paint]  浏览器输入 url，浏览器发送请求到服务器，服务器将请求的HTML返回给浏览器。 浏览器下载完成 HTML(Finish Loading HTML) 之后，便开始从上到下解析。 解析的过程中碰到 css 和 js 外链（其实 HTML 的下载也是这个流程）都会执行以下过程： Send Request: 表示给这个外链对应的服务器发送请求 Receive Response: 表示接收响应，这里是表示告诉浏览器可以开始从网络接收数据了 Receive Data: 表示开始接收数据 Finish Loading: 表示已经完成下载数据。 Parse Stylesheet/Evaluate（默认情况下 js 下载完成之后执行 Evaluate，css 下载完成后会进行Parse Stylesheet） 所有的 css 下载完成后 Parse Stylesheet 然后开始构建 CSSOM DOM（文档对象模型）和 CSSOM（CSS对象模型）会合并生成一个渲染树(Render Tree) 根据渲染树的内容计算出各个节点在网页中的大小和位置（Layout，可以理解为“刻章”） 根据 Layout 绘制内容在浏览器上（Paint，可以理解为“盖章”）。  页面加载相关事件名词解释 [图片 from Chrome的First Paint]
+ FP(First Paint)  First paint，直译过来的意思就是浏览器第一次渲染(paint)，在 First paint 之前是白屏，在这个时间点之后用户就能看到（部分）页面内容。[from Chrome的First Paint]
+First Paint，是 Paint Timing API 的一部分，是页面导航与浏览器将该网页的第一个像素渲染到屏幕上所用的中间时，渲染是任何与输入网页导航前的屏幕上的内容不同的内容。[from MDN]</description>
     </item>
     
   </channel>

@@ -57,10 +57,10 @@
     "accountablePerson" : "LuneShao",
     "copyrightHolder" : "LuneShao",
     "copyrightYear" : "2019",
-    "datePublished": "2019-05-09 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-05-09 00:00:00 \x2b0000 UTC",
+    "datePublished": "2019-05-09 00:00:00 \u002b0000 UTC",
+    "dateModified" : "2019-05-09 00:00:00 \u002b0000 UTC",
     "url" : "https:\/\/luneshao.github.io\/2019\/comp\/",
-    "wordCount" : "198",
+    "wordCount" : "199",
     "keywords" : [ "前端","兼容性", "Luneshao"]
 }
 </script>
@@ -159,107 +159,75 @@
           
           
 
-          
-
-<h2 id="1-document-相关">1.document 相关</h2>
-
+          <h2 id="1document-相关">1.document 相关</h2>
 <p>1.1 addEventListen</p>
-
 <p><strong>兼容写法</strong>：</p>
-
-<pre><code class="language-javascript">function addEvt(eTarget, eType, eHandle) {
-  if (eTarget.addEventListen) {
-    eTarget.addEventListen(eType, eHandle)
-  } else {
-    // ie 浏览器
-    if (eTarget.attachEvent) {
-      eType = 'on' + eType
-      eTarget.attachEvent(eType, eHandle)
-    } else {
-      eventTarget['on' + eventType] = eventHandler
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">addEvt</span>(<span style="color:#a6e22e">eTarget</span>, <span style="color:#a6e22e">eType</span>, <span style="color:#a6e22e">eHandle</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">eTarget</span>.<span style="color:#a6e22e">addEventListen</span>) {
+    <span style="color:#a6e22e">eTarget</span>.<span style="color:#a6e22e">addEventListen</span>(<span style="color:#a6e22e">eType</span>, <span style="color:#a6e22e">eHandle</span>)
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#75715e">// ie 浏览器
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">eTarget</span>.<span style="color:#a6e22e">attachEvent</span>) {
+      <span style="color:#a6e22e">eType</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;on&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">eType</span>
+      <span style="color:#a6e22e">eTarget</span>.<span style="color:#a6e22e">attachEvent</span>(<span style="color:#a6e22e">eType</span>, <span style="color:#a6e22e">eHandle</span>)
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#a6e22e">eventTarget</span>[<span style="color:#e6db74">&#39;on&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">eventType</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">eventHandler</span>
     }
   }
 }
-</code></pre>
-
-<p>1.2 scrollTop()</p>
-
+</code></pre></div><p>1.2 scrollTop()</p>
 <p><strong>兼容写法</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 因为 0 || undefine =&gt; undefined
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">st</span> <span style="color:#f92672">=</span>
+  document.<span style="color:#a6e22e">pageYOffset</span>.<span style="color:#a6e22e">scrollTop</span> <span style="color:#f92672">||</span>
+  document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">scrollTop</span> <span style="color:#f92672">||</span>
+  document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">scrollTop</span> <span style="color:#f92672">||</span>
+  <span style="color:#ae81ff">0</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// ie6/7/8
+</span><span style="color:#75715e"></span><span style="color:#ae81ff">1.</span> <span style="color:#a6e22e">没有</span> <span style="color:#a6e22e">doctype</span> <span style="color:#a6e22e">声明的页面</span><span style="color:#960050;background-color:#1e0010">：</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">st</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">scrollTop</span>;
 
-<pre><code class="language-javascript">// 因为 0 || undefine =&gt; undefined
-const st =
-  document.pageYOffset.scrollTop ||
-  document.documentElement.scrollTop ||
-  document.body.scrollTop ||
-  0
-</code></pre>
+<span style="color:#ae81ff">2.</span> <span style="color:#a6e22e">声明</span> <span style="color:#a6e22e">doctype</span> <span style="color:#a6e22e">的页面</span><span style="color:#960050;background-color:#1e0010">：</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">st</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">scrollTop</span>;
 
-<pre><code class="language-javascript">// ie6/7/8
-1. 没有 doctype 声明的页面：
-const st = document.body.scrollTop;
+<span style="color:#75715e">// safari
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">st</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">pageYOffset</span>;
 
-2. 声明 doctype 的页面：
-const st = document.documentElement.scrollTop;
-
-// safari
-const st = document.pageYOffset;
-
-// chrome、firefox
-const st = document.documentElement.scrollTop;
-</code></pre>
-
-<h2 id="2-window相关">2.window相关</h2>
-
+<span style="color:#75715e">// chrome、firefox
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">st</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">scrollTop</span>;
+</code></pre></div><h2 id="2window相关">2.window相关</h2>
 <p>2.1 window.scrollY</p>
-
 <p><strong>兼容写法</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">supportPageOffset</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">pageXOffset</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">undefined</span>;
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">isCSS1Compat</span> <span style="color:#f92672">=</span> 
+    ((document.<span style="color:#a6e22e">compatMode</span> 
+    <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;&#34;</span>) <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;CSS1Compat&#34;</span>); 
 
-<pre><code class="language-js">var supportPageOffset = window.pageXOffset !== undefined;
-var isCSS1Compat = 
-    ((document.compatMode 
-    || &quot;&quot;) === &quot;CSS1Compat&quot;); 
-
-var x = 
-  supportPageOffset ? window.pageXOffset :
-  isCSS1Compat ? document.documentElement.scrollLeft :
-  document.body.scrollLeft;
-var y = 
-  supportPageOffset ? window.pageYOffset : 
-  isCSS1Compat ? document.documentElement.scrollTop : 
-  document.body.scrollTop;
-</code></pre>
-
-<p>为了跨浏览器兼容，请使用 <code>window.pageYOffset</code> 代替 <code>window.scrollY</code>。另外，旧版本IE（&lt;9）两个属性都不支持，必须使用其他的非标准属性。</p>
-
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> 
+  <span style="color:#a6e22e">supportPageOffset</span> <span style="color:#f92672">?</span> window.<span style="color:#a6e22e">pageXOffset</span> <span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">isCSS1Compat</span> <span style="color:#f92672">?</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">scrollLeft</span> <span style="color:#f92672">:</span>
+  document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">scrollLeft</span>;
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> 
+  <span style="color:#a6e22e">supportPageOffset</span> <span style="color:#f92672">?</span> window.<span style="color:#a6e22e">pageYOffset</span> <span style="color:#f92672">:</span> 
+  <span style="color:#a6e22e">isCSS1Compat</span> <span style="color:#f92672">?</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">scrollTop</span> <span style="color:#f92672">:</span> 
+  document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">scrollTop</span>;
+</code></pre></div><p>为了跨浏览器兼容，请使用 <code>window.pageYOffset</code> 代替 <code>window.scrollY</code>。另外，旧版本IE（&lt;9）两个属性都不支持，必须使用其他的非标准属性。</p>
 <blockquote>
 <p>延伸：</p>
 </blockquote>
-
-<p>(1) document.compatMode <a href="https://www.cnblogs.com/fullhouse/archive/2012/01/17/2324706.html" rel="nofollow noreferrer" target="_blank">document.compatMode 博客园</a>  <a href="https://www.jianshu.com/p/dcab7cde8c04" rel="nofollow noreferrer" target="_blank">标准模式和非标准模式 简书</a></p>
-
+<p>(1) document.compatMode <a href="https://www.cnblogs.com/fullhouse/archive/2012/01/17/2324706.html">document.compatMode 博客园</a>  <a href="https://www.jianshu.com/p/dcab7cde8c04">标准模式和非标准模式 简书</a></p>
 <p>我们可以根据 <code>document.compatMode</code> 的值来判断文档是否加了标准声明。</p>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://ww4.sinaimg.cn/large/006tNc79ly1g3y3jkbsa8j30jm05kq2v.jpg" alt="chrome截图" class="lazyload"><figcaption class="image-caption">chrome截图</figcaption></figure></p>
-
-<p><code>IE</code> 对盒模型的渲染在 <code>Standards Mode</code> 和 <code>Quirks Mode</code> 是有很大差别的，在 <code>Standards Mode</code> 下对于盒模型的解释和其他的标准浏览器是一样，但在 <code>Quirks Mode</code> 模式下则有很大差别，而在不声明 <code>Doctype</code>的情况下，<code>IE</code>默认又是 <code>Quirks Mode</code>。所以为兼容性考虑，我们可能需要获取当前的文档渲染方式。</p>
-
+<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g3y3jkbsa8j30jm05kq2v.jpg" alt="chrome截图"></p>
+<p><code>IE</code> 对盒模型的渲染在 <code>Standards Mode</code> 和 <code>Quirks Mode</code> 是有很大差别的，在 <code>Standards Mode</code> 下对于盒模型的解释和其他的标准浏览器是一样，但在 <code>Quirks Mode</code> 模式下则有很大差别，而在不声明 <code>Doctype</code>的情况下，<code>IE </code>默认又是 <code>Quirks Mode</code>。所以为兼容性考虑，我们可能需要获取当前的文档渲染方式。</p>
 <p><code>document.compatMode</code> 有两种可能的返回值：</p>
-
 <p><code>BackCompat</code>： 页面不具有 DTD，标准兼容模式关闭，对应非标准模式。</p>
-
 <p><code>CSS1Compat</code>： 页面具有 DTD，标准兼容模式开启，对应标准模式。</p>
-
-<p>(2) document.body &amp; document.documentElement <a href="https://blog.csdn.net/zxf13598202302/article/details/51162637" rel="nofollow noreferrer" target="_blank">原文链接 博客园</a></p>
-
+<p>(2) document.body &amp; document.documentElement <a href="https://blog.csdn.net/zxf13598202302/article/details/51162637">原文链接 博客园</a></p>
 <p>页面具有 <code>DTD</code>，或者说指定了 <code>DOCTYPE</code> 时，使用 <code>document.documentElement</code>。</p>
-
 <p>页面不具有 <code>DTD</code>，或者说没有指定了 <code>DOCTYPE</code>，时，使用 <code>document.body</code>。</p>
-
 <p>document.documentElement: 返回文档对象（document）的根元素的只读属性（如HTML文档的 <code>&lt;html&gt;</code> 元素）。</p>
-
 <p>document.body：返回当前文档中的 <code>&lt;body&gt;</code> 元素或者 <code>&lt;frameset&gt;</code> 元素。</p>
-
-<h2 id="3-css3相关">3.CSS3相关</h2>
+<h2 id="3css3相关">3.CSS3相关</h2>
 
     </div>
 

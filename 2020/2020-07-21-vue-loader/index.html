@@ -57,8 +57,8 @@
     "accountablePerson" : "luneShao",
     "copyrightHolder" : "luneShao",
     "copyrightYear" : "2020",
-    "datePublished": "2020-07-21 17:06:16 \x2b0800 CST",
-    "dateModified" : "2020-07-21 17:06:16 \x2b0800 CST",
+    "datePublished": "2020-07-21 17:06:16 \u002b0800 CST",
+    "dateModified" : "2020-07-21 17:06:16 \u002b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2020\/2020-07-21-vue-loader\/",
     "wordCount" : "431",
     "keywords" : [ "前端","vue", "Luneshao"]
@@ -157,153 +157,128 @@
           
           
 
-          
-
-<p>Vue Loader 是一个 webpack 的 loader，它允许你以一种名为单文件组件 (SFCs)的格式撰写 Vue 组件。</p>
-
+          <p>Vue Loader 是一个 webpack 的 loader，它允许你以一种名为单文件组件 (SFCs)的格式撰写 Vue 组件。</p>
 <ul>
-<li><p>允许为 <code>Vue</code> 组件的每个部分使用其它的 <code>webpack loader</code>；</p></li>
-
-<li><p>允许在一个 <code>.vue</code> 文件中使用自定义块，并对其运用自定义的 <code>loader</code> 链；</p></li>
-
-<li><p>使用 <code>webpack loader</code> 将 <code>&lt;style&gt;</code> 和 <code>&lt;template&gt;</code> 中引用的资源当作模块依赖来处理；</p></li>
-
-<li><p>为每个组件模拟出 scoped CSS；</p></li>
-
-<li><p>在开发过程中使用热重载来保持状态。</p></li>
+<li>
+<p>允许为 <code>Vue</code> 组件的每个部分使用其它的 <code>webpack loader</code>；</p>
+</li>
+<li>
+<p>允许在一个 <code>.vue</code> 文件中使用自定义块，并对其运用自定义的 <code>loader</code> 链；</p>
+</li>
+<li>
+<p>使用 <code>webpack loader</code> 将 <code>&lt;style&gt;</code> 和 <code>&lt;template&gt;</code> 中引用的资源当作模块依赖来处理；</p>
+</li>
+<li>
+<p>为每个组件模拟出 scoped CSS；</p>
+</li>
+<li>
+<p>在开发过程中使用热重载来保持状态。</p>
+</li>
 </ul>
-
 <h2 id="起步">起步</h2>
-
 <p>每个 vue 包的新版本发布时，一个相应版本的 <code>vue-template-compiler</code> 也会随之发布。编译器的版本必须和基本的 vue 包保持同步，这样 <code>vue-loader</code> 就会生成兼容运行时的代码。<strong>这意味着你每次升级项目中的 vue 包时，也应该匹配升级 vue-template-compiler。</strong></p>
-
 <h3 id="webpack-配置">webpack 配置</h3>
-
 <p>除了通过一条规则将 <code>vue-loader</code> 应用到所有扩展名为 <code>.vue</code> 的文件上之外，请确保在你的 <code>webpack</code> 配置中添加 <code>Vue Loader</code> 的插件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// webpack.config.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">VueLoaderPlugin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;vue-loader/lib/plugin&#39;</span>)
 
-<pre><code class="language-js">// webpack.config.js
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-
-module.exports = {
-  module: {
-    rules: [
-      // ... 其它规则
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader'
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">module</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">rules</span><span style="color:#f92672">:</span> [
+      <span style="color:#75715e">// ... 其它规则
+</span><span style="color:#75715e"></span>      {
+        <span style="color:#a6e22e">test</span><span style="color:#f92672">:</span> <span style="color:#e6db74">/\.vue$/</span>,
+        <span style="color:#a6e22e">loader</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;vue-loader&#39;</span>
       }
     ]
   },
-  plugins: [new VueLoaderPlugin()]
+  <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> [<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">VueLoaderPlugin</span>()]
 }
-</code></pre>
-
-<p><strong>这个插件是必须的！</strong> 它的职责是将你定义过的其它规则复制并应用到 <code>.vue</code> 文件里相应语言的块。</p>
-
+</code></pre></div><p><strong>这个插件是必须的！</strong> 它的职责是将你定义过的其它规则复制并应用到 <code>.vue</code> 文件里相应语言的块。</p>
 <h3 id="处理资源路径">处理资源路径</h3>
-
 <p>当 Vue Loader 编译单文件组件中的 <code>&lt;template&gt;</code> 块时，它也会将所有遇到的<strong>资源 URL 转换为 webpack 模块请求</strong>。</p>
-
 <ul>
-<li><p>如果路径是绝对路径 (例如 <code>/images/foo.png</code>)，会原样保留。</p></li>
-
-<li><p>如果路径以 <code>.</code> 开头，将会被看作相对的模块依赖，并按照你的本地文件系统上的目录结构进行解析。</p></li>
-
-<li><p>如果路径以 <code>~</code> 开头，其后的部分将会被看作模块依赖。这意味着你可以用该特性来引用一个 Node 依赖中的资源：</p>
-
-<pre><code class="language-html">&lt;img src=&quot;~some-npm-package/foo.png&quot;&gt;
-</code></pre></li>
-
-<li><p>如果路径以 <code>@</code> 开头，也会被看作模块依赖。如果你的 <code>webpack</code> 配置中给 <code>@</code> 配置了 <code>alias</code>，这就很有用了。所有 <code>vue-cli</code> 创建的项目都默认配置了将 <code>@</code> 指向 <code>/src</code>。</p></li>
+<li>
+<p>如果路径是绝对路径 (例如 <code>/images/foo.png</code>)，会原样保留。</p>
+</li>
+<li>
+<p>如果路径以 <code>.</code> 开头，将会被看作相对的模块依赖，并按照你的本地文件系统上的目录结构进行解析。</p>
+</li>
+<li>
+<p>如果路径以 <code>~</code> 开头，其后的部分将会被看作模块依赖。这意味着你可以用该特性来引用一个 Node 依赖中的资源：</p>
+</li>
 </ul>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;~some-npm-package/foo.png&#34;</span>&gt;
+</code></pre></div><ul>
+<li>如果路径以 <code>@</code> 开头，也会被看作模块依赖。如果你的 <code>webpack</code> 配置中给 <code>@</code> 配置了 <code>alias</code>，这就很有用了。所有 <code>vue-cli</code> 创建的项目都默认配置了将 <code>@</code> 指向 <code>/src</code>。</li>
+</ul>
 <h3 id="使用预处理器">使用预处理器</h3>
-
 <h4 id="sass-vs-scss">Sass vs SCSS</h4>
-
 <p>注意 <code>sass-loader</code> 会默认处理不基于缩进的 <code>scss</code> 语法。为了使用基于缩进的 <code>sass</code> 语法，你需要向这个 <code>loader</code> 传递选项：</p>
-
-<pre><code class="language-js">// webpack.config.js -&gt; module.rules
-{
-  test: /\.sass/,
-  use: [
-    'vue-style-loader',
-    'css-loader',
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// webpack.config.js -&gt; module.rules
+</span><span style="color:#75715e"></span>{
+  <span style="color:#a6e22e">test</span><span style="color:#f92672">:</span> <span style="color:#e6db74">/\.sass/</span>,
+  <span style="color:#a6e22e">use</span><span style="color:#f92672">:</span> [
+    <span style="color:#e6db74">&#39;vue-style-loader&#39;</span>,
+    <span style="color:#e6db74">&#39;css-loader&#39;</span>,
     {
-      loader: 'sass-loader',
-      options: {
-        indentedSyntax: true,
-        // sass-loader version &gt;= 8
-        sassOptions: {
-          indentedSyntax: true
+      <span style="color:#a6e22e">loader</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sass-loader&#39;</span>,
+      <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">indentedSyntax</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+        <span style="color:#75715e">// sass-loader version &gt;= 8
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">sassOptions</span><span style="color:#f92672">:</span> {
+          <span style="color:#a6e22e">indentedSyntax</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
         }
       }
     }
   ]
 }
-</code></pre>
-
-<h4 id="共享全局变量">共享全局变量</h4>
-
+</code></pre></div><h4 id="共享全局变量">共享全局变量</h4>
 <p><code>sass-loader</code> 也支持一个 <code>prependData</code> 选项，这个选项允许你在所有被处理的文件之间共享常见的变量，而不需要显式地导入它们：</p>
-
-<pre><code class="language-js">// webpack.config.js -&gt; module.rules
-{
-  test: /\.scss$/,
-  use: [
-    'vue-style-loader',
-    'css-loader',
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// webpack.config.js -&gt; module.rules
+</span><span style="color:#75715e"></span>{
+  <span style="color:#a6e22e">test</span><span style="color:#f92672">:</span> <span style="color:#e6db74">/\.scss$/</span>,
+  <span style="color:#a6e22e">use</span><span style="color:#f92672">:</span> [
+    <span style="color:#e6db74">&#39;vue-style-loader&#39;</span>,
+    <span style="color:#e6db74">&#39;css-loader&#39;</span>,
     {
-      loader: 'sass-loader',
-      options: {
-        // 你也可以从一个文件读取，例如 `variables.scss`
-        // 如果 sass-loader 版本 &lt; 8，这里使用 `data` 字段
-        prependData: `$color: red;`
+      <span style="color:#a6e22e">loader</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sass-loader&#39;</span>,
+      <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+        <span style="color:#75715e">// 你也可以从一个文件读取，例如 `variables.scss`
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 如果 sass-loader 版本 &lt; 8，这里使用 `data` 字段
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">prependData</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`$color: red;`</span>
       }
     }
   ]
 }
-</code></pre>
-
-<h3 id="scoped-css">Scoped CSS</h3>
-
+</code></pre></div><h3 id="scoped-css">Scoped CSS</h3>
 <h4 id="深度作用选择器">深度作用选择器</h4>
-
-<p>如果你希望 scoped 样式中的一个选择器能够作用得“更深”，例如影响子组件，你可以使用 &gt;&gt;&gt; 操作符：</p>
-
-<pre><code class="language-scss">&lt;style scoped&gt;
-.a &gt;&gt;&gt; .b { /* ... */ }
-&lt;/style&gt;
-</code></pre>
-
-<p>有些像 Sass 之类的预处理器无法正确解析 <code>&gt;&gt;&gt;</code>。这种情况下你可以使用 <code>/deep/</code> 或 <code>::v-deep</code> 操作符取而代之——两者都是 <code>&gt;&gt;&gt;</code> 的别名，同样可以正常工作。</p>
-
+<p>如果你希望 scoped 样式中的一个选择器能够作用得“更深”，例如影响子组件，你可以使用 &raquo;&gt; 操作符：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#f92672">&lt;</span><span style="color:#f92672">style</span> <span style="color:#f92672">scoped</span><span style="color:#f92672">&gt;</span>
+<span style="color:#a6e22e">.a</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#a6e22e">.b</span> { <span style="color:#75715e">/* ... */</span> }
+<span style="color:#f92672">&lt;/</span><span style="color:#f92672">style</span><span style="color:#f92672">&gt;</span>
+</code></pre></div><p>有些像 Sass 之类的预处理器无法正确解析 <code>&gt;&gt;&gt;</code>。这种情况下你可以使用 <code>/deep/</code> 或 <code>::v-deep</code> 操作符取而代之——两者都是 <code>&gt;&gt;&gt;</code> 的别名，同样可以正常工作。</p>
 <h4 id="动态生成的内容">动态生成的内容</h4>
-
 <p>通过 <code>v-html</code> 创建的 <code>DOM</code> 内容<strong>不受</strong> <code>scoped</code> 样式影响，但是你仍然可以通过深度作用选择器来为他们设置样式。</p>
-
 <h3 id="css-modules">CSS Modules</h3>
-
 <h4 id="用法">用法</h4>
-
 <p>首先，CSS Modules 必须通过向 <code>css-loader</code> 传入 <code>modules: true</code> 来开启：</p>
-
-<pre><code class="language-js">// webpack.config.js
-{
-  module: {
-    rules: [
-      // ... 其它规则省略
-      {
-        test: /\.css$/,
-        use: [
-          'vue-style-loader',
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// webpack.config.js
+</span><span style="color:#75715e"></span>{
+  <span style="color:#a6e22e">module</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">rules</span><span style="color:#f92672">:</span> [
+      <span style="color:#75715e">// ... 其它规则省略
+</span><span style="color:#75715e"></span>      {
+        <span style="color:#a6e22e">test</span><span style="color:#f92672">:</span> <span style="color:#e6db74">/\.css$/</span>,
+        <span style="color:#a6e22e">use</span><span style="color:#f92672">:</span> [
+          <span style="color:#e6db74">&#39;vue-style-loader&#39;</span>,
           {
-            loader: 'css-loader',
-            options: {
-              // 开启 CSS Modules
-              modules: true,
-              // 自定义生成的类名
-              localIdentName: '[local]_[hash:base64:8]'
+            <span style="color:#a6e22e">loader</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;css-loader&#39;</span>,
+            <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+              <span style="color:#75715e">// 开启 CSS Modules
+</span><span style="color:#75715e"></span>              <span style="color:#a6e22e">modules</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+              <span style="color:#75715e">// 自定义生成的类名
+</span><span style="color:#75715e"></span>              <span style="color:#a6e22e">localIdentName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[local]_[hash:base64:8]&#39;</span>
             }
           }
         ]
@@ -311,88 +286,73 @@ module.exports = {
     ]
   }
 }
-</code></pre>
-
-<p>然后在你的 <code>&lt;style&gt;</code> 上添加 <code>module</code> 特性：</p>
-
-<pre><code class="language-vue">&lt;style module&gt;
-.red {
-  color: red;
+</code></pre></div><p>然后在你的 <code>&lt;style&gt;</code> 上添加 <code>module</code> 特性：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">module</span>&gt;
+.<span style="color:#a6e22e">red</span> {
+  <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">red</span>;
 }
-.bold {
-  font-weight: bold;
+.<span style="color:#a6e22e">bold</span> {
+  <span style="color:#a6e22e">font</span><span style="color:#f92672">-</span><span style="color:#a6e22e">weight</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">bold</span>;
 }
-&lt;/style&gt;
-</code></pre>
-
-<p>这个 <code>module</code> 特性指引 Vue Loader 作为名为 <code>$style</code> 的计算属性，向组件注入 CSS Modules 局部对象。然后你就可以在模板中通过一个动态类绑定来使用它了：</p>
-
-<pre><code class="language-vue">&lt;template&gt;
-  &lt;p :class=&quot;$style.red&quot;&gt;
-    This should be red
-  &lt;/p&gt;
-&lt;/template&gt;
-</code></pre>
-
-<h4 id="可选用法">可选用法</h4>
-
+&lt;/<span style="color:#f92672">style</span>&gt;
+</code></pre></div><p>这个 <code>module</code> 特性指引 Vue Loader 作为名为 <code>$style</code> 的计算属性，向组件注入 CSS Modules 局部对象。然后你就可以在模板中通过一个动态类绑定来使用它了：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">template</span>&gt;
+  &lt;<span style="color:#f92672">p</span> <span style="color:#f92672">:class</span><span style="color:#e6db74">=&#34;$style.red&#34;</span>&gt;
+    <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">should</span> <span style="color:#a6e22e">be</span> <span style="color:#a6e22e">red</span>
+  &lt;/<span style="color:#f92672">p</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+</code></pre></div><h4 id="可选用法">可选用法</h4>
 <p>如果你只想在某些 Vue 组件中使用 CSS Modules，你可以使用 <code>oneOf</code> 规则并在 <code>resourceQuery</code> 字符串中检查 <code>module</code> 字符串：</p>
-
-<pre><code class="language-js">// webpack.config.js -&gt; module.rules
-{
-  test: /\.css$/,
-  oneOf: [
-    // 这里匹配 `&lt;style module&gt;`
-    {
-      resourceQuery: /module/,
-      use: [
-        'vue-style-loader',
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// webpack.config.js -&gt; module.rules
+</span><span style="color:#75715e"></span>{
+  <span style="color:#a6e22e">test</span><span style="color:#f92672">:</span> <span style="color:#e6db74">/\.css$/</span>,
+  <span style="color:#a6e22e">oneOf</span><span style="color:#f92672">:</span> [
+    <span style="color:#75715e">// 这里匹配 `&lt;style module&gt;`
+</span><span style="color:#75715e"></span>    {
+      <span style="color:#a6e22e">resourceQuery</span><span style="color:#f92672">:</span> <span style="color:#e6db74">/module/</span>,
+      <span style="color:#a6e22e">use</span><span style="color:#f92672">:</span> [
+        <span style="color:#e6db74">&#39;vue-style-loader&#39;</span>,
         {
-          loader: 'css-loader',
-          options: {
-            modules: true,
-            localIdentName: '[local]_[hash:base64:5]'
+          <span style="color:#a6e22e">loader</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;css-loader&#39;</span>,
+          <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">modules</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+            <span style="color:#a6e22e">localIdentName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[local]_[hash:base64:5]&#39;</span>
           }
         }
       ]
     },
-    // 这里匹配普通的 `&lt;style&gt;` 或 `&lt;style scoped&gt;`
-    {
-      use: [
-        'vue-style-loader',
-        'css-loader'
+    <span style="color:#75715e">// 这里匹配普通的 `&lt;style&gt;` 或 `&lt;style scoped&gt;`
+</span><span style="color:#75715e"></span>    {
+      <span style="color:#a6e22e">use</span><span style="color:#f92672">:</span> [
+        <span style="color:#e6db74">&#39;vue-style-loader&#39;</span>,
+        <span style="color:#e6db74">&#39;css-loader&#39;</span>
       ]
     }
   ]
 }
-</code></pre>
-
-<h4 id="自定义的注入名称">自定义的注入名称</h4>
-
+</code></pre></div><h4 id="自定义的注入名称">自定义的注入名称</h4>
 <p>在 <code>.vue</code> 中你可以定义不止一个 <code>&lt;style&gt;</code>，为了避免被覆盖，你可以通过设置 <code>module</code> 属性来为它们定义注入后计算属性的名称。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">module</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;a&#34;</span>&gt;
+  <span style="color:#75715e">/* 注入标识符 a */</span>
+&lt;/<span style="color:#f92672">style</span>&gt;
 
-<pre><code class="language-vue">&lt;style module=&quot;a&quot;&gt;
-  /* 注入标识符 a */
-&lt;/style&gt;
-
-&lt;style module=&quot;b&quot;&gt;
-  /* 注入标识符 b */
-&lt;/style&gt;
-</code></pre>
-
-<h3 id="热重载">热重载</h3>
-
+&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">module</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;b&#34;</span>&gt;
+  <span style="color:#75715e">/* 注入标识符 b */</span>
+&lt;/<span style="color:#f92672">style</span>&gt;
+</code></pre></div><h3 id="热重载">热重载</h3>
 <h4 id="状态保留规则">状态保留规则</h4>
-
 <ul>
-<li><p>当编辑一个组件的 <code>&lt;template&gt;</code> 时，这个组件实例将就地重新渲染，并保留当前所有的私有状态。能够做到这一点是因为模板被编译成了新的无副作用的渲染函数。</p></li>
-
-<li><p>当编辑一个组件的 <code>&lt;script&gt;</code> 时，这个组件实例将就地销毁并重新创建。(应用中其它组件的状态将会被保留) 是因为 <code>&lt;script&gt;</code> 可能包含带有副作用的生命周期钩子，所以将重新渲染替换为重新加载是必须的，这样做可以确保组件行为的一致性。这也意味着，如果你的组件带有全局副作用，则整个页面将会被重新加载。</p></li>
-
-<li><p><code>&lt;style&gt;</code> 会通过 <code>vue-style-loader</code> 自行热重载，所以它不会影响应用的状态。</p></li>
+<li>
+<p>当编辑一个组件的 <code>&lt;template&gt;</code> 时，这个组件实例将就地重新渲染，并保留当前所有的私有状态。能够做到这一点是因为模板被编译成了新的无副作用的渲染函数。</p>
+</li>
+<li>
+<p>当编辑一个组件的 <code>&lt;script&gt;</code> 时，这个组件实例将就地销毁并重新创建。(应用中其它组件的状态将会被保留) 是因为 <code>&lt;script&gt;</code> 可能包含带有副作用的生命周期钩子，所以将重新渲染替换为重新加载是必须的，这样做可以确保组件行为的一致性。这也意味着，如果你的组件带有全局副作用，则整个页面将会被重新加载。</p>
+</li>
+<li>
+<p><code>&lt;style&gt;</code> 会通过 <code>vue-style-loader</code> 自行热重载，所以它不会影响应用的状态。</p>
+</li>
 </ul>
-
-<p><a href="https://vue-loader.vuejs.org/zh/" rel="nofollow noreferrer" target="_blank">Vue Loader 文档</a></p>
+<p><a href="https://vue-loader.vuejs.org/zh/">Vue Loader 文档</a></p>
 
     </div>
 

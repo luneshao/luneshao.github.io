@@ -57,8 +57,8 @@
     "accountablePerson" : "luneShao",
     "copyrightHolder" : "luneShao",
     "copyrightYear" : "2021",
-    "datePublished": "2021-01-29 10:11:28 \x2b0800 CST",
-    "dateModified" : "2021-01-29 10:11:28 \x2b0800 CST",
+    "datePublished": "2021-01-29 10:11:28 \u002b0800 CST",
+    "dateModified" : "2021-01-29 10:11:28 \u002b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2021\/2021-01-29-miniprogram\/",
     "wordCount" : "642",
     "keywords" : [ "小程序", "Luneshao"]
@@ -158,107 +158,87 @@
           
           
 
-          
-
-<h3 id="uniapp-小程序压缩图片">uniapp 小程序压缩图片</h3>
-
+          <h3 id="uniapp-小程序压缩图片">uniapp 小程序压缩图片</h3>
 <p>小程序压缩图片和普通 html 压缩图片思路一致。</p>
-
 <h4 id="步骤为">步骤为：</h4>
-
 <ol>
 <li>获取图片信息</li>
 <li>获取canvas 节点</li>
 <li>创建图片对象</li>
 <li>压缩图片</li>
 </ol>
-
 <h4 id="详细代码">详细代码</h4>
-
-<pre><code class="language-js">/**
- * 获取图片信息
- * @param {string} imgObj 图片对象path
- * @param {function} fn 回调函数
- * @returns {ojbect} cbParams 
- * {
- *  height: 722,
- *  width: 1366,
- *  type: 'png',
- *  path: '',
- *  orientation: 'up',
- *  errMsg: ''
- * }
- */
-function getImageObject (src, fn) {
-  uni.getImageInfo({
-    src: src,
-    success (res) {
-      fn(res)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 获取图片信息
+</span><span style="color:#75715e"> * @param {string} imgObj 图片对象path
+</span><span style="color:#75715e"> * @param {function} fn 回调函数
+</span><span style="color:#75715e"> * @returns {ojbect} cbParams 
+</span><span style="color:#75715e"> * {
+</span><span style="color:#75715e"> *  height: 722,
+</span><span style="color:#75715e"> *  width: 1366,
+</span><span style="color:#75715e"> *  type: &#39;png&#39;,
+</span><span style="color:#75715e"> *  path: &#39;&#39;,
+</span><span style="color:#75715e"> *  orientation: &#39;up&#39;,
+</span><span style="color:#75715e"> *  errMsg: &#39;&#39;
+</span><span style="color:#75715e"> * }
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getImageObject</span> (<span style="color:#a6e22e">src</span>, <span style="color:#a6e22e">fn</span>) {
+  <span style="color:#a6e22e">uni</span>.<span style="color:#a6e22e">getImageInfo</span>({
+    <span style="color:#a6e22e">src</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">src</span>,
+    <span style="color:#a6e22e">success</span> (<span style="color:#a6e22e">res</span>) {
+      <span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">res</span>)
     }
   })
 }
 
-/**
- * 压缩图片
- * @param {object} img 图片
- * @param {function} fn 回调函数
- */
-function compressImg (img, fn) {
-  const selectorQuery = uni.createSelectorQuery()
-  selectorQuery.select('#canvas')
-    .fields({node: true, size: true})
-    .exec(res =&gt; {
-      const canvas = res[0].node
-      const ctx = canvas.getContext('2d')
-      canvas.height = img.height
-      canvas.width = img.width
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 压缩图片
+</span><span style="color:#75715e"> * @param {object} img 图片
+</span><span style="color:#75715e"> * @param {function} fn 回调函数
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">compressImg</span> (<span style="color:#a6e22e">img</span>, <span style="color:#a6e22e">fn</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">selectorQuery</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">uni</span>.<span style="color:#a6e22e">createSelectorQuery</span>()
+  <span style="color:#a6e22e">selectorQuery</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;#canvas&#39;</span>)
+    .<span style="color:#a6e22e">fields</span>({<span style="color:#a6e22e">node</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>})
+    .<span style="color:#a6e22e">exec</span>(<span style="color:#a6e22e">res</span> =&gt; {
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">canvas</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">res</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">node</span>
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ctx</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">getContext</span>(<span style="color:#e6db74">&#39;2d&#39;</span>)
+      <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">img</span>.<span style="color:#a6e22e">height</span>
+      <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">width</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">img</span>.<span style="color:#a6e22e">width</span>
 
-      let seal = canvas.createImage();
-      seal.src = img.path;
-      seal.onload = () =&gt; {
-        ctx.drawImage(seal, 0, 0, img.width, img.height)
-        const url = canvas.toDataURL('image/jpeg', .1)
-        fn(url)
+      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">seal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">createImage</span>();
+      <span style="color:#a6e22e">seal</span>.<span style="color:#a6e22e">src</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">img</span>.<span style="color:#a6e22e">path</span>;
+      <span style="color:#a6e22e">seal</span>.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> () =&gt; {
+        <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">drawImage</span>(<span style="color:#a6e22e">seal</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">img</span>.<span style="color:#a6e22e">width</span>, <span style="color:#a6e22e">img</span>.<span style="color:#a6e22e">height</span>)
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">toDataURL</span>(<span style="color:#e6db74">&#39;image/jpeg&#39;</span>, .<span style="color:#ae81ff">1</span>)
+        <span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">url</span>)
       }
     })
 }
-</code></pre>
-
-<h4 id="使用方法">使用方法</h4>
-
-<pre><code class="language-js">getImageObject(list[0].file.path, img =&gt; {
-  compressImg(img, res =&gt; {
-    console.log(res);
+</code></pre></div><h4 id="使用方法">使用方法</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">getImageObject</span>(<span style="color:#a6e22e">list</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">img</span> =&gt; {
+  <span style="color:#a6e22e">compressImg</span>(<span style="color:#a6e22e">img</span>, <span style="color:#a6e22e">res</span> =&gt; {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>);
   })
 })
 
-</code></pre>
-
-<p>新发现</p>
-
+</code></pre></div><p>新发现</p>
 <p>base64字符的长度就是文件尺寸 :P</p>
-
 <p>(ps::::这也太厉害了 👍👍👍👍👍👍👍👍)</p>
-
-<pre><code class="language-js">/**
- * 返回图片尺寸
- * @param {string} url base64 url
- * @param {functino} fn 返回图片尺寸
- */
-function getSize(url, fn) {
-  let arr = url.split(',')[1],
-    bstr = atob(arr),
-    n = bstr.length;
-  fn(n)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 返回图片尺寸
+</span><span style="color:#75715e"> * @param {string} url base64 url
+</span><span style="color:#75715e"> * @param {functino} fn 返回图片尺寸
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getSize</span>(<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">fn</span>) {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;,&#39;</span>)[<span style="color:#ae81ff">1</span>],
+    <span style="color:#a6e22e">bstr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">atob</span>(<span style="color:#a6e22e">arr</span>),
+    <span style="color:#a6e22e">n</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">bstr</span>.<span style="color:#a6e22e">length</span>;
+  <span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">n</span>)
 }
-</code></pre>
-
-<h3 id="普通压缩图片处理">普通压缩图片处理</h3>
-
+</code></pre></div><h3 id="普通压缩图片处理">普通压缩图片处理</h3>
 <p>这里假设压缩上传的文件。</p>
-
 <h4 id="步骤为-1">步骤为：</h4>
-
 <ol>
 <li>获取 <code>File</code> 文件</li>
 <li><code>File</code> &amp;&amp; filereader.readAsDataURL(file) 生成 <code>base64</code> 编码</li>
@@ -266,189 +246,165 @@ function getSize(url, fn) {
 <li>创建 <code>canvas</code> &amp;&amp; <code>ctx.drawImage()</code> &amp;&amp; <code>canvas.toDataURL(type, encoderOptions)</code></li>
 <li>生成 <code>base64 url</code></li>
 </ol>
-
 <h4 id="详细代码-1">详细代码</h4>
-
-<pre><code class="language-js">  function Compress(obj) {
-    this.file = obj.file
-    this.fileType = this.file.type // mime tyoe
-    this.filename = this.file.name // 文件名
-    this.beforeSize = this.file.size
-    this.factor = obj.factor
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Compress</span>(<span style="color:#a6e22e">obj</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">file</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">file</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">fileType</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">type</span> <span style="color:#75715e">// mime tyoe
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">filename</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">name</span> <span style="color:#75715e">// 文件名
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">beforeSize</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">size</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">factor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">factor</span>
   }
 
-  /**
-  * 生成 base64 url
-  * @params { File } file 文件
-  * @params { function } fn 回调函数
-  * */
-  function toDataurl(file, fn) {
-    const filereader = new FileReader()
-    filereader.readAsDataURL(file)
+  <span style="color:#75715e">/**
+</span><span style="color:#75715e">  * 生成 base64 url
+</span><span style="color:#75715e">  * @params { File } file 文件
+</span><span style="color:#75715e">  * @params { function } fn 回调函数
+</span><span style="color:#75715e">  * */</span>
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">toDataurl</span>(<span style="color:#a6e22e">file</span>, <span style="color:#a6e22e">fn</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">filereader</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FileReader</span>()
+    <span style="color:#a6e22e">filereader</span>.<span style="color:#a6e22e">readAsDataURL</span>(<span style="color:#a6e22e">file</span>)
     
-    filereader.onload = () =&gt; {
-      const url = filereader.result
-      if (url) {
-        // ---------vvvvvvvv 测试句 vvvvvvvv---------
-        addImg(url)
-        // ---------^^^^^^^ 测试句 ^^^^^^^----------
-        fn(url)
-        console.info('before: ' + file.size)
-      } else {
-        console.error('filereader error');
+    <span style="color:#a6e22e">filereader</span>.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> () =&gt; {
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">filereader</span>.<span style="color:#a6e22e">result</span>
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">url</span>) {
+        <span style="color:#75715e">// ---------vvvvvvvv 测试句 vvvvvvvv---------
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">addImg</span>(<span style="color:#a6e22e">url</span>)
+        <span style="color:#75715e">// ---------^^^^^^^ 测试句 ^^^^^^^----------
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">url</span>)
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;before: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">size</span>)
+      } <span style="color:#66d9ef">else</span> {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;filereader error&#39;</span>);
       }
     }
   }
 
-  /**
-  * 创建 image 对象
-  * @params { string } base64 url
-  * @params { string } filename 文件名
-  * @params { function } fn 回调函数
-  * */
-  function dataurl2File (url, filename, fn) {
-    let type = url.split(',')[0].replace(/^.*:(.*);.*$/, '$1'), 
-          arr = url.split(',')[1], 
-          bstr = atob(arr), 
-          n = bstr.length;
-    let u8arr = new Uint8Array(n); 
+  <span style="color:#75715e">/**
+</span><span style="color:#75715e">  * 创建 image 对象
+</span><span style="color:#75715e">  * @params { string } base64 url
+</span><span style="color:#75715e">  * @params { string } filename 文件名
+</span><span style="color:#75715e">  * @params { function } fn 回调函数
+</span><span style="color:#75715e">  * */</span>
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">dataurl2File</span> (<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">filename</span>, <span style="color:#a6e22e">fn</span>) {
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;,&#39;</span>)[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/^.*:(.*);.*$/</span>, <span style="color:#e6db74">&#39;$1&#39;</span>), 
+          <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;,&#39;</span>)[<span style="color:#ae81ff">1</span>], 
+          <span style="color:#a6e22e">bstr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">atob</span>(<span style="color:#a6e22e">arr</span>), 
+          <span style="color:#a6e22e">n</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">bstr</span>.<span style="color:#a6e22e">length</span>;
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">u8arr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Uint8Array</span>(<span style="color:#a6e22e">n</span>); 
   
-    while(n --) {
-      u8arr[n] = bstr.charCodeAt(n)
+    <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">n</span> <span style="color:#f92672">--</span>) {
+      <span style="color:#a6e22e">u8arr</span>[<span style="color:#a6e22e">n</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">bstr</span>.<span style="color:#a6e22e">charCodeAt</span>(<span style="color:#a6e22e">n</span>)
     }
 
-    const file = new File([u8arr], filename, {type: type})
-    fn(file)
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">file</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">File</span>([<span style="color:#a6e22e">u8arr</span>], <span style="color:#a6e22e">filename</span>, {<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">type</span>})
+    <span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">file</span>)
   }
 
-  /**
-  * 创建 image 对象
-  * @params { string } base64 编码
-  * @params { function } fn 回调函数
-  * */
-  function createImg(dataurl, fn) {
-    const img = new Image()
-    img.src = dataurl
-    img.onload = () =&gt; {
-      fn(img)
+  <span style="color:#75715e">/**
+</span><span style="color:#75715e">  * 创建 image 对象
+</span><span style="color:#75715e">  * @params { string } base64 编码
+</span><span style="color:#75715e">  * @params { function } fn 回调函数
+</span><span style="color:#75715e">  * */</span>
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createImg</span>(<span style="color:#a6e22e">dataurl</span>, <span style="color:#a6e22e">fn</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">img</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Image</span>()
+    <span style="color:#a6e22e">img</span>.<span style="color:#a6e22e">src</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dataurl</span>
+    <span style="color:#a6e22e">img</span>.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> () =&gt; {
+      <span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">img</span>)
     }
   }
 
-  Compress.prototype = {
-    /**
-    * 文件生成 base64 url =&gt; 创建 image 对象
-    * */
-    init() {
-      toDataurl(this.file, url =&gt; {
-        createImg(url, img =&gt; {
-          this.run(img)
+  <span style="color:#a6e22e">Compress</span>.<span style="color:#a6e22e">prototype</span> <span style="color:#f92672">=</span> {
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">    * 文件生成 base64 url =&gt; 创建 image 对象
+</span><span style="color:#75715e">    * */</span>
+    <span style="color:#a6e22e">init</span>() {
+      <span style="color:#a6e22e">toDataurl</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">file</span>, <span style="color:#a6e22e">url</span> =&gt; {
+        <span style="color:#a6e22e">createImg</span>(<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">img</span> =&gt; {
+          <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">run</span>(<span style="color:#a6e22e">img</span>)
         })
       })
     },
-    /**
-    * 创建 canvas 对象 =&gt; 压缩并转化为图片
-    * */
-    run(img) {
-      const canvas = document.createElement('canvas')
-      const ctx = canvas.getContext('2d')
-      canvas.width = img.width
-      canvas.height = img.height
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">    * 创建 canvas 对象 =&gt; 压缩并转化为图片
+</span><span style="color:#75715e">    * */</span>
+    <span style="color:#a6e22e">run</span>(<span style="color:#a6e22e">img</span>) {
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">canvas</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;canvas&#39;</span>)
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ctx</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">getContext</span>(<span style="color:#e6db74">&#39;2d&#39;</span>)
+      <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">width</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">img</span>.<span style="color:#a6e22e">width</span>
+      <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">img</span>.<span style="color:#a6e22e">height</span>
+      <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">drawImage</span>(<span style="color:#a6e22e">img</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">width</span>, <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">height</span>)
 
-      // 此句为实现压缩关键句
-      this.newDataurl = canvas.toDataURL('image/jpeg', this.factor)
-      // ---------vvvvvvvv 测试句 vvvvvvvv---------
-      addImg(this.newDataurl)
-      // ---------^^^^^^^ 测试句 ^^^^^^^----------
+      <span style="color:#75715e">// 此句为实现压缩关键句
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">newDataurl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">toDataURL</span>(<span style="color:#e6db74">&#39;image/jpeg&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">factor</span>)
+      <span style="color:#75715e">// ---------vvvvvvvv 测试句 vvvvvvvv---------
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">addImg</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">newDataurl</span>)
+      <span style="color:#75715e">// ---------^^^^^^^ 测试句 ^^^^^^^----------
+</span><span style="color:#75715e"></span>
+      <span style="color:#a6e22e">dataurl2File</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">newDataurl</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">filename</span>, (<span style="color:#a6e22e">file</span>) =&gt; {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;after: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">size</span>);
 
-      dataurl2File(this.newDataurl, this.filename, (file) =&gt; {
-        console.info('after: ' + file.size);
-
-        if (this.beforeSize &gt; file.size) {
-          console.info('压缩成功');
-        } else {
-          console.error('压缩失败');
+        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">beforeSize</span> <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">size</span>) {
+          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;压缩成功&#39;</span>);
+        } <span style="color:#66d9ef">else</span> {
+          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;压缩失败&#39;</span>);
         }
       })
     }
   }
-  /**
-  * 对比压缩前后的两个图片
-  * */
-  function addImg (url) {
-    const img = new Image()
-    img.src = url
+  <span style="color:#75715e">/**
+</span><span style="color:#75715e">  * 对比压缩前后的两个图片
+</span><span style="color:#75715e">  * */</span>
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">addImg</span> (<span style="color:#a6e22e">url</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">img</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Image</span>()
+    <span style="color:#a6e22e">img</span>.<span style="color:#a6e22e">src</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">url</span>
 
-    document.body.appendChild(img)
+    document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">img</span>)
   }
-</code></pre>
+</code></pre></div><h4 id="使用方法-1">使用方法</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#75715e">/**
+</span><span style="color:#75715e">  * 获取上传文件，创建压缩图片实例，压缩图片
+</span><span style="color:#75715e">  * */</span>
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">compressFile</span>() {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dom</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;[name=file]&#39;</span>)
 
-<h4 id="使用方法-1">使用方法</h4>
-
-<pre><code class="language-js">  /**
-  * 获取上传文件，创建压缩图片实例，压缩图片
-  * */
-  function compressFile() {
-    const dom = document.querySelector('[name=file]')
-
-    dom.addEventListener('change', () =&gt; {
-      const file = dom.files[0]
-      const cp = new Compress({
-        file: file,
-        factor: 0.1
+    <span style="color:#a6e22e">dom</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;change&#39;</span>, () =&gt; {
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">file</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dom</span>.<span style="color:#a6e22e">files</span>[<span style="color:#ae81ff">0</span>]
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cp</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Compress</span>({
+        <span style="color:#a6e22e">file</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">file</span>,
+        <span style="color:#a6e22e">factor</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.1</span>
       })
-      cp.init()
+      <span style="color:#a6e22e">cp</span>.<span style="color:#a6e22e">init</span>()
     })
   }
 
-  window.onload = function () {
-    compressFile()
+  window.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+    <span style="color:#a6e22e">compressFile</span>()
   }
-</code></pre>
-
-<h3 id="报错处理">报错处理</h3>
-
+</code></pre></div><h3 id="报错处理">报错处理</h3>
 <p>1、 小程序 canvas drawImage 报错：</p>
-
-<p><a href="https://developers.weixin.qq.com/community/develop/doc/00024466bc81d0b5510a9e63b51c00" rel="nofollow noreferrer" target="_blank">TypeError: Failed to execute &lsquo;drawImage&rsquo; 报错</a>
-<a href="https://developers.weixin.qq.com/community/develop/doc/000e801ba445d060cdb9b078b56000?_at=1583717387456&amp;jumpto=reply&amp;commentid=000ccc3025020865ccb96fc95514&amp;parent_commentid=00062a9c9ecc4873c3b9e2e46560" rel="nofollow noreferrer" target="_blank">解决办法</a></p>
-
-<pre><code class="language-js">let seal = canvas.createImage();
-seal.src = img.path;
-seal.onload = () =&gt; {
-  ctx.drawImage(seal, 0, 0, img.width, img.height)
-  // 压缩图片
-  const url = canvas.toDataURL('image/jpeg', .1)
+<p><a href="https://developers.weixin.qq.com/community/develop/doc/00024466bc81d0b5510a9e63b51c00">TypeError: Failed to execute &lsquo;drawImage&rsquo; 报错</a>
+<a href="https://developers.weixin.qq.com/community/develop/doc/000e801ba445d060cdb9b078b56000?_at=1583717387456&amp;jumpto=reply&amp;commentid=000ccc3025020865ccb96fc95514&amp;parent_commentid=00062a9c9ecc4873c3b9e2e46560">解决办法</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">seal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">createImage</span>();
+<span style="color:#a6e22e">seal</span>.<span style="color:#a6e22e">src</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">img</span>.<span style="color:#a6e22e">path</span>;
+<span style="color:#a6e22e">seal</span>.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> () =&gt; {
+  <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">drawImage</span>(<span style="color:#a6e22e">seal</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">img</span>.<span style="color:#a6e22e">width</span>, <span style="color:#a6e22e">img</span>.<span style="color:#a6e22e">height</span>)
+  <span style="color:#75715e">// 压缩图片
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canvas</span>.<span style="color:#a6e22e">toDataURL</span>(<span style="color:#e6db74">&#39;image/jpeg&#39;</span>, .<span style="color:#ae81ff">1</span>)
 }
-</code></pre>
-
-<p>⚠️：压缩图片时要注意 <code>canvas.toDataURL</code> 的第一个参数是 <strong>image/jpeg</strong> 或 <strong>image/webp</strong> 时可以压缩。8-)</p>
-
+</code></pre></div><p>⚠️：压缩图片时要注意 <code>canvas.toDataURL</code> 的第一个参数是 <strong>image/jpeg</strong> 或 <strong>image/webp</strong> 时可以压缩。8-)</p>
 <blockquote>
 <p>在指定图片格式为 <strong>image/jpeg</strong> 或 <strong>image/webp</strong> 的情况下，可以从 0 到 1 的区间内选择图片的质量。如果超出取值范围，将会使用默认值 0.92。其他参数会被忽略。</p>
 </blockquote>
-
 <h3 id="参考文章">参考文章</h3>
-
-<p><a href="https://developer.51cto.com/art/202008/623099.htm" rel="nofollow noreferrer" target="_blank">了解JS压缩图片，这一篇就够了</a></p>
-
-<p><a href="https://www.jianshu.com/p/f46195810c3b" rel="nofollow noreferrer" target="_blank">使用canvas压缩图片大小</a></p>
-
-<p><a href="https://developer.mozilla.org/zh-cn/docs/Web/API/HTMLCanvasElement/toDataURL" rel="nofollow noreferrer" target="_blank">HTMLCanvasElement.toDataURL()</a></p>
-
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array" rel="nofollow noreferrer" target="_blank">Uint8Array</a></p>
-
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob" rel="nofollow noreferrer" target="_blank">Blob</a></p>
-
-<p><a href="https://www.cnblogs.com/garfieldzhong/p/6763614.html" rel="nofollow noreferrer" target="_blank">base64图片编码大小与原图文件大小之间的联系</a></p>
-
-<hr />
-
+<p><a href="https://developer.51cto.com/art/202008/623099.htm">了解JS压缩图片，这一篇就够了</a></p>
+<p><a href="https://www.jianshu.com/p/f46195810c3b">使用canvas压缩图片大小</a></p>
+<p><a href="https://developer.mozilla.org/zh-cn/docs/Web/API/HTMLCanvasElement/toDataURL">HTMLCanvasElement.toDataURL()</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array">Uint8Array</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Blob">Blob</a></p>
+<p><a href="https://www.cnblogs.com/garfieldzhong/p/6763614.html">base64图片编码大小与原图文件大小之间的联系</a></p>
+<hr>
 <h4 id="源码献上">源码献上</h4>
-
-<p><a href="https://github.com/luneShaoGM/Train/blob/main/compress.html" rel="nofollow noreferrer" target="_blank">code at github</a></p>
-
-<p><a href="https://github.com/luneShaoGM/Train/blob/main/compress.v2.html" rel="nofollow noreferrer" target="_blank">code at github（封装成对象）</a></p>
+<p><a href="https://github.com/luneShaoGM/Train/blob/main/compress.html">code at github</a></p>
+<p><a href="https://github.com/luneShaoGM/Train/blob/main/compress.v2.html">code at github（封装成对象）</a></p>
 
     </div>
 

@@ -57,10 +57,10 @@
     "accountablePerson" : "luneShao",
     "copyrightHolder" : "luneShao",
     "copyrightYear" : "2020",
-    "datePublished": "2020-03-19 10:36:26 \x2b0800 CST",
-    "dateModified" : "2020-03-19 10:36:26 \x2b0800 CST",
+    "datePublished": "2020-03-19 10:36:26 \u002b0800 CST",
+    "dateModified" : "2020-03-19 10:36:26 \u002b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2020\/2020-03-19-follow-mouse\/",
-    "wordCount" : "123",
+    "wordCount" : "106",
     "keywords" : [ "小脚本", "Luneshao"]
 }
 </script>
@@ -157,67 +157,52 @@
           
           
 
-          
-
-<h3 id="feature">feature</h3>
-
+          <h3 id="feature">feature</h3>
 <ul>
 <li>给盒子设置了图片边框</li>
 <li>实现背景色角度追随鼠标移动改变</li>
 </ul>
-
 <h3 id="css-属性">css 属性</h3>
-
 <ul>
 <li>border-image-slice：通过 border-image-source 引用边框图片后，border-image-slice属性会将图片分割为9个区域：四个角，四个边（edges）以及中心区域。四条切片线，从它们各自的侧面设置给定距离，控制区域的大小。</li>
 </ul>
-
-<p><div class="test"></div>
-<script>
-  var t = document.querySelector(&lsquo;.test&rsquo;)
-  t.onmousemove = function (e) {
-    let r = (e.screenX + e.screenY) % 360</p>
-
+<!-- raw HTML omitted -->
 <pre><code>&lt;!-- t.style.borderImage = `linear-gradient(${r}deg, #ffeead, #96ceb4) 2` --&gt;
 t.style.backgroundImage = `linear-gradient(${360 - r}deg, #ffeead, #96ceb4)`
 </code></pre>
-
 <p>}
-</script></p>
-
+<!-- raw HTML omitted --></p>
 <h3 id="code">code</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- ... --&gt;</span>
 
-<pre><code class="language-html">&lt;!-- ... --&gt;
-
-&lt;style&gt;
-.test {
-  width: 100px;
-  height: 100px;
-  padding: 20px;
-  border: dashed 70px;
-  border-image: url(https://tse3-mm.cn.bing.net/th/id/OIP.GL_hNcihF8Q0N-HDKWzBngHaFj?w=288&amp;h=216&amp;c=7&amp;o=5&amp;dpr=2&amp;pid=1.7);
-  border-image-slice: 33% 33%; // 修改试试
-  border-radius: 50%;
-  border-image-width: 90px; // 修改试试
-  background: linear-gradient(45deg, transparent, rgb(150, 206, 180)) repeat center
-    center / 50px 50px;
+&lt;<span style="color:#f92672">style</span>&gt;
+.<span style="color:#a6e22e">test</span> {
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">dashed</span> <span style="color:#ae81ff">70</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">border-image</span>: url(<span style="color:#e6db74">https://tse3-mm.cn.bing.net/th/id/OIP.GL_hNcihF8Q0N-HDKWzBngHaFj?w=288&amp;h=216&amp;c=7&amp;o=5&amp;dpr=2&amp;pid=1.7</span>);
+  <span style="color:#66d9ef">border-image-slice</span>: <span style="color:#ae81ff">33</span><span style="color:#66d9ef">%</span> <span style="color:#ae81ff">33</span><span style="color:#66d9ef">%</span>; <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">修改试试</span>
+  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>;
+  <span style="color:#66d9ef">border-image-width</span>: <span style="color:#ae81ff">90</span><span style="color:#66d9ef">px</span>; <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">修改试试</span>
+  <span style="color:#66d9ef">background</span>: linear-gradient(<span style="color:#ae81ff">45</span><span style="color:#66d9ef">deg</span>, <span style="color:#66d9ef">transparent</span>, rgb(<span style="color:#ae81ff">150</span>, <span style="color:#ae81ff">206</span>, <span style="color:#ae81ff">180</span>)) <span style="color:#66d9ef">repeat</span> <span style="color:#66d9ef">center</span>
+    <span style="color:#66d9ef">center</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
 }
-&lt;/style&gt;
+&lt;/<span style="color:#f92672">style</span>&gt;
 
-&lt;!-- ... --&gt;
+<span style="color:#75715e">&lt;!-- ... --&gt;</span>
 
-&lt;div class=&quot;test&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-  var t = document.querySelector('.test')
-  t.onmousemove = function(e) {
-    let r = ((e.screenX + e.screenY) % 360 &lt;
-    !--t.style.borderImage = `linear-gradient(${r}deg, #ffeead, #96ceb4) 2`-- &gt;
-    t.style.backgroundImage = `linear-gradient(${360 -
-      r}deg, #ffeead, #96ceb4)`)
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">t</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;.test&#39;</span>)
+  <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">onmousemove</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">e</span>) {
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">r</span> <span style="color:#f92672">=</span> ((<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">screenX</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">screenY</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">360</span> <span style="color:#f92672">&lt;</span>
+    <span style="color:#f92672">!--</span><span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">borderImage</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`linear-gradient(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">r</span><span style="color:#e6db74">}</span><span style="color:#e6db74">deg, #ffeead, #96ceb4) 2`</span><span style="color:#f92672">--</span> <span style="color:#f92672">&gt;</span>
+    <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">backgroundImage</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`linear-gradient(</span><span style="color:#e6db74">${</span><span style="color:#ae81ff">360</span> <span style="color:#f92672">-</span>
+      <span style="color:#a6e22e">r</span><span style="color:#e6db74">}</span><span style="color:#e6db74">deg, #ffeead, #96ceb4)`</span>)
   }
-&lt;/script&gt;
-</code></pre>
-
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div>
     </div>
 
     <div class="post-copyright">

@@ -57,8 +57,8 @@
     "accountablePerson" : "luneshao",
     "copyrightHolder" : "luneshao",
     "copyrightYear" : "2019",
-    "datePublished": "2019-07-09 16:27:20 \x2b0800 CST",
-    "dateModified" : "2019-07-09 16:27:20 \x2b0800 CST",
+    "datePublished": "2019-07-09 16:27:20 \u002b0800 CST",
+    "dateModified" : "2019-07-09 16:27:20 \u002b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2019\/vue-cli-mock\/",
     "wordCount" : "530",
     "keywords" : [ "Vue","Mock","webpack", "Luneshao"]
@@ -157,47 +157,34 @@
           
           
 
-          
-
-<blockquote>
+          <blockquote>
 <p>引言</p>
 </blockquote>
-
 <p>鉴于对 Vue CLI 中 webpack 的链式配置一直不熟悉，mock 也没有用过。最近项目需要 mock 数据，所以新建了一个测试项目配置了一下。下面我会介绍配置流程。👇👇👇 (webpack 没理解透彻T_T)</p>
-
 <p>参考文献：</p>
-
 <ul>
-<li><a href="https://cli.vuejs.org/zh/guide/webpack.html" rel="nofollow noreferrer" target="_blank">Vue CLI 文档</a></li>
-<li><a href="https://github.com/neutrinojs/webpack-chain" rel="nofollow noreferrer" target="_blank">webpack-chain 文档</a></li>
-<li><a href="https://webpack.js.org/configuration/dev-server/#devserverproxy" rel="nofollow noreferrer" target="_blank">webpack 配置文档</a></li>
-<li><a href="https://github.com/chimurai/http-proxy-middleware#options" rel="nofollow noreferrer" target="_blank">http-proxy-middleware 文档</a></li>
-<li><a href="https://github.com/soon08/mockjs-webpack-plugin/blob/HEAD/readme-zh.md" rel="nofollow noreferrer" target="_blank">mockjs-webpack-plugin 文档</a></li>
+<li><a href="https://cli.vuejs.org/zh/guide/webpack.html">Vue CLI 文档</a></li>
+<li><a href="https://github.com/neutrinojs/webpack-chain">webpack-chain 文档</a></li>
+<li><a href="https://webpack.js.org/configuration/dev-server/#devserverproxy">webpack 配置文档</a></li>
+<li><a href="https://github.com/chimurai/http-proxy-middleware#options">http-proxy-middleware 文档</a></li>
+<li><a href="https://github.com/soon08/mockjs-webpack-plugin/blob/HEAD/readme-zh.md">mockjs-webpack-plugin 文档</a></li>
 </ul>
-
 <p>文章结构：</p>
-
-<pre><code>+ 配置流程
+<pre tabindex="0"><code>+ 配置流程
   + Step 1. 安装插件 mockjs-webpack-plugin
   + Step 2. 配置 webpack 配置项
   + Step 3. Mock 数据
-</code></pre>
-
-<h2 id="配置流程">配置流程</h2>
-
+</code></pre><h2 id="配置流程">配置流程</h2>
 <p>这里我就默认民那桑已经用 Vue CLI 安装了一个项目。我使用的 Vue CLI 3。</p>
-
 <h3 id="step-1-安装插件-mockjs-webpack-plugin">Step 1. 安装插件 mockjs-webpack-plugin</h3>
-
 <ol>
-<li><p>这个插件通过 webpack 插件的方式，快速搭建项目的 mock 服务，用于前后端分离模式下的并行开发。emmm，是公司大佬用的这个，至于为什么我还没敢问 -_-</p>
-
-<pre><code>yarn add mockjs-webpack-plugin --dev 或 cnpm install --save-dev mockjs-webpack-plugin
+<li>
+<p>这个插件通过 webpack 插件的方式，快速搭建项目的 mock 服务，用于前后端分离模式下的并行开发。emmm，是公司大佬用的这个，至于为什么我还没敢问 -_-</p>
+<pre tabindex="0"><code>yarn add mockjs-webpack-plugin --dev 或 cnpm install --save-dev mockjs-webpack-plugin
 </code></pre></li>
-
-<li><p>安装完成后，新建存放 mock 数据的文件夹及文件。<a href="https://github.com/soon08/mockjs-webpack-plugin/blob/HEAD/readme-zh.md" rel="nofollow noreferrer" target="_blank">文档</a></p>
-
-<pre><code>.
+<li>
+<p>安装完成后，新建存放 mock 数据的文件夹及文件。<a href="https://github.com/soon08/mockjs-webpack-plugin/blob/HEAD/readme-zh.md">文档</a></p>
+<pre tabindex="0"><code>.
 ├── app         //工程目录
     ├── dist
     ├── config
@@ -208,208 +195,168 @@
         ...
 </code></pre></li>
 </ol>
-
 <h3 id="step-2-配置-webpack-配置项">Step 2. 配置 webpack 配置项</h3>
-
 <p>⚠️ 每次更新配置文件都需要重启项目</p>
-
-<p>可以参考 <a href="https://cli.vuejs.org/zh/guide/webpack.html#%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F" rel="nofollow noreferrer" target="_blank">Vue CLI文档</a> 中介绍，关于 webpack 的配置需要新建一个 <code>vue.config.js</code> 文件。由于本文是为了学习 webpack-chian，所以就直接使用链式配置方式。</p>
-
+<p>可以参考 <a href="https://cli.vuejs.org/zh/guide/webpack.html#%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F">Vue CLI文档</a> 中介绍，关于 webpack 的配置需要新建一个 <code>vue.config.js</code> 文件。由于本文是为了学习 webpack-chian，所以就直接使用链式配置方式。</p>
 <p>这里一共需要配置两项，添加 mock 插件和配置代理服务。</p>
-
 <ol>
-<li><p>mock 插件</p>
-
-<pre><code class="language-js">// webpack-chain 添加插件格式，注意不要使用 new 创建一个插件对象，因为它会自动完成。
-config
-  .plugin(name) // name: 插件自定义名称
-  .use(WebpackPlugin, args) // WebpackPlugin: 引入的插件， args: 配置项
-</code></pre></li>
-
-<li><p>服务代理</p>
-
-<pre><code class="language-js">// webpack devSever 格式
-config
-  .devServe
-    .port('port | Number') // 用于侦听请求的端口号
-    .proxy({ // proxy 的参数说明见下👇👇👇
-      '/path': { // 侦听代理的路径名称，这里将侦听 /path 的请求到代理主机的 www.topath.com/path
-        target: 'www.topath.com', // 指向代理主机
-        pathRewrite: {'^/path' : '/new/path'} // 重写目标路径，即请求 /path 时将代理到 www.topath.com/new/path
-      }
+<li>
+<p>mock 插件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// webpack-chain 添加插件格式，注意不要使用 new 创建一个插件对象，因为它会自动完成。
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">config</span>
+  .<span style="color:#a6e22e">plugin</span>(<span style="color:#a6e22e">name</span>) <span style="color:#75715e">// name: 插件自定义名称
+</span><span style="color:#75715e"></span>  .<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">WebpackPlugin</span>, <span style="color:#a6e22e">args</span>) <span style="color:#75715e">// WebpackPlugin: 引入的插件， args: 配置项
+</span></code></pre></div></li>
+<li>
+<p>服务代理</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// webpack devSever 格式
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">config</span>
+  .<span style="color:#a6e22e">devServe</span>
+    .<span style="color:#a6e22e">port</span>(<span style="color:#e6db74">&#39;port | Number&#39;</span>) <span style="color:#75715e">// 用于侦听请求的端口号
+</span><span style="color:#75715e"></span>    .<span style="color:#a6e22e">proxy</span>({ <span style="color:#75715e">// proxy 的参数说明见下👇👇👇
+</span><span style="color:#75715e"></span>      <span style="color:#e6db74">&#39;/path&#39;</span><span style="color:#f92672">:</span> { <span style="color:#75715e">// 侦听代理的路径名称，这里将侦听 /path 的请求到代理主机的 www.topath.com/path
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">target</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;www.topath.com&#39;</span>, <span style="color:#75715e">// 指向代理主机
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">pathRewrite</span><span style="color:#f92672">:</span> {<span style="color:#e6db74">&#39;^/path&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/new/path&#39;</span>} <span style="color:#75715e">// 重写目标路径，即请求 /path 时将代理到 www.topath.com/new/path
+</span><span style="color:#75715e"></span>      }
     })
 
-// proxy 的参数说明 👇👇👇
-// 因为这里 webpack 用的 http-proxy-middleware 这个插件，所以就搬了插件的例子解释。
-var apiProxy = proxy('/api', { target: 'http://www.example.org' });
-//                   \____/   \_____________________________/
-//                     |                    |
-//                   context             options
-</code></pre>
-
-<p>下面我只介绍了我用到的，详细说明见<a href="https://github.com/chimurai/http-proxy-middleware#options" rel="nofollow noreferrer" target="_blank">详细说明</a>。</p>
-
+<span style="color:#75715e">// proxy 的参数说明 👇👇👇
+</span><span style="color:#75715e">// 因为这里 webpack 用的 http-proxy-middleware 这个插件，所以就搬了插件的例子解释。
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">apiProxy</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">proxy</span>(<span style="color:#e6db74">&#39;/api&#39;</span>, { <span style="color:#a6e22e">target</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://www.example.org&#39;</span> });
+<span style="color:#75715e">//                   \____/   \_____________________________/
+</span><span style="color:#75715e">//                     |                    |
+</span><span style="color:#75715e">//                   context             options
+</span></code></pre></div><p>下面我只介绍了我用到的，详细说明见<a href="https://github.com/chimurai/http-proxy-middleware#options">详细说明</a>。</p>
 <ul>
 <li>context：确定哪些请求会被代理到目标主机。 例如，这里会将 <code>/api</code> 的请求代理到 <code>http://www.example.org/api</code> 这里。</li>
 <li>options：配置项。</li>
 <li>options.target：目标主机。</li>
+<li>options.pathRewrite：(object/function)重写目标url路径。 对象键将用作RegEx以匹配路径。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 例如，我希望请求 `/path`时，代理到主机的 `http://www.example.org/hostPath`
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">pathRewrite</span><span style="color:#f92672">:</span> {<span style="color:#e6db74">&#39;^/path&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/hostPath&#39;</span>}
+</code></pre></div><ul>
+<li>options.router：针对特定请求重新定位option.target。我觉得这个可以用来在调试 mock 和真实接口时填写代理主机，不用来回修改了。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Use `host` and/or `path` to match requests. First match will be used.
+</span><span style="color:#75715e">// The order of the configuration matters.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">router</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#39;integration.localhost:3000&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://localhost:8001&#39;</span>,  <span style="color:#75715e">// host only
+</span><span style="color:#75715e"></span>    <span style="color:#e6db74">&#39;staging.localhost:3000&#39;</span>     <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://localhost:8002&#39;</span>,  <span style="color:#75715e">// host only
+</span><span style="color:#75715e"></span>    <span style="color:#e6db74">&#39;localhost:3000/api&#39;</span>         <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://localhost:8003&#39;</span>,  <span style="color:#75715e">// host + path
+</span><span style="color:#75715e"></span>    <span style="color:#e6db74">&#39;/rest&#39;</span>                      <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://localhost:8004&#39;</span>   <span style="color:#75715e">// path only
+</span><span style="color:#75715e"></span>}
 
-<li><p>options.pathRewrite：(object/function)重写目标url路径。 对象键将用作RegEx以匹配路径。</p>
-
-<pre><code class="language-js">// 例如，我希望请求 `/path`时，代理到主机的 `http://www.example.org/hostPath`
-pathRewrite: {'^/path' : '/hostPath'}
-</code></pre></li>
-
-<li><p>options.router：针对特定请求重新定位option.target。我觉得这个可以用来在调试 mock 和真实接口时填写代理主机，不用来回修改了。</p>
-
-<pre><code class="language-js">// Use `host` and/or `path` to match requests. First match will be used.
-// The order of the configuration matters.
-router: {
-'integration.localhost:3000' : 'http://localhost:8001',  // host only
-'staging.localhost:3000'     : 'http://localhost:8002',  // host only
-'localhost:3000/api'         : 'http://localhost:8003',  // host + path
-'/rest'                      : 'http://localhost:8004'   // path only
+<span style="color:#75715e">// Custom router function
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">router</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;http://localhost:8004&#39;</span>;
 }
-
-// Custom router function
-router: function(req) {
-return 'http://localhost:8004';
-}
-</code></pre></li>
-</ul></li>
+</code></pre></div></li>
 </ol>
-
 <p>下面补充完整的配置文件代码。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// vue.config.js 完整配置
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;path&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MockjsWebpackPlugin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;mockjs-webpack-plugin&#39;</span>)
 
-<pre><code class="language-js">// vue.config.js 完整配置
-
-const path = require('path');
-const MockjsWebpackPlugin = require('mockjs-webpack-plugin')
-
-module.exports = {
-  chainWebpack: config =&gt; {
-    config
-      .plugin('mock')
-        .use(MockjsWebpackPlugin, [{
-          path: path.join(__dirname, './mock'),
-          // 配置mock服务的端口，避免与应用端口冲突
-          port: 3001
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">chainWebpack</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">config</span> =&gt; {
+    <span style="color:#a6e22e">config</span>
+      .<span style="color:#a6e22e">plugin</span>(<span style="color:#e6db74">&#39;mock&#39;</span>)
+        .<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">MockjsWebpackPlugin</span>, [{
+          <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">__dirname</span>, <span style="color:#e6db74">&#39;./mock&#39;</span>),
+          <span style="color:#75715e">// 配置mock服务的端口，避免与应用端口冲突
+</span><span style="color:#75715e"></span>          <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3001</span>
         }])
 
-    config
-      .devServer
-        .port(5001)
-        .proxy({
-          '/api': {
-            target: 'http://localhost:3001', //对应自己的接口
-            pathRewrite: {'^/api' : '/json'}
+    <span style="color:#a6e22e">config</span>
+      .<span style="color:#a6e22e">devServer</span>
+        .<span style="color:#a6e22e">port</span>(<span style="color:#ae81ff">5001</span>)
+        .<span style="color:#a6e22e">proxy</span>({
+          <span style="color:#e6db74">&#39;/api&#39;</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">target</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://localhost:3001&#39;</span>, <span style="color:#75715e">//对应自己的接口
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">pathRewrite</span><span style="color:#f92672">:</span> {<span style="color:#e6db74">&#39;^/api&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/json&#39;</span>}
           }
         })
   }
 }
-</code></pre>
-
-<p>配置好了之后，就完成了一大大大半的工作了。</p>
-
+</code></pre></div><p>配置好了之后，就完成了一大大大半的工作了。</p>
 <h3 id="step-3-mock-数据">Step 3. Mock 数据</h3>
+<p>参考<a href="https://github.com/soon08/mockjs-webpack-plugin/blob/HEAD/readme-zh.md#mock-%E6%95%B0%E6%8D%AE">插件 Mock 数据</a>填充 js 和 json 文件。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// data.js
+</span><span style="color:#75715e"></span><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * JS data file
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * @url /js/js-data-file
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * Export data by using the JS file directly.
+</span><span style="color:#75715e"> */</span>
 
-<p>参考<a href="https://github.com/soon08/mockjs-webpack-plugin/blob/HEAD/readme-zh.md#mock-%E6%95%B0%E6%8D%AE" rel="nofollow noreferrer" target="_blank">插件 Mock 数据</a>填充 js 和 json 文件。</p>
-
-<pre><code class="language-js">// data.js
-/**
- * JS data file
- *
- * @url /js/js-data-file
- *
- * Export data by using the JS file directly.
- */
-
-module.exports = {
-    &quot;code&quot;: function () { // simulation error code, 1/10 probability of error code 1.
-        return Math.random() &lt; 0.1 ? 1 : 0;
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+    <span style="color:#e6db74">&#34;code&#34;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () { <span style="color:#75715e">// simulation error code, 1/10 probability of error code 1.
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.1</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>;
     },
-    &quot;list|5-10&quot;: [
-        {&quot;title&quot;: &quot;@title&quot;, &quot;link&quot;: &quot;@url&quot;}
+    <span style="color:#e6db74">&#34;list|5-10&#34;</span><span style="color:#f92672">:</span> [
+        {<span style="color:#e6db74">&#34;title&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;@title&#34;</span>, <span style="color:#e6db74">&#34;link&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;@url&#34;</span>}
     ]
 };
-</code></pre>
-
-<pre><code class="language-js">// 对应的内容
-文件标题： Json data file
-访问路径： /js/js-data-file
-描述：
-</code></pre>
-
-<p>访问 <code>http://localhost:3001</code> 就可以查看接口列表了，按照自定义的接口路径及代理就可以访问接口啦。</p>
-
-<pre><code class="language-js">Axios.get('/api/data')
-  .then(res =&gt; {
-    console.log(res)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 对应的内容
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">文件标题</span><span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#a6e22e">Json</span> <span style="color:#a6e22e">data</span> <span style="color:#a6e22e">file</span>
+<span style="color:#a6e22e">访问路径</span><span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">js</span><span style="color:#f92672">/</span><span style="color:#a6e22e">js</span><span style="color:#f92672">-</span><span style="color:#a6e22e">data</span><span style="color:#f92672">-</span><span style="color:#a6e22e">file</span>
+<span style="color:#a6e22e">描述</span><span style="color:#960050;background-color:#1e0010">：</span>
+</code></pre></div><p>访问 <code>http://localhost:3001</code> 就可以查看接口列表了，按照自定义的接口路径及代理就可以访问接口啦。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/api/data&#39;</span>)
+  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">res</span> =&gt; {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>)
   })
-</code></pre>
-
-<h2 id="2020-06-03-更新">2020-06-03 更新</h2>
-
+</code></pre></div><h2 id="2020-06-03-更新">2020-06-03 更新</h2>
 <p>或者可以安装 <code>mockjs2</code></p>
-
-<pre><code>yarn add mockjs2
-</code></pre>
-
-<p>然后创建 <code>mock/test.js</code> 文件</p>
-
-<p>查看官方 <a href="https://github.com/nuysoft/Mock/wiki" rel="nofollow noreferrer" target="_blank">api</a> 直接生成mock数据，可以参考<a href="http://mockjs.com/examples.html" rel="nofollow noreferrer" target="_blank">官方示例</a>。</p>
-
+<pre tabindex="0"><code>yarn add mockjs2
+</code></pre><p>然后创建 <code>mock/test.js</code> 文件</p>
+<p>查看官方 <a href="https://github.com/nuysoft/Mock/wiki">api</a> 直接生成mock数据，可以参考<a href="http://mockjs.com/examples.html">官方示例</a>。</p>
 <p>然后在需要的地方调用就可以了。</p>
-
 <h3 id="代码">代码</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// mock/test.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Mock</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;mockjs2&#39;</span>
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">mapCompanys</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@/data&#39;</span>
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 魔力象限数据
+</span><span style="color:#75715e"> * @returns
+</span><span style="color:#75715e"> * {
+</span><span style="color:#75715e"> *  series: [ {data: [integer, integer, integer, integer, company, year-mm-dd]}, [] ... ]
+</span><span style="color:#75715e"> * }
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMagic</span> () {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">companys</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">mapCompanys</span>)
 
-<pre><code class="language-js">// mock/test.js
-import Mock from 'mockjs2'
-import { mapCompanys } from '@/data'
-/**
- * 魔力象限数据
- * @returns
- * {
- *  series: [ {data: [integer, integer, integer, integer, company, year-mm-dd]}, [] ... ]
- * }
- */
-function getMagic () {
-  const companys = Object.keys(mapCompanys)
-
-  return {
-    'series|24': [{ 'data|10-14': [['@integer(0, 100)', '@integer(0, 100)', '@integer(1, 4)', '@integer(1, 4)', `@pick(${companys})`, '@pick([2018, 2019, 2020])' + '-' + '@date(MM-dd)']] }]
+  <span style="color:#66d9ef">return</span> {
+    <span style="color:#e6db74">&#39;series|24&#39;</span><span style="color:#f92672">:</span> [{ <span style="color:#e6db74">&#39;data|10-14&#39;</span><span style="color:#f92672">:</span> [[<span style="color:#e6db74">&#39;@integer(0, 100)&#39;</span>, <span style="color:#e6db74">&#39;@integer(0, 100)&#39;</span>, <span style="color:#e6db74">&#39;@integer(1, 4)&#39;</span>, <span style="color:#e6db74">&#39;@integer(1, 4)&#39;</span>, <span style="color:#e6db74">`@pick(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">companys</span><span style="color:#e6db74">}</span><span style="color:#e6db74">)`</span>, <span style="color:#e6db74">&#39;@pick([2018, 2019, 2020])&#39;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;-&#39;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;@date(MM-dd)&#39;</span>]] }]
   }
 }
 
-Mock.mock('/api/getMagic', 'get', getMagic())
+<span style="color:#a6e22e">Mock</span>.<span style="color:#a6e22e">mock</span>(<span style="color:#e6db74">&#39;/api/getMagic&#39;</span>, <span style="color:#e6db74">&#39;get&#39;</span>, <span style="color:#a6e22e">getMagic</span>())
 
-export default Mock
-</code></pre>
-
-<pre><code class="language-js">// main.js
-import '@/mock'
-</code></pre>
-
-<pre><code class="language-vue">// test.vue
-&lt;template&gt;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Mock</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// main.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;@/mock&#39;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue"><span style="color:#75715e">// test.vue
+</span><span style="color:#75715e"></span>&lt;<span style="color:#f92672">template</span>&gt;
 ...
-&lt;/template&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
 
-&lt;script&gt;
-import Axios from 'axios'
+&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Axios</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;axios&#39;</span>
 
-export default {
-  mounted () {
-    axios.get('/api/getMagic')
-      .then(res =&gt; {
-        console.log('mock res:', res)
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+  <span style="color:#a6e22e">mounted</span> () {
+    <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/api/getMagic&#39;</span>)
+      .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">res</span> =&gt; {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;mock res:&#39;</span>, <span style="color:#a6e22e">res</span>)
       })
   }
 }
-&lt;/script&gt;
-</code></pre>
-
-<p>以上。🐵</p>
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>以上。🐵</p>
 
     </div>
 

@@ -49,7 +49,7 @@
     "articleSection" : "posts",
     "name" : "nodejs、Nginx 处理跨域",
     "headline" : "nodejs、Nginx 处理跨域",
-    "description" : "http-proxy  安装包 http-proxy 全局安装 pm2 包 创建 src\/server\/index.js\nconst url = require(\x27url\x27) const http = require(\x27http\x27) const axios = require(\x27axios\x27) const qs = require(\x27qs\x27) const httpProxy = require(\x27http-proxy\x27) const proxy = httpProxy.createProxyServer((options = { changeOrigin: true, target: \x27https:\/\/api.mysubmail.com\x27 })) proxy.on(\x27proxyRes\x27, (proxyRes, req, res, options) =\x26gt; { let body = [] proxyRes.on(\x27data\x27, function(chunk) { body.push(chunk) }) proxyRes.on(\x27end\x27, function() { body = Buffer.concat(body).toString() res.end(\x27my response to cli\x27) }) }) proxy.on(\x27error\x27, function(err, req, res) { res.",
+    "description" : "http-proxy  安装包 http-proxy 全局安装 pm2 包 创建 src\/server\/index.js const url = require(\u0026#39;url\u0026#39;) const http = require(\u0026#39;http\u0026#39;) const axios = require(\u0026#39;axios\u0026#39;) const qs = require(\u0026#39;qs\u0026#39;) const httpProxy = require(\u0026#39;http-proxy\u0026#39;) const proxy = httpProxy.createProxyServer((options = { changeOrigin: true, target: \u0026#39;https:\/\/api.mysubmail.com\u0026#39; })) proxy.on(\u0026#39;proxyRes\u0026#39;, (proxyRes, req, res, options) =\u0026gt; { let body = [] proxyRes.on(\u0026#39;data\u0026#39;, function(chunk) { body.push(chunk) }) proxyRes.on(\u0026#39;end\u0026#39;, function() { body = Buffer.concat(body).toString() res.end(\u0026#39;my response to cli\u0026#39;) }) }) proxy.on(\u0026#39;error\u0026#39;, function(err, req, res) { res.",
     "inLanguage" : "en-us",
     "author" : "luneShao",
     "creator" : "luneShao",
@@ -57,8 +57,8 @@
     "accountablePerson" : "luneShao",
     "copyrightHolder" : "luneShao",
     "copyrightYear" : "2020",
-    "datePublished": "2020-04-20 10:36:26 \x2b0800 CST",
-    "dateModified" : "2020-04-20 10:36:26 \x2b0800 CST",
+    "datePublished": "2020-04-20 10:36:26 \u002b0800 CST",
+    "dateModified" : "2020-04-20 10:36:26 \u002b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2020\/2020-04-20-nodejs-proxy\/",
     "wordCount" : "189",
     "keywords" : [ "前端","跨域","nginx", "Luneshao"]
@@ -157,73 +157,61 @@
           
           
 
-          
-
-<h2 id="http-proxy">http-proxy</h2>
-
+          <h2 id="http-proxy">http-proxy</h2>
 <ul>
 <li>安装包 http-proxy</li>
 <li>全局安装 pm2 包</li>
+<li>创建 src/server/index.js
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;url&#39;</span>)
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">http</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;http&#39;</span>)
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">axios</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;axios&#39;</span>)
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">qs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;qs&#39;</span>)
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">httpProxy</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;http-proxy&#39;</span>)
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">proxy</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">httpProxy</span>.<span style="color:#a6e22e">createProxyServer</span>((<span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">changeOrigin</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#a6e22e">target</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://api.mysubmail.com&#39;</span> }))
 
-<li><p>创建 src/server/index.js</p>
-
-<pre><code class="language-js">const url = require('url')
-const http = require('http')
-const axios = require('axios')
-const qs = require('qs')
-const httpProxy = require('http-proxy')
-const proxy = httpProxy.createProxyServer((options = { changeOrigin: true, target: 'https://api.mysubmail.com' }))
-
-proxy.on('proxyRes', (proxyRes, req, res, options) =&gt; {
-let body = []
-proxyRes.on('data', function(chunk) {
-  body.push(chunk)
-})
-proxyRes.on('end', function() {
-  body = Buffer.concat(body).toString()
-  res.end('my response to cli')
-})
+<span style="color:#a6e22e">proxy</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;proxyRes&#39;</span>, (<span style="color:#a6e22e">proxyRes</span>, <span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">options</span>) =&gt; {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">body</span> <span style="color:#f92672">=</span> []
+  <span style="color:#a6e22e">proxyRes</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;data&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">chunk</span>) {
+    <span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">chunk</span>)
+  })
+  <span style="color:#a6e22e">proxyRes</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;end&#39;</span>, <span style="color:#66d9ef">function</span>() {
+    <span style="color:#a6e22e">body</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Buffer</span>.<span style="color:#a6e22e">concat</span>(<span style="color:#a6e22e">body</span>).<span style="color:#a6e22e">toString</span>()
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#e6db74">&#39;my response to cli&#39;</span>)
+  })
 })
 
-proxy.on('error', function(err, req, res) {
-res.writeHead(500, {
-  'content-type': 'text/plain'
-})
-res.end('Something went wrong. And we are reporting a custom error message.')
+<span style="color:#a6e22e">proxy</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;error&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">writeHead</span>(<span style="color:#ae81ff">500</span>, {
+    <span style="color:#e6db74">&#39;content-type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;text/plain&#39;</span>
+  })
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#e6db74">&#39;Something went wrong. And we are reporting a custom error message.&#39;</span>)
 })
 
-http
-.createServer(function(req, response) {
-  const path = url.parse(req.url).path.slice(1)
+<span style="color:#a6e22e">http</span>
+  .<span style="color:#a6e22e">createServer</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">response</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>).<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">1</span>)
 
-  if (path === 'mail/send.json') {
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    res.setHeader('Access-Control-Allow-Headers', 'content-type')
-    res.setHeader('Access-Control-Allow-Methods', 'DELETE,PUT,POST,GET,OPTIONS')
-    proxy.web(req, res)
-  }
-})
-.listen(9000)
-</code></pre></li>
-
-<li><p>运行 pm2 start src/server/index.js (pm2 会创建一个进程，不会像node启动后一样不能做别的事)</p></li>
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">path</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;mail/send.json&#39;</span>) {
+      <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">setHeader</span>(<span style="color:#e6db74">&#39;Access-Control-Allow-Origin&#39;</span>, <span style="color:#e6db74">&#39;*&#39;</span>)
+      <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">setHeader</span>(<span style="color:#e6db74">&#39;Access-Control-Allow-Headers&#39;</span>, <span style="color:#e6db74">&#39;content-type&#39;</span>)
+      <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">setHeader</span>(<span style="color:#e6db74">&#39;Access-Control-Allow-Methods&#39;</span>, <span style="color:#e6db74">&#39;DELETE,PUT,POST,GET,OPTIONS&#39;</span>)
+      <span style="color:#a6e22e">proxy</span>.<span style="color:#a6e22e">web</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>)
+    }
+  })
+  .<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">9000</span>)
+</code></pre></div></li>
+<li>运行 pm2 start src/server/index.js (pm2 会创建一个进程，不会像node启动后一样不能做别的事)</li>
 </ul>
-
-<p>调用方式如下，将 host 替换为 <a href="http://localhost:8899" rel="nofollow noreferrer" target="_blank">http://localhost:8899</a> 使用</p>
-
-<pre><code class="language-js">// 前端
-const mailValue = {test: 'a'}
-axios.post('http://localhost:9000/mail/send.json',qs.stringify(mailValue)).then((res) =&gt; {
-  console.log(res)
+<p>调用方式如下，将 host 替换为 http://localhost:8899 使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 前端
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mailValue</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">test</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;a&#39;</span>}
+<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;http://localhost:9000/mail/send.json&#39;</span>,<span style="color:#a6e22e">qs</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">mailValue</span>)).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">res</span>) =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>)
 })
-</code></pre>
-
-<h2 id="nginx-代理">nginx 代理</h2>
-
-<p><a href="https://www.cnblogs.com/kevingrace/p/6566119.html" rel="nofollow noreferrer" target="_blank">代理配置</a>
+</code></pre></div><h2 id="nginx-代理">nginx 代理</h2>
+<p><a href="https://www.cnblogs.com/kevingrace/p/6566119.html">代理配置</a>
 eg:</p>
-
-<pre><code class="language-txt"># nginx 配置
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt"># nginx 配置
 server {
   listen       80;                                                         
   server_name  localhost;                                               
@@ -233,22 +221,18 @@ server {
     proxy_pass http://www.test.com/mail;
     # 解决跨域
     add_header Access-Control-Allow-Origin *;
-    add_header Access-Control-Allow-Methods &quot;POST, GET, OPTIONS&quot;;
-    add_header Access-Control-Allow-Headers &quot;Origin, Authorization, Accept&quot;;
+    add_header Access-Control-Allow-Methods &#34;POST, GET, OPTIONS&#34;;
+    add_header Access-Control-Allow-Headers &#34;Origin, Authorization, Accept&#34;;
     add_header Access-Control-Allow-Credentials true;
   }
 }
-</code></pre>
-
-<p>配置完后重启nginx。</p>
-
-<pre><code class="language-js">// 前端
-const mailValue = {test: 'a'}
-axios.post('http://localhost:80/mail/send.json',qs.stringify(mailValue)).then((res) =&gt; {
-  console.log(res)
+</code></pre></div><p>配置完后重启nginx。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 前端
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mailValue</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">test</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;a&#39;</span>}
+<span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;http://localhost:80/mail/send.json&#39;</span>,<span style="color:#a6e22e">qs</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">mailValue</span>)).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">res</span>) =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>)
 })
-</code></pre>
-
+</code></pre></div>
     </div>
 
     <div class="post-copyright">

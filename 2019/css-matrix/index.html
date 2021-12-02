@@ -57,8 +57,8 @@
     "accountablePerson" : "LuneShao",
     "copyrightHolder" : "LuneShao",
     "copyrightYear" : "2019",
-    "datePublished": "2019-05-29 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-05-29 00:00:00 \x2b0000 UTC",
+    "datePublished": "2019-05-29 00:00:00 \u002b0000 UTC",
+    "dateModified" : "2019-05-29 00:00:00 \u002b0000 UTC",
     "url" : "https:\/\/luneshao.github.io\/2019\/css-matrix\/",
     "wordCount" : "149",
     "keywords" : [ "前端","CSS", "Luneshao"]
@@ -159,74 +159,43 @@
           
           
 
-          
-
-<p>插播一句：<code>translate</code> 的百分比是相对于自身的宽高计算的。</p>
-
+          <p>插播一句：<code>translate</code> 的百分比是相对于自身的宽高计算的。</p>
 <p>插播2：计算角度值 eg：已知 sin(a) = 1，求 a？。 a = Math.asin(1) * 180 / Math.PI</p>
-
 <blockquote>
 <p>引言</p>
 </blockquote>
-
 <p>这也是关于优化 js 代码衍生出来的内容，过程是这样的。</p>
-
 <ol>
-<li>文章里说 <code>Array.from</code> 代替 <code>Array.prototype.slice.call(arrayLike)</code>，😳<code>Array.prototype.slice.call(arrayLike)</code> 是不是截取数组的嘛，查了一下文档 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#Array-like" rel="nofollow noreferrer" target="_blank">MDN</a> ，原来将这个方法绑定到类数组对象/集合上，就可以转化为一个数组。过程中，看到了这篇<a href="https://www.cnblogs.com/ariel-zhang/p/7288455.html" rel="nofollow noreferrer" target="_blank">博客</a>，大佬是真的🐂🍺，里边就写到了计算用window.getComputedStyle(dom, 伪类) 获取值，本来我是忽略过去的，但是，好奇心让我测试了一下。。得到了一个这个东西。</li>
+<li>文章里说 <code>Array.from</code> 代替 <code>Array.prototype.slice.call(arrayLike)</code>，😳<code>Array.prototype.slice.call(arrayLike)</code> 是不是截取数组的嘛，查了一下文档 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#Array-like">MDN</a> ，原来将这个方法绑定到类数组对象/集合上，就可以转化为一个数组。过程中，看到了这篇<a href="https://www.cnblogs.com/ariel-zhang/p/7288455.html">博客</a>，大佬是真的🐂🍺，里边就写到了计算用window.getComputedStyle(dom, 伪类) 获取值，本来我是忽略过去的，但是，好奇心让我测试了一下。。得到了一个这个东西。</li>
 </ol>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/0529-cm-eg1.jpg" alt="返回值图片" class="lazyload"><figcaption class="image-caption">返回值图片</figcaption></figure></p>
-
+<p><img src="/img/0529-cm-eg1.jpg" alt="返回值图片"></p>
 <p>这是啥？我不认识啊？？还是乖乖的学一下吧。</p>
-
 <h2 id="translate-值的计算">translate 值的计算</h2>
-
-<p>于是学习了 <a href="https://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%E7%9F%A9%E9%98%B5/" rel="nofollow noreferrer" target="_blank">张鑫旭前辈的文章</a>，这是一个矩阵，是transform变换的基础。我们可以根据这个矩阵里面的值推算出，transform 属性的值。</p>
-
+<p>于是学习了 <a href="https://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%E7%9F%A9%E9%98%B5/">张鑫旭前辈的文章</a>，这是一个矩阵，是transform变换的基础。我们可以根据这个矩阵里面的值推算出，transform 属性的值。</p>
 <p>其格式为：Matrix(a, b, c, d, e, f) 具体的介绍请直接看前辈文章的第五节。</p>
-
 <p>借前辈图，translate &amp; scale 的转换公式如下。 ：</p>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.zhangxinxu.com/image/blog/201206/css-transforms-matrix5.gif" alt="转换公式图片" class="lazyload"><figcaption class="image-caption">转换公式图片</figcaption></figure></p>
-
+<p><img src="http://image.zhangxinxu.com/image/blog/201206/css-transforms-matrix5.gif" alt="转换公式图片"></p>
 <ul>
 <li>x, y ：表示转换元素的所有坐标（变量）矩阵偏移元素的中心点。</li>
 <li>ax+cy+e ：变换后的x坐标</li>
 <li>bx+dy+f ：变换后的y坐标</li>
 </ul>
-
 <h2 id="scale-值的计算">scale 值的计算</h2>
-
 <p><code>matrix(s, 0, 0, s, 0, 0);</code> s 即为 scale 的值。</p>
-
 <h2 id="rotate-值的计算">rotate 值的计算</h2>
-
 <p>方法及参数</p>
-
 <p><code>matrix(cosθ,sinθ,-sinθ,cosθ,0,0)</code></p>
-
 <p>对应公式</p>
-
-<pre><code class="language-js">x' = x * cosθ - y * sinθ + 0 = x * cosθ - y * sinθ
-y' = x * sinθ + y * cosθ + 0 = x * sinθ + y * cosθ
-</code></pre>
-
-<h2 id="skew-值的计算">skew 值的计算</h2>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">x</span><span style="color:#e6db74">&#39; = x * cosθ - y * sinθ + 0 = x * cosθ - y * sinθ
+</span><span style="color:#e6db74">y&#39;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">sinθ</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">y</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">cosθ</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">sinθ</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">y</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">cosθ</span>
+</code></pre></div><h2 id="skew-值的计算">skew 值的计算</h2>
 <p>方法及参数</p>
-
 <p><code>matrix(1,tan(θy),tan(θx),1,0,0)</code></p>
-
 <p>对应公式</p>
-
-<pre><code class="language-js">x' = x + y * tan(θx) + 0 = x + y * tan(θx) 
-y' = x * tan(θy) + y + 0 = x * tan(θy) + y
-</code></pre>
-
-<p>目前看到第七部分，关于 <code>Matrix</code> 的使用，内容镜像。莫的全看完。 &ndash;20190529</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">x</span><span style="color:#e6db74">&#39; = x + y * tan(θx) + 0 = x + y * tan(θx) 
+</span><span style="color:#e6db74">y&#39;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">tan</span>(<span style="color:#a6e22e">θy</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">y</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">tan</span>(<span style="color:#a6e22e">θy</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">y</span>
+</code></pre></div><p>目前看到第七部分，关于 <code>Matrix</code> 的使用，内容镜像。莫的全看完。 &ndash;20190529</p>
 <p>时光匆匆如流水，太快了，五月快结束了。</p>
-
 <blockquote>
 <p>感谢前辈👏🏻</p>
 </blockquote>

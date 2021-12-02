@@ -57,8 +57,8 @@
     "accountablePerson" : "luneShao",
     "copyrightHolder" : "luneShao",
     "copyrightYear" : "2020",
-    "datePublished": "2020-05-26 14:27:32 \x2b0800 CST",
-    "dateModified" : "2020-05-26 14:27:32 \x2b0800 CST",
+    "datePublished": "2020-05-26 14:27:32 \u002b0800 CST",
+    "dateModified" : "2020-05-26 14:27:32 \u002b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2020\/2020-05-26-vue-amap\/",
     "wordCount" : "240",
     "keywords" : [ "vue","amap","前端", "Luneshao"]
@@ -161,134 +161,114 @@
           
           
 
-          
-
-<h3 id="前言">前言</h3>
-
+          <h3 id="前言">前言</h3>
 <p>最近在优化之前写的网站，FP 大概要半分钟才能加载出来，emmm，我写的。。。</p>
-
 <p>这个也是之前文章优化的一部分，因为我的网页中有用到地图，之前用的 <code>vue-amap</code> 组件，后来觉得这个引用 cdn 不知道怎么下手，就改成了直接用节点渲染，不用组件了。然后又查了异步加载的方式，发现了一个解决方案，但是后期又发现了这个解决方案的一些 bug，一通百度加自己尝试修改了一下。</p>
-
 <h2 id="正文">正文</h2>
-
-<p>先贴一下<a href="https://www.jianshu.com/p/f65034cf7d24" rel="nofollow noreferrer" target="_blank">原文</a>的解决方案:</p>
-
+<p>先贴一下<a href="https://www.jianshu.com/p/f65034cf7d24">原文</a>的解决方案:</p>
 <blockquote>
-<h4 id="1-创建一个-amap-js-路径-src-assets-js-amap-js">1. 创建一个 AMap.js,路径&rsquo;src/assets/js/AMap.js&rsquo;</h4>
+<h4 id="1-创建一个-amapjs路径srcassetsjsamapjs">1. 创建一个 AMap.js,路径&rsquo;src/assets/js/AMap.js'</h4>
 </blockquote>
-
-<pre><code class="language-js">// src/assets/js/AMap.js
-
-export default function MapLoader() {
-  // &lt;-- 原作者这里使用的是module.exports
-  return new Promise((resolve, reject) =&gt; {
-    if (window.AMap) {
-      resolve(window.AMap)
-    } else {
-      var script = document.createElement('script')
-      script.type = 'text/javascript'
-      script.async = true
-      script.src =
-        'http://webapi.amap.com/maps?v=1.3&amp;callback=initAMap&amp;key=yourkey'
-      script.onerror = reject
-      document.head.appendChild(script)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// src/assets/js/AMap.js
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">MapLoader</span>() {
+  <span style="color:#75715e">// &lt;-- 原作者这里使用的是module.exports
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) =&gt; {
+    <span style="color:#66d9ef">if</span> (window.<span style="color:#a6e22e">AMap</span>) {
+      <span style="color:#a6e22e">resolve</span>(window.<span style="color:#a6e22e">AMap</span>)
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">script</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;script&#39;</span>)
+      <span style="color:#a6e22e">script</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;text/javascript&#39;</span>
+      <span style="color:#a6e22e">script</span>.<span style="color:#66d9ef">async</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+      <span style="color:#a6e22e">script</span>.<span style="color:#a6e22e">src</span> <span style="color:#f92672">=</span>
+        <span style="color:#e6db74">&#39;http://webapi.amap.com/maps?v=1.3&amp;callback=initAMap&amp;key=yourkey&#39;</span>
+      <span style="color:#a6e22e">script</span>.<span style="color:#a6e22e">onerror</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">reject</span>
+      document.<span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">script</span>)
     }
-    window.initAMap = () =&gt; {
-      resolve(window.AMap)
+    window.<span style="color:#a6e22e">initAMap</span> <span style="color:#f92672">=</span> () =&gt; {
+      <span style="color:#a6e22e">resolve</span>(window.<span style="color:#a6e22e">AMap</span>)
     }
   })
 }
-</code></pre>
-
-<h4 id="2-在任何-vue-文件中使用">2. 在任何.vue 文件中使用</h4>
-
-<pre><code class="language-vue">// test.vue
-&lt;template&gt;
-  &lt;div class=&quot;test&quot;&gt;
-    &lt;div id=&quot;container&quot; class=&quot;h300 w300&quot;&gt;&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-&lt;script&gt;
-import MapLoader from '@/assets/js/AMap.js'
-export default {
-  name: 'test',
-  data() {
-    return {
-      map: null,
+</code></pre></div><h4 id="2-在任何vue-文件中使用">2. 在任何.vue 文件中使用</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue"><span style="color:#75715e">// test.vue
+</span><span style="color:#75715e"></span>&lt;<span style="color:#f92672">template</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;h300 w300&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">MapLoader</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@/assets/js/AMap.js&#39;</span>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;test&#39;</span>,
+  <span style="color:#a6e22e">data</span>() {
+    <span style="color:#66d9ef">return</span> {
+      <span style="color:#a6e22e">map</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
     }
   },
-  mounted() {
-    let that = this
-    MapLoader().then(
-      (AMap) =&gt; {
-        console.log('地图加载成功')
-        that.map = new AMap.Map('container', {
-          center: [117.000923, 36.675807],
-          zoom: 11,
+  <span style="color:#a6e22e">mounted</span>() {
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">that</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>
+    <span style="color:#a6e22e">MapLoader</span>().<span style="color:#a6e22e">then</span>(
+      (<span style="color:#a6e22e">AMap</span>) =&gt; {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;地图加载成功&#39;</span>)
+        <span style="color:#a6e22e">that</span>.<span style="color:#a6e22e">map</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">AMap</span>.<span style="color:#a6e22e">Map</span>(<span style="color:#e6db74">&#39;container&#39;</span>, {
+          <span style="color:#a6e22e">center</span><span style="color:#f92672">:</span> [<span style="color:#ae81ff">117.000923</span>, <span style="color:#ae81ff">36.675807</span>],
+          <span style="color:#a6e22e">zoom</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">11</span>,
         })
       },
-      (e) =&gt; {
-        console.log('地图加载失败', e)
+      (<span style="color:#a6e22e">e</span>) =&gt; {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;地图加载失败&#39;</span>, <span style="color:#a6e22e">e</span>)
       }
     )
   },
 }
-&lt;/script&gt;
-</code></pre>
-
-<h2 id="遇到的问题">遇到的问题</h2>
-
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><h2 id="遇到的问题">遇到的问题</h2>
 <ol>
 <li>我 copy 代码之后，回调函数中获取不到 <code>AMap</code>。
-不清楚 window.init 这个事件或是函数是什么意思。这里参考<a href="https://lbs.amap.com/api/javascript-api/guide/abc/load" rel="nofollow noreferrer" target="_blank">文档给出的异步加载方案</a>，其中有用到 window.init ，我在网页中打印 window 并没有 init 这个属性，这里是不是还需要再进行调用？
+不清楚 window.init 这个事件或是函数是什么意思。这里参考<a href="https://lbs.amap.com/api/javascript-api/guide/abc/load">文档给出的异步加载方案</a>，其中有用到 window.init ，我在网页中打印 window 并没有 init 这个属性，这里是不是还需要再进行调用？
 然后，我就将 window.init 修改为 window.onload，等 js 资源加载完成后再将 AMap 对象返回给回调函数。然后就能获取到了。
 等我后来调试的时候，又遇到了 bug2 号。</li>
 <li>若首次打开的页面不包含加载了地图的组件，经路由跳转后追加的脚本，回调函数也拿不到 AMap 对象。
 因为 window.onload 只在首次页面资源加载完成后调用。vue 切换路由只是切换了节点中的内容，并未刷新页面。所以追加了 script 标签后，并不会再执行 window.onload 了，就拿不到脚本解析后 AMap 对象了。
-恰好我上午看到了相关内容就又做了修改，将 window.onload 替换为 script.onload (意思为脚本资源加载完成)，目前暂时解决问题了。 <a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/load" rel="nofollow noreferrer" target="_blank">load</a> 的文档。</li>
+恰好我上午看到了相关内容就又做了修改，将 window.onload 替换为 script.onload (意思为脚本资源加载完成)，目前暂时解决问题了。 <a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/load">load</a> 的文档。</li>
 </ol>
-
 <h2 id="参考文献">参考文献</h2>
-
 <p>（ps: 点击文献都可以直达文章）</p>
-
 <ul>
-<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/load" rel="nofollow noreferrer" target="_blank">load MDN</a></p>
-
-<p>load 事件: 当一个资源及其依赖资源已完成加载时，将触发 load 事件。</p></li>
-
-<li><p><a href="https://www.oecom.cn/window-onload-domcontentloaded/" rel="nofollow noreferrer" target="_blank">window 的 onload 事件和 domcontentloaded 执行顺序</a></p>
-
+<li>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events/load">load MDN</a></p>
+<p>load 事件: 当一个资源及其依赖资源已完成加载时，将触发 load 事件。</p>
+</li>
+<li>
+<p><a href="https://www.oecom.cn/window-onload-domcontentloaded/">window 的 onload 事件和 domcontentloaded 执行顺序</a></p>
 <p>onload 事件支持</p>
-
 <p>我们首先来看一下都有哪些支持onload事件。</p>
-
 <ul>
 <li>支持该事件的 HTML 标签：<code>&lt;body&gt;</code>, <code>&lt;frame&gt;</code>, <code>&lt;frameset&gt;</code>, <code>&lt;iframe&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;link&gt;</code>, <code>&lt;script&gt;</code>;</li>
 <li>支持该事件的 JavaScript 对象：image, layer, window</li>
-</ul></li>
-
-<li><p><a href="https://www.cnblogs.com/snandy/p/3704938.html" rel="nofollow noreferrer" target="_blank">JavaScript 判断图片是否加载完成的三种方式</a></p>
-
-<pre><code class="language-txt">&lt;!DOCTYPE HTML&gt;
+</ul>
+</li>
+<li>
+<p><a href="https://www.cnblogs.com/snandy/p/3704938.html">JavaScript 判断图片是否加载完成的三种方式</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;!DOCTYPE HTML&gt;
 &lt;html&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta charset=&#34;utf-8&#34;&gt;
     &lt;title&gt;img - load event&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;img id=&quot;img1&quot; src=&quot;http://pic1.win4000.com/wallpaper/f/51c3bb99a21ea.jpg&quot;&gt;
-    &lt;p id=&quot;p1&quot;&gt;loading...&lt;/p&gt;
-    &lt;script type=&quot;text/javascript&quot;&gt;
+    &lt;img id=&#34;img1&#34; src=&#34;http://pic1.win4000.com/wallpaper/f/51c3bb99a21ea.jpg&#34;&gt;
+    &lt;p id=&#34;p1&#34;&gt;loading...&lt;/p&gt;
+    &lt;script type=&#34;text/javascript&#34;&gt;
         img1.onload = function() {
-            p1.innerHTML = 'loaded'
+            p1.innerHTML = &#39;loaded&#39;
         }
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre></li>
+</code></pre></div></li>
 </ul>
-
 <p>以上。😆</p>
 
     </div>

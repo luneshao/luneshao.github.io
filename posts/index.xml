@@ -6,11 +6,7 @@
     <description>Recent content in Posts on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Aug 2021 17:12:49 +0800</lastBuildDate>
-    
-	<atom:link href="https://luneshao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 13 Aug 2021 17:12:49 +0800</lastBuildDate><atom:link href="https://luneshao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Table 相关的补充知识点</title>
       <link>https://luneshao.github.io/2021/2021-08-13-table/</link>
@@ -19,7 +15,7 @@
       <guid>https://luneshao.github.io/2021/2021-08-13-table/</guid>
       <description>1、 HTML table表格 固定表头 tbody加滚动条
 2、 数字、字母文本溢出
-&amp;lt;table class=&amp;quot;table&amp;quot;&amp;gt; &amp;lt;thead class=&amp;quot;thead&amp;quot;&amp;gt; ... &amp;lt;/thead&amp;gt; &amp;lt;tbody class=&amp;quot;tbody&amp;quot;&amp;gt; &amp;lt;tr v-for=&amp;quot;(item, index) in data&amp;quot; :key=&amp;quot;index&amp;quot;&amp;gt; &amp;lt;td&amp;gt;{{ item.account }}&amp;lt;/td&amp;gt; &amp;lt;td width=&amp;quot;46%&amp;quot;&amp;gt;{{ item.option }}&amp;lt;/td&amp;gt; &amp;lt;td width=&amp;quot;24%&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;link&amp;quot;&amp;gt; {{ item.link }} &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;{{ item.duration }}&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt;  .table { .tbody { .link { word-wrap:break-word; word-break:break-all; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; //多行在这里修改数字即可 overflow:hidden; /* autoprefixer: ignore next */ -webkit-box-orient: vertical; } } }  3、 flex 布局 overflow 失效 Scrolling a flexbox with overflowing content</description>
+&amp;lt;table class=&amp;#34;table&amp;#34;&amp;gt; &amp;lt;thead class=&amp;#34;thead&amp;#34;&amp;gt; ... &amp;lt;/thead&amp;gt; &amp;lt;tbody class=&amp;#34;tbody&amp;#34;&amp;gt; &amp;lt;tr v-for=&amp;#34;(item, index) in data&amp;#34; :key=&amp;#34;index&amp;#34;&amp;gt; &amp;lt;td&amp;gt;{{ item.account }}&amp;lt;/td&amp;gt; &amp;lt;td width=&amp;#34;46%&amp;#34;&amp;gt;{{ item.option }}&amp;lt;/td&amp;gt; &amp;lt;td width=&amp;#34;24%&amp;#34;&amp;gt; &amp;lt;div class=&amp;#34;link&amp;#34;&amp;gt; {{ item.link }} &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;{{ item.duration }}&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt; .table { .tbody { .link { word-wrap:break-word; word-break:break-all; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; //多行在这里修改数字即可 overflow:hidden; /* autoprefixer: ignore next */ -webkit-box-orient: vertical; } } } 3、 flex 布局 overflow 失效 Scrolling a flexbox with overflowing content</description>
     </item>
     
     <item>
@@ -29,11 +25,12 @@
       
       <guid>https://luneshao.github.io/2021/2021-07-01-git-ssh-config/</guid>
       <description>前言 “多年前”需要用两个 github 账号，就查了怎么配置两个ssh，配置好了之后，一直不好用，克隆私有库也克隆不下来，后来百度到用https的地址，也就是这篇文章的方法，就一直这么用着😁 一切都很顺利，最近不是GitHub推不上去，然后就***，昨天就一直报403，错误如下：
-remote: Password authentication is temporarily disabled as part of a brownout. Please use a personal access token instead. remote: Please see https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/ for more information. fatal: unable to access &#39;https://github.com/chainland/qlchain.cn.git/&#39;: The requested URL returned error: 403  这就很尴尬，我就开始百度怎么整（ps：昨天什么也没动今天就推上去了。。。。）然后，我今天就想着一定要把ssh给配好，遂又百度了一番，终于。。。
+remote: Password authentication is temporarily disabled as part of a brownout. Please use a personal access token instead. remote: Please see https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/ for more information. fatal: unable to access &#39;https://github.com/chainland/qlchain.cn.git/&#39;: The requested URL returned error: 403 这就很尴尬，我就开始百度怎么整（ps：昨天什么也没动今天就推上去了。。。。）然后，我今天就想着一定要把ssh给配好，遂又百度了一番，终于。。。
 正文 我的问题是，配置两个ssh，但是执行测试句：ssh -T git@**.github.com 和 ssh -T git@github.com出来打招呼的都是同一个名字，就很不对劲。翻到了这篇文章，发现是因为我缺了【密钥添加到SSH agent中】这一步，执行完之后，神清气爽。ssh终于能用了，尴尬 (~_~;)
  引用一下解决方法
  因为默认只读取id_rsa，为了让SSH识别新的私钥，需将其添加到SSH agent中：
- ssh-add ~/.ssh/id_rsa_user2  如果出现Could not open a connection to your authentication agent的错误，就试着用以下命令：</description>
+ssh-add ~/.ssh/id_rsa_user2 如果出现Could not open a connection to your authentication agent的错误，就试着用以下命令：
+ssh-agent bash ssh-add ~/.</description>
     </item>
     
     <item>
@@ -48,7 +45,7 @@ remote: Password authentication is temporarily disabled as part of a brownout. P
 之前已经把不动的圆环和动的圆环分别放到两个画布里分开绘制了。转动的地方我每次计算一个旋转角度，重新绘制圆环。😳 （我觉得这个地方处理的不好）看文章中优化的思路是 内容只绘制一次，利用另一个画布 drawImage() 这个 API 在不同的位置用多次绘制。
 我就改了之前每次动画都重新绘制的这个地方，改为只绘制一次，然后加一层中间画布，旋转中间画布，把内容画到中间画布上之后，再把中间画布画到目标画布中。
 表达能力欠缺，每讲明白还请见谅。
-代码 &amp;lt;!-- index.html --&amp;gt; &amp;lt;!-- ... --&amp;gt; &amp;lt;canvas width=&amp;quot;236px&amp;quot; height=&amp;quot;236px&amp;quot; id=&amp;quot;feverMonth&amp;quot;&amp;gt;&amp;lt;/canvas&amp;gt; &amp;lt;!-- ... --&amp;gt;  // index.js const lineCounts = 120 // 外层圆环线的个数 const _canvas = document.querySelector(&#39;#feverMonth&#39;) const _ctx = _canvas.getContext(&#39;2d&#39;) const center = _canvas.height / 2 // 中心 const height = _canvas.height const width = _canvas.width let rotate = 0 // 旋转角度 const RotateCircle = function () { this.</description>
+代码 &amp;lt;!-- index.html --&amp;gt; &amp;lt;!-- ... --&amp;gt; &amp;lt;canvas width=&amp;#34;236px&amp;#34; height=&amp;#34;236px&amp;#34; id=&amp;#34;feverMonth&amp;#34;&amp;gt;&amp;lt;/canvas&amp;gt; &amp;lt;!-- ... --&amp;gt; // index.js const lineCounts = 120 // 外层圆环线的个数 const _canvas = document.querySelector(&amp;#39;#feverMonth&amp;#39;) const _ctx = _canvas.getContext(&amp;#39;2d&amp;#39;) const center = _canvas.height / 2 // 中心 const height = _canvas.height const width = _canvas.width let rotate = 0 // 旋转角度  const RotateCircle = function () { this.</description>
     </item>
     
     <item>
@@ -58,7 +55,7 @@ remote: Password authentication is temporarily disabled as part of a brownout. P
       
       <guid>https://luneshao.github.io/2021/2021-01-29-miniprogram/</guid>
       <description>uniapp 小程序压缩图片 小程序压缩图片和普通 html 压缩图片思路一致。
-步骤为：  获取图片信息 获取canvas 节点 创建图片对象 压缩图片  详细代码 /** * 获取图片信息 * @param {string} imgObj 图片对象path * @param {function} fn 回调函数 * @returns {ojbect} cbParams * { * height: 722, * width: 1366, * type: &#39;png&#39;, * path: &#39;&#39;, * orientation: &#39;up&#39;, * errMsg: &#39;&#39; * } */ function getImageObject (src, fn) { uni.getImageInfo({ src: src, success (res) { fn(res) } }) } /** * 压缩图片 * @param {object} img 图片 * @param {function} fn 回调函数 */ function compressImg (img, fn) { const selectorQuery = uni.</description>
+步骤为：  获取图片信息 获取canvas 节点 创建图片对象 压缩图片  详细代码 /** * 获取图片信息 * @param {string} imgObj 图片对象path * @param {function} fn 回调函数 * @returns {ojbect} cbParams * { * height: 722, * width: 1366, * type: &amp;#39;png&amp;#39;, * path: &amp;#39;&amp;#39;, * orientation: &amp;#39;up&amp;#39;, * errMsg: &amp;#39;&amp;#39; * } */ function getImageObject (src, fn) { uni.getImageInfo({ src: src, success (res) { fn(res) } }) } /** * 压缩图片 * @param {object} img 图片 * @param {function} fn 回调函数 */ function compressImg (img, fn) { const selectorQuery = uni.</description>
     </item>
     
     <item>
@@ -77,11 +74,11 @@ remote: Password authentication is temporarily disabled as part of a brownout. P
       <pubDate>Tue, 19 Jan 2021 11:14:50 +0800</pubDate>
       
       <guid>https://luneshao.github.io/2021/2021-01-19-docker/</guid>
-      <description>Docker 包括三个基本概念:  镜像(image)：相当于一个root文件系统。 容器(Container)：镜像和容器的关系就像面向对象的类和实体的关系。镜像是静态的定义，容器是运行的实体。 仓库(Repository)：仓库可以看成一个代码控制中心，用来保存镜像。  Docker 使用 镜像使用 列出镜像列表 $ docker images  同一仓库源可以有多个 TAG，代表这个仓库源的不同个版本。我们使用 REPOSITORY:TAG 来定义不同的镜像。
+      <description>Docker 包括三个基本概念:  镜像(image)：相当于一个root文件系统。 容器(Container)：镜像和容器的关系就像面向对象的类和实体的关系。镜像是静态的定义，容器是运行的实体。 仓库(Repository)：仓库可以看成一个代码控制中心，用来保存镜像。  Docker 使用 镜像使用 列出镜像列表 $ docker images 同一仓库源可以有多个 TAG，代表这个仓库源的不同个版本。我们使用 REPOSITORY:TAG 来定义不同的镜像。
 例如，我们如果要使用版本为15.10的ubuntu系统镜像来运行容器时，命令如下：
-$ docker run -t -i ubuntu:15.10 /bin/bash root@d77ccb2e5cca:/#  参数说明： -i 交互式操作； -t: 终端； ubuntu:15.10: 镜像:版本； /bin/bash：命令。
-获取一个新的镜像 $ docker pull ubuntu:13.10  查找镜像 $ docker search httpd  删除镜像 $ docker rmi hello-world  创建镜像(Dokerfile) 创建一个 Dockerfile 文件，其中包含一组指令来告诉 Docker 如何构建我们的镜像。
-$ cat Dockerfile FROM centos:6.7 MAINTAINER Fisher &amp;quot;fisher@sudops.com&amp;quot; RUN /bin/echo &#39;root:123456&#39; |chpasswd RUN useradd runoob RUN /bin/echo &#39;runoob:123456&#39; |chpasswd RUN /bin/echo -e &amp;quot;LANG=\&amp;quot;en_US.</description>
+$ docker run -t -i ubuntu:15.10 /bin/bash root@d77ccb2e5cca:/# 参数说明： -i 交互式操作； -t: 终端； ubuntu:15.10: 镜像:版本； /bin/bash：命令。
+获取一个新的镜像 $ docker pull ubuntu:13.10 查找镜像 $ docker search httpd 删除镜像 $ docker rmi hello-world 创建镜像(Dokerfile) 创建一个 Dockerfile 文件，其中包含一组指令来告诉 Docker 如何构建我们的镜像。
+$ cat Dockerfile FROM centos:6.7 MAINTAINER Fisher &amp;#34;fisher@sudops.com&amp;#34; RUN /bin/echo &amp;#39;root:123456&amp;#39; |chpasswd RUN useradd runoob RUN /bin/echo &amp;#39;runoob:123456&amp;#39; |chpasswd RUN /bin/echo -e &amp;#34;LANG=\&amp;#34;en_US.</description>
     </item>
     
     <item>
@@ -90,7 +87,7 @@ $ cat Dockerfile FROM centos:6.7 MAINTAINER Fisher &amp;quot;fisher@sudops.com&a
       <pubDate>Fri, 04 Dec 2020 09:46:14 +0800</pubDate>
       
       <guid>https://luneshao.github.io/2020/2020-12-04-vue-create/</guid>
-      <description>step1、创建 $ vue create testProject // 【说明】testProject 是自己的项目名，可自定义。  step2、安装 less、less-loader yarn add less less-loader --dev  step3、配置 vue.config.js // vue.config.js module.exports = { // 这里的配置，就可以部署在服务器非根目录下了 publicPuth: &#39;&#39;, chainWebpack: config =&amp;gt; { // 配置 eslint 保存时自动修复 config.module .rule(&#39;eslint&#39;) .use(&#39;eslink-loader&#39;) .tap(options =&amp;gt; { // 修改它的选项... options.fix = true return options }) // 配置 html 文件 title config .plugin(&#39;html&#39;) .tap(args =&amp;gt; { args[0].title = process.env.VUE_APP_TITLE }) } }  以上这样就完成了我日常需要的简单配置了。 o^o</description>
+      <description>step1、创建 $ vue create testProject // 【说明】testProject 是自己的项目名，可自定义。 step2、安装 less、less-loader yarn add less less-loader --dev step3、配置 vue.config.js // vue.config.js module.exports = { // 这里的配置，就可以部署在服务器非根目录下了  publicPuth: &amp;#39;&amp;#39;, chainWebpack: config =&amp;gt; { // 配置 eslint 保存时自动修复  config.module .rule(&amp;#39;eslint&amp;#39;) .use(&amp;#39;eslink-loader&amp;#39;) .tap(options =&amp;gt; { // 修改它的选项...  options.fix = true return options }) // 配置 html 文件 title  config .plugin(&amp;#39;html&amp;#39;) .tap(args =&amp;gt; { args[0].title = process.env.VUE_APP_TITLE }) } } 以上这样就完成了我日常需要的简单配置了。 o^o</description>
     </item>
     
     <item>
@@ -100,8 +97,8 @@ $ cat Dockerfile FROM centos:6.7 MAINTAINER Fisher &amp;quot;fisher@sudops.com&a
       
       <guid>https://luneshao.github.io/2020/2020-11-04-how-push-to-github-private-rep/</guid>
       <description>if you add origin remote,please remove it first:
-git remote rm origin  ant then:
-git remote add origin https://USERNAME:PASSWORD@github.com/username/reponame.git  from: stackoverflow</description>
+git remote rm origin ant then:
+git remote add origin https://USERNAME:PASSWORD@github.com/username/reponame.git from: stackoverflow</description>
     </item>
     
     <item>
@@ -116,8 +113,8 @@ svg库使用iconfinder
 update: 原来我理解错了，不是只有那个库的可以，而是我很幸运又不幸的下载的第一个icon可以，后来和UI一起研究可以动的原因，是因为svg文件里有路径、线等一些元素，不可以的那些是整合起来了。
 举个例子：
 这个可以
-&amp;lt;?xml version=&amp;quot;1.0&amp;quot; ?&amp;gt;&amp;lt;svg style=&amp;quot;enable-background:new 0 0 48 48;&amp;quot; version=&amp;quot;1.1&amp;quot; viewBox=&amp;quot;0 0 48 48&amp;quot; xml:space=&amp;quot;preserve&amp;quot; xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; xmlns:xlink=&amp;quot;http://www.w3.org/1999/xlink&amp;quot;&amp;gt;&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt; .st0{display:none;} .st1{fill:none;stroke:#303030;stroke-width:0.7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} .st2{fill:#303030;} &amp;lt;/style&amp;gt;&amp;lt;g class=&amp;quot;st0&amp;quot; id=&amp;quot;Padding__x26__Artboard&amp;quot;/&amp;gt;&amp;lt;g id=&amp;quot;Icons&amp;quot;&amp;gt;&amp;lt;g&amp;gt;&amp;lt;path class=&amp;quot;st1&amp;quot; d=&amp;quot;M35.24081,27.28716l-0.00455,6.35106c0,1.51155-1.14731,2.74078-2.54954,2.74078H15.31331 c-1.41135,0-2.55866-1.22923-2.55866-2.74078l0.00455-6.34194c0.44616,0.06369,0.91055,0.08192,1.36583,0.05463l-0.00455,6.28731 c0,0.75578,0.53725,1.37495,1.19282,1.37495h17.37341c0.65557,0,1.18371-0.61917,1.18371-1.37495l0.00454-6.29643 C34.33026,27.37819,34.79465,27.35996,35.24081,27.28716z&amp;quot;/&amp;gt;&amp;lt;g&amp;gt;&amp;lt;path class=&amp;quot;st1&amp;quot; d=&amp;quot;M10.27793,24.09561c0,1.11998,1.12909,1.78469,2.47671,1.99412 c0.44617,0.07284,0.91056,0.09105,1.36583,0.05463c1.56616-0.10016,3.01394-0.78308,3.01394-2.04875&amp;quot;/&amp;gt;&amp;lt;path class=&amp;quot;st1&amp;quot; d=&amp;quot;M17.13774,24.09488c0,2.75728,6.86018,2.75728,6.86018,0&amp;quot;/&amp;gt;&amp;lt;path class=&amp;quot;st1&amp;quot; d=&amp;quot;M23.99791,24.09488c0,2.75728,6.86018,2.75728,6.86018,0&amp;quot;/&amp;gt;&amp;lt;path class=&amp;quot;st1&amp;quot; d=&amp;quot;M37.72207,24.09561c0,1.11998-1.1382,1.78469-2.48582,1.99412 c-0.44617,0.06374-0.91056,0.08195-1.36583,0.05463c-1.56615-0.10016-3.00483-0.78308-3.00483-2.04875&amp;quot;/&amp;gt;&amp;lt;path class=&amp;quot;st1&amp;quot; d=&amp;quot;M10.27793,24.09561l3.14709-11.43638c0.16876-0.61327,0.72645-1.03823,1.36252-1.03823h18.42491 c0.63607,0,1.19376,0.42495,1.36252,1.03823l3.14709,11.43638&amp;quot;/&amp;gt;&amp;lt;/g&amp;gt;&amp;lt;g&amp;gt;&amp;lt;path class=&amp;quot;st1&amp;quot; d=&amp;quot;M12.75919,27.29625c0.44617,0.06374,0.91056,0.08195,1.36583,0.05463&amp;quot;/&amp;gt;&amp;lt;path class=&amp;quot;st1&amp;quot; d=&amp;quot;M33.87497,27.34178c0.45528,0.03642,0.91966,0.01821,1.36583-0.05463&amp;quot;/&amp;gt;&amp;lt;/g&amp;gt;&amp;lt;line class=&amp;quot;st1&amp;quot; x1=&amp;quot;16.37364&amp;quot; x2=&amp;quot;24.56307&amp;quot; y1=&amp;quot;13.86694&amp;quot; y2=&amp;quot;13.86694&amp;quot;/&amp;gt;&amp;lt;line class=&amp;quot;st1&amp;quot; x1=&amp;quot;27.77735&amp;quot; x2=&amp;quot;30.0816&amp;quot; y1=&amp;quot;13.86694&amp;quot; y2=&amp;quot;13.86694&amp;quot;/&amp;gt;&amp;lt;/g&amp;gt;&amp;lt;/g&amp;gt;&amp;lt;/svg&amp;gt;  这个不可以
-&amp;lt;?xml version=&amp;quot;1.0&amp;quot; ?&amp;gt;&amp;lt;!DOCTYPE svg PUBLIC &#39;-//W3C//DTD SVG 1.</description>
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; ?&amp;gt;&amp;lt;svg style=&amp;#34;enable-background:new 0 0 48 48;&amp;#34; version=&amp;#34;1.1&amp;#34; viewBox=&amp;#34;0 0 48 48&amp;#34; xml:space=&amp;#34;preserve&amp;#34; xmlns=&amp;#34;http://www.w3.org/2000/svg&amp;#34; xmlns:xlink=&amp;#34;http://www.w3.org/1999/xlink&amp;#34;&amp;gt;&amp;lt;style type=&amp;#34;text/css&amp;#34;&amp;gt; .st0{display:none;} .st1{fill:none;stroke:#303030;stroke-width:0.7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} .st2{fill:#303030;} &amp;lt;/style&amp;gt;&amp;lt;g class=&amp;#34;st0&amp;#34; id=&amp;#34;Padding__x26__Artboard&amp;#34;/&amp;gt;&amp;lt;g id=&amp;#34;Icons&amp;#34;&amp;gt;&amp;lt;g&amp;gt;&amp;lt;path class=&amp;#34;st1&amp;#34; d=&amp;#34;M35.24081,27.28716l-0.00455,6.35106c0,1.51155-1.14731,2.74078-2.54954,2.74078H15.31331 c-1.41135,0-2.55866-1.22923-2.55866-2.74078l0.00455-6.34194c0.44616,0.06369,0.91055,0.08192,1.36583,0.05463l-0.00455,6.28731 c0,0.75578,0.53725,1.37495,1.19282,1.37495h17.37341c0.65557,0,1.18371-0.61917,1.18371-1.37495l0.00454-6.29643 C34.33026,27.37819,34.79465,27.35996,35.24081,27.28716z&amp;#34;/&amp;gt;&amp;lt;g&amp;gt;&amp;lt;path class=&amp;#34;st1&amp;#34; d=&amp;#34;M10.27793,24.09561c0,1.11998,1.12909,1.78469,2.47671,1.99412 c0.44617,0.07284,0.91056,0.09105,1.36583,0.05463c1.56616-0.10016,3.01394-0.78308,3.01394-2.04875&amp;#34;/&amp;gt;&amp;lt;path class=&amp;#34;st1&amp;#34; d=&amp;#34;M17.13774,24.09488c0,2.75728,6.86018,2.75728,6.86018,0&amp;#34;/&amp;gt;&amp;lt;path class=&amp;#34;st1&amp;#34; d=&amp;#34;M23.99791,24.09488c0,2.75728,6.86018,2.75728,6.86018,0&amp;#34;/&amp;gt;&amp;lt;path class=&amp;#34;st1&amp;#34; d=&amp;#34;M37.72207,24.09561c0,1.11998-1.1382,1.78469-2.48582,1.99412 c-0.44617,0.06374-0.91056,0.08195-1.36583,0.05463c-1.56615-0.10016-3.00483-0.78308-3.00483-2.04875&amp;#34;/&amp;gt;&amp;lt;path class=&amp;#34;st1&amp;#34; d=&amp;#34;M10.27793,24.09561l3.14709-11.43638c0.16876-0.61327,0.72645-1.03823,1.36252-1.03823h18.42491 c0.63607,0,1.19376,0.42495,1.36252,1.03823l3.14709,11.43638&amp;#34;/&amp;gt;&amp;lt;/g&amp;gt;&amp;lt;g&amp;gt;&amp;lt;path class=&amp;#34;st1&amp;#34; d=&amp;#34;M12.75919,27.29625c0.44617,0.06374,0.91056,0.08195,1.36583,0.05463&amp;#34;/&amp;gt;&amp;lt;path class=&amp;#34;st1&amp;#34; d=&amp;#34;M33.87497,27.34178c0.45528,0.03642,0.91966,0.01821,1.36583-0.05463&amp;#34;/&amp;gt;&amp;lt;/g&amp;gt;&amp;lt;line class=&amp;#34;st1&amp;#34; x1=&amp;#34;16.37364&amp;#34; x2=&amp;#34;24.56307&amp;#34; y1=&amp;#34;13.86694&amp;#34; y2=&amp;#34;13.86694&amp;#34;/&amp;gt;&amp;lt;line class=&amp;#34;st1&amp;#34; x1=&amp;#34;27.77735&amp;#34; x2=&amp;#34;30.0816&amp;#34; y1=&amp;#34;13.86694&amp;#34; y2=&amp;#34;13.86694&amp;#34;/&amp;gt;&amp;lt;/g&amp;gt;&amp;lt;/g&amp;gt;&amp;lt;/svg&amp;gt; 这个不可以
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; ?&amp;gt;&amp;lt;!DOCTYPE svg PUBLIC &amp;#39;-//W3C//DTD SVG 1.</description>
     </item>
     
     <item>
@@ -144,7 +141,7 @@ update: 原来我理解错了，不是只有那个库的可以，而是我很幸
       <guid>https://luneshao.github.io/2020/2020-08-07-c-ysf/</guid>
       <description>关系运算符包括一下几个运算符：&amp;gt;、&amp;gt;=、&amp;lt;、&amp;lt;= 它们具有相同的优先级。优先级仅次于相等性运算符：==、!=。 &amp;ndash;摘自《C语言程序设计》
  但是我本机测试的例子：
-printf(&amp;quot;%d\n&amp;quot;, 0 &amp;lt;= 1 == 0); // 0  如果相等性运算符的优先级高的话，运算顺序应为: 1 == 0 =&amp;gt; 0 =&amp;gt; 0 &amp;lt;= 0 =&amp;gt; 1 应该得到结果 1,
+printf(&amp;#34;%d\n&amp;#34;, 0 &amp;lt;= 1 == 0); // 0 如果相等性运算符的优先级高的话，运算顺序应为: 1 == 0 =&amp;gt; 0 =&amp;gt; 0 &amp;lt;= 0 =&amp;gt; 1 应该得到结果 1,
 但是我用 Xcode 跑出来的结果为 0。我猜测，运算顺序为从左向右：0 &amp;lt;= 1 =&amp;gt; 1 =&amp;gt; 1 == 0 =&amp;gt; 0。
 所以，我猜测关系运算符与相等性运算符的优先级是不是相等的？
 还望各位大佬解惑 orz</description>
@@ -157,14 +154,14 @@ printf(&amp;quot;%d\n&amp;quot;, 0 &amp;lt;= 1 == 0); // 0  如果相等性运�
       
       <guid>https://luneshao.github.io/2020/2020-07-21-vue-loader/</guid>
       <description>Vue Loader 是一个 webpack 的 loader，它允许你以一种名为单文件组件 (SFCs)的格式撰写 Vue 组件。
- 允许为 Vue 组件的每个部分使用其它的 webpack loader；
- 允许在一个 .vue 文件中使用自定义块，并对其运用自定义的 loader 链；
- 使用 webpack loader 将 &amp;lt;style&amp;gt; 和 &amp;lt;template&amp;gt; 中引用的资源当作模块依赖来处理；
- 为每个组件模拟出 scoped CSS；
- 在开发过程中使用热重载来保持状态。
+  允许为 Vue 组件的每个部分使用其它的 webpack loader；
+  允许在一个 .vue 文件中使用自定义块，并对其运用自定义的 loader 链；
+  使用 webpack loader 将 &amp;lt;style&amp;gt; 和 &amp;lt;template&amp;gt; 中引用的资源当作模块依赖来处理；
+  为每个组件模拟出 scoped CSS；
+  在开发过程中使用热重载来保持状态。
   起步 每个 vue 包的新版本发布时，一个相应版本的 vue-template-compiler 也会随之发布。编译器的版本必须和基本的 vue 包保持同步，这样 vue-loader 就会生成兼容运行时的代码。这意味着你每次升级项目中的 vue 包时，也应该匹配升级 vue-template-compiler。
 webpack 配置 除了通过一条规则将 vue-loader 应用到所有扩展名为 .vue 的文件上之外，请确保在你的 webpack 配置中添加 Vue Loader 的插件：
-// webpack.config.js const VueLoaderPlugin = require(&#39;vue-loader/lib/plugin&#39;) module.</description>
+// webpack.config.js const VueLoaderPlugin = require(&amp;#39;vue-loader/lib/plugin&amp;#39;) module.</description>
     </item>
     
     <item>
@@ -189,10 +186,10 @@ copyright - 日期  For the copyright date, you&amp;rsquo;ll want to use only a 
       <guid>https://luneshao.github.io/2020/2020-05-27-chrome-performance/</guid>
       <description>运行时性能是指页面运行时的表现，而不是加载时的表现。本教程将教您如何使用 Chrome DevTools 性能面板分析运行时性能。就 RAIL 模型而言，本教程中学习的技能对于分析页面的响应、动画和空闲阶段非常有用。
 分析结果 1. 分析每秒的帧数 衡量任何动画性能的主要指标是每秒帧数（FPS）。当动画以 60 FPS 运行时，用户会感到舒适。
- 查看 FPS 图表。只要您在 FPS 上方看到红色条，就表示帧速率下降得很低，以至于可能损害用户体验。通常，绿色条越高，FPS 越高。
- 在 FPS 图表下方，您会看到 CPU 图表。 CPU 图表中的颜色与 Performance 面板底部的 Summary 选项卡中的颜色相对应。CPU 图表充满色彩的事实意味着在记录过程中 CPU 已满。每当您看到 CPU 长时间长时间处于工作状态时，它意味着需要寻找办法减少工作。
- 将鼠标悬停在 FPS，CPU 或 NET 图表上。 DevTools 将显示该时间点的页面截图。左右移动鼠标以重播记录。这称为 scrubbing ，对于手动分析动画的进度很有用。
- 在 Frames 部分中，将鼠标悬停在绿色方块之一上。 DevTools 为您显示该特定框架的 FPS。每帧可能远低于 60 FPS 的目标。
+  查看 FPS 图表。只要您在 FPS 上方看到红色条，就表示帧速率下降得很低，以至于可能损害用户体验。通常，绿色条越高，FPS 越高。
+  在 FPS 图表下方，您会看到 CPU 图表。 CPU 图表中的颜色与 Performance 面板底部的 Summary 选项卡中的颜色相对应。CPU 图表充满色彩的事实意味着在记录过程中 CPU 已满。每当您看到 CPU 长时间长时间处于工作状态时，它意味着需要寻找办法减少工作。
+  将鼠标悬停在 FPS，CPU 或 NET 图表上。 DevTools 将显示该时间点的页面截图。左右移动鼠标以重播记录。这称为 scrubbing ，对于手动分析动画的进度很有用。
+  在 Frames 部分中，将鼠标悬停在绿色方块之一上。 DevTools 为您显示该特定框架的 FPS。每帧可能远低于 60 FPS 的目标。
   当然，通过此 demo，很明显页面效果不佳。但是在实际情况下，可能还不是很清楚，因此拥有所有这些工具进行测量非常方便。
 打开 FPS 仪表 另一个方便的工具是 FPS 测量仪，它可以在页面运行时提供 FPS 的实时估算。</description>
     </item>
@@ -206,7 +203,7 @@ copyright - 日期  For the copyright date, you&amp;rsquo;ll want to use only a 
       <description>前言 最近在优化之前写的网站，FP 大概要半分钟才能加载出来，emmm，我写的。。。
 这个也是之前文章优化的一部分，因为我的网页中有用到地图，之前用的 vue-amap 组件，后来觉得这个引用 cdn 不知道怎么下手，就改成了直接用节点渲染，不用组件了。然后又查了异步加载的方式，发现了一个解决方案，但是后期又发现了这个解决方案的一些 bug，一通百度加自己尝试修改了一下。
 正文 先贴一下原文的解决方案:
- 1. 创建一个 AMap.js,路径&amp;rsquo;src/assets/js/AMap.js&amp;rsquo;  // src/assets/js/AMap.js export default function MapLoader() { // &amp;lt;-- 原作者这里使用的是module.exports return new Promise((resolve, reject) =&amp;gt; { if (window.AMap) { resolve(window.AMap) } else { var script = document.createElement(&#39;script&#39;) script.type = &#39;text/javascript&#39; script.async = true script.src = &#39;http://webapi.amap.com/maps?v=1.3&amp;amp;callback=initAMap&amp;amp;key=yourkey&#39; script.onerror = reject document.head.appendChild(script) } window.initAMap = () =&amp;gt; { resolve(window.AMap) } }) }  2. 在任何.vue 文件中使用 // test.</description>
+ 1. 创建一个 AMap.js,路径&amp;rsquo;src/assets/js/AMap.js&#39;  // src/assets/js/AMap.js  export default function MapLoader() { // &amp;lt;-- 原作者这里使用的是module.exports  return new Promise((resolve, reject) =&amp;gt; { if (window.AMap) { resolve(window.AMap) } else { var script = document.createElement(&amp;#39;script&amp;#39;) script.type = &amp;#39;text/javascript&amp;#39; script.async = true script.src = &amp;#39;http://webapi.amap.com/maps?v=1.3&amp;amp;callback=initAMap&amp;amp;key=yourkey&amp;#39; script.onerror = reject document.head.appendChild(script) } window.initAMap = () =&amp;gt; { resolve(window.AMap) } }) } 2. 在任何.vue 文件中使用 // test.</description>
     </item>
     
     <item>
@@ -215,8 +212,9 @@ copyright - 日期  For the copyright date, you&amp;rsquo;ll want to use only a 
       <pubDate>Tue, 26 May 2020 09:36:26 +0800</pubDate>
       
       <guid>https://luneshao.github.io/2020/2020-05-26-perfomace/</guid>
-      <description>浏览器的页面的加载流程 [from Chrome的First Paint]  浏览器输入 url，浏览器发送请求到服务器，服务器将请求的HTML返回给浏览器。 浏览器下载完成 HTML(Finish Loading HTML) 之后，便开始从上到下解析。 解析的过程中碰到 css 和 js 外链（其实 HTML 的下载也是这个流程）都会执行以下过程：  Send Request: 表示给这个外链对应的服务器发送请求 Receive Response: 表示接收响应，这里是表示告诉浏览器可以开始从网络接收数据了 Receive Data: 表示开始接收数据 Finish Loading: 表示已经完成下载数据。 Parse Stylesheet/Evaluate（默认情况下 js 下载完成之后执行 Evaluate，css 下载完成后会进行Parse Stylesheet）  所有的 css 下载完成后 Parse Stylesheet 然后开始构建 CSSOM DOM（文档对象模型）和 CSSOM（CSS对象模型）会合并生成一个渲染树(Render Tree) 根据渲染树的内容计算出各个节点在网页中的大小和位置（Layout，可以理解为“刻章”） 根据 Layout 绘制内容在浏览器上（Paint，可以理解为“盖章”）。  页面加载相关事件名词解释 [图片 from Chrome的First Paint]
- FP(First Paint)  First paint，直译过来的意思就是浏览器第一次渲染(paint)，在 First paint 之前是白屏，在这个时间点之后用户就能看到（部分）页面内容。[from Chrome的First Paint]</description>
+      <description>浏览器的页面的加载流程 [from Chrome的First Paint]  浏览器输入 url，浏览器发送请求到服务器，服务器将请求的HTML返回给浏览器。 浏览器下载完成 HTML(Finish Loading HTML) 之后，便开始从上到下解析。 解析的过程中碰到 css 和 js 外链（其实 HTML 的下载也是这个流程）都会执行以下过程： Send Request: 表示给这个外链对应的服务器发送请求 Receive Response: 表示接收响应，这里是表示告诉浏览器可以开始从网络接收数据了 Receive Data: 表示开始接收数据 Finish Loading: 表示已经完成下载数据。 Parse Stylesheet/Evaluate（默认情况下 js 下载完成之后执行 Evaluate，css 下载完成后会进行Parse Stylesheet） 所有的 css 下载完成后 Parse Stylesheet 然后开始构建 CSSOM DOM（文档对象模型）和 CSSOM（CSS对象模型）会合并生成一个渲染树(Render Tree) 根据渲染树的内容计算出各个节点在网页中的大小和位置（Layout，可以理解为“刻章”） 根据 Layout 绘制内容在浏览器上（Paint，可以理解为“盖章”）。  页面加载相关事件名词解释 [图片 from Chrome的First Paint]
+ FP(First Paint)  First paint，直译过来的意思就是浏览器第一次渲染(paint)，在 First paint 之前是白屏，在这个时间点之后用户就能看到（部分）页面内容。[from Chrome的First Paint]
+First Paint，是 Paint Timing API 的一部分，是页面导航与浏览器将该网页的第一个像素渲染到屏幕上所用的中间时，渲染是任何与输入网页导航前的屏幕上的内容不同的内容。[from MDN]</description>
     </item>
     
     <item>
@@ -237,7 +235,7 @@ copyright - 日期  For the copyright date, you&amp;rsquo;ll want to use only a 
       
       <guid>https://luneshao.github.io/2020/2020-05-20-vue-perf/</guid>
       <description>1、字体优化 1.1 字体包压缩 使用 fontmin 这个库压缩字体包。（字体下载地址 字体下载网 ，这个下载的苹方简-常规可以被格式化。）
-const Fontmin = require(&#39;fontmin&#39;) const srcPath = &#39;./path/*.ttf&#39; // 字体源文件 const destPath = &#39;./path&#39; // 输出路径 const text = &#39;text&#39; var fontmin = new Fontmin() .src(srcPath) .dest(destPath) .use( Fontmin.glyph({ text: text, hinting: false // keep ttf hint info (fpgm, prep, cvt). default = true }) ) // 执行 fontmin.run(function (err, files, stream) { if (err) { console.error(err) // 异常捕捉 } console.log(&#39;done&#39;) // 成功 })  1.</description>
+const Fontmin = require(&amp;#39;fontmin&amp;#39;) const srcPath = &amp;#39;./path/*.ttf&amp;#39; // 字体源文件 const destPath = &amp;#39;./path&amp;#39; // 输出路径 const text = &amp;#39;text&amp;#39; var fontmin = new Fontmin() .src(srcPath) .dest(destPath) .use( Fontmin.glyph({ text: text, hinting: false // keep ttf hint info (fpgm, prep, cvt). default = true  }) ) // 执行 fontmin.run(function (err, files, stream) { if (err) { console.error(err) // 异常捕捉  } console.</description>
     </item>
     
     <item>
@@ -255,8 +253,7 @@ const Fontmin = require(&#39;fontmin&#39;) const srcPath = &#39;./path/*.ttf&#39
       <pubDate>Mon, 20 Apr 2020 10:36:26 +0800</pubDate>
       
       <guid>https://luneshao.github.io/2020/2020-04-20-nodejs-proxy/</guid>
-      <description>http-proxy  安装包 http-proxy 全局安装 pm2 包 创建 src/server/index.js
-const url = require(&#39;url&#39;) const http = require(&#39;http&#39;) const axios = require(&#39;axios&#39;) const qs = require(&#39;qs&#39;) const httpProxy = require(&#39;http-proxy&#39;) const proxy = httpProxy.createProxyServer((options = { changeOrigin: true, target: &#39;https://api.mysubmail.com&#39; })) proxy.on(&#39;proxyRes&#39;, (proxyRes, req, res, options) =&amp;gt; { let body = [] proxyRes.on(&#39;data&#39;, function(chunk) { body.push(chunk) }) proxyRes.on(&#39;end&#39;, function() { body = Buffer.concat(body).toString() res.end(&#39;my response to cli&#39;) }) }) proxy.on(&#39;error&#39;, function(err, req, res) { res.</description>
+      <description>http-proxy  安装包 http-proxy 全局安装 pm2 包 创建 src/server/index.js const url = require(&amp;#39;url&amp;#39;) const http = require(&amp;#39;http&amp;#39;) const axios = require(&amp;#39;axios&amp;#39;) const qs = require(&amp;#39;qs&amp;#39;) const httpProxy = require(&amp;#39;http-proxy&amp;#39;) const proxy = httpProxy.createProxyServer((options = { changeOrigin: true, target: &amp;#39;https://api.mysubmail.com&amp;#39; })) proxy.on(&amp;#39;proxyRes&amp;#39;, (proxyRes, req, res, options) =&amp;gt; { let body = [] proxyRes.on(&amp;#39;data&amp;#39;, function(chunk) { body.push(chunk) }) proxyRes.on(&amp;#39;end&amp;#39;, function() { body = Buffer.concat(body).toString() res.end(&amp;#39;my response to cli&amp;#39;) }) }) proxy.on(&amp;#39;error&amp;#39;, function(err, req, res) { res.</description>
     </item>
     
     <item>
@@ -276,12 +273,13 @@ const url = require(&#39;url&#39;) const http = require(&#39;http&#39;) const ax
       <guid>https://luneshao.github.io/2020/2020-04-07-fluent-ffmpeg-api/</guid>
       <description>node-fluent-ffmpeg 该库将 ffmpeg 的复杂命令行用法抽象为一个流畅，易于使用的 node.js 模块。为了能够使用此模块，请确保在系统上安装了ffmpeg（包括所有必需的编码库，如 libmp3lame 或 libx264）。
 安装 npm
-$ npm install fluent-ffmpeg  yarn
-$ yarn add fluent-ffmpeg  或者作为一个 submodule
-$ git submodule add git://github.com/schaermu/node-fluent-ffmpeg.git vendor/fluent-ffmpeg  用法 你将在 examples 文件夹中找到一些有用的例子。
+$ npm install fluent-ffmpeg yarn
+$ yarn add fluent-ffmpeg 或者作为一个 submodule
+$ git submodule add git://github.com/schaermu/node-fluent-ffmpeg.git vendor/fluent-ffmpeg 用法 你将在 examples 文件夹中找到一些有用的例子。
 先决条件 ffmpeg and ffprobe fluent-ffmpeg 需要 ffmpeg&amp;gt; = 0.9 才能工作。它可能与以前的版本一起使用，但是一些功能将不可用（并且不再对库进行较低版本的测试）。
 如果设置了 FFMPEG_PATH 环境变量，fluent-ffmpeg 会将其用作 ffmpeg 可执行文件的完整路径。否则，它将尝试直接调用 ffmpeg（因此它应该在您的 PATH 中）。您还必须安装 ffprobe（大多数发行版随附 ffmpeg）。同样，fluent-ffmpeg 将使用 FFPROBE_PATH 环境变量（如果已设置），否则它将尝试在 PATH 中调用它。
-当使用 avconv 和 avprobe 而不是 ffmpeg 和 ffprobe 时，大多数功能都可以使用，但是目前尚不正式支持。</description>
+当使用 avconv 和 avprobe 而不是 ffmpeg 和 ffprobe 时，大多数功能都可以使用，但是目前尚不正式支持。
+Windows 用户：ffmpeg 和 ffprobe 很可能不在您的％PATH 中，因此您必须设置％FFMPEG_PATH 和％FFPROBE_PATH。</description>
     </item>
     
     <item>
@@ -291,11 +289,11 @@ $ git submodule add git://github.com/schaermu/node-fluent-ffmpeg.git vendor/flue
       
       <guid>https://luneshao.github.io/2020/2020-04-02-tencent-server-ssh/</guid>
       <description>引子 话说去年夏天，腾讯云最低端配置的服务器两百多可以包三年，我就冲了一台给自己瞎鼓捣东西用。最近在测试Jekyll的自动部署就又把服务器用起来了，然后，这两天就提示越南的IP异常登录，emmm，我又不太懂，怕服务器被黑了，就查了下解决办法。然后，就看到了腾讯云防暴力破解防异地登陆。然后，就踩了一个小坑“修改ssh远程登陆端口后，ssh连接一直connect refused”所以记录下。
-正文 文章中的步骤： &amp;gt; 1、 vim /etc/ssh/sshd_config,将#Port 22解注释，然后改成其他端口，最后重启sshd服务 &amp;gt; 2、 重启sshd服务： systemctl restart sshd &amp;gt; 3、 在腾讯云安全组开放你的端口，来源最好绑定自己ip
-这里步骤是完全没问题的，但是不完整。下面我补充一下：
- 5、 根据修改云服务器远程默认端口这篇文章，在执行完第二步之后需要配置下防火墙，放行新增端口。 6、 也就是我踩的坑。重启实例。具体原因我不清楚，但是不重启的话，我修改的远程端口配置就不生效。如果大佬们清楚原因还望赐教，感谢。  补充腾讯云其他操作 一、使用ssh方式远程连接服务器 参考腾讯云购买以及配置ssh密钥登录 为了安全，在本地生成公钥、私钥配置到实例中。 步骤： - 1、 本地执行 ssh-keygen -t rsa ,然后会出现如下内容：
-Generating public/private rsa key pair. Enter file in which to save the key (/Users/apple/.ssh/id_rsa):  可以在此时输入自定义的ssh文件名，默认的是 id_rsa，为了区分我修改为 id_rsa_tencent-server。之后可以一路回车，如果想设置密码可以设置，我嫌麻烦没设置。 - 2、 本地配置ssh对应的hostname及端口：
-$ cd ~/.ssh $ vi config （键盘键入 i 输入内容） $ Host tencent UseKeychain yes User root Port 8888 HostName 8.</description>
+正文 文章中的步骤：
+ 1、 vim /etc/ssh/sshd_config,将#Port 22解注释，然后改成其他端口，最后重启sshd服务 2、 重启sshd服务： systemctl restart sshd 3、 在腾讯云安全组开放你的端口，来源最好绑定自己ip
+ 这里步骤是完全没问题的，但是不完整。下面我补充一下：
+ 5、 根据修改云服务器远程默认端口这篇文章，在执行完第二步之后需要配置下防火墙，放行新增端口。 6、 也就是我踩的坑。重启实例。具体原因我不清楚，但是不重启的话，我修改的远程端口配置就不生效。如果大佬们清楚原因还望赐教，感谢。  补充腾讯云其他操作 一、使用ssh方式远程连接服务器 参考腾讯云购买以及配置ssh密钥登录 为了安全，在本地生成公钥、私钥配置到实例中。 步骤：
+ 1、 本地执行 ssh-keygen -t rsa ,然后会出现如下内容： Generating public/private rsa key pair. Enter file in which to save the key (/Users/apple/.ssh/id_rsa): 可以在此时输入自定义的ssh文件名，默认的是 id_rsa，为了区分我修改为 id_rsa_tencent-server。之后可以一路回车，如果想设置密码可以设置，我嫌麻烦没设置。 2、 本地配置ssh对应的hostname及端口： $ cd ~/.ssh $ vi config （键盘键入 i 输入内容） $ Host tencent UseKeychain yes User root Port 8888 HostName 8.</description>
     </item>
     
     <item>
@@ -305,12 +303,12 @@ $ cd ~/.ssh $ vi config （键盘键入 i 输入内容） $ Host tencent UseKeyc
       
       <guid>https://luneshao.github.io/2020/2020-03-23-jekyll-blog/</guid>
       <description>分布教程 1. Setup installation 安装 Jekyll
-gem install jekyll bundler  创建 Gemfile
-bundle init  编辑 Gemfile，添加 Jekyll 作为依赖
-gem &amp;quot;jekyll&amp;quot;  运行 bundle 安装 Jekyll 到项目。
-bundle  现在可以在 Jekyll 的命令前加上 bundle exec，以确保使用 Gemfile 中的 Jekyll 版本。
+gem install jekyll bundler 创建 Gemfile
+bundle init 编辑 Gemfile，添加 Jekyll 作为依赖
+gem &amp;quot;jekyll&amp;quot; 运行 bundle 安装 Jekyll 到项目。
+bundle 现在可以在 Jekyll 的命令前加上 bundle exec，以确保使用 Gemfile 中的 Jekyll 版本。
 Create a site 为网站创建一个目录，名称可以任意起。在教程的其余部分，将称其为 root. 在 root 目录添加第一个文件 index.html。
-&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;utf-8&amp;quot; /&amp;gt; &amp;lt;title&amp;gt;Home&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;h1&amp;gt;Hello World!&amp;lt;/h1&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  build Jekyll 是静态网站生成器，因此我们需要 Jekyll 构建网站才能查看。您可以在网站的根目录中运行以下两个命令来构建它：
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34; /&amp;gt; &amp;lt;title&amp;gt;Home&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;h1&amp;gt;Hello World!&amp;lt;/h1&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; build Jekyll 是静态网站生成器，因此我们需要 Jekyll 构建网站才能查看。您可以在网站的根目录中运行以下两个命令来构建它：
  jekyll build：构建网站输出静态站点到名为 _site 的目录下。 jekyll serve：除了在您进行更改并运行本地 Web 服务器时会重新生成之外，还会运行一个 web 服务在 http://localhost:4000  2.</description>
     </item>
     
@@ -320,8 +318,8 @@ Create a site 为网站创建一个目录，名称可以任意起。在教程的
       <pubDate>Sun, 22 Mar 2020 10:36:26 +0800</pubDate>
       
       <guid>https://luneshao.github.io/2020/2020-03-22-html-note/</guid>
-      <description>文本修饰标签 &amp;lt;b&amp;gt;加粗文本&amp;lt;/b&amp;gt; &amp;lt;s&amp;gt;删除线&amp;lt;/s&amp;gt; &amp;lt;u&amp;gt;下划线&amp;lt;/u&amp;gt; &amp;lt;sup&amp;gt;上标&amp;lt;/sup&amp;gt; &amp;lt;sub&amp;gt;下标&amp;lt;/sub&amp;gt; &amp;lt;font&amp;gt;字体标记&amp;lt;/font&amp;gt; &amp;lt;!-- 不常用属性 size: 文本大小，1-7。 color: 颜色值。 face: 字体。 --&amp;gt;  排版标签 p &amp;lt;p align=&amp;quot;center&amp;quot;&amp;gt;段落&amp;lt;/p&amp;gt;  不常用属性  align: 水平对齐方式，取值：left、center、right  hr &amp;lt;hr size=&amp;quot;2px&amp;quot; color=&amp;quot;yellow&amp;quot; width=&amp;quot;10px&amp;quot; noshade /&amp;gt;  不常用属性  size: 水平线的粗细，单位一般为 px。 color: 颜色。 width: 宽度。 noshade: 去掉水平线的阴影。  字符实体 &amp;lt;: &amp;amp;lt; &amp;gt;: &amp;amp;gt; &amp;amp;: &amp;amp;amp; &amp;yen;: &amp;amp;yen; &amp;times;: &amp;amp;times; &amp;divide;: &amp;amp;divide;
-列表 ul &amp;lt;ul type=&amp;quot;circle&amp;quot;&amp;gt; &amp;lt;li&amp;gt;无序列表&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt;  不常用属性  type: 符号类型，circle、square、disc。  ol &amp;lt;ol type=&amp;quot;a&amp;quot; start=&amp;quot;3&amp;quot;&amp;gt; &amp;lt;li&amp;gt;有序列表&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt;  不常用属性  type: 编号类型，取值：1、a、A、i、I。 start: 从第几个开始编号(数字)。  图片标签 img &amp;lt;img align=&amp;quot;right&amp;quot; hspace=&amp;quot;10px&amp;quot; vspace=&amp;quot;10px&amp;quot; /&amp;gt;  不常用属性  align: 图片的水平对齐方式，取值：left、center、right (Align 属性只能让文本居中，不能让图片单独居中。) hspace: 图片与左右文字之间的距离(水平距离) vspace: 图片与上下文字之间的距离(垂直距离)  meta 标签 &amp;lt;meta&amp;gt;的主要作用，是提供网页的元信息。 标记有两个属性：http-equiv 和 name。</description>
+      <description>文本修饰标签 &amp;lt;b&amp;gt;加粗文本&amp;lt;/b&amp;gt; &amp;lt;s&amp;gt;删除线&amp;lt;/s&amp;gt; &amp;lt;u&amp;gt;下划线&amp;lt;/u&amp;gt; &amp;lt;sup&amp;gt;上标&amp;lt;/sup&amp;gt; &amp;lt;sub&amp;gt;下标&amp;lt;/sub&amp;gt; &amp;lt;font&amp;gt;字体标记&amp;lt;/font&amp;gt; &amp;lt;!-- 不常用属性 size: 文本大小，1-7。 color: 颜色值。 face: 字体。 --&amp;gt; 排版标签 p &amp;lt;p align=&amp;#34;center&amp;#34;&amp;gt;段落&amp;lt;/p&amp;gt; 不常用属性  align: 水平对齐方式，取值：left、center、right  hr &amp;lt;hr size=&amp;#34;2px&amp;#34; color=&amp;#34;yellow&amp;#34; width=&amp;#34;10px&amp;#34; noshade /&amp;gt; 不常用属性  size: 水平线的粗细，单位一般为 px。 color: 颜色。 width: 宽度。 noshade: 去掉水平线的阴影。  字符实体 &amp;lt;: &amp;amp;lt; &amp;gt;: &amp;amp;gt; &amp;amp;: &amp;amp;amp; ¥: &amp;amp;yen; ×: &amp;amp;times; ÷: &amp;amp;divide;
+列表 ul &amp;lt;ul type=&amp;#34;circle&amp;#34;&amp;gt; &amp;lt;li&amp;gt;无序列表&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; 不常用属性  type: 符号类型，circle、square、disc。  ol &amp;lt;ol type=&amp;#34;a&amp;#34; start=&amp;#34;3&amp;#34;&amp;gt; &amp;lt;li&amp;gt;有序列表&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; 不常用属性  type: 编号类型，取值：1、a、A、i、I。 start: 从第几个开始编号(数字)。  图片标签 img &amp;lt;img align=&amp;#34;right&amp;#34; hspace=&amp;#34;10px&amp;#34; vspace=&amp;#34;10px&amp;#34; /&amp;gt; 不常用属性  align: 图片的水平对齐方式，取值：left、center、right (Align 属性只能让文本居中，不能让图片单独居中。) hspace: 图片与左右文字之间的距离(水平距离) vspace: 图片与上下文字之间的距离(垂直距离)  meta 标签 &amp;lt;meta&amp;gt;的主要作用，是提供网页的元信息。 标记有两个属性：http-equiv 和 name。</description>
     </item>
     
     <item>
@@ -332,7 +330,7 @@ Create a site 为网站创建一个目录，名称可以任意起。在教程的
       <guid>https://luneshao.github.io/2020/2020-03-20-vue/</guid>
       <description> 不要在选项属性或回调上使用箭头函数，比如 created: () =&amp;gt; console.log(this.a) 或 vm.$watch(&amp;lsquo;a&amp;rsquo;, newValue =&amp;gt; this.myMethod())。因为箭头函数并没有 this，this 会作为变量一直向上级词法作用域查找，直至找到为止，经常导致 Uncaught TypeError: Cannot read property of undefined 或 Uncaught TypeError: this.myMethod is not a function 之类的错误。
  可以在二级目录线上部署项目
-// vue.config.js module.exports = { publicPath: &#39;./&#39;, }  </description>
+// vue.config.js module.exports = { publicPath: &amp;#39;./&amp;#39;, } </description>
     </item>
     
     <item>
@@ -341,9 +339,7 @@ Create a site 为网站创建一个目录，名称可以任意起。在教程的
       <pubDate>Thu, 19 Mar 2020 10:36:26 +0800</pubDate>
       
       <guid>https://luneshao.github.io/2020/2020-03-19-follow-mouse/</guid>
-      <description>feature  给盒子设置了图片边框 实现背景色角度追随鼠标移动改变  css 属性  border-image-slice：通过 border-image-source 引用边框图片后，border-image-slice属性会将图片分割为9个区域：四个角，四个边（edges）以及中心区域。四条切片线，从它们各自的侧面设置给定距离，控制区域的大小。    var t = document.querySelector(&amp;lsquo;.test&amp;rsquo;) t.onmousemove = function (e) { let r = (e.screenX + e.screenY) % 360
-&amp;lt;!-- t.style.borderImage = `linear-gradient(${r}deg, #ffeead, #96ceb4) 2` --&amp;gt; t.style.backgroundImage = `linear-gradient(${360 - r}deg, #ffeead, #96ceb4)`  } 
-code &amp;lt;!-- ... --&amp;gt; &amp;lt;style&amp;gt; .test { width: 100px; height: 100px; padding: 20px; border: dashed 70px; border-image: url(https://tse3-mm.cn.bing.net/th/id/OIP.GL_hNcihF8Q0N-HDKWzBngHaFj?w=288&amp;amp;h=216&amp;amp;c=7&amp;amp;o=5&amp;amp;dpr=2&amp;amp;pid=1.7); border-image-slice: 33% 33%; // 修改试试 border-radius: 50%; border-image-width: 90px; // 修改试试 background: linear-gradient(45deg, transparent, rgb(150, 206, 180)) repeat center center / 50px 50px; } &amp;lt;/style&amp;gt; &amp;lt;!</description>
+      <description>feature  给盒子设置了图片边框 实现背景色角度追随鼠标移动改变  css 属性  border-image-slice：通过 border-image-source 引用边框图片后，border-image-slice属性会将图片分割为9个区域：四个角，四个边（edges）以及中心区域。四条切片线，从它们各自的侧面设置给定距离，控制区域的大小。  &amp;lt;!-- t.style.borderImage = `linear-gradient(${r}deg, #ffeead, #96ceb4) 2` --&amp;gt; t.style.backgroundImage = `linear-gradient(${360 - r}deg, #ffeead, #96ceb4)`  } code &amp;lt;!-- ... --&amp;gt; &amp;lt;style&amp;gt; .test { width: 100px; height: 100px; padding: 20px; border: dashed 70px; border-image: url(https://tse3-mm.cn.bing.net/th/id/OIP.GL_hNcihF8Q0N-HDKWzBngHaFj?w=288&amp;amp;h=216&amp;amp;c=7&amp;amp;o=5&amp;amp;dpr=2&amp;amp;pid=1.7); border-image-slice: 33% 33%; // 修改试试 border-radius: 50%; border-image-width: 90px; // 修改试试 background: linear-gradient(45deg, transparent, rgb(150, 206, 180)) repeat center center / 50px 50px; } &amp;lt;/style&amp;gt; &amp;lt;!</description>
     </item>
     
     <item>
@@ -353,9 +349,9 @@ code &amp;lt;!-- ... --&amp;gt; &amp;lt;style&amp;gt; .test { width: 100px; heig
       
       <guid>https://luneshao.github.io/2019/eslint/</guid>
       <description>引言
-参考文献：转载微信公众号的正文
-文章结构：注释了一下 eslint.js 的各个配置项是什么意思，再也不会觉得像天书了（狗头
- // eslint.js module.exports = { root: true, // 如果root设置为true，那么 ESLint 就会认为当前目录为根目录，不再向上查找配置。 parser: &#39;babel-eslint&#39;, // 解析器类型：espima(默认), babel-eslint, @typescript-eslint/parse parserOptions: { // 解析器配置参数 sourceType: &#39;module&#39; // 代码类型：script(默认), module }, // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style /** * &amp;quot;eslint:recommended&amp;quot;, // 一共有两个：eslint:recommended 、eslint:all * &amp;quot;plugin:react/recommended&amp;quot;, // 扩展是插件类型，也可以直接在 plugins 属性中进行设置 =&amp;gt; extPlugin = `plugin:${pluginName}/${configName}` * &amp;quot;eslint-config-standard&amp;quot;, // 扩展来自 npm 包，官方规定 npm 包的扩展必须以 eslint-config- 开头，使用时可以省略这个头 */ extends: &#39;standard&#39;, // 扩展就是直接使用别人已经写好的 lint 规则，方便快捷 // required to lint *.</description>
+  参考文献：转载微信公众号的正文
+  文章结构：注释了一下 eslint.js 的各个配置项是什么意思，再也不会觉得像天书了（狗头
+ // eslint.js module.exports = { root: true, // 如果root设置为true，那么 ESLint 就会认为当前目录为根目录，不再向上查找配置。  parser: &amp;#39;babel-eslint&amp;#39;, // 解析器类型：espima(默认), babel-eslint, @typescript-eslint/parse  parserOptions: { // 解析器配置参数  sourceType: &amp;#39;module&amp;#39; // 代码类型：script(默认), module  }, // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style  /** * &amp;#34;eslint:recommended&amp;#34;, // 一共有两个：eslint:recommended 、eslint:all * &amp;#34;plugin:react/recommended&amp;#34;, // 扩展是插件类型，也可以直接在 plugins 属性中进行设置 =&amp;gt; extPlugin = `plugin:${pluginName}/${configName}` * &amp;#34;eslint-config-standard&amp;#34;, // 扩展来自 npm 包，官方规定 npm 包的扩展必须以 eslint-config- 开头，使用时可以省略这个头 */ extends: &amp;#39;standard&amp;#39;, // 扩展就是直接使用别人已经写好的 lint 规则，方便快捷  // required to lint *.</description>
     </item>
     
     <item>
@@ -368,9 +364,9 @@ code &amp;lt;!-- ... --&amp;gt; &amp;lt;style&amp;gt; .test { width: 100px; heig
  鉴于对 Vue CLI 中 webpack 的链式配置一直不熟悉，mock 也没有用过。最近项目需要 mock 数据，所以新建了一个测试项目配置了一下。下面我会介绍配置流程。👇👇👇 (webpack 没理解透彻T_T)
 参考文献：
  Vue CLI 文档 webpack-chain 文档 webpack 配置文档 http-proxy-middleware 文档 mockjs-webpack-plugin 文档  文章结构：
-+ 配置流程 + Step 1. 安装插件 mockjs-webpack-plugin + Step 2. 配置 webpack 配置项 + Step 3. Mock 数据  配置流程 这里我就默认民那桑已经用 Vue CLI 安装了一个项目。我使用的 Vue CLI 3。
-Step 1. 安装插件 mockjs-webpack-plugin  这个插件通过 webpack 插件的方式，快速搭建项目的 mock 服务，用于前后端分离模式下的并行开发。emmm，是公司大佬用的这个，至于为什么我还没敢问 -_-
-yarn add mockjs-webpack-plugin --dev 或 cnpm install --save-dev mockjs-webpack-plugin  安装完成后，新建存放 mock 数据的文件夹及文件。文档</description>
++ 配置流程 + Step 1. 安装插件 mockjs-webpack-plugin + Step 2. 配置 webpack 配置项 + Step 3. Mock 数据 配置流程 这里我就默认民那桑已经用 Vue CLI 安装了一个项目。我使用的 Vue CLI 3。
+Step 1. 安装插件 mockjs-webpack-plugin   这个插件通过 webpack 插件的方式，快速搭建项目的 mock 服务，用于前后端分离模式下的并行开发。emmm，是公司大佬用的这个，至于为什么我还没敢问 -_-
+yarn add mockjs-webpack-plugin --dev 或 cnpm install --save-dev mockjs-webpack-plugin   安装完成后，新建存放 mock 数据的文件夹及文件。文档</description>
     </item>
     
     <item>
@@ -390,8 +386,8 @@ yarn add mockjs-webpack-plugin --dev 或 cnpm install --save-dev mockjs-webpack-
       <pubDate>Mon, 24 Jun 2019 09:24:54 +0800</pubDate>
       
       <guid>https://luneshao.github.io/2019/brew-noresponse/</guid>
-      <description> 内容摘自 清华大学开源软件镜像站
-替换现有上游 cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git cd &amp;quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;quot; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git brew update   以上。🐡
+      <description>内容摘自 清华大学开源软件镜像站
+替换现有上游 cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git cd &amp;quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;quot; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git brew update  以上。🐡
  </description>
     </item>
     
@@ -401,12 +397,11 @@ yarn add mockjs-webpack-plugin --dev 或 cnpm install --save-dev mockjs-webpack-
       <pubDate>Thu, 20 Jun 2019 14:43:42 +0800</pubDate>
       
       <guid>https://luneshao.github.io/2019/costom-url-protocol/</guid>
-      <description> 我参考了这篇博客，我使用了原博中 windows 系统的方式，亲测有效。下面贴一下操作步骤：
+      <description>我参考了这篇博客，我使用了原博中 windows 系统的方式，亲测有效。下面贴一下操作步骤：
 操作步骤  添加注册表  （1）新建一个 .reg 的文件，填充如下内容。例如我新建一个自定义协议，名称为 lune。请注意，将下面所有的路径（也就是方括号内的内容）中的名称要 全部替换为自定义的名称 ，且名称一定要 全部是小写字母 。
-Windows Registry Editor Version 5.00 [HKEY_CLASSES_ROOT\lune] &amp;quot;URL Protocol&amp;quot;=&amp;quot;C:\\WINDOWS\\system32\\calc.exe&amp;quot; @=&amp;quot;LuneProtocol&amp;quot; [HKEY_CLASSES_ROOT\lune\DefaultIcon] @=&amp;quot;C:\\WINDOWS\\system32\\calc.exe,1&amp;quot; [HKEY_CLASSES_ROOT\lune\shell] [HKEY_CLASSES_ROOT\lune\shell\open] [HKEY_CLASSES_ROOT\lune\shell\open\command] @=&amp;quot;\&amp;quot;C:\\WINDOWS\\system32\\calc.exe\&amp;quot; \&amp;quot;%1\&amp;quot;&amp;quot;  （2）双击添加到注册表。
- 调用方式
-&amp;lt;a href=&amp;quot;lune://123&amp;quot;&amp;gt;click&amp;lt;/a&amp;gt;   注意  [HKEY_CLASSES_ROOT\lune\shell]方括号内的路径（即 lune）要改成自定义的名字。
- 自定义的key值，也就是名称，要小写。（都是血与泪&amp;hellip;
+Windows Registry Editor Version 5.00 [HKEY_CLASSES_ROOT\lune] &amp;quot;URL Protocol&amp;quot;=&amp;quot;C:\\WINDOWS\\system32\\calc.exe&amp;quot; @=&amp;quot;LuneProtocol&amp;quot; [HKEY_CLASSES_ROOT\lune\DefaultIcon] @=&amp;quot;C:\\WINDOWS\\system32\\calc.exe,1&amp;quot; [HKEY_CLASSES_ROOT\lune\shell] [HKEY_CLASSES_ROOT\lune\shell\open] [HKEY_CLASSES_ROOT\lune\shell\open\command] @=&amp;quot;\&amp;quot;C:\\WINDOWS\\system32\\calc.exe\&amp;quot; \&amp;quot;%1\&amp;quot;&amp;quot; （2）双击添加到注册表。
+调用方式  &amp;lt;a href=&amp;#34;lune://123&amp;#34;&amp;gt;click&amp;lt;/a&amp;gt; 注意   [HKEY_CLASSES_ROOT\lune\shell]方括号内的路径（即 lune）要改成自定义的名字。
+  自定义的key值，也就是名称，要小写。（都是血与泪&amp;hellip;
   mark 实现浏览器判断本地是否安装程序，并下载与启动 Chrome,IE,360可用
  以上。🐳
  </description>
@@ -421,91 +416,71 @@ Windows Registry Editor Version 5.00 [HKEY_CLASSES_ROOT\lune] &amp;quot;URL Prot
       <description>&lt;blockquote&gt;
 &lt;p&gt;引言&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;最近两个月一直在鼓捣这个博客，一直也只是用网址访问。最近，尝试在搜索引擎上搜索我博客的url、内容、标题，通通搜不到？？？然后，看了&lt;a href=&#34;https://support.google.com/webmasters/answer/7451184&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;搜索引擎优化 (SEO) 新手指南&lt;/a&gt;。在 google console 上配置了站点地图并进行&lt;a href=&#34;https://support.google.com/webmasters/answer/9012289#url_can_be_on_google_issues&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;网址检查&lt;/a&gt;（查看资源中某个网址的 Google 索引信息）。&lt;/p&gt;
-
+&lt;p&gt;最近两个月一直在鼓捣这个博客，一直也只是用网址访问。最近，尝试在搜索引擎上搜索我博客的url、内容、标题，通通搜不到？？？然后，看了&lt;a href=&#34;https://support.google.com/webmasters/answer/7451184&#34;&gt;搜索引擎优化 (SEO) 新手指南&lt;/a&gt;。在 google console 上配置了站点地图并进行&lt;a href=&#34;https://support.google.com/webmasters/answer/9012289#url_can_be_on_google_issues&#34;&gt;网址检查&lt;/a&gt;（查看资源中某个网址的 Google 索引信息）。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;我的检查结果： &lt;em&gt;此网址未显示在 Google 搜索结果中&lt;/em&gt; 。（此时已经可以在 google 中检索到 url 了。）&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;点击查看详情 =&amp;gt; return ( 已抓取 - 尚未编入索引, 状态：已排除。 ) 查看&lt;a href=&#34;https://support.google.com/webmasters/answer/7440203#discovered__unclear_status&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;状态报告指南&lt;/a&gt;去一条一条的排查。我的结果对应的解释：&lt;code&gt;Google 已抓取相应网页，但尚未将其编入索引。日后，该网页可能会被编入索引，也可能不会被编入索引；无论如何，您都无需重新提交该网址以供抓取。&lt;/code&gt; 那就只能静静的等待了。（目前已经搜到了。）&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;我的检查结果： &lt;em&gt;此网址未显示在 Google 搜索结果中&lt;/em&gt; 。（此时已经可以在 google 中检索到 url 了。）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点击查看详情 =&amp;gt; return ( 已抓取 - 尚未编入索引, 状态：已排除。 ) 查看&lt;a href=&#34;https://support.google.com/webmasters/answer/7440203#discovered__unclear_status&#34;&gt;状态报告指南&lt;/a&gt;去一条一条的排查。我的结果对应的解释：&lt;code&gt;Google 已抓取相应网页，但尚未将其编入索引。日后，该网页可能会被编入索引，也可能不会被编入索引；无论如何，您都无需重新提交该网址以供抓取。&lt;/code&gt; 那就只能静静的等待了。（目前已经搜到了。）&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;下面主要是摘要梳理了搜索引擎优化 (SEO) 新手指南一些相关知识点，帮助理解。&lt;/p&gt;
-
-&lt;p&gt;官方文档先祭一下 &lt;a href=&#34;https://support.google.com/webmasters/answer/7451184&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;搜索引擎优化 (SEO) 新手指南&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;1-术语&#34;&gt;1.术语&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://support.google.com/webmasters/answer/70897&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Google 搜索的工作方式&lt;/a&gt;&lt;/p&gt;
-
+&lt;p&gt;官方文档先祭一下 &lt;a href=&#34;https://support.google.com/webmasters/answer/7451184&#34;&gt;搜索引擎优化 (SEO) 新手指南&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;1术语&#34;&gt;1.术语&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://support.google.com/webmasters/answer/70897&#34;&gt;Google 搜索的工作方式&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Google 按照以下三个基本步骤来生成基于网页的结果：&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;抓取&lt;/li&gt;
-&lt;li&gt;编入索引&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;呈现（和排名）&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;索引&lt;/strong&gt; - Google 会将所知道的全部网页存储在其“索引”中。每个网页的索引条目都会描述该网页的内容和位置（网址）。编入索引是指当 Google 抓取、读取网页并将其添加到索引的过程。例如：Google 今天已将我网站上的几个网页编入索引。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;抓取&lt;/strong&gt; - 寻找新网页或更新后的网页的过程。Google 会通过跟踪链接、读取站点地图或其他各种方式来发现网址。Google 通过抓取网页来寻找新增网页，然后（在适当的时候）将网页编入索引。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;抓取工具&lt;/strong&gt; - 从网络中抓取（提取）网页并将网页编入索引的自动化软件。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Googlebot&lt;/strong&gt; - Google 抓取工具的通用名称。Googlebot 会持续不断地抓取网页。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;SEO&lt;/strong&gt; - 搜索引擎优化：使您的网站更易于搜索引擎抓取和编入索引的过程；也可指从事搜索引擎优化的人员的职位名称，例如：我们刚刚聘请了新的 SEO 来提升我们在网络上的曝光度。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;抓取&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;编入索引&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;呈现（和排名）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;索引&lt;/strong&gt; - Google 会将所知道的全部网页存储在其“索引”中。每个网页的索引条目都会描述该网页的内容和位置（网址）。编入索引是指当 Google 抓取、读取网页并将其添加到索引的过程。例如：Google 今天已将我网站上的几个网页编入索引。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;抓取&lt;/strong&gt; - 寻找新网页或更新后的网页的过程。Google 会通过跟踪链接、读取站点地图或其他各种方式来发现网址。Google 通过抓取网页来寻找新增网页，然后（在适当的时候）将网页编入索引。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;抓取工具&lt;/strong&gt; - 从网络中抓取（提取）网页并将网页编入索引的自动化软件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Googlebot&lt;/strong&gt; - Google 抓取工具的通用名称。Googlebot 会持续不断地抓取网页。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;SEO&lt;/strong&gt; - 搜索引擎优化：使您的网站更易于搜索引擎抓取和编入索引的过程；也可指从事搜索引擎优化的人员的职位名称，例如：我们刚刚聘请了新的 SEO 来提升我们在网络上的曝光度。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h2 id=&#34;2-测试搜索结果&#34;&gt;2.测试搜索结果&lt;/h2&gt;
-
+&lt;h2 id=&#34;2测试搜索结果&#34;&gt;2.测试搜索结果&lt;/h2&gt;
 &lt;p&gt;在 google 中搜索 &lt;code&gt;site:example.com&lt;/code&gt;，尝试是否可以搜索到结果。如果可以搜索到，表明你的网站已经在索引中。搜不到，就继续向下看吧:)&lt;/p&gt;
-
-&lt;h2 id=&#34;3-如何让-google-收录您的内容&#34;&gt;3.如何让 Google 收录您的内容&lt;/h2&gt;
-
-&lt;p&gt;最好的办法是提交&lt;a href=&#34;https://support.google.com/webmasters/answer/156184?hl=zh-Hans&amp;amp;ref_topic=4581190&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;站点地图&lt;/a&gt; 。站点地图是网站上的一种文件，可告知搜索引擎网站上新增了网页或有更新的网页。&lt;/p&gt;
-
+&lt;h2 id=&#34;3如何让-google-收录您的内容&#34;&gt;3.如何让 Google 收录您的内容&lt;/h2&gt;
+&lt;p&gt;最好的办法是提交&lt;a href=&#34;https://support.google.com/webmasters/answer/156184?hl=zh-Hans&amp;amp;ref_topic=4581190&#34;&gt;站点地图&lt;/a&gt; 。站点地图是网站上的一种文件，可告知搜索引擎网站上新增了网页或有更新的网页。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;这里，我的博客本来是在 google 搜索不到的，hugo 会在 public 文件夹自动生成站点地图。（如果没有使用hugo，&lt;a href=&#34;https://support.google.com/webmasters/answer/183668?hl=zh-Hans&amp;amp;ref_topic=4581190&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;文章&lt;/a&gt;中也提供了一些在线生成站点地图的网址和工具，可以自行生成哟～）此时，需要我们做的就是在 Search Console 工具中，自行配置站点地图的 url，或者将其添加到您的 robots.txt 文件中。然后，在 google 输入 site:luneshao.github.io 就可以搜索到了。一小步进步啊！&lt;/li&gt;
+&lt;li&gt;这里，我的博客本来是在 google 搜索不到的，hugo 会在 public 文件夹自动生成站点地图。（如果没有使用hugo，&lt;a href=&#34;https://support.google.com/webmasters/answer/183668?hl=zh-Hans&amp;amp;ref_topic=4581190&#34;&gt;文章&lt;/a&gt;中也提供了一些在线生成站点地图的网址和工具，可以自行生成哟～）此时，需要我们做的就是在 Search Console 工具中，自行配置站点地图的 url，或者将其添加到您的 robots.txt 文件中。然后，在 google 输入 site:luneshao.github.io 就可以搜索到了。一小步进步啊！&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h2 id=&#34;4-告诉-google-不应抓取哪些页面&#34;&gt;4.告诉 Google 不应抓取哪些页面&lt;/h2&gt;
-
+&lt;h2 id=&#34;4告诉-google-不应抓取哪些页面&#34;&gt;4.告诉 Google 不应抓取哪些页面&lt;/h2&gt;
 &lt;p&gt;若为非敏感信息，则可以使用 robots.txt 阻止不必要的抓取。&lt;/p&gt;
-
-&lt;h2 id=&#34;5-帮助-google-和用户-了解您的内容&#34;&gt;5.帮助 Google（和用户）了解您的内容&lt;/h2&gt;
-
-&lt;p&gt;诸位可以使用这个&lt;a href=&#34;http://analyzer.metatags.org/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;免费网站分析工具&lt;/a&gt;，分析一下自己的网站 seo 方面是否存在不足。&lt;/p&gt;
-
-&lt;h3 id=&#34;5-1-创建唯一且准确的网页标题&#34;&gt;5.1 创建唯一且准确的网页标题&lt;/h3&gt;
-
+&lt;h2 id=&#34;5帮助-google和用户了解您的内容&#34;&gt;5.帮助 Google（和用户）了解您的内容&lt;/h2&gt;
+&lt;p&gt;诸位可以使用这个&lt;a href=&#34;http://analyzer.metatags.org/&#34;&gt;免费网站分析工具&lt;/a&gt;，分析一下自己的网站 seo 方面是否存在不足。&lt;/p&gt;
+&lt;h3 id=&#34;51-创建唯一且准确的网页标题&#34;&gt;5.1 创建唯一且准确的网页标题&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;&amp;lt;title&amp;gt;&lt;/code&gt; 标记可告诉用户和搜索引擎特定网页的主题是什么。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;title&amp;gt;unique title&amp;lt;/title&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;5-2-创建恰当的标题和摘要以在搜索结果中显示&#34;&gt;5.2 创建恰当的标题和摘要以在搜索结果中显示&lt;/h3&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;&amp;gt;unique title&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;52-创建恰当的标题和摘要以在搜索结果中显示&#34;&gt;5.2 创建恰当的标题和摘要以在搜索结果中显示&lt;/h3&gt;
 &lt;p&gt;如果您的文档会显示在搜索结果页中，则 title 标记的内容可能会显示在相应结果的第一行&lt;/p&gt;
-
-&lt;h3 id=&#34;5-3-使用-description-元标记&#34;&gt;5.3 使用“description”元标记&lt;/h3&gt;
-
+&lt;h3 id=&#34;53-使用description元标记&#34;&gt;5.3 使用“description”元标记&lt;/h3&gt;
 &lt;p&gt;网页的说明元标记可让 Google 和其他搜索引擎了解该网页的大致内容。网页的标题可以是几个词或一个短语，而网页的说明元标记则可以是一两个句子或是一小段话。&lt;/p&gt;
-
 &lt;h4 id=&#34;说明元标记有哪些好处&#34;&gt;说明元标记有哪些好处？&lt;/h4&gt;
-
 &lt;p&gt;说明元标记很重要，因为 Google 可能会将其用作您网页的摘要。为每个网页添加说明元标记从来都是非常好的做法，以防 Google 找不到要在摘要中使用的恰当文字。&lt;/p&gt;
-
-&lt;h3 id=&#34;5-4-使用标题标记强调重要文字&#34;&gt;5.4 使用标题标记强调重要文字&lt;/h3&gt;
-
+&lt;h3 id=&#34;54-使用标题标记强调重要文字&#34;&gt;5.4 使用标题标记强调重要文字&lt;/h3&gt;
 &lt;p&gt;按顺序使用多种大小的标题可为您的内容创建层次结构，便于用户浏览文档。&lt;/p&gt;
-
-&lt;h3 id=&#34;5-5-添加结构化数据标记&#34;&gt;5.5 添加结构化数据标记&lt;/h3&gt;
-
+&lt;h3 id=&#34;55-添加结构化数据标记&#34;&gt;5.5 添加结构化数据标记&lt;/h3&gt;
 &lt;p&gt;结构化数据21是可添加到网站页面中的代码，用于向搜索引擎描述内容，以便搜索引擎更好地了解网页上的信息。搜索引擎可以利用这类信息在搜索结果中以有用的（且吸引用户的）方式显示您的内容。这也有助于您吸引到适合您业务的客户。&lt;/p&gt;
-
 &lt;p&gt;例如，如果您有一个网店并且标记了一个单独的产品页面，这将帮助我们了解该页面主要显示自行车、自行车价格以及客户评价。我们可能会在相关查询的搜索结果的摘要中显示这些信息。我们将其称之为“富媒体搜索结果”。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;富媒体搜索结果：Google 搜索结果中的增强型结果，具有额外的视觉效果或互动功能。&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -522,10 +497,9 @@ Windows Registry Editor Version 5.00 [HKEY_CLASSES_ROOT\lune] &amp;quot;URL Prot
 不过过程中遇到的一些问题，打算记录下来。希望能帮助看到这篇文章的你避免一些坑吧。
 文章目录：
  页面开发 组件开发 字体图标 云函数  —————————— 一个渣渣前端的独白
-1.页面开发  1.使用 this.setData({}) 赋值。
- 2.页面向函数传参使用 dataset。请戳官方文档
-&amp;lt;!-- page.html --&amp;gt; &amp;lt;view data-index=&#39;{{index}}&#39; bindtap=&amp;quot;handelItemDel&amp;quot;&amp;gt; {{ item }} &amp;lt;/view&amp;gt;  // page.js handelItemDel(e) { let { selArr } = this.data const index = e.target.dataset.index selArr.splice(index, 1) this.setData({ selArr: selArr }) },  3.在 app.json 中，page 项数组的第一个页面是小程序的主页（即第一个跳转到的页面）。
-  2.组件开发 在 miniprogram 的目录下新建一个 components 文件夹，在文件夹内创建 组件。在页面中引用时，需要在页面的 json 文件中引入组件。key 值就是在页面中引入的标签名。</description>
+1.页面开发   1.使用 this.setData({}) 赋值。
+  2.页面向函数传参使用 dataset。请戳官方文档
+  &amp;lt;!-- page.html --&amp;gt; &amp;lt;view data-index=&amp;#39;{{index}}&amp;#39; bindtap=&amp;#34;handelItemDel&amp;#34;&amp;gt; {{ item }} &amp;lt;/view&amp;gt; // page.js handelItemDel(e) { let { selArr } = this.data const index = e.target.dataset.index selArr.splice(index, 1) this.setData({ selArr: selArr }) },  3.在 app.json 中，page 项数组的第一个页面是小程序的主页（即第一个跳转到的页面）。  2.组件开发 在 miniprogram 的目录下新建一个 components 文件夹，在文件夹内创建 组件。在页面中引用时，需要在页面的 json 文件中引入组件。key 值就是在页面中引入的标签名。</description>
     </item>
     
     <item>
@@ -543,7 +517,7 @@ Windows Registry Editor Version 5.00 [HKEY_CLASSES_ROOT\lune] &amp;quot;URL Prot
 定义 filter：滤镜。
 filter CSS属性将模糊或颜色偏移等 图形效果应用于元素 。滤镜通常用于调整图像，背景和边框的渲染。 CSS标准里包含了一些已实现预定义效果的函数。你也可以参考一个SVG滤镜，通过一个URL链接到SVG滤镜元素(SVG filter element)。
 语法 共分为四类。具体的我就不搬运了，下面具体介绍。形式语法
-/* 自定义的 SVG 滤镜 */ .filter: url(&amp;quot;filters.svg#filter-id&amp;quot;) /* 滤镜函数 */ blur、brightness、contrast、drop-shadow、grayscale、hue-rotate invert、opacity、saturate、sepia .filter: blur(5px); /* 混合滤镜 */ filter: contrast(175%) brightness(3%); /* Global values */ filter: inherit; filter: initial; filter: unset;  函数 url: URL函数接受一个XML文件，该文件设置了一个 SVG滤镜 ，且可以包含一个锚点来指定一个具体的滤镜元素.</description>
+/* 自定义的 SVG 滤镜 */ .filter: url(&amp;#34;filters.svg#filter-id&amp;#34;) /* 滤镜函数 */ blur、brightness、contrast、drop-shadow、grayscale、hue-rotate invert、opacity、saturate、sepia .filter: blur(5px); /* 混合滤镜 */ filter: contrast(175%) brightness(3%); /* Global values */ filter: inherit; filter: initial; filter: unset; 函数 url: URL函数接受一个XML文件，该文件设置了一个 SVG滤镜 ，且可以包含一个锚点来指定一个具体的滤镜元素.</description>
     </item>
     
     <item>
@@ -556,11 +530,11 @@ filter CSS属性将模糊或颜色偏移等 图形效果应用于元素 。滤�
 概念 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
 个人理解：raf 这个函数可以用来做动画，它需要一个参数，参数的形式是一个回调函数，在回调函数里可以写需要执行的动画。
 这个回调函数会默认接收一个参数，即执行回调函数时的时间戳，回调函数，会在每次浏览器在下次重绘前执行回调函数更新动画，个人认为这样来保证动画的帧率和稳定性。大多数电脑显示器的刷新频率是60Hz，大概相当于每秒钟重绘60次，相当于每帧的执行时间为 16.67ms。
-特性  参数中的回调函数执行次数通常是每秒60次，速度大约为 16.67ms 每帧。
- 当requestAnimationFrame()运行在后台标签页或者隐藏的&amp;lt;iframe&amp;gt; 里时，requestAnimationFrame() 会被暂停调用。对比 setTimeout ，离开页面依旧会计时，raf 更加节省性能。
- DOMHighResTimeStamp指示由 RequestAnimationFrame() 排队的回调开始触发的时间。
- 它返回一个整数，表示定时器的编号，这个值可以传递给 cancelAnimationFrame 用于取消这个函数的执行。
-  使用方法 window.requestAnimationFrame(callback) function callback (timeStamp) { // 默认接收参数 timeStamp，表示开始执行回调函数的时刻 // 若你想在浏览器下次重绘之前继续更新下一帧动画，那么回调函数自身必须再次调用window.requestAnimationFrame() window.requestAnimationFrame(callback) }  避免一帧多次调用 let ifCurFra = false // 当前帧是否执行 function cb (timeStamp) { if (ifCurFra) return ifCurFra = true window.requestAnimationFrame(timeStamp =&amp;gt; { ifCurFra = false }) } window.</description>
+特性   参数中的回调函数执行次数通常是每秒60次，速度大约为 16.67ms 每帧。
+  当requestAnimationFrame()运行在后台标签页或者隐藏的&amp;lt;iframe&amp;gt; 里时，requestAnimationFrame() 会被暂停调用。对比 setTimeout ，离开页面依旧会计时，raf 更加节省性能。
+  DOMHighResTimeStamp指示由 RequestAnimationFrame() 排队的回调开始触发的时间。
+  它返回一个整数，表示定时器的编号，这个值可以传递给 cancelAnimationFrame 用于取消这个函数的执行。
+  使用方法 window.requestAnimationFrame(callback) function callback (timeStamp) { // 默认接收参数 timeStamp，表示开始执行回调函数的时刻  // 若你想在浏览器下次重绘之前继续更新下一帧动画，那么回调函数自身必须再次调用window.requestAnimationFrame()  window.requestAnimationFrame(callback) } 避免一帧多次调用 let ifCurFra = false // 当前帧是否执行  function cb (timeStamp) { if (ifCurFra) return ifCurFra = true window.requestAnimationFrame(timeStamp =&amp;gt; { ifCurFra = false }) } window.</description>
     </item>
     
     <item>
@@ -587,7 +561,7 @@ translate 值的计算 于是学习了 张鑫旭前辈的文章，这是一个�
       
       <guid>https://luneshao.github.io/2019/element-expland/</guid>
       <description>1. 获取元素的css  1.1 window.getComputedStyle()  返回另一个包含所有 css 属性的对象，该对象应用了样式表并解析了基础计算（只读）。
-window.getComputedStyle().getPropertyValue(&#39;font&#39;) // 获取属性 font 值  MDN 张鑫旭前辈的文章
+window.getComputedStyle().getPropertyValue(&amp;#39;font&amp;#39;) // 获取属性 font 值 MDN 张鑫旭前辈的文章
 css 安全(blog)
 2.获取元素的大小及其相对于视口的位置  2.1 Element.getComputedStyle()  MDN
 返回元素的大小及其相对于视口的位置。
@@ -605,11 +579,9 @@ css 安全(blog)
       
       <guid>https://luneshao.github.io/2019/js-beauty/</guid>
       <description>github完整文章连接
-Objects  1.1 将简写属性，放在对象定义的开始部分。
-// bad const obj = { key1: 2, key2, key3: 2, } // good const obj = { key2, key4, key1: 2, key3: 2, }  1.2 不要直接调用 Object.prototype，例如 hasOwnProperty， propertyIsEnumerable，
-  因为这些名字没有被 Javascript 保留，如果被重新定义就会被覆盖。所以，最好是在原型链上调用。
+Objects  1.1 将简写属性，放在对象定义的开始部分。  // bad const obj = { key1: 2, key2, key3: 2, } // good const obj = { key2, key4, key1: 2, key3: 2, }  1.2 不要直接调用 Object.prototype，例如 hasOwnProperty， propertyIsEnumerable，  因为这些名字没有被 Javascript 保留，如果被重新定义就会被覆盖。所以，最好是在原型链上调用。
 MDN相关连接
-// bad const a = obj.hasOwnProperty(&#39;name&#39;) // good const a = Object.prototype.hasOwnProperty.call(obj, &#39;name&#39;) // best // has.js const has = Object.prototype.hasOwnProperty // use.js import has from &#39;./has.js&#39; const a = has.</description>
+// bad const a = obj.hasOwnProperty(&amp;#39;name&amp;#39;) // good const a = Object.prototype.hasOwnProperty.call(obj, &amp;#39;name&amp;#39;) // best // has.js const has = Object.prototype.hasOwnProperty // use.js import has from &amp;#39;./has.js&amp;#39; const a = has.</description>
     </item>
     
     <item>
@@ -618,10 +590,10 @@ MDN相关连接
       <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://luneshao.github.io/2019/css-clip/</guid>
-      <description>参考文献：MDN&amp;emsp; 张鑫旭前辈的文章
+      <description>参考文献：MDN 张鑫旭前辈的文章
 介绍 定义 clip 属性剪裁元素，属性仅应用于绝对定位元素，例如 position: absolute 或 position: fixed。
-属性值  auto：不剪裁。
- &amp;lt;shape&amp;gt;：截取的形状，值的表示方式 rect(&amp;lt;top&amp;gt;, &amp;lt;right&amp;gt;, &amp;lt;bottom&amp;gt;, &amp;lt;left&amp;gt;) 或 rect(&amp;lt;top&amp;gt; &amp;lt;right&amp;gt; &amp;lt;bottom&amp;gt; &amp;lt;left&amp;gt;)。
+属性值   auto：不剪裁。
+  &amp;lt;shape&amp;gt;：截取的形状，值的表示方式 rect(&amp;lt;top&amp;gt;, &amp;lt;right&amp;gt;, &amp;lt;bottom&amp;gt;, &amp;lt;left&amp;gt;) 或 rect(&amp;lt;top&amp;gt; &amp;lt;right&amp;gt; &amp;lt;bottom&amp;gt; &amp;lt;left&amp;gt;)。
   top &amp;amp; bottom 设置的是距离元素上边距的距离。left &amp;amp; right 设置的是距离元素左边距的距离。
 左侧使用了clip属性，左右容器和图片的尺寸都是200 * 200。 top、right、bottom、left 的值可以是 数值 或 auto 。
 tips：auto表示 If any side&amp;rsquo;s value is auto, the element is clipped to that side&amp;rsquo;s inside border edge. （文档） 截取到元素该边的内边界。
@@ -635,15 +607,8 @@ tips：auto表示 If any side&amp;rsquo;s value is auto, the element is clipped 
       
       <guid>https://luneshao.github.io/2019/js-date/</guid>
       <description>参考文献：MDN
-常用方法 语法 new Date()： 返回一个 Date 对象
-new Date(value)：
-new Date(dateString)：
-new Date(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])：
-Date() : 以函数形式直接调用 Date()，返回一个字符串
-new Date() 参数 (value)： 一个整数值，表示自1970年1月1日00:00:00 UTC（the Unix epoch）以来的毫秒数。
-(dateString)： 表示日期的字符串值。
-(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])：
-year：表示年份的整数值。
+常用方法 语法 new Date()： 返回一个 Date 对象new Date(value)：new Date(dateString)：new Date(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])：Date() : 以函数形式直接调用 Date()，返回一个字符串
+new Date() 参数 (value)： 一个整数值，表示自1970年1月1日00:00:00 UTC（the Unix epoch）以来的毫秒数。(dateString)： 表示日期的字符串值。(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])：year：表示年份的整数值。
 monthIndex：表示月份的整数值，从 0（1月）到 11（12月）。
 day：表示一个月中的第几天的整数值，从1开始。
 hours：小时数的整数值 (24小时制)。
@@ -651,7 +616,8 @@ minutes：时间中分钟部分的整数值。
 seconds：时间中的秒部分的整数值。
 milliseconds：时间的毫秒部分的整数值。
 方法 Date.now()： 返回自 1970-1-1 00:00:00 UTC（世界标准时间）至今所经过的毫秒数。
-Date.parse()： 解析一个表示日期的字符串，并返回从 1970-1-1 00:00:00 所经过的毫秒数。</description>
+Date.parse()： 解析一个表示日期的字符串，并返回从 1970-1-1 00:00:00 所经过的毫秒数。
+Date.UTC()： 接受和构造函数最长形式的参数相同的参数（从2到7），并返回从 1970-01-01 00:00:00 UTC 开始所经过的毫秒数。</description>
     </item>
     
     <item>
@@ -664,12 +630,13 @@ Date.parse()： 解析一个表示日期的字符串，并返回从 1970-1-1 00:
 使用 Hugo 生成博客还请大家移步至 Hugo中文文档，我看着挺清晰的，比英文文档好看啊&amp;hellip;
 我目前使用的是 hugo-lamp 这个主题，绿绿的多好看😏。
 1.Hugo 目录结构 原文连接
-├── archetypes // 储存.md的模板文件，新建一个 .md 文件时，就会按此模版创建 ├── content // 储存网站的所有内容，写的文章存放在这里 ├── data // 储存数据文件供模板调用（目前没有用到过） ├── layouts // 储存.html模板（也莫的用） ├── static // 储存图片,css,js等静态文件，该目录下的文件会直接拷贝到/public ├── themes // 储存主题 └── config.toml // 配置文件  图片的引用 Hugo 的图片可以直接放在其 static/img 目录里面，其路径就是 /img/image_name.png。
+├── archetypes // 储存.md的模板文件，新建一个 .md 文件时，就会按此模版创建 ├── content // 储存网站的所有内容，写的文章存放在这里 ├── data // 储存数据文件供模板调用（目前没有用到过） ├── layouts // 储存.html模板（也莫的用） ├── static // 储存图片,css,js等静态文件，该目录下的文件会直接拷贝到/public ├── themes // 储存主题 └── config.toml // 配置文件 图片的引用 Hugo 的图片可以直接放在其 static/img 目录里面，其路径就是 /img/image_name.png。
 [2019-06-12日更新]
 众所周知，安装主题是在 themes 文件夹下，根据不同的主题，都会有相应的文档介绍，告诉我们怎么去写配置文件。此主题的文档在 /docs/guide.md，根据这个文档可以把自己的名字、签名、地址一系列安排的妥妥当当。
 看到大神们有人在博客里放了评论、音乐，还使用了图床，就也想鼓捣。还有，我的博客没有被搜索引擎收录，我还得搞一搞。目前我已经添加了评论、音乐和 google analyze的功能，记录一下过程。
 2.hugo 添加评论功能 [20190613 更新，我已经换掉了。换成 Valine 了。]
-我使用的是 disqus。 参考文章，真的是极好。</description>
+我使用的是 disqus。 参考文章，真的是极好。
+hugo 文档有具体教程文档教程。简述一下第二种方法的步骤：</description>
     </item>
     
     <item>
@@ -689,20 +656,19 @@ Date.parse()： 解析一个表示日期的字符串，并返回从 1970-1-1 00:
       <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://luneshao.github.io/2019/browser-num/</guid>
-      <description> 1.JS 的 window.location 对象 包含有关文档及当前位置的信息。
+      <description>1.JS 的 window.location 对象 包含有关文档及当前位置的信息。
 MDN文档地址
- location.origin: 包含页面来源的域名的标准形式，当前页面的域名 + 端口。 eg: https://www.baidu.com
- location.host: 当前页面的域名，可能最后带有一个“：”和端口。 eg: www.baidu.com
- location.hostname: 当前页面的域名。 eg: www.baidu.com
- location.protocol: 当前页面的协议。 eg: https
- location.assign(): 加载给定 URL 的内容到这个 Location对象所关联的对象上。
- location.reload(params): 重新加载当前页。params: t/f =&amp;gt; 服务器请求资源/缓存。
- location.replace(): 用给定的URL替换当前的资源，不会被保存历史。
+  location.origin: 包含页面来源的域名的标准形式，当前页面的域名 + 端口。 eg: https://www.baidu.com
+  location.host: 当前页面的域名，可能最后带有一个“：”和端口。 eg: www.baidu.com
+  location.hostname: 当前页面的域名。 eg: www.baidu.com
+  location.protocol: 当前页面的协议。 eg: https
+  location.assign(): 加载给定 URL 的内容到这个 Location对象所关联的对象上。
+  location.reload(params): 重新加载当前页。params: t/f =&amp;gt; 服务器请求资源/缓存。
+  location.replace(): 用给定的URL替换当前的资源，不会被保存历史。
   2.ajax 请求头中的属性 MDN文档地址
- Host: 服务器的域名（对于虚拟主机来说），以及（可选的）服务器监听的TCP端口号。 相关文章一个IP可以部署众多网站，分别解析不同的域名，host 指示访问哪个虚拟主机。
- Origin: 请求来自于哪个站点，该字段仅指示服务器名称，并不包含任何路径信息。
- Referer: 当前请求页面的来源页面的地址。B -&amp;gt; A, Referer: B.URL
-  </description>
+  Host: 服务器的域名（对于虚拟主机来说），以及（可选的）服务器监听的TCP端口号。 相关文章一个IP可以部署众多网站，分别解析不同的域名，host 指示访问哪个虚拟主机。
+  Origin: 请求来自于哪个站点，该字段仅指示服务器名称，并不包含任何路径信息。
+  Referer: 当前请求页面的来源页面的地址。B -&amp;gt; A, Referer: B.</description>
     </item>
     
     <item>
@@ -711,7 +677,7 @@ MDN文档地址
       <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://luneshao.github.io/2019/markdown/</guid>
-      <description>列表 // 无序列表 * txt txt txt + txt txt txt - txt txt txt // 有序列表 1. txt txt txt 2. txt txt txt  引用 &amp;gt; txt txt txt  粗体 和 斜体 // 粗体 **txt** / __txt__ // 斜体 *txt* / _txt_  表格 | thead | thead | thead | | :---- | :---: | ----: | | 左对齐 | 居中 | 右对齐 |  分隔线 *** / - - - / * * *  图片 !</description>
+      <description>列表 // 无序列表 * txt txt txt + txt txt txt - txt txt txt // 有序列表 1. txt txt txt 2. txt txt txt 引用 &amp;gt; txt txt txt 粗体 和 斜体 // 粗体 **txt** / __txt__ // 斜体 *txt* / _txt_ 表格 | thead | thead | thead | | :---- | :---: | ----: | | 左对齐 | 居中 | 右对齐 | 分隔线 *** / - - - / * * * 图片 !</description>
     </item>
     
     <item>
@@ -722,9 +688,9 @@ MDN文档地址
       <guid>https://luneshao.github.io/2019/comp/</guid>
       <description>1.document 相关 1.1 addEventListen
 兼容写法：
-function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget.addEventListen(eType, eHandle) } else { // ie 浏览器 if (eTarget.attachEvent) { eType = &#39;on&#39; + eType eTarget.attachEvent(eType, eHandle) } else { eventTarget[&#39;on&#39; + eventType] = eventHandler } } }  1.2 scrollTop()
+function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget.addEventListen(eType, eHandle) } else { // ie 浏览器  if (eTarget.attachEvent) { eType = &amp;#39;on&amp;#39; + eType eTarget.attachEvent(eType, eHandle) } else { eventTarget[&amp;#39;on&amp;#39; + eventType] = eventHandler } } } 1.2 scrollTop()
 兼容写法：
-// 因为 0 || undefine =&amp;gt; undefined const st = document.pageYOffset.scrollTop || document.documentElement.scrollTop || document.body.scrollTop || 0  // ie6/7/8 1. 没有 doctype 声明的页面： const st = document.</description>
+// 因为 0 || undefine =&amp;gt; undefined const st = document.pageYOffset.scrollTop || document.documentElement.scrollTop || document.body.scrollTop || 0 // ie6/7/8 1. 没有 doctype 声明的页面： const st = document.</description>
     </item>
     
     <item>
@@ -736,9 +702,9 @@ function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget
       <description>在知乎上截取部分自己会用到的一部分。
  按键符号
   ⌘ (command) ⌥ (option) ⇧ (shift) ⌃ (control) ⌫ (delete)   常用的快捷键
-  快速调用 emoji 表情：⌘（command）+ ⌃（control）+ 空格键；   浏览器中将网页加入个人收藏：⌘（command）+ D；遇到喜欢的网页内容只需按下此快捷键即可加入收藏夹；
- 截屏 + 录屏：⌘ （command）+ ⌥（option） + R 即可调出
- 光标移到地址框：Command + L
+  快速调用 emoji 表情：⌘（command）+ ⌃（control）+ 空格键；    浏览器中将网页加入个人收藏：⌘（command）+ D；遇到喜欢的网页内容只需按下此快捷键即可加入收藏夹；
+  截屏 + 录屏：⌘ （command）+ ⌥（option） + R 即可调出
+  光标移到地址框：Command + L
   附：CheatSheet 下载地址
  以上。谢谢各位大佬的分享🤩
  </description>
@@ -751,26 +717,22 @@ function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget
       
       <guid>https://luneshao.github.io/2019/vegetable/</guid>
       <description>要注意水煮时间要根据蔬菜的切块大小以及想追求的柔软程度，下面的时间仅是指导 (单位为分钟)：
- 洋蓟(整个): 25-40
- 洋蓟(芯儿): 10-15
- 胡萝卜(整个): 15-20
- 胡萝卜(整个): 5-10
- 菜花 (整个): 10-15
- 菜花: (掰成朵): 5-8
- 玉米: 4-7
- 茄子 (整个): 10-15
- 茄子 (切块): 5-10
- 蘑菇: 3-4
- 洋葱 (整个): 20-30
- 洋葱 (珍珠): 10-20
- 欧防风: 5-10
- 青椒: 4-5
- 南瓜 (切片): 5-10
- 西红柿: 1-3
- 芜菁 (整个): 15-20
- 芜菁 (小块): 5-8
- 菜花: 4-6
- 西兰花(掰成朵): 4-6</description>
+  洋蓟(整个): 25-40
+  洋蓟(芯儿): 10-15
+  胡萝卜(整个): 15-20
+  胡萝卜(整个): 5-10
+  菜花 (整个): 10-15
+  菜花: (掰成朵): 5-8
+  玉米: 4-7
+  茄子 (整个): 10-15
+  茄子 (切块): 5-10
+  蘑菇: 3-4
+  洋葱 (整个): 20-30
+  洋葱 (珍珠): 10-20
+  欧防风: 5-10
+  青椒: 4-5
+  南瓜 (切片): 5-10
+  西红柿: 1-3</description>
     </item>
     
     <item>
@@ -779,11 +741,11 @@ function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://luneshao.github.io/2019/0415/</guid>
-      <description> 是什么让你睡不着觉？ 防止失眠的方法  治疗失眠最好的方法之一是，管理好会造成过度警觉的压力。  确保你的卧室十分舒爽，你的床只是用来睡觉，如果睡不着就去看会书、
+      <description>是什么让你睡不着觉？ 防止失眠的方法  治疗失眠最好的方法之一是，管理好会造成过度警觉的压力。  确保你的卧室十分舒爽，你的床只是用来睡觉，如果睡不着就去看会书、
 冥想或者写日记。
- 调节你的新陈代谢，做法是维持一贯的睡眠和起床作息，来协助调整你的生物钟。因为这个生物钟对光很敏感，所以夜间避免亮光。
- 有些医生也会开一些药物，但是药物很容易上瘾，导致病情恶化。
- 还有一些人是基因问题。（DSPD）
+  调节你的新陈代谢，做法是维持一贯的睡眠和起床作息，来协助调整你的生物钟。因为这个生物钟对光很敏感，所以夜间避免亮光。
+  有些医生也会开一些药物，但是药物很容易上瘾，导致病情恶化。
+  还有一些人是基因问题。（DSPD）
   以上。
 欧亚斯密。
  (&amp;gt;^ω^&amp;lt;)
@@ -798,8 +760,8 @@ function addEvt(eTarget, eType, eHandle) { if (eTarget.addEventListen) { eTarget
       <guid>https://luneshao.github.io/2019/my-first-post/</guid>
       <description>介绍 初次见面，请多多关照。 &amp;ndash;来自萌新的问候。（≧∇≦）
 这样规定一下：
- 标题带有 =3 的就是我有未看完的内容的 （ 怕不是都要带着了 23333
- 标题带有 =8 的就是持续更新的文章
+  标题带有 =3 的就是我有未看完的内容的 （ 怕不是都要带着了 23333
+  标题带有 =8 的就是持续更新的文章
    （≧∇≦）
  来自萌新的问候 （≧∇≦）</description>
     </item>
@@ -826,8 +788,8 @@ OSI 参考模型中将计算机网络体系结构划分为 7 层，从下至上�
 1.Array 1.1 将类数组转化为数组  Array.prototype.slice.call() 方法：  MDN slice相关
 slice 方法可以用来将一个类数组（Array-like）对象/集合转换成一个新数组。你只需将该方法绑定到这个对象上。
 Array.slice(start, end) 方法用来截取数组 start 到 end （不包含 end）值，并返回一个新数组。
-function list () { return Array.property.slice.call(arguments) } list(1, 2, 3)  除此以外可以使用 [].splice.call(arguments) 代替，也可以使用 bind 来简化过程。
-const unboundSlice = Array.property.slice const slice = Function.</description>
+function list () { return Array.property.slice.call(arguments) } list(1, 2, 3) 除此以外可以使用 [].splice.call(arguments) 代替，也可以使用 bind 来简化过程。
+const unboundSlice = Array.property.slice const slice = Function.property.bind.call(unboundSlice) function list () { return slice(arguments) } list(1, 2, 3)  Array.</description>
     </item>
     
   </channel>

@@ -57,8 +57,8 @@
     "accountablePerson" : "luneShao",
     "copyrightHolder" : "luneShao",
     "copyrightYear" : "2020",
-    "datePublished": "2020-03-23 10:36:26 \x2b0800 CST",
-    "dateModified" : "2020-03-23 10:36:26 \x2b0800 CST",
+    "datePublished": "2020-03-23 10:36:26 \u002b0800 CST",
+    "dateModified" : "2020-03-23 10:36:26 \u002b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2020\/2020-03-23-jekyll-blog\/",
     "wordCount" : "1468",
     "keywords" : [ "jekyll", "Luneshao"]
@@ -157,155 +157,91 @@
           
           
 
-          
-
-<h1 id="分布教程">分布教程</h1>
-
+          <h1 id="分布教程">分布教程</h1>
 <h2 id="1-setup">1. Setup</h2>
-
 <h3 id="installation">installation</h3>
-
 <p>安装 Jekyll</p>
-
-<pre><code>gem install jekyll bundler
-</code></pre>
-
-<p>创建 Gemfile</p>
-
-<pre><code>bundle init
-</code></pre>
-
-<p>编辑 Gemfile，添加 Jekyll 作为依赖</p>
-
-<pre><code>gem &quot;jekyll&quot;
-</code></pre>
-
-<p>运行 bundle 安装 Jekyll 到项目。</p>
-
-<pre><code>bundle
-</code></pre>
-
-<p>现在可以在 Jekyll 的命令前加上 bundle exec，以确保使用 Gemfile 中的 Jekyll 版本。</p>
-
+<pre tabindex="0"><code>gem install jekyll bundler
+</code></pre><p>创建 Gemfile</p>
+<pre tabindex="0"><code>bundle init
+</code></pre><p>编辑 Gemfile，添加 Jekyll 作为依赖</p>
+<pre tabindex="0"><code>gem &quot;jekyll&quot;
+</code></pre><p>运行 bundle 安装 Jekyll 到项目。</p>
+<pre tabindex="0"><code>bundle
+</code></pre><p>现在可以在 Jekyll 的命令前加上 bundle exec，以确保使用 Gemfile 中的 Jekyll 版本。</p>
 <h3 id="create-a-site">Create a site</h3>
-
 <p>为网站创建一个目录，名称可以任意起。在教程的其余部分，将称其为 root.
 在 root 目录添加第一个文件 index.html。</p>
-
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot; /&gt;
-    &lt;title&gt;Home&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Hello World!&lt;/h1&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-
-<h3 id="build">build</h3>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+  &lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Home&lt;/<span style="color:#f92672">title</span>&gt;
+  &lt;/<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">h1</span>&gt;Hello World!&lt;/<span style="color:#f92672">h1</span>&gt;
+  &lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h3 id="build">build</h3>
 <p>Jekyll 是静态网站生成器，因此我们需要 Jekyll 构建网站才能查看。您可以在网站的根目录中运行以下两个命令来构建它：</p>
-
 <ul>
 <li>jekyll build：构建网站输出静态站点到名为 <code>_site</code> 的目录下。</li>
-<li>jekyll serve：除了在您进行更改并运行本地 Web 服务器时会重新生成之外，还会运行一个 web 服务在 <a href="http://localhost:4000" rel="nofollow noreferrer" target="_blank">http://localhost:4000</a></li>
+<li>jekyll serve：除了在您进行更改并运行本地 Web 服务器时会重新生成之外，还会运行一个 web 服务在 http://localhost:4000</li>
 </ul>
-
 <h2 id="2-liquid">2. Liquid</h2>
-
 <p>Liquid 是一个模版语言，包含三个主要的部分：objects，tags 和 filters</p>
-
 <h3 id="objects">objects</h3>
-
 <p>objects 表示输出内容，用花括号表示。</p>
-
-<pre><code class="language-Liquid">{{ page.content }}
-</code></pre>
-
-<h3 id="tags">tags</h3>
-
+<pre tabindex="0"><code class="language-Liquid" data-lang="Liquid">{{ page.content }}
+</code></pre><h3 id="tags">tags</h3>
 <p>tags 为模板创建逻辑和控制流。用花括号和百分号表示。</p>
-
-<pre><code class="language-Liquid">{% if page.show_sidebar %}
+<pre tabindex="0"><code class="language-Liquid" data-lang="Liquid">{% if page.show_sidebar %}
   &lt;div class=&quot;sidebar&quot;&gt;
     sidebar content
   &lt;/div&gt;
 {% endif %}
-</code></pre>
-
-<h3 id="filters">filters</h3>
-
+</code></pre><h3 id="filters">filters</h3>
 <p>过滤器更改 Liquid 对象的输出。它们在输出中使用，并用 <code>|</code> 分隔。</p>
-
-<pre><code class="language-Liquid">{{ &quot;h1&quot; | title }}
-</code></pre>
-
-<h3 id="use-liquid">use Liquid</h3>
-
+<pre tabindex="0"><code class="language-Liquid" data-lang="Liquid">{{ &quot;h1&quot; | title }}
+</code></pre><h3 id="use-liquid">use Liquid</h3>
 <p>为了让 Jekyll 处理 Liquid，我们需要在页面顶部添加 Front Matter：</p>
-
-<pre><code class="language-YAML">---
-# front matter tells Jekyll to process Liquid
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">---
+<span style="color:#75715e"># front matter tells Jekyll to process Liquid</span>
 ---
-</code></pre>
-
-<h2 id="3-front-matter">3. Front Matter</h2>
-
+</code></pre></div><h2 id="3-front-matter">3. Front Matter</h2>
 <p>front matter 是 <code>YAML</code> 的一个片段，它位于文件顶部的两个三点划线之间。front matter 用于设置页面变量，例如：</p>
-
-<pre><code class="language-YAML">---
-my_number: 5
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">---
+<span style="color:#f92672">my_number</span>: <span style="color:#ae81ff">5</span>
 ---
-</code></pre>
-
-<p>在 Liquid 中 front matter 变量可以在 <code>page</code> 变量下使用。例如:</p>
-
-<pre><code class="language-YAML">{{ page.my_number }}
-</code></pre>
-
-<p>请注意，为了让 Jekyll 处理您页面上的所有 Liquid 标签，您必须在其上包含 front matter。您可以包括的最简单的 front matter 是：</p>
-
-<pre><code class="language-YAML">---
+</code></pre></div><p>在 Liquid 中 front matter 变量可以在 <code>page</code> 变量下使用。例如:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">{{ <span style="color:#ae81ff">page.my_number }}</span>
+</code></pre></div><p>请注意，为了让 Jekyll 处理您页面上的所有 Liquid 标签，您必须在其上包含 front matter。您可以包括的最简单的 front matter 是：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">---
 ---
-</code></pre>
-
-<h2 id="4-layouts">4. Layouts</h2>
-
+</code></pre></div><h2 id="4-layouts">4. Layouts</h2>
 <p>提取每个页面公共的部分作为模版，作为内容的容器。他们放在 <code>_layouts</code> 目录下。在根目录创建一个 <code>about.md</code> 文件。</p>
-
 <h3 id="create-a-layout">create a layout</h3>
-
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot; /&gt;
-    &lt;title&gt;{{ page.title }}&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+  &lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;{{ page.title }}&lt;/<span style="color:#f92672">title</span>&gt;
+  &lt;/<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">body</span>&gt;
     {{ content }}
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-
-<p>使用 layout 替换 index.html 中的内容。可以在 front matter 中设置一个 layout 变量，layout 包裹着页面中的 content ，所以你只需要如下：</p>
-
-<pre><code class="language-html">---
+  &lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>使用 layout 替换 index.html 中的内容。可以在 front matter 中设置一个 layout 变量，layout 包裹着页面中的 content ，所以你只需要如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">---
 layout: default
 title: Home
 ---
 
-&lt;h1&gt;{{ 'Hello world' || downcase }}&lt;/h1&gt;
-</code></pre>
-
-<p>如上操作将和之前的输出一致。注意，你可以在 layout 中访问到页面中的 front matter。在这种情况下，title 在 index 页设置但是在 layout 中输出。</p>
-
+&lt;<span style="color:#f92672">h1</span>&gt;{{ &#39;Hello world&#39; || downcase }}&lt;/<span style="color:#f92672">h1</span>&gt;
+</code></pre></div><p>如上操作将和之前的输出一致。注意，你可以在 layout 中访问到页面中的 front matter。在这种情况下，title 在 index 页设置但是在 layout 中输出。</p>
 <h3 id="about-page">about page</h3>
-
 <p>回到 <code>about.md</code> 文件，可以使用 layout。如下写入：</p>
-
-<pre><code class="language-md">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
 layout: default
 title: about
 ---
@@ -313,158 +249,106 @@ title: about
 # about page
 
 this page tell you a little bit about mev
-</code></pre>
-
-<p>恭喜你，现在拥有了两个页面，下面将学习如果导航跳转这两个页。</p>
-
+</code></pre></div><p>恭喜你，现在拥有了两个页面，下面将学习如果导航跳转这两个页。</p>
 <h2 id="5-includes">5. includes</h2>
-
 <p>这些网页聚集在一个站点上，但是却没有在他们之间进行导航，让我们来修复一下。
 navigation 应该在每一个网页上，所以把它加在 layout 中是正确的地方。代替直接加入到 layout 中，借此机会学习一下 includes。</p>
-
 <h3 id="include-tag">include tag</h3>
-
 <p><code>include</code> tag 允许引入来自 <code>_includes</code> 文件夹中文件的内容。Includes 对于在站点中重复一个单一来源的源代码或提升可阅读性很有用。</p>
-
 <h3 id="include-usage">include usage</h3>
-
 <p>创建 <code>_includes/navigation.html</code> 文件，内容如下：</p>
-
-<pre><code class="language-html">&lt;nav&gt;
-  &lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;
-  &lt;a href=&quot;/about.html&quot;&gt;About&lt;/a&gt;
-&lt;/nav&gt;
-</code></pre>
-
-<p>尝试在 <code>_layouts/default.html</code> 中添加 include tag。</p>
-
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot; /&gt;
-    &lt;title&gt;{{ page.title }}&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">nav</span>&gt;
+  &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span>&gt;Home&lt;/<span style="color:#f92672">a</span>&gt;
+  &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/about.html&#34;</span>&gt;About&lt;/<span style="color:#f92672">a</span>&gt;
+&lt;/<span style="color:#f92672">nav</span>&gt;
+</code></pre></div><p>尝试在 <code>_layouts/default.html</code> 中添加 include tag。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+  &lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;{{ page.title }}&lt;/<span style="color:#f92672">title</span>&gt;
+  &lt;/<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">body</span>&gt;
     {% include navigation.html %}
-    &lt;!--  --&gt;
+    <span style="color:#75715e">&lt;!--  --&gt;</span>
     {{content}}
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-
-<h3 id="current-page-highlighting">current page highlighting</h3>
-
+  &lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h3 id="current-page-highlighting">current page highlighting</h3>
 <p>jakyll 中的 <code>page.url</code> 变量可以获取到当前的展示的 url。 使用 <code>page.url</code> 可以检查当前页的 URL，并且标记为红色。</p>
-
-<pre><code class="language-html">&lt;nav&gt;
-  &lt;a href=&quot;/&quot; {% if page.url == &quot;/&quot; %} style=&quot;color: red&quot; {% endif %}&gt;Home&lt;/a&gt;
-  &lt;a href=&quot;/about&quot; {% if page.url == &quot;/about&quot; %} style=&quot;color: red&quot; {% endif %}&gt;About&lt;/a&gt;
-&lt;/nav&gt;
-</code></pre>
-
-<p>如果我们想添加一个新的导航选项，现在依然需要重复一写代码。下一步我们将解决这个问题。</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">nav</span>&gt;
+  &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#960050;background-color:#1e0010">{%</span> <span style="color:#a6e22e">if</span> <span style="color:#a6e22e">page</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">url </span><span style="color:#f92672">=</span><span style="color:#e6db74">=</span> <span style="color:#960050;background-color:#1e0010">&#34;/&#34;</span> <span style="color:#960050;background-color:#1e0010">%}</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;color: red&#34;</span> <span style="color:#960050;background-color:#1e0010">{%</span> <span style="color:#a6e22e">endif</span> <span style="color:#960050;background-color:#1e0010">%}</span>&gt;Home&lt;/<span style="color:#f92672">a</span>&gt;
+  &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/about&#34;</span> <span style="color:#960050;background-color:#1e0010">{%</span> <span style="color:#a6e22e">if</span> <span style="color:#a6e22e">page</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">url </span><span style="color:#f92672">=</span><span style="color:#e6db74">=</span> <span style="color:#960050;background-color:#1e0010">&#34;/</span><span style="color:#a6e22e">about</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">%}</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;color: red&#34;</span> <span style="color:#960050;background-color:#1e0010">{%</span> <span style="color:#a6e22e">endif</span> <span style="color:#960050;background-color:#1e0010">%}</span>&gt;About&lt;/<span style="color:#f92672">a</span>&gt;
+&lt;/<span style="color:#f92672">nav</span>&gt;
+</code></pre></div><p>如果我们想添加一个新的导航选项，现在依然需要重复一写代码。下一步我们将解决这个问题。</p>
 <h2 id="6-data-files">6. data files</h2>
-
 <p>jekyll 支持从 <code>_data</code> 目录下加载 YAML、JSON 和 csv 文件的数据。data files 是一种很好的方式，可以将内容从源代码中分割出来便于维护。</p>
-
 <h3 id="data-file-usage">data file usage</h3>
-
 <p>在 Ruby 生态系统中，YAML 是一种常见的格式。
 创建一个 data 文件，<code>_data/navigation.yml</code> 输入以下内容：</p>
-
-<pre><code class="language-yml">- name: Home
-  link: /
-- name: About
-  link: /about.html
-</code></pre>
-
-<p>Jekyll 中可以很容易的访问到数据，使用变量 <code>site.data.navigation</code> 。之前书写每一个链接，现在可以用遍历数据代替。</p>
-
-<pre><code class="language-html">&lt;nav&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Home</span>
+  <span style="color:#f92672">link</span>: <span style="color:#ae81ff">/</span>
+- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">About</span>
+  <span style="color:#f92672">link</span>: <span style="color:#ae81ff">/about.html</span>
+</code></pre></div><p>Jekyll 中可以很容易的访问到数据，使用变量 <code>site.data.navigation</code> 。之前书写每一个链接，现在可以用遍历数据代替。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">nav</span>&gt;
   {% for item in site.data.navigation %}
-    &lt;a href=&quot;{{ item.link }}&quot; {% if item.link == page.url %} style=&quot;color: red&quot; {% endif %}&gt;{{item.name}}&lt;/a&gt;
+    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ item.link }}&#34;</span> <span style="color:#960050;background-color:#1e0010">{%</span> <span style="color:#a6e22e">if</span> <span style="color:#a6e22e">item</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">link </span><span style="color:#f92672">=</span><span style="color:#e6db74">=</span> <span style="color:#a6e22e">page</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">url</span> <span style="color:#960050;background-color:#1e0010">%}</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;color: red&#34;</span> <span style="color:#960050;background-color:#1e0010">{%</span> <span style="color:#a6e22e">endif</span> <span style="color:#960050;background-color:#1e0010">%}</span>&gt;{{item.name}}&lt;/<span style="color:#f92672">a</span>&gt;
   {% endfor %}
-&lt;/nav&gt;
-</code></pre>
-
-<p>现在输出内容会和之前一致，不同之处在于，现在可以更方便的添加一个新的导航项和改变 html 结构。</p>
-
+&lt;/<span style="color:#f92672">nav</span>&gt;
+</code></pre></div><p>现在输出内容会和之前一致，不同之处在于，现在可以更方便的添加一个新的导航项和改变 html 结构。</p>
 <p>让我们看看如何处理 Jekyll 中的资源(CSS, JS and images)。</p>
-
 <h2 id="7-assets">7. assets</h2>
-
 <p>Jekyll 可以直接使用 CSS, JS, images 和其他资源文件。将他们放到站点的文件夹中，他们将被复制到构建的站点。
 Jekyll 常常使用如下的结构组织资源文件：</p>
-
-<pre><code>.
+<pre tabindex="0"><code>.
 ├── assets
 │   ├── css
 │   ├── images
 │   └── js
 ...
-</code></pre>
-
-<h3 id="sass">sass</h3>
-
+</code></pre><h3 id="sass">sass</h3>
 <p>在 <code>_includes/navigation.html</code> 中使用行内样式不是最佳实践，代替使用 class 添加样式。</p>
-
-<pre><code class="language-html">&lt;nav&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">nav</span>&gt;
   {% for item in site.data.navigation %}
-    &lt;a href=&quot;{{ item.link }}&quot; {% if item.link == page.url %}class=&quot;current&quot;{% endif %}&gt;{{ item.name }}&lt;/a&gt;
+    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ item.link }}&#34;</span> <span style="color:#960050;background-color:#1e0010">{%</span> <span style="color:#a6e22e">if</span> <span style="color:#a6e22e">item</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">link </span><span style="color:#f92672">=</span><span style="color:#e6db74">=</span> <span style="color:#a6e22e">page</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">url</span> <span style="color:#960050;background-color:#1e0010">%}</span><span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;current&#34;</span><span style="color:#960050;background-color:#1e0010">{%</span> <span style="color:#a6e22e">endif</span> <span style="color:#960050;background-color:#1e0010">%}</span>&gt;{{ item.name }}&lt;/<span style="color:#f92672">a</span>&gt;
   {% endfor %}
-&lt;/nav&gt;
-</code></pre>
-
-<p>你可以使用标准的 css 设置样式，这里将使用 Sass。Sass 是对 CSS 的完美扩展，它直接传入了 Jekyll。
+&lt;/<span style="color:#f92672">nav</span>&gt;
+</code></pre></div><p>你可以使用标准的 css 设置样式，这里将使用 Sass。Sass 是对 CSS 的完美扩展，它直接传入了 Jekyll。
 首先，创建一个 sass 文件，<code>assets/css/styles.scss</code>，输入以下内容：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#f92672">---</span>
+<span style="color:#f92672">---</span>
 
-<pre><code class="language-scss">---
----
-
-@import 'main';
-</code></pre>
-
-<p>最上边的空的 front matter 表示告诉 Jekyll 需要处理文件。
+<span style="color:#f92672">@</span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#39;main&#39;</span>;
+</code></pre></div><p>最上边的空的 front matter 表示告诉 Jekyll 需要处理文件。
 <code>@import &quot;main&quot;;</code> 告诉 Sass 在 <code>sass</code> 目录查找名为 <code>main.scss</code> 的文件（<code>_sass/</code>默认情况下直接位于您网站的根文件夹下）。
 在这个阶段，你讲有一个主要的 css 文件。这对于大型项目来说，可以很好的组织 css。
 在 <code>_sass/main.scss</code> 创建一个 sass 文件，输入以下内容：</p>
-
-<pre><code class="language-scss">.current {
-  style: green;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#a6e22e">.current</span> {
+  <span style="color:#a6e22e">style</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">green</span>;
 }
-</code></pre>
-
-<p>现在需要在 layout 中引用样式表。
+</code></pre></div><p>现在需要在 layout 中引用样式表。
 打开 <code>_layout/default.html</code>，添加样式表到 <code>&lt;head&gt;</code>，添加以下内容：</p>
-
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot; /&gt;
-  &lt;title&gt;{{page.title}}&lt;/title&gt;
-  &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/css/styles.css&quot; /&gt;
-&lt;/head&gt;
-&lt;body&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span> /&gt;
+  &lt;<span style="color:#f92672">title</span>&gt;{{page.title}}&lt;/<span style="color:#f92672">title</span>&gt;
+  &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/assets/css/styles.css&#34;</span> /&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
   {% include navigation.html %}
-  &lt;!--  --&gt;
+  <span style="color:#75715e">&lt;!--  --&gt;</span>
   {{content}}
-&lt;/body&gt;
-</code></pre>
-
-<p>这里引用的 <code>style.css</code> 是 Jekyll 依据之前在 <code>assets/css/styles.scss</code> 生成的。
+&lt;/<span style="color:#f92672">body</span>&gt;
+</code></pre></div><p>这里引用的 <code>style.css</code> 是 Jekyll 依据之前在 <code>assets/css/styles.scss</code> 生成的。
 现在当前所在页的导航项的会变成绿色。
 下面，让我们看看 Jekyll 最流行的功能，blogging。</p>
-
 <h2 id="8-blogging">8. blogging</h2>
-
 <p>你可能想知道怎样才能不用数据库就可以拥有一个博客。在真正的 Jekyll 风格中，博客仅由文本文件驱动。</p>
-
 <h3 id="posts">posts</h3>
-
 <p>博客的文章在 <code>_posts</code> 文件中，文章的文件名有特殊的格式：发布时间，之后是标题，然后是拓展名。
 创建你的第一篇文章，输入如下内容：</p>
-
-<pre><code class="language-md">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
 layout: post
 author: jill
 ---
@@ -472,378 +356,280 @@ author: jill
 A banana is an edible fruit – botanically a berry – produced by several kinds
 of large herbaceous flowering plants in the genus Musa.
 
-In some countries, bananas used for cooking may be called &quot;plantains&quot;,
+In some countries, bananas used for cooking may be called &#34;plantains&#34;,
 distinguishing them from dessert bananas. The fruit is variable in size, color,
 and firmness, but is usually elongated and curved, with soft flesh rich in
 starch covered with a rind, which may be green, yellow, red, purple, or brown
 when ripe.
-</code></pre>
-
-<p>除了 author 和 layout，它和 about.md 一样。author 是自定义的变量名称，它不是必须的也可以设置为其他的名称。</p>
-
+</code></pre></div><p>除了 author 和 layout，它和 about.md 一样。author 是自定义的变量名称，它不是必须的也可以设置为其他的名称。</p>
 <h3 id="layout">layout</h3>
-
 <p><code>post</code> 布局并不存在，所以需要创建 <code>_layouts/post.html</code>，输入如下内容：</p>
-
-<pre><code class="language-html">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">---
 layout: default
 ---
 
-&lt;h1&gt;{{ page.title }}&lt;/h1&gt;
-&lt;p&gt;{{ page.date | date_to_string }} - {{ page.author }}&lt;/p&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;{{ page.title }}&lt;/<span style="color:#f92672">h1</span>&gt;
+&lt;<span style="color:#f92672">p</span>&gt;{{ page.date | date_to_string }} - {{ page.author }}&lt;/<span style="color:#f92672">p</span>&gt;
 
 {{ content }}
-</code></pre>
-
-<p>这是一个继承布局的例子，文章的布局输出被默认布局包裹的标题、时间、作者和内容。
+</code></pre></div><p>这是一个继承布局的例子，文章的布局输出被默认布局包裹的标题、时间、作者和内容。
 还要注意 date_to_string 过滤器，它将日期格式化为更好的格式。</p>
-
 <h3 id="list-posts">list posts</h3>
-
 <p>现在无法导航到博客文章，典型的博客有一个展示文章列表的页面，接下来我们就做一下这个页。
 Jekyll 中 <code>site.posts</code> 可以访问到文章。
 在根目录创建一个 <code>blog.html</code>，输入如下内容：</p>
-
-<pre><code class="language-html">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">---
 layout: default
 ---
 
-&lt;ul&gt;
+&lt;<span style="color:#f92672">ul</span>&gt;
   {% for post in site.posts %}
-  &lt;li&gt;
-    &lt;a href=&quot;{{ post.url }}&quot;&gt;{{ post.title }}&lt;/a&gt;
-    &lt;p&gt;{{ post.excerpt }}&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;
+    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ post.url }}&#34;</span>&gt;{{ post.title }}&lt;/<span style="color:#f92672">a</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;{{ post.excerpt }}&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">li</span>&gt;
   {% endfor %}
-&lt;/ul&gt;
-</code></pre>
-
-<ul>
+&lt;/<span style="color:#f92672">ul</span>&gt;
+</code></pre></div><ul>
 <li><code>post.url</code>由 Jekyll 自动设置为帖子的输出路径。</li>
 <li><code>post.title</code>拉取文章的文件名，并且可以在 front matter 中的 title 重写。</li>
 <li><code>post.excerpt</code>默认的是内容的第一个段落。</li>
 </ul>
-
 <p>同样也需要通过主导航导航到当前页。打开 <code>_data/navigation.yml</code> ，为博客页添加一个条目：</p>
-
-<pre><code class="language-yml">- name: Home
-  link: /
-- name: About
-  link: /about.html
-- name: Blog
-  link: /blog.html
-</code></pre>
-
-<p>接下来，我们将专注于为每个帖子作者创建一个页面。</p>
-
-<h2 id="9-collections">9.collections</h2>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Home</span>
+  <span style="color:#f92672">link</span>: <span style="color:#ae81ff">/</span>
+- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">About</span>
+  <span style="color:#f92672">link</span>: <span style="color:#ae81ff">/about.html</span>
+- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Blog</span>
+  <span style="color:#f92672">link</span>: <span style="color:#ae81ff">/blog.html</span>
+</code></pre></div><p>接下来，我们将专注于为每个帖子作者创建一个页面。</p>
+<h2 id="9collections">9.collections</h2>
 <p>在作者的主页展示简介及其发布的文章。
 做这些，将要用到 collections。collections 类似于帖子，只是内容不必按日期分组。</p>
-
 <h3 id="configuration">Configuration</h3>
-
 <p>要建立 collections，需要告诉 Jekyll。 Jekyll 配置发生在名为 <code>_config.yml</code> 的文件中。
 创建文件 <code>_config.yml</code>，输入以下内容：</p>
-
-<pre><code class="language-yml">collections:
-  authors:
-</code></pre>
-
-<p>重启 Jekyll 服务重新载入配置。在终端键入 <code>ctrl + c</code> 停止服务，之后 <code>jekyll serve</code> 重启服务。</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">collections</span>:
+  <span style="color:#f92672">authors</span>:
+</code></pre></div><p>重启 Jekyll 服务重新载入配置。在终端键入 <code>ctrl + c</code> 停止服务，之后 <code>jekyll serve</code> 重启服务。</p>
 <h3 id="add-authors">add authors</h3>
-
 <p>collections 的文档位于根目录的 <code>_*collections_name*</code> 文件夹下。本例中，位于 <code>_authors</code> 下。
 为每位作者创建一个文档：
 <code>_authors/lune.md</code></p>
-
-<pre><code class="language-md">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
 short_name: lune
 name: Lune Shao
 position: Chief Editor
 ---
 
 Jill is an avid fruit grower based in the south of France.
-</code></pre>
-
-<h3 id="staff-page">staff page</h3>
-
+</code></pre></div><h3 id="staff-page">staff page</h3>
 <p>添加一个列表页，展示网站上所有的作者。在 Jekyll 中，<code>site.authors</code> 可以方式 collection。
 创建 <code>staff.html</code>，遍历 <code>site.author</code> 输出所有作者：</p>
-
-<pre><code class="language-html">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">---
 layout: default
 title: Staff
 ---
 
-&lt;h1&gt;Staff&lt;/h1&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;Staff&lt;/<span style="color:#f92672">h1</span>&gt;
 
 authors
-&lt;ul&gt;
+&lt;<span style="color:#f92672">ul</span>&gt;
   {% for author in site.authors %}
-  &lt;li&gt;
-    &lt;h2&gt;{{ author.name }}&lt;/h2&gt;
-    &lt;h3&gt;{{ author.position }}&lt;/h3&gt;
-    &lt;p&gt;{{ author.content | markdownify }}&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;
+    &lt;<span style="color:#f92672">h2</span>&gt;{{ author.name }}&lt;/<span style="color:#f92672">h2</span>&gt;
+    &lt;<span style="color:#f92672">h3</span>&gt;{{ author.position }}&lt;/<span style="color:#f92672">h3</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;{{ author.content | markdownify }}&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">li</span>&gt;
   {% endfor %}
-&lt;/ul&gt;
-</code></pre>
-
-<p>由于内容是 markdown，因此您需要通过 markdownify 过滤器运行它。在布局中使用 {{content}} 输出时，会自动发生这种情况。
+&lt;/<span style="color:#f92672">ul</span>&gt;
+</code></pre></div><p>由于内容是 markdown，因此您需要通过 markdownify 过滤器运行它。在布局中使用 {{content}} 输出时，会自动发生这种情况。
 在主导航也需要导航到当前页。打开 <code>_data/navigation.yml</code> 输入如下内容：</p>
-
-<pre><code class="language-yml">- name: Home
-  link: /
-- name: About
-  link: /about.html
-- name: Blog
-  link: /blog.html
-- name: Staff
-  link: /staff.html
-</code></pre>
-
-<h3 id="output-a-page">output a page</h3>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Home</span>
+  <span style="color:#f92672">link</span>: <span style="color:#ae81ff">/</span>
+- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">About</span>
+  <span style="color:#f92672">link</span>: <span style="color:#ae81ff">/about.html</span>
+- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Blog</span>
+  <span style="color:#f92672">link</span>: <span style="color:#ae81ff">/blog.html</span>
+- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Staff</span>
+  <span style="color:#f92672">link</span>: <span style="color:#ae81ff">/staff.html</span>
+</code></pre></div><h3 id="output-a-page">output a page</h3>
 <p>默认情况下，集合不输出文档页面。在这种情况下，我们希望每个作者都有自己的页面，所以我们来调整集合配置。
 打开 <code>_config.yml</code> 添加 <code>output: true</code> 到 author collection 的配置：</p>
-
-<pre><code class="language-yml">collections:
-  authors:
-    output: true
-</code></pre>
-
-<p>您可以使用 author.url 链接到输出页面。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">collections</span>:
+  <span style="color:#f92672">authors</span>:
+    <span style="color:#f92672">output</span>: <span style="color:#66d9ef">true</span>
+</code></pre></div><p>您可以使用 author.url 链接到输出页面。
 将链接添加到 staff.html 页面：</p>
-
-<pre><code class="language-html">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">---
 layout: default
 title: Staff
 ---
 
-&lt;h1&gt;Staff&lt;/h1&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;Staff&lt;/<span style="color:#f92672">h1</span>&gt;
 
-&lt;ul&gt;
+&lt;<span style="color:#f92672">ul</span>&gt;
   {% for author in site.authors %}
-  &lt;li&gt;
-    &lt;h2&gt;&lt;a href=&quot;{{ author.url }}&quot;&gt;{{ author.name }}&lt;/a&gt;&lt;/h2&gt;
-    &lt;h3&gt;{{ author.position }}&lt;/h3&gt;
-    &lt;p&gt;{{ author.content | markdownify }}&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;
+    &lt;<span style="color:#f92672">h2</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ author.url }}&#34;</span>&gt;{{ author.name }}&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">h2</span>&gt;
+    &lt;<span style="color:#f92672">h3</span>&gt;{{ author.position }}&lt;/<span style="color:#f92672">h3</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;{{ author.content | markdownify }}&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">li</span>&gt;
   {% endfor %}
-&lt;/ul&gt;
-</code></pre>
-
-<p>就像文章一样，您需要为作者创建布局。
+&lt;/<span style="color:#f92672">ul</span>&gt;
+</code></pre></div><p>就像文章一样，您需要为作者创建布局。
 创建 <code>_layouts/author.html</code> 输入以下内容:</p>
-
-<pre><code class="language-html">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">---
 layout: default
 ---
 
-&lt;h1&gt;{{ page.name }}&lt;/h1&gt;
-&lt;h2&gt;{{ page.position }}&lt;/h2&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;{{ page.name }}&lt;/<span style="color:#f92672">h1</span>&gt;
+&lt;<span style="color:#f92672">h2</span>&gt;{{ page.position }}&lt;/<span style="color:#f92672">h2</span>&gt;
 
 {{ content }}
-</code></pre>
-
-<h3 id="front-matter-defaultspermalink">front matter defaultsPermalink</h3>
-
+</code></pre></div><h3 id="front-matter-defaultspermalink">front matter defaultsPermalink</h3>
 <p>现在需要配置作者文章使用作者布局，你可以想之前一项在 front matter 中配置。
 你想让文章使用文章布局，作者使用作者布局，其他使用默认布局。
 可以通过在 <code>_config.yml</code> 中使用 front matter defaults 完成。
 您可以设置适用于默认设置的范围，然后设置您想要的 front matter 内容。
 输入如下内容到 <code>_config.yml</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">collections</span>:
+  <span style="color:#f92672">authors</span>:
+    <span style="color:#f92672">output</span>: <span style="color:#66d9ef">true</span>
 
-<pre><code class="language-yml">collections:
-  authors:
-    output: true
-
-defaults:
-  - scope:
-      path: ''
-      type: 'authors'
-    values:
-      layout: 'author'
-  - scope:
-      path: ''
-      type: 'posts'
-    values:
-      layout: 'post'
-  - scope:
-      path: ''
-    values:
-      layout: 'default'
-</code></pre>
-
-<p>现在可以移除每个页面 front matter 中的 layout。注意，每次更改 <code>_config.yml</code>，都要重启服务，以让配置生效。</p>
-
-<h3 id="list-author-s-post">list author&rsquo;s post</h3>
-
+<span style="color:#f92672">defaults</span>:
+  - <span style="color:#f92672">scope</span>:
+      <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#39;&#39;</span>
+      <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#39;authors&#39;</span>
+    <span style="color:#f92672">values</span>:
+      <span style="color:#f92672">layout</span>: <span style="color:#e6db74">&#39;author&#39;</span>
+  - <span style="color:#f92672">scope</span>:
+      <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#39;&#39;</span>
+      <span style="color:#f92672">type</span>: <span style="color:#e6db74">&#39;posts&#39;</span>
+    <span style="color:#f92672">values</span>:
+      <span style="color:#f92672">layout</span>: <span style="color:#e6db74">&#39;post&#39;</span>
+  - <span style="color:#f92672">scope</span>:
+      <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#39;&#39;</span>
+    <span style="color:#f92672">values</span>:
+      <span style="color:#f92672">layout</span>: <span style="color:#e6db74">&#39;default&#39;</span>
+</code></pre></div><p>现在可以移除每个页面 front matter 中的 layout。注意，每次更改 <code>_config.yml</code>，都要重启服务，以让配置生效。</p>
+<h3 id="list-authors-post">list author&rsquo;s post</h3>
 <p>让我们列出作者在其页面上发布的帖子。为此，您需要将作者 short_name 与帖子作者匹配。您可以使用它按作者过滤帖子。
 遍历 <code>_layouts/author.html</code> 中的此过滤列表，以输出作者的帖子：</p>
-
-<pre><code class="language-html">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">---
 layout: default
 ---
 
-&lt;h1&gt;{{ page.name }}&lt;/h1&gt;
-&lt;h2&gt;{{ page.position }}&lt;/h2&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;{{ page.name }}&lt;/<span style="color:#f92672">h1</span>&gt;
+&lt;<span style="color:#f92672">h2</span>&gt;{{ page.position }}&lt;/<span style="color:#f92672">h2</span>&gt;
 
 {{ content }}
 
-&lt;h2&gt;Posts&lt;/h2&gt;
-&lt;ul&gt;
-  {% assign filtered_posts = site.posts | where: 'author', page.short_name %} {%
+&lt;<span style="color:#f92672">h2</span>&gt;Posts&lt;/<span style="color:#f92672">h2</span>&gt;
+&lt;<span style="color:#f92672">ul</span>&gt;
+  {% assign filtered_posts = site.posts | where: &#39;author&#39;, page.short_name %} {%
   for post in filtered_posts %}
-  &lt;li&gt;&lt;a href=&quot;{{ post.url }}&quot;&gt;{{ post.title }}&lt;/a&gt;&lt;/li&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ post.url }}&#34;</span>&gt;{{ post.title }}&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">li</span>&gt;
   {% endfor %}
-&lt;/ul&gt;
-</code></pre>
-
-<h3 id="link-to-authors-page">link to authors page</h3>
-
+&lt;/<span style="color:#f92672">ul</span>&gt;
+</code></pre></div><h3 id="link-to-authors-page">link to authors page</h3>
 <p>这些帖子引用了作者，因此我们将其链接到作者的页面。您可以使用 <code>_layouts/post.html</code> 中的类似过滤技术来执行此操作：</p>
-
-<pre><code class="language-html">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">---
 layout: default
 ---
 
-&lt;h1&gt;{{ page.title }}&lt;/h1&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;{{ page.title }}&lt;/<span style="color:#f92672">h1</span>&gt;
 
-&lt;p&gt;
+&lt;<span style="color:#f92672">p</span>&gt;
   {{ page.date | date_to_string }} {% assign author = site.authors | where:
-  'short_name', page.author | first %} {% if author %} -
-  &lt;a href=&quot;{{ author.url }}&quot;&gt;{{ author.name }}&lt;/a&gt;
+  &#39;short_name&#39;, page.author | first %} {% if author %} -
+  &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ author.url }}&#34;</span>&gt;{{ author.name }}&lt;/<span style="color:#f92672">a</span>&gt;
   {% endif %}
-&lt;/p&gt;
+&lt;/<span style="color:#f92672">p</span>&gt;
 
 {{ content }}
-</code></pre>
-
-<h2 id="10-部署">10. 部署</h2>
-
+</code></pre></div><h2 id="10-部署">10. 部署</h2>
 <h3 id="gemfile">Gemfile</h3>
-
 <p>最好为您的网站添加一个 Gemfile。它确保了 Jekyll 和 gems 在不同的环境的版本保持一致。
 在根目录创建一个 Gemfile，输入以下内容：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Gemfile" data-lang="Gemfile">source <span style="color:#e6db74">&#39;https://rubygems.org&#39;</span>
 
-<pre><code class="language-Gemfile">source 'https://rubygems.org'
-
-gem 'jekyll'
-</code></pre>
-
-<p>在终端运行 <code>bundle install</code>，这将安装 gem 并创建 Gemfile.lock，该文件将锁定当前 gem 版本以供将来 <code>bundle install</code>。如果你想更新 gem 版本可以运行 <code>bundle update</code>。
+gem <span style="color:#e6db74">&#39;jekyll&#39;</span>
+</code></pre></div><p>在终端运行 <code>bundle install</code>，这将安装 gem 并创建 Gemfile.lock，该文件将锁定当前 gem 版本以供将来 <code>bundle install</code>。如果你想更新 gem 版本可以运行 <code>bundle update</code>。
 当使用 Gemfile 时，你将在运行像 <code>jekyll serve</code> 这样的命令时,前面加上前缀 <code>bundle exec</code>。完整的命令如下：</p>
-
-<pre><code>bundle exec jekyll serve
-</code></pre>
-
-<p>这限制了您的 Ruby 环境只能使用 Gemfile 中设置的 gem。</p>
-
+<pre tabindex="0"><code>bundle exec jekyll serve
+</code></pre><p>这限制了您的 Ruby 环境只能使用 Gemfile 中设置的 gem。</p>
 <h3 id="plugins">Plugins</h3>
-
 <p>Jekyll 插件允许你创建特定于站点的自定义生成内容。
 几乎在所有 Jekyll 网站上都有三个官方插件可用：</p>
-
 <ul>
-<li><a href="https://github.com/jekyll/jekyll-sitemap" rel="nofollow noreferrer" target="_blank">jekyll-sitemap</a> 创建一个 sitemap 文件帮助搜索引擎索引内容</li>
-<li><a href="https://github.com/jekyll/jekyll-feed" rel="nofollow noreferrer" target="_blank">jekyll-feed</a> 为站点文章创建一个 RSS feed</li>
-<li><a href="https://github.com/jekyll/jekyll-seo-tag" rel="nofollow noreferrer" target="_blank">jekyll-seo-tag</a> 添加 meta 标签帮助 SEO</li>
+<li><a href="https://github.com/jekyll/jekyll-sitemap">jekyll-sitemap</a> 创建一个 sitemap 文件帮助搜索引擎索引内容</li>
+<li><a href="https://github.com/jekyll/jekyll-feed">jekyll-feed</a> 为站点文章创建一个 RSS feed</li>
+<li><a href="https://github.com/jekyll/jekyll-seo-tag">jekyll-seo-tag</a> 添加 meta 标签帮助 SEO</li>
 </ul>
-
 <p>为了使用这些插件，首先需要添加他们到 Gemfile。如果你将它们放到 <code>jekyll_plugins</code> group，它们将自动的被加载到 Jekyll：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Gemfile" data-lang="Gemfile">source <span style="color:#e6db74">&#39;https://rubygems.org&#39;</span>
 
-<pre><code class="language-Gemfile">source 'https://rubygems.org'
+gem <span style="color:#e6db74">&#39;jekyll&#39;</span>
 
-gem 'jekyll'
-
-group :jekyll_plugins do
-  gem 'jekyll-sitemap'
-  gem 'jekyll-feed'
-  gem 'jekyll-seo-tag'
-end
-</code></pre>
-
-<p>之后添加这些行到 <code>_config.yml</code>:</p>
-
-<pre><code class="language-yml">plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
-</code></pre>
-
-<p>现在运行 <code>bundle update</code> 来安装它们。（这一步安装包会比较慢，需要等一下）
+group <span style="color:#e6db74">:jekyll_plugins</span> <span style="color:#66d9ef">do</span>
+  gem <span style="color:#e6db74">&#39;jekyll-sitemap&#39;</span>
+  gem <span style="color:#e6db74">&#39;jekyll-feed&#39;</span>
+  gem <span style="color:#e6db74">&#39;jekyll-seo-tag&#39;</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>之后添加这些行到 <code>_config.yml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">plugins</span>:
+  - <span style="color:#ae81ff">jekyll-feed</span>
+  - <span style="color:#ae81ff">jekyll-sitemap</span>
+  - <span style="color:#ae81ff">jekyll-seo-tag</span>
+</code></pre></div><p>现在运行 <code>bundle update</code> 来安装它们。（这一步安装包会比较慢，需要等一下）
 <code>jekyll-sitemap</code> 不需要任何设置，它会在构建的时候自动生成。
 对于 <code>jekyll-feed</code> 和 <code>jekyll-seo-tag</code>，您需要将标签添加到 <code>_layouts/default.html</code>:</p>
-
-<pre><code class="language-txt">&lt;!DOCTYPE html&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta charset=&#34;utf-8&#34; /&gt;
     &lt;title&gt;{{ page.title }}&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/css/styles.css&quot; /&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;/assets/css/styles.css&#34; /&gt;
     {% feed_meta %} {% seo %}
   &lt;/head&gt;
   &lt;body&gt;
     {% include navigation.html %} {{ content }}
   &lt;/body&gt;
 &lt;/html&gt;
-</code></pre>
-
-<p>重启 Jekyll 服务，检查添加到<head>的这些标签。</p>
-
+</code></pre></div><p>重启 Jekyll 服务，检查添加到<!-- raw HTML omitted -->的这些标签。</p>
 <h3 id="environments">Environments</h3>
-
 <p>有时你可能想要在生产环境输出一些内容，开发环境不输出。分析用的脚本是最常见的示例。
 实现这个你可以使用 <code>environments</code>。你可以在运行命令时，使用 <code>JEKYLL_ENV</code> 环境变量设置环境。例如：</p>
-
-<pre><code>JEKYLL_ENV=production bundle exec jekyll build
-</code></pre>
-
-<p><code>JEKYLL_ENV</code> 默认是 development。您可以在 liquid 中使用 <code>jekyll.environment</code> 应用 JEKYLL_ENV。仅在生产环境输出输出分析脚本，添加如下代码：</p>
-
-<pre><code class="language-html">{% if jekyll.environment == &quot;production&quot; %}
-&lt;script src=&quot;my-analytics-script.js&quot;&gt;&lt;/script&gt;
+<pre tabindex="0"><code>JEKYLL_ENV=production bundle exec jekyll build
+</code></pre><p><code>JEKYLL_ENV</code> 默认是 development。您可以在 liquid 中使用 <code>jekyll.environment</code> 应用 JEKYLL_ENV。仅在生产环境输出输出分析脚本，添加如下代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{% if jekyll.environment == &#34;production&#34; %}
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my-analytics-script.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 {% endif %}
-</code></pre>
-
-<h3 id="deployment">Deployment</h3>
-
+</code></pre></div><h3 id="deployment">Deployment</h3>
 <p>最后一步是将站点添加到生产服务器。最基本的方法是运行生产版本：</p>
-
-<pre><code>JEKYLL_ENV=production bundle exec jekyll build
-</code></pre>
-
-<p>并将<code>_site</code> 的内容复制到您的服务器。
+<pre tabindex="0"><code>JEKYLL_ENV=production bundle exec jekyll build
+</code></pre><p>并将<code>_site</code> 的内容复制到您的服务器。
 更好的方法是使用 CI 或第三方来自动执行此过程。</p>
-
-<p>参考：<a href="https://www.imqianduan.com/git-svn/335.html" rel="nofollow noreferrer" target="_blank">使用 git hooks(post-receive)实现简单的远程自动部署</a>及<a href="https://jekyllrb.com/docs/deployment/automated/" rel="nofollow noreferrer" target="_blank">官方文档</a></p>
-
+<p>参考：<a href="https://www.imqianduan.com/git-svn/335.html">使用 git hooks(post-receive)实现简单的远程自动部署</a>及<a href="https://jekyllrb.com/docs/deployment/automated/">官方文档</a></p>
 <ul>
-<li><p>第一步、使用 ssh 登入自己的服务器，在终端输入（登入成功后默认进入<code>/root</code> 目录）：</p>
-
-<pre><code>ssh user@deployer@example.com
-</code></pre></li>
-
-<li><p>第二步、创建一个裸仓库，仓库名可任意</p>
-
-<pre><code>git --bare init myblog
-</code></pre></li>
-
-<li><p>第三步、进入裸仓库，配置 <code>hooks/post-receive</code>:</p>
-
+<li>第一步、使用 ssh 登入自己的服务器，在终端输入（登入成功后默认进入<code>/root</code> 目录）：</li>
+</ul>
+<pre tabindex="0"><code>ssh user@deployer@example.com
+</code></pre><ul>
+<li>第二步、创建一个裸仓库，仓库名可任意</li>
+</ul>
+<pre tabindex="0"><code>git --bare init myblog
+</code></pre><ul>
+<li>
+<p>第三步、进入裸仓库，配置 <code>hooks/post-receive</code>:</p>
 <ul>
 <li>如果有 <code>post-receive.sample</code> 可以执行 <code>cp post-receive.sample post-receive</code>，键入下边的代码 (.sample 文件是一些示例文件，不起作用)</li>
-
-<li><p>如果没有上边的文件可以直接自行创建 <code>post-receive</code> 文件，键入如下代码：</p>
-
-<pre><code>$ vi post-receive   # 进入文件，输入字母 `i` 进行输入内容。
+<li>如果没有上边的文件可以直接自行创建 <code>post-receive</code> 文件，键入如下代码：</li>
+</ul>
+<pre tabindex="0"><code>$ vi post-receive   # 进入文件，输入字母 `i` 进行输入内容。
 $ # 复制以下内容确认后，键入 `esc` =&gt; `:wq`，保存。
-</code></pre>
-
-<pre><code>#!/bin/bash -l
+</code></pre><pre tabindex="0"><code>#!/bin/bash -l
 
 # Install Ruby Gems to ~/gems
 export GEM_HOME=/usr/local/gems # gem的安装目录，自行配置（gem environment gemdir 命令可查看）
@@ -859,51 +645,40 @@ BUNDLE_GEMFILE=$GEMFILE bundle install
 BUNDLE_GEMFILE=$GEMFILE bundle exec jekyll build -s $TMP_GIT_CLONE -d $PUBLIC_WWW
 rm -Rf $TMP_GIT_CLONE
 exit
+</code></pre><ul>
+<li>保存后，给 post-receive 文件执行权限</li>
+</ul>
+<pre tabindex="0"><code>$ chmod +x post-receive
 </code></pre></li>
-
-<li><p>保存后，给 post-receive 文件执行权限</p>
-
-<pre><code>$ chmod +x post-receive
-</code></pre></li>
-</ul></li>
-
-<li><p>第四步、在本地的 git 仓库添加部署的远端地址</p>
-
-<pre><code>$ git remote add deploy deployer@example.com:~/myrepo.git # deployer@example.com(用户名及服务器IP或域名)；~/myrepo.git（裸仓库的路径）
-</code></pre></li>
-
-<li><p>第五步、部署。在本地仓库执行推送，然后查看是否成功部署。</p>
-
-<pre><code>$ git push deploy master
-</code></pre></li>
-
-<li><p>常见错误：</p>
-
+<li>
+<p>第四步、在本地的 git 仓库添加部署的远端地址</p>
+</li>
+</ul>
+<pre tabindex="0"><code>$ git remote add deploy deployer@example.com:~/myrepo.git # deployer@example.com(用户名及服务器IP或域名)；~/myrepo.git（裸仓库的路径）
+</code></pre><ul>
+<li>第五步、部署。在本地仓库执行推送，然后查看是否成功部署。</li>
+</ul>
+<pre tabindex="0"><code>$ git push deploy master
+</code></pre><ul>
+<li>常见错误：
 <ul>
 <li>1、确认已安装<code>ruby</code>、<code>gem</code>、<code>jekyll</code>、<code>bundle</code>。并且 <code>ruby</code> 版本要高于 <code>2.3.</code>。</li>
 <li>2、记得给 post-receive 添加执行权限。</li>
-
-<li><p>3、</p>
-
-<pre><code>remote: 正克隆到 '/root/tmp/myrepo'...
+<li>3、
+<pre tabindex="0"><code>remote: 正克隆到 '/root/tmp/myrepo'...
 remote: 完成。
 remote: hooks/post-receive:行13: bundle: 未找到命令
 remote: hooks/post-receive:行14: bundle: 未找到命令
 To *.*.*.*:~/myrepo.git
 f5d6969..0be15d2  master -&gt; master
-</code></pre>
-
-<p>解决办法： 安装 bundle</p></li>
-
-<li><p>4、</p>
-
-<pre><code>remote: Don't run Bundler as root. Bundler can ask for sudo if it is needed, and
+</code></pre>解决办法： 安装 bundle</li>
+<li>4、
+<pre tabindex="0"><code>remote: Don't run Bundler as root. Bundler can ask for sudo if it is needed, and
 remote: installing your bundle as root will break this application for all non-root
 remote: users on this machine.
-</code></pre>
-
-<p>这个问题出现之后就卡住不动了，看到一个<a href="https://stackoverflow.com/questions/55909543/you-must-use-bundler-2-or-greater-with-this-lockfile-when-running-docker-compos" rel="nofollow noreferrer" target="_blank">答案</a>，按答案装了一下就可以了。</p></li>
-</ul></li>
+</code></pre>这个问题出现之后就卡住不动了，看到一个<a href="https://stackoverflow.com/questions/55909543/you-must-use-bundler-2-or-greater-with-this-lockfile-when-running-docker-compos">答案</a>，按答案装了一下就可以了。</li>
+</ul>
+</li>
 </ul>
 
     </div>

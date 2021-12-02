@@ -57,8 +57,8 @@
     "accountablePerson" : "luneShao",
     "copyrightHolder" : "luneShao",
     "copyrightYear" : "2020",
-    "datePublished": "2020-08-07 14:32:02 \x2b0800 CST",
-    "dateModified" : "2020-08-07 14:32:02 \x2b0800 CST",
+    "datePublished": "2020-08-07 14:32:02 \u002b0800 CST",
+    "dateModified" : "2020-08-07 14:32:02 \u002b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2020\/2020-08-07-c-ysf\/",
     "wordCount" : "43",
     "keywords" : [ "c", "Luneshao"]
@@ -161,20 +161,13 @@
           <blockquote>
 <p>关系运算符包括一下几个运算符：&gt;、&gt;=、&lt;、&lt;= 它们具有相同的优先级。优先级仅次于相等性运算符：==、!=。 &ndash;摘自《C语言程序设计》</p>
 </blockquote>
-
 <p>但是我本机测试的例子：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>);
 
-<pre><code class="language-c">printf(&quot;%d\n&quot;, 0 &lt;= 1 == 0);
-
-// 0
-</code></pre>
-
-<p>如果相等性运算符的优先级高的话，运算顺序应为: <code>1 == 0 =&gt; 0 =&gt; 0 &lt;= 0 =&gt; 1</code> 应该得到结果 <code>1</code>,</p>
-
+<span style="color:#75715e">// 0
+</span></code></pre></div><p>如果相等性运算符的优先级高的话，运算顺序应为: <code>1 == 0 =&gt; 0 =&gt; 0 &lt;= 0 =&gt; 1</code> 应该得到结果 <code>1</code>,</p>
 <p>但是我用 Xcode 跑出来的结果为 <code>0</code>。我猜测，运算顺序为从左向右：<code>0 &lt;= 1 =&gt; 1 =&gt; 1 == 0 =&gt; 0</code>。</p>
-
 <p>所以，我猜测关系运算符与相等性运算符的优先级是不是相等的？</p>
-
 <p>还望各位大佬解惑 orz</p>
 
     </div>

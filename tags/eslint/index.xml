@@ -6,11 +6,7 @@
     <description>Recent content in eslint on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Aug 2019 10:36:26 +0800</lastBuildDate>
-    
-	<atom:link href="https://luneshao.github.io/tags/eslint/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 02 Aug 2019 10:36:26 +0800</lastBuildDate><atom:link href="https://luneshao.github.io/tags/eslint/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>深入理解eslint</title>
       <link>https://luneshao.github.io/2019/eslint/</link>
@@ -18,9 +14,9 @@
       
       <guid>https://luneshao.github.io/2019/eslint/</guid>
       <description>引言
-参考文献：转载微信公众号的正文
-文章结构：注释了一下 eslint.js 的各个配置项是什么意思，再也不会觉得像天书了（狗头
- // eslint.js module.exports = { root: true, // 如果root设置为true，那么 ESLint 就会认为当前目录为根目录，不再向上查找配置。 parser: &#39;babel-eslint&#39;, // 解析器类型：espima(默认), babel-eslint, @typescript-eslint/parse parserOptions: { // 解析器配置参数 sourceType: &#39;module&#39; // 代码类型：script(默认), module }, // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style /** * &amp;quot;eslint:recommended&amp;quot;, // 一共有两个：eslint:recommended 、eslint:all * &amp;quot;plugin:react/recommended&amp;quot;, // 扩展是插件类型，也可以直接在 plugins 属性中进行设置 =&amp;gt; extPlugin = `plugin:${pluginName}/${configName}` * &amp;quot;eslint-config-standard&amp;quot;, // 扩展来自 npm 包，官方规定 npm 包的扩展必须以 eslint-config- 开头，使用时可以省略这个头 */ extends: &#39;standard&#39;, // 扩展就是直接使用别人已经写好的 lint 规则，方便快捷 // required to lint *.</description>
+  参考文献：转载微信公众号的正文
+  文章结构：注释了一下 eslint.js 的各个配置项是什么意思，再也不会觉得像天书了（狗头
+ // eslint.js module.exports = { root: true, // 如果root设置为true，那么 ESLint 就会认为当前目录为根目录，不再向上查找配置。  parser: &amp;#39;babel-eslint&amp;#39;, // 解析器类型：espima(默认), babel-eslint, @typescript-eslint/parse  parserOptions: { // 解析器配置参数  sourceType: &amp;#39;module&amp;#39; // 代码类型：script(默认), module  }, // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style  /** * &amp;#34;eslint:recommended&amp;#34;, // 一共有两个：eslint:recommended 、eslint:all * &amp;#34;plugin:react/recommended&amp;#34;, // 扩展是插件类型，也可以直接在 plugins 属性中进行设置 =&amp;gt; extPlugin = `plugin:${pluginName}/${configName}` * &amp;#34;eslint-config-standard&amp;#34;, // 扩展来自 npm 包，官方规定 npm 包的扩展必须以 eslint-config- 开头，使用时可以省略这个头 */ extends: &amp;#39;standard&amp;#39;, // 扩展就是直接使用别人已经写好的 lint 规则，方便快捷  // required to lint *.</description>
     </item>
     
   </channel>

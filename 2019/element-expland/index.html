@@ -57,8 +57,8 @@
     "accountablePerson" : "LuneShao",
     "copyrightHolder" : "LuneShao",
     "copyrightYear" : "2019",
-    "datePublished": "2019-05-28 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-05-28 00:00:00 \x2b0000 UTC",
+    "datePublished": "2019-05-28 00:00:00 \u002b0000 UTC",
+    "dateModified" : "2019-05-28 00:00:00 \u002b0000 UTC",
     "url" : "https:\/\/luneshao.github.io\/2019\/element-expland\/",
     "wordCount" : "38",
     "keywords" : [ "前端", "Luneshao"]
@@ -159,49 +159,29 @@
           
           
 
-          
-
-<h2 id="1-获取元素的css">1. 获取元素的css</h2>
-
+          <h2 id="1-获取元素的css">1. 获取元素的css</h2>
 <ul>
 <li>1.1 <code>window.getComputedStyle()</code></li>
 </ul>
-
 <p>返回另一个包含所有 <code>css</code> 属性的对象，该对象应用了样式表并解析了基础计算（只读）。</p>
-
-<pre><code class="language-js">window.getComputedStyle().getPropertyValue('font') // 获取属性 font 值
-</code></pre>
-
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle" rel="nofollow noreferrer" target="_blank">MDN</a>  <a href="https://www.zhangxinxu.com/wordpress/2012/05/getcomputedstyle-js-getpropertyvalue-currentstyle/" rel="nofollow noreferrer" target="_blank">张鑫旭前辈的文章</a></p>
-
-<p><em>css 安全</em>(<a href="https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/" rel="nofollow noreferrer" target="_blank">blog</a>)</p>
-
-<h2 id="2-获取元素的大小及其相对于视口的位置">2.获取元素的大小及其相对于视口的位置</h2>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">window.<span style="color:#a6e22e">getComputedStyle</span>().<span style="color:#a6e22e">getPropertyValue</span>(<span style="color:#e6db74">&#39;font&#39;</span>) <span style="color:#75715e">// 获取属性 font 值
+</span></code></pre></div><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle">MDN</a>  <a href="https://www.zhangxinxu.com/wordpress/2012/05/getcomputedstyle-js-getpropertyvalue-currentstyle/">张鑫旭前辈的文章</a></p>
+<p><em>css 安全</em>(<a href="https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/">blog</a>)</p>
+<h2 id="2获取元素的大小及其相对于视口的位置">2.获取元素的大小及其相对于视口的位置</h2>
 <ul>
 <li>2.1 <code>Element.getComputedStyle()</code></li>
 </ul>
-
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect" rel="nofollow noreferrer" target="_blank">MDN</a></p>
-
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect">MDN</a></p>
 <p>返回元素的大小及其相对于视口的位置。</p>
-
 <p>如果你需要获得相对于整个网页左上角定位的属性值，那么只要给top、left属性值加上当前的滚动位置</p>
-
 <p>（通过window.scrollX和window.scrollY），这样就可以获取与当前的滚动位置无关的值。</p>
-
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/0528-ee-gb1.jpg" alt="getBoundingClientRect图片" class="lazyload"><figcaption class="image-caption">getBoundingClientRect图片</figcaption></figure></p>
-
-<h2 id="3-返回当前document对象所关联的window对象">3.返回当前document对象所关联的window对象</h2>
-
+<p><img src="/img/0528-ee-gb1.jpg" alt="getBoundingClientRect图片"></p>
+<h2 id="3返回当前document对象所关联的window对象">3.返回当前document对象所关联的window对象</h2>
 <ul>
 <li>3.1 <code>document.defaultView</code></li>
 </ul>
-
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle#defaultView" rel="nofollow noreferrer" target="_blank">MDN</a></p>
-
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle#defaultView">MDN</a></p>
 <p>该属性返回当前 <code>document</code> 对象所关联的 <code>window</code> 对象，如果没有，会返回 <code>null</code>。</p>
-
 <p>在许多在线的演示代码中，<code>getComputedStyle</code>是通过 <code>document.defaultView</code> 对象来调用的。大部分情况下，这是不需要的，因为可以直接通过window对象调用。但有一种情况，你必需要使用 <code>defaultView</code>,  那是在firefox3.6上访问子框架内的样式。</p>
 
     </div>

@@ -57,8 +57,8 @@
     "accountablePerson" : "LuneShao",
     "copyrightHolder" : "LuneShao",
     "copyrightYear" : "2020",
-    "datePublished": "2020-05-20 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2020-05-20 00:00:00 \x2b0000 UTC",
+    "datePublished": "2020-05-20 00:00:00 \u002b0000 UTC",
+    "dateModified" : "2020-05-20 00:00:00 \u002b0000 UTC",
     "url" : "https:\/\/luneshao.github.io\/2020\/2020-05-20-vue-perf\/",
     "wordCount" : "598",
     "keywords" : [ "vue","前端", "Luneshao"]
@@ -161,329 +161,282 @@
           
           
 
-          
+          <h2 id="1字体优化">1、字体优化</h2>
+<h3 id="11-字体包压缩">1.1 字体包压缩</h3>
+<p>使用 <a href="https://github.com/ecomfe/fontmin">fontmin</a> 这个库压缩字体包。（字体下载地址 <a href="http://www.font168.com/">字体下载网</a> ，这个下载的苹方简-常规可以被格式化。）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Fontmin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fontmin&#39;</span>)
 
-<h2 id="1-字体优化">1、字体优化</h2>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">srcPath</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;./path/*.ttf&#39;</span> <span style="color:#75715e">// 字体源文件
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">destPath</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;./path&#39;</span> <span style="color:#75715e">// 输出路径
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">text</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;text&#39;</span>
 
-<h3 id="1-1-字体包压缩">1.1 字体包压缩</h3>
-
-<p>使用 <a href="https://github.com/ecomfe/fontmin" rel="nofollow noreferrer" target="_blank">fontmin</a> 这个库压缩字体包。（字体下载地址 <a href="http://www.font168.com/" rel="nofollow noreferrer" target="_blank">字体下载网</a> ，这个下载的苹方简-常规可以被格式化。）</p>
-
-<pre><code class="language-js">const Fontmin = require('fontmin')
-
-const srcPath = './path/*.ttf' // 字体源文件
-const destPath = './path' // 输出路径
-const text = 'text'
-
-var fontmin = new Fontmin()
-  .src(srcPath)
-  .dest(destPath)
-  .use(
-    Fontmin.glyph({
-      text: text,
-      hinting: false // keep ttf hint info (fpgm, prep, cvt). default = true
-    })
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fontmin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Fontmin</span>()
+  .<span style="color:#a6e22e">src</span>(<span style="color:#a6e22e">srcPath</span>)
+  .<span style="color:#a6e22e">dest</span>(<span style="color:#a6e22e">destPath</span>)
+  .<span style="color:#a6e22e">use</span>(
+    <span style="color:#a6e22e">Fontmin</span>.<span style="color:#a6e22e">glyph</span>({
+      <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">text</span>,
+      <span style="color:#a6e22e">hinting</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span> <span style="color:#75715e">// keep ttf hint info (fpgm, prep, cvt). default = true
+</span><span style="color:#75715e"></span>    })
   )
 
-// 执行
-fontmin.run(function (err, files, stream) {
-  if (err) {
-    console.error(err) // 异常捕捉
-  }
-  console.log('done') // 成功
-})
-</code></pre>
-
-<h3 id="1-2-优化字体包加载前的文本隐藏-from-font-display-的用法-https-www-w3cplus-com-css-font-display-masses-html">1.2 优化字体包加载前的文本隐藏 [from <a href="https://www.w3cplus.com/css/font-display-masses.html" rel="nofollow noreferrer" target="_blank">font-display 的用法</a>]</h3>
-
+<span style="color:#75715e">// 执行
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">fontmin</span>.<span style="color:#a6e22e">run</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">files</span>, <span style="color:#a6e22e">stream</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">err</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">err</span>) <span style="color:#75715e">// 异常捕捉
+</span><span style="color:#75715e"></span>  }
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;done&#39;</span>) <span style="color:#75715e">// 成功
+</span><span style="color:#75715e"></span>})
+</code></pre></div><h3 id="12-优化字体包加载前的文本隐藏-from-font-display-的用法httpswwww3cpluscomcssfont-display-masseshtml">1.2 优化字体包加载前的文本隐藏 [from <a href="https://www.w3cplus.com/css/font-display-masses.html">font-display 的用法</a>]</h3>
 <ol>
-<li><p><code>@font-face</code> 中使用 <code>font-display</code> 属性</p>
-
-<pre><code class="language-css">/* style.css */
-@font-face {
-font-family: 'test'; /* 所指定的字体名字将会被用于font或font-family属性 */
-/* 
-  src描述符指定了包含字体数据的资源。
-  远程字体文件位置的URL或者用户计算机上的字体名称，
-  可以使用local语法通过名称指定用户的本地计算机上的字体。
-  如果找不到该字体，将会尝试其他来源，直到找到它。
-*/
-src: url('test.woff2') format('woff2');
-font-display: swap;
-}
-</code></pre></li>
-
-<li><p>考虑兼容性，使用 js 判断字体包加载完毕后，添加字体设置。</p>
-
-<pre><code class="language-js">// font.js
-if ('fontDisplay' in document.body.style === false) {
-  if ('fonts' in document) {
-    document.fonts.load('test')
-    document.fonts.ready.then((fontFaceSet) =&gt; {
-      document.documentElement.className += ' fonts-loaded' 
-    })
-  }
-}
-</code></pre></li>
+<li><code>@font-face</code> 中使用 <code>font-display</code> 属性</li>
 </ol>
-
-<h3 id="1-3-字体包-preload">1.3 字体包 preload</h3>
-
-<p>添加 preload-webpack-plugin 包</p>
-
-<pre><code class="language-cmd">  $ yarn add preload-webpack-plugin --dev
-</code></pre>
-
-<p>在 vue.config.js 中配置</p>
-
-<pre><code class="language-js">  // vue.config.js
-  const PreloadWebpackPlugin = require('preload-webpack-plugin')
-
-  module.exports = {
-    configureWebpack: config =&gt; {
-      return {
-        plugins: [new PreloadWebpackPlugin({
-          rel: 'preload',
-          include: 'allAssets',
-          as (entry) { // link as 属性
-            if (/\.ttf$/.test(entry)) return 'font'
-            if (/\.jpg$/.test(entry)) return 'image'
-            return 'script'
-          },
-          fileWhitelist: [/\.ttf/, /banner[^-]*\.jpg/] // 白名单
-        })]
-      }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#75715e">/* style.css */</span>
+@<span style="color:#66d9ef">font-face</span> {
+  <span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">;</span> <span style="color:#75715e">/* 所指定的字体名字将会被用于font或font-family属性 */</span>
+  <span style="color:#75715e">/* 
+</span><span style="color:#75715e">    src描述符指定了包含字体数据的资源。
+</span><span style="color:#75715e">    远程字体文件位置的URL或者用户计算机上的字体名称，
+</span><span style="color:#75715e">    可以使用local语法通过名称指定用户的本地计算机上的字体。
+</span><span style="color:#75715e">    如果找不到该字体，将会尝试其他来源，直到找到它。
+</span><span style="color:#75715e">  */</span>
+  <span style="color:#f92672">src</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;test.woff2&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;woff2&#39;</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">font-display</span><span style="color:#f92672">:</span> <span style="color:#f92672">swap</span><span style="color:#f92672">;</span>
+}
+</code></pre></div><ol start="2">
+<li>考虑兼容性，使用 js 判断字体包加载完毕后，添加字体设置。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// font.js
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">&#39;fontDisplay&#39;</span> <span style="color:#66d9ef">in</span> document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">style</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">false</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">&#39;fonts&#39;</span> <span style="color:#66d9ef">in</span> document) {
+      document.<span style="color:#a6e22e">fonts</span>.<span style="color:#a6e22e">load</span>(<span style="color:#e6db74">&#39;test&#39;</span>)
+      document.<span style="color:#a6e22e">fonts</span>.<span style="color:#a6e22e">ready</span>.<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">fontFaceSet</span>) =&gt; {
+        document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">className</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#39; fonts-loaded&#39;</span> 
+      })
     }
   }
-</code></pre>
+</code></pre></div><h3 id="13-字体包-preload">1.3 字体包 preload</h3>
+<p>添加 preload-webpack-plugin 包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">$ yarn add preload-webpack-plugin --dev
+</code></pre></div><p>在 vue.config.js 中配置</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// vue.config.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">PreloadWebpackPlugin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;preload-webpack-plugin&#39;</span>)
 
-<h3 id="相关知识补充">相关知识补充</h3>
-
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">configureWebpack</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">config</span> =&gt; {
+    <span style="color:#66d9ef">return</span> {
+      <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> [<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PreloadWebpackPlugin</span>({
+        <span style="color:#a6e22e">rel</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;preload&#39;</span>,
+        <span style="color:#a6e22e">include</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;allAssets&#39;</span>,
+        <span style="color:#a6e22e">as</span> (<span style="color:#a6e22e">entry</span>) { <span style="color:#75715e">// link as 属性
+</span><span style="color:#75715e"></span>          <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">/\.ttf$/</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">entry</span>)) <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;font&#39;</span>
+          <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">/\.jpg$/</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">entry</span>)) <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;image&#39;</span>
+          <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;script&#39;</span>
+        },
+        <span style="color:#a6e22e">fileWhitelist</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">/\.ttf/</span>, <span style="color:#e6db74">/banner[^-]*\.jpg/</span>] <span style="color:#75715e">// 白名单
+</span><span style="color:#75715e"></span>      })]
+    }
+  }
+}
+</code></pre></div><h3 id="相关知识补充">相关知识补充</h3>
 <ul>
-<li><p><code>font-display</code> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@font-face/font-display" rel="nofollow noreferrer" target="_blank">font-display MDN</a></p>
-
+<li>
+<p><code>font-display</code> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@font-face/font-display">font-display MDN</a></p>
 <p>font-display属性必须在@font-face指令内使用。因为你不能控制第三方字体供应商的CSS文件，所以你没有办法控制font-display属性更用说给他传递值了。
 决定了一个@font-face 在不同的下载时间和可用时间下是如何展示的。</p>
-
 <p><strong>字体显示时间轴</strong></p>
-
 <p>字体显示时间线基于一个计时器，该计时器在用户代理尝试使用给定下载字体的那一刻开始。时间线分为三个时间段，在这三个时间段中指定使用字体的元素的渲染行为。</p>
-
 <ul>
-<li><p><strong>字体阻塞周期</strong>
-如果未加载字体，任何试图使用它的元素都必须渲染不可见的后备字体。如果在此期间字体已成功加载，则正常使用它。</p></li>
-
-<li><p><strong>字体交换周期</strong>
-如果未加载字体，任何尝试使用它的元素都必须呈现后备字体。如果在此期间字体已成功加载，则正常使用它。</p></li>
-
-<li><p><strong>字体失败周期</strong>
-如果未加载字体，用户代理将其视为导致正常字体回退的失败加载。</p></li>
+<li>
+<p><strong>字体阻塞周期</strong>
+如果未加载字体，任何试图使用它的元素都必须渲染不可见的后备字体。如果在此期间字体已成功加载，则正常使用它。</p>
+</li>
+<li>
+<p><strong>字体交换周期</strong>
+如果未加载字体，任何尝试使用它的元素都必须呈现后备字体。如果在此期间字体已成功加载，则正常使用它。</p>
+</li>
+<li>
+<p><strong>字体失败周期</strong>
+如果未加载字体，用户代理将其视为导致正常字体回退的失败加载。</p>
+</li>
 </ul>
-
 <p><strong>属性值</strong></p>
-
 <ul>
 <li><code>auto</code> 默认值，字体显示策略由用户代理定义。自定义字体的文本会被先隐藏，直到字体加载结束才会显示。</li>
 <li><code>block</code> 为字体提供一个短暂的阻塞周期和无限的交换周期。</li>
 <li><code>swap</code> 为字体提供一个非常小的阻塞周期和无限的交换周期。后备文本立即显示直到自定义字体加载完成后再使用自定义字体渲染文本。</li>
 <li><code>fallback</code> 为字体提供一个非常小的阻塞周期和短暂的交换周期。需要使用自定义字体渲染的文本会在较短时间内不可见，如果自定义字体还没加载结束，就先加载无样式文本。一旦自定义字体加载结束，那么文本就会被正确赋予样式。</li>
 <li><code>optional</code> 为字体提供一个非常小的阻塞周期，并且没有交换周期。效果和fallback几乎一样，不过 optional 可以让浏览器自由决定是否使用自定义字体，很大程度上取决于浏览器的连接速度。如果速度很慢，那自定义字体将不会被使用。</li>
-</ul></li>
-
-<li><p><code>@font-face</code> 中 src 属性的 format 函数</p>
-
+</ul>
+</li>
+<li>
+<p><code>@font-face</code> 中 src 属性的 format 函数</p>
 <p>format() 函数描述该URL引用的字体资源的格式的可选提示。
-  格式提示包含逗号分隔的格式字符串列表，这些字符串表示众所周知的字体格式。
-  如果用户代理不支持指定的格式，它将跳过下载字体资源。如果没有提供格式提示，则始终下载字体资源。</p></li>
-
-<li><p><code>document.documentElement</code></p>
-
+格式提示包含逗号分隔的格式字符串列表，这些字符串表示众所周知的字体格式。
+如果用户代理不支持指定的格式，它将跳过下载字体资源。如果没有提供格式提示，则始终下载字体资源。</p>
+</li>
+<li>
+<p><code>document.documentElement</code></p>
 <p>对于任何非空 HTML 文档，调用 <code>document.documentElement</code> 总是会返回一个 <code>&lt;html&gt;</code> 元素，且它一定是该文档的根元素。借助这个只读属性，能方便地获取到任意文档的根元素。
-  HTML 文档通常包含一个子节点 <html>，但在它前面可能还有个 DOCTYPE 声明。XML 文档通常包含多个子节点：根元素，DOCTYPE 声明，和 processing instructions。</p>
-
-<p>所以，应当使用 document.documentElement 来获取根元素, 而不是 document.firstChild。</p></li>
-
-<li><p><code>document.fonts</code></p>
-
+HTML 文档通常包含一个子节点 <!-- raw HTML omitted -->，但在它前面可能还有个 DOCTYPE 声明。XML 文档通常包含多个子节点：根元素，DOCTYPE 声明，和 processing instructions。</p>
+<p>所以，应当使用 document.documentElement 来获取根元素, 而不是 document.firstChild。</p>
+</li>
+<li>
+<p><code>document.fonts</code></p>
 <p>document.fonts 返回文档的 <code>FontFaceSet</code> 接口。<code>FontFaceSet</code> 接口对于加载新字体，检查先前加载的字体的状态等非常有用。</p>
-
 <p><strong>属性</strong> (不全面)</p>
-
 <ul>
 <li><code>FontFaceSet.status</code> 指示字体的加载状态。将是 &lsquo;loading&rsquo; or &lsquo;loaded&rsquo;。</li>
 <li><code>FontFaceSet.ready</code> Promise 会在字体加载和布局操作完成后 resolves。</li>
 </ul>
-
 <p><strong>方法</strong> (不全面)</p>
-
 <ul>
-<li><code>FontFaceSet.check()</code> 返回一个布尔值，指示字体是否加载，但未加载时不启动加载。</li>
-
-<li><p><code>FontFaceSet.load()</code> <a href="https://developer.mozilla.org/en-US/docs/Web/API/FontFaceSet/load" rel="nofollow noreferrer" target="_blank">FontFaceSet.load() MDN</a> 该方法强制加载参数中给定的所有字体。返回一个Promise，该Promise解析为所请求字体的字体数组。</p>
-
+<li>
+<p><code>FontFaceSet.check()</code> 返回一个布尔值，指示字体是否加载，但未加载时不启动加载。</p>
+</li>
+<li>
+<p><code>FontFaceSet.load()</code> <a href="https://developer.mozilla.org/en-US/docs/Web/API/FontFaceSet/load">FontFaceSet.load() MDN</a> 该方法强制加载参数中给定的所有字体。返回一个Promise，该Promise解析为所请求字体的字体数组。</p>
 <p><strong>参数</strong>：</p>
-
 <ul>
 <li>font: 参照 css 语法中 font 属性的格式。eg: &lsquo;italic bold 16px Roboto&rsquo;</li>
 <li>text: 限制 font faces 编码范围至少要包含的字符。</li>
-</ul></li>
-</ul></li>
-
-<li><p><code>&lt;link ref=&quot;preload&quot; ... &gt;</code> 参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Preloading_content" rel="nofollow noreferrer" target="_blank">文档</a></p></li>
 </ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>&lt;link ref=&quot;preload&quot; ... &gt;</code> 参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Preloading_content">文档</a></p>
+</li>
+</ul>
+<h2 id="2图片使用懒加载">2、图片使用懒加载</h2>
+<p>使用 <a href="https://www.npmjs.com/package/vue-lazyload">vue-lazyload</a> 库优化图片加载，滚动到某处再加载图片。</p>
+<h2 id="3打包线上版本使用-cdn-引入包">3、打包线上版本，使用 cdn 引入包</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// --------------
+</span><span style="color:#75715e">// .env
+</span><span style="color:#75715e">// --------------
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">NODE_ENV</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;production&#39;</span>
 
-<h2 id="2-图片使用懒加载">2、图片使用懒加载</h2>
+<span style="color:#75715e">// --------------
+</span><span style="color:#75715e">// vue.config.js
+</span><span style="color:#75715e">// --------------
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isProd</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">NODE_ENV</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;production&#39;</span>
 
-<p>使用 <a href="https://www.npmjs.com/package/vue-lazyload" rel="nofollow noreferrer" target="_blank">vue-lazyload</a> 库优化图片加载，滚动到某处再加载图片。</p>
-
-<h2 id="3-打包线上版本-使用-cdn-引入包">3、打包线上版本，使用 cdn 引入包</h2>
-
-<pre><code class="language-js">// --------------
-// .env
-// --------------
-NODE_ENV === 'production'
-
-// --------------
-// vue.config.js
-// --------------
-
-const isProd = process.env.NODE_ENV === 'production'
-
-const assetsCDN = {
-  // webpack build externals
-  externals: {
-    vue: 'Vue',
-    'vue-router': 'VueRouter',
-    'vue-lazyload': 'VueLazyload',
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">assetsCDN</span> <span style="color:#f92672">=</span> {
+  <span style="color:#75715e">// webpack build externals
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">externals</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">vue</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Vue&#39;</span>,
+    <span style="color:#e6db74">&#39;vue-router&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;VueRouter&#39;</span>,
+    <span style="color:#e6db74">&#39;vue-lazyload&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;VueLazyload&#39;</span>,
   },
-  css: ['//cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css'],
-  js: [
-    '//cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js',
-    '//cdn.jsdelivr.net/npm/vue-router@3.1.6/dist/vue-router.min.js',
-    '//cdn.jsdelivr.net/npm/vue-lazyload@1.3.3/vue-lazyload.min.js',
+  <span style="color:#a6e22e">css</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;//cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css&#39;</span>],
+  <span style="color:#a6e22e">js</span><span style="color:#f92672">:</span> [
+    <span style="color:#e6db74">&#39;//cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js&#39;</span>,
+    <span style="color:#e6db74">&#39;//cdn.jsdelivr.net/npm/vue-router@3.1.6/dist/vue-router.min.js&#39;</span>,
+    <span style="color:#e6db74">&#39;//cdn.jsdelivr.net/npm/vue-lazyload@1.3.3/vue-lazyload.min.js&#39;</span>,
   ],
 }
 
-module.exports = {
-  configureWebpack: (config) =&gt; {
-    if (isProd) {
-      return {
-        // resolve: {
-        //   alias: {
-        //     '@ant-design/icons/lib/dist$': resolve('./src/core/antd/icons.js'),
-        //   },
-        // },
-        externals: assetsCDN.externals,
-        // plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)],
-      }
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">configureWebpack</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">config</span>) =&gt; {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isProd</span>) {
+      <span style="color:#66d9ef">return</span> {
+        <span style="color:#75715e">// resolve: {
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//   alias: {
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//     &#39;@ant-design/icons/lib/dist$&#39;: resolve(&#39;./src/core/antd/icons.js&#39;),
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//   },
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// },
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">externals</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">assetsCDN</span>.<span style="color:#a6e22e">externals</span>,
+        <span style="color:#75715e">// plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)],
+</span><span style="color:#75715e"></span>      }
     }
   },
 
-  chainWebpack: (config) =&gt; {
-    config.plugin('html').tap((args) =&gt; {
-      args[0].title = process.env.VUE_APP_TITLE
-      if (isProd) {
-        args[0].cdn = assetsCDN
+  <span style="color:#a6e22e">chainWebpack</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">config</span>) =&gt; {
+    <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugin</span>(<span style="color:#e6db74">&#39;html&#39;</span>).<span style="color:#a6e22e">tap</span>((<span style="color:#a6e22e">args</span>) =&gt; {
+      <span style="color:#a6e22e">args</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">VUE_APP_TITLE</span>
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isProd</span>) {
+        <span style="color:#a6e22e">args</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">cdn</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">assetsCDN</span>
       }
-      return args
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">args</span>
     })
   },
 }
-</code></pre>
-
-<pre><code class="language-html">&lt;!-- index.html --&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- index.html --&gt;</span>
 ...
-&lt;!-- require cdn assets css --&gt;
-&lt;% for (var i in htmlWebpackPlugin.options.cdn &amp;&amp; htmlWebpackPlugin.options.cdn.css) { %&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;%= htmlWebpackPlugin.options.cdn.css[i] %&gt;&quot; /&gt;
-&lt;% } %&gt; 
+<span style="color:#75715e">&lt;!-- require cdn assets css --&gt;</span>
+<span style="color:#960050;background-color:#1e0010">&lt;</span>% for (var i in htmlWebpackPlugin.options.cdn <span style="color:#960050;background-color:#1e0010">&amp;&amp;</span> htmlWebpackPlugin.options.cdn.css) { %&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;%= htmlWebpackPlugin.options.cdn.css[i] %&gt;&#34;</span> /&gt;
+<span style="color:#960050;background-color:#1e0010">&lt;</span>% } %&gt; 
 ...
-&lt;!-- require cdn assets js --&gt;
-&lt;% for (var i in htmlWebpackPlugin.options.cdn &amp;&amp; htmlWebpackPlugin.options.cdn.js) { %&gt;
-&lt;script
-  type=&quot;text/javascript&quot;
-  src=&quot;&lt;%= htmlWebpackPlugin.options.cdn.js[i] %&gt;&quot;
-&gt;&lt;/script&gt;
-&lt;% } %&gt;
-</code></pre>
-
-<h2 id="4-ant-design-vue-相关">4、ant-design-vue 相关</h2>
-
-<h3 id="4-1-打包后-icon-包体积过大">4.1 打包后，icon 包体积过大</h3>
-
-<p>参考此 <a href="https://github.com/vueComponent/ant-design-vue/issues/1109" rel="nofollow noreferrer" target="_blank">issue</a> 作者的<a href="https://github.com/vueComponent/ant-design-vue/issues/1109#issuecomment-563094161" rel="nofollow noreferrer" target="_blank">回答</a></p>
-
-<h3 id="4-2-打包后-moment-包体积过大">4.2 打包后，moment 包体积过大</h3>
-
-<p>参考此优化方案 <a href="https://github.com/jmblog/how-to-optimize-momentjs-with-webpack" rel="nofollow noreferrer" target="_blank">github</a></p>
-
-<h2 id="5-使用缓存">5、使用缓存</h2>
-
-<h3 id="5-1-nginx-配置-last-modify-和-etag">5.1 nginx 配置 last-modify 和 etag</h3>
-
-<pre><code class="language-nginx.conf">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|ttf)$
+<span style="color:#75715e">&lt;!-- require cdn assets js --&gt;</span>
+<span style="color:#960050;background-color:#1e0010">&lt;</span>% for (var i in htmlWebpackPlugin.options.cdn <span style="color:#960050;background-color:#1e0010">&amp;&amp;</span> htmlWebpackPlugin.options.cdn.js) { %&gt;
+&lt;<span style="color:#f92672">script</span>
+  <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>
+  <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;%= htmlWebpackPlugin.options.cdn.js[i] %&gt;&#34;</span>
+&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+<span style="color:#960050;background-color:#1e0010">&lt;</span>% } %&gt;
+</code></pre></div><h2 id="4ant-design-vue-相关">4、ant-design-vue 相关</h2>
+<h3 id="41-打包后icon-包体积过大">4.1 打包后，icon 包体积过大</h3>
+<p>参考此 <a href="https://github.com/vueComponent/ant-design-vue/issues/1109">issue</a> 作者的<a href="https://github.com/vueComponent/ant-design-vue/issues/1109#issuecomment-563094161">回答</a></p>
+<h3 id="42-打包后moment-包体积过大">4.2 打包后，moment 包体积过大</h3>
+<p>参考此优化方案 <a href="https://github.com/jmblog/how-to-optimize-momentjs-with-webpack">github</a></p>
+<h2 id="5使用缓存">5、使用缓存</h2>
+<h3 id="51-nginx-配置-last-modify-和-etag">5.1 nginx 配置 last-modify 和 etag</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx.conf" data-lang="nginx.conf"><span style="color:#66d9ef">location</span> ~ <span style="color:#e6db74">.*\.(gif|jpg|jpeg|png|bmp|swf|ttf)$</span>
 {
-    expires      60d;
+    <span style="color:#f92672">expires</span>      <span style="color:#e6db74">60d</span>;
 }
-location ~ .*\.(js|css)?$
+<span style="color:#66d9ef">location</span> ~ <span style="color:#e6db74">.*\.(js|css)?$</span>
 {
-    expires      60d;
+    <span style="color:#f92672">expires</span>      <span style="color:#e6db74">60d</span>;
 }
-</code></pre>
-
-<h2 id="6-组件懒加载">6、组件懒加载</h2>
-
-<h3 id="6-1-使用-intersection-observer-实现组件懒加载">6.1 使用 Intersection Observer 实现组件懒加载</h3>
-
-<p>主要使用了 <strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver" rel="nofollow noreferrer" target="_blank">Intersection Observer (MDN)</a> 接口</strong>，提供了一种异步观察目标元素与其祖先元素或顶级文档视窗(viewport)交叉状态的方法。</p>
-
-<pre><code class="language-vue">// test.vue
-&lt;template&gt;
-  // ...
-  &lt;component-a v-if=&quot;ifCmpShow&quot; &gt;&lt;/component-a&gt;
-&lt;/template&gt;
-&lt;script&gt;
-export default {
-  data () {
-    return {
-      ifCmpShow: false
+</code></pre></div><h2 id="6组件懒加载">6、组件懒加载</h2>
+<h3 id="61-使用-intersection-observer-实现组件懒加载">6.1 使用 Intersection Observer 实现组件懒加载</h3>
+<p>主要使用了 <strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver">Intersection Observer (MDN)</a> 接口</strong>，提供了一种异步观察目标元素与其祖先元素或顶级文档视窗(viewport)交叉状态的方法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue"><span style="color:#75715e">// test.vue
+</span><span style="color:#75715e"></span>&lt;<span style="color:#f92672">template</span>&gt;
+  <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  &lt;<span style="color:#f92672">component-a</span> <span style="color:#a6e22e">v</span><span style="color:#f92672">-if</span><span style="color:#960050;background-color:#1e0010">=&#34;</span><span style="color:#a6e22e">ifCmpShow</span><span style="color:#960050;background-color:#1e0010">&#34;</span> &gt;<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/component-a&gt;</span>
+&lt;/<span style="color:#f92672">template</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+  <span style="color:#a6e22e">data</span> () {
+    <span style="color:#66d9ef">return</span> {
+      <span style="color:#a6e22e">ifCmpShow</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
     }
   },
-  mounted () {
-    // 这里如果不等dom更新后执行，页面加载时就会触发 observe
-   if ('IntersectionObserver' in window) {
-      this.$nextTick(() =&gt; {
-        this.lazyLoadContact()
+  <span style="color:#a6e22e">mounted</span> () {
+    <span style="color:#75715e">// 这里如果不等dom更新后执行，页面加载时就会触发 observe
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">&#39;IntersectionObserver&#39;</span> <span style="color:#66d9ef">in</span> window) {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$nextTick</span>(() =&gt; {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lazyLoadContact</span>()
       })
-    } else {
-      this.$nextTick(() =&gt; {
-        this.ifCmpShow = true
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$nextTick</span>(() =&gt; {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ifCmpShow</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
       })
     }
   },
-  method: {
-    lazyLoadContact () {
-      const intersectionObserver = new IntersectionObserver(entries =&gt; {
-        if (entries[0].intersectionRatio &lt;= 0) return
-        if (!this.ifCmpShow) {
-          this.ifCmpShow = true
+  <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">lazyLoadContact</span> () {
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">intersectionObserver</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">IntersectionObserver</span>(<span style="color:#a6e22e">entries</span> =&gt; {
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">entries</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">intersectionRatio</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span>
+        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ifCmpShow</span>) {
+          <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ifCmpShow</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
         }
       })
 
-      intersectionObserver.observe(this.$refs.experts.$el) // 参数必须是 dom
-    }
+      <span style="color:#a6e22e">intersectionObserver</span>.<span style="color:#a6e22e">observe</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$refs</span>.<span style="color:#a6e22e">experts</span>.<span style="color:#a6e22e">$el</span>) <span style="color:#75715e">// 参数必须是 dom
+</span><span style="color:#75715e"></span>    }
   }
 }
-&lt;/script&gt;
-</code></pre>
-
-<h3 id="相关知识点">相关知识点</h3>
-
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><h3 id="相关知识点">相关知识点</h3>
 <ul>
-<li><a href="https://juejin.im/post/5b9346dcf265da0aac6fbe57" rel="nofollow noreferrer" target="_blank">前端优化：浏览器缓存技术介绍</a></li>
-<li><a href="https://blog.csdn.net/jiabeis/article/details/79653983" rel="nofollow noreferrer" target="_blank">nginx配置管理浏览器静态缓存策略</a></li>
+<li><a href="https://juejin.im/post/5b9346dcf265da0aac6fbe57">前端优化：浏览器缓存技术介绍</a></li>
+<li><a href="https://blog.csdn.net/jiabeis/article/details/79653983">nginx配置管理浏览器静态缓存策略</a></li>
 </ul>
-
 <p>以上。</p>
 
     </div>

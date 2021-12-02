@@ -6,11 +6,7 @@
     <description>Recent content in hugo on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 May 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://luneshao.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 14 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://luneshao.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>hugo 介绍及使用</title>
       <link>https://luneshao.github.io/2019/hugo-intro/</link>
@@ -21,12 +17,13 @@
 使用 Hugo 生成博客还请大家移步至 Hugo中文文档，我看着挺清晰的，比英文文档好看啊&amp;hellip;
 我目前使用的是 hugo-lamp 这个主题，绿绿的多好看😏。
 1.Hugo 目录结构 原文连接
-├── archetypes // 储存.md的模板文件，新建一个 .md 文件时，就会按此模版创建 ├── content // 储存网站的所有内容，写的文章存放在这里 ├── data // 储存数据文件供模板调用（目前没有用到过） ├── layouts // 储存.html模板（也莫的用） ├── static // 储存图片,css,js等静态文件，该目录下的文件会直接拷贝到/public ├── themes // 储存主题 └── config.toml // 配置文件  图片的引用 Hugo 的图片可以直接放在其 static/img 目录里面，其路径就是 /img/image_name.png。
+├── archetypes // 储存.md的模板文件，新建一个 .md 文件时，就会按此模版创建 ├── content // 储存网站的所有内容，写的文章存放在这里 ├── data // 储存数据文件供模板调用（目前没有用到过） ├── layouts // 储存.html模板（也莫的用） ├── static // 储存图片,css,js等静态文件，该目录下的文件会直接拷贝到/public ├── themes // 储存主题 └── config.toml // 配置文件 图片的引用 Hugo 的图片可以直接放在其 static/img 目录里面，其路径就是 /img/image_name.png。
 [2019-06-12日更新]
 众所周知，安装主题是在 themes 文件夹下，根据不同的主题，都会有相应的文档介绍，告诉我们怎么去写配置文件。此主题的文档在 /docs/guide.md，根据这个文档可以把自己的名字、签名、地址一系列安排的妥妥当当。
 看到大神们有人在博客里放了评论、音乐，还使用了图床，就也想鼓捣。还有，我的博客没有被搜索引擎收录，我还得搞一搞。目前我已经添加了评论、音乐和 google analyze的功能，记录一下过程。
 2.hugo 添加评论功能 [20190613 更新，我已经换掉了。换成 Valine 了。]
-我使用的是 disqus。 参考文章，真的是极好。</description>
+我使用的是 disqus。 参考文章，真的是极好。
+hugo 文档有具体教程文档教程。简述一下第二种方法的步骤：</description>
     </item>
     
   </channel>

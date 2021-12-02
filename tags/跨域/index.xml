@@ -6,19 +6,14 @@
     <description>Recent content in 跨域 on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2020 10:36:26 +0800</lastBuildDate>
-    
-	<atom:link href="https://luneshao.github.io/tags/%E8%B7%A8%E5%9F%9F/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 20 Apr 2020 10:36:26 +0800</lastBuildDate><atom:link href="https://luneshao.github.io/tags/%E8%B7%A8%E5%9F%9F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>nodejs、Nginx 处理跨域</title>
       <link>https://luneshao.github.io/2020/2020-04-20-nodejs-proxy/</link>
       <pubDate>Mon, 20 Apr 2020 10:36:26 +0800</pubDate>
       
       <guid>https://luneshao.github.io/2020/2020-04-20-nodejs-proxy/</guid>
-      <description>http-proxy  安装包 http-proxy 全局安装 pm2 包 创建 src/server/index.js
-const url = require(&#39;url&#39;) const http = require(&#39;http&#39;) const axios = require(&#39;axios&#39;) const qs = require(&#39;qs&#39;) const httpProxy = require(&#39;http-proxy&#39;) const proxy = httpProxy.createProxyServer((options = { changeOrigin: true, target: &#39;https://api.mysubmail.com&#39; })) proxy.on(&#39;proxyRes&#39;, (proxyRes, req, res, options) =&amp;gt; { let body = [] proxyRes.on(&#39;data&#39;, function(chunk) { body.push(chunk) }) proxyRes.on(&#39;end&#39;, function() { body = Buffer.concat(body).toString() res.end(&#39;my response to cli&#39;) }) }) proxy.on(&#39;error&#39;, function(err, req, res) { res.</description>
+      <description>http-proxy  安装包 http-proxy 全局安装 pm2 包 创建 src/server/index.js const url = require(&amp;#39;url&amp;#39;) const http = require(&amp;#39;http&amp;#39;) const axios = require(&amp;#39;axios&amp;#39;) const qs = require(&amp;#39;qs&amp;#39;) const httpProxy = require(&amp;#39;http-proxy&amp;#39;) const proxy = httpProxy.createProxyServer((options = { changeOrigin: true, target: &amp;#39;https://api.mysubmail.com&amp;#39; })) proxy.on(&amp;#39;proxyRes&amp;#39;, (proxyRes, req, res, options) =&amp;gt; { let body = [] proxyRes.on(&amp;#39;data&amp;#39;, function(chunk) { body.push(chunk) }) proxyRes.on(&amp;#39;end&amp;#39;, function() { body = Buffer.concat(body).toString() res.end(&amp;#39;my response to cli&amp;#39;) }) }) proxy.on(&amp;#39;error&amp;#39;, function(err, req, res) { res.</description>
     </item>
     
   </channel>

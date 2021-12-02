@@ -57,8 +57,8 @@
     "accountablePerson" : "Author Name",
     "copyrightHolder" : "Author Name",
     "copyrightYear" : "2019",
-    "datePublished": "2019-06-20 14:43:42 \x2b0800 CST",
-    "dateModified" : "2019-06-20 14:43:42 \x2b0800 CST",
+    "datePublished": "2019-06-20 14:43:42 \u002b0800 CST",
+    "dateModified" : "2019-06-20 14:43:42 \u002b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2019\/costom-url-protocol\/",
     "wordCount" : "41",
     "keywords" : [ "URL Protocol","Costom", "Luneshao"]
@@ -157,19 +157,13 @@
           
           
 
-          
-
-<p>我参考了这篇<a href="http://baimoz.me/1429/" rel="nofollow noreferrer" target="_blank">博客</a>，我使用了原博中 windows 系统的方式，亲测有效。下面贴一下操作步骤：</p>
-
+          <p>我参考了这篇<a href="http://baimoz.me/1429/">博客</a>，我使用了原博中 windows 系统的方式，亲测有效。下面贴一下操作步骤：</p>
 <h3 id="操作步骤">操作步骤</h3>
-
 <ol>
 <li>添加注册表</li>
 </ol>
-
 <p>（1）新建一个 <code>.reg</code> 的文件，填充如下内容。例如我新建一个自定义协议，名称为 lune。请注意，将下面所有的路径（也就是方括号内的内容）中的名称要 <strong>全部替换为自定义的名称</strong> ，且名称一定要 <strong>全部是小写字母</strong> 。</p>
-
-<pre><code>Windows Registry Editor Version 5.00
+<pre tabindex="0"><code>Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\lune]
 &quot;URL Protocol&quot;=&quot;C:\\WINDOWS\\system32\\calc.exe&quot;
 @=&quot;LuneProtocol&quot;
@@ -179,29 +173,22 @@
 [HKEY_CLASSES_ROOT\lune\shell\open]
 [HKEY_CLASSES_ROOT\lune\shell\open\command]
 @=&quot;\&quot;C:\\WINDOWS\\system32\\calc.exe\&quot; \&quot;%1\&quot;&quot;
-</code></pre>
-
-<p>（2）双击添加到注册表。</p>
-
-<ol>
-<li><p>调用方式</p>
-
-<pre><code class="language-html">&lt;a href=&quot;lune://123&quot;&gt;click&lt;/a&gt;
-</code></pre></li>
+</code></pre><p>（2）双击添加到注册表。</p>
+<ol start="2">
+<li>调用方式</li>
 </ol>
-
-<h4 id="注意">注意</h4>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lune://123&#34;</span>&gt;click&lt;/<span style="color:#f92672">a</span>&gt;
+</code></pre></div><h4 id="注意">注意</h4>
 <ol>
-<li><p><code>[HKEY_CLASSES_ROOT\lune\shell]</code>方括号内的路径（即 lune）要改成自定义的名字。</p></li>
-
-<li><p>自定义的key值，也就是名称，要小写。（都是血与泪&hellip;</p></li>
+<li>
+<p><code>[HKEY_CLASSES_ROOT\lune\shell]</code>方括号内的路径（即 lune）要改成自定义的名字。</p>
+</li>
+<li>
+<p>自定义的key值，也就是名称，要小写。（都是血与泪&hellip;</p>
+</li>
 </ol>
-
 <h4 id="mark">mark</h4>
-
-<p><a href="https://blog.csdn.net/evanxuhe/article/details/79240051" rel="nofollow noreferrer" target="_blank">实现浏览器判断本地是否安装程序，并下载与启动 Chrome,IE,360可用</a></p>
-
+<p><a href="https://blog.csdn.net/evanxuhe/article/details/79240051">实现浏览器判断本地是否安装程序，并下载与启动 Chrome,IE,360可用</a></p>
 <blockquote>
 <p>以上。🐳</p>
 </blockquote>

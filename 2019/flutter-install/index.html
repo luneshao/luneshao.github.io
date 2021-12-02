@@ -49,7 +49,7 @@
     "articleSection" : "posts",
     "name" : "Flutter 安装 CocoaPods",
     "headline" : "Flutter 安装 CocoaPods",
-    "description" : "引言\n 安装 flutter 过程中，卡在 pod setup 这里，总是会报错，找了好多文章也没能解决。最后发现这篇博客=\x26gt; CocoaPods的安装步骤和遇见的问题 按照里面的步骤，一步一步来就OK了。\n安装步骤 \/\/ 建议先更新下gem sudo gem update --system \/\/ 切换镜像 gem sources --remove https:\/\/rubygems.org\/ gem sources -a https:\/\/gems.ruby-china.com\/ gem sources -l \/\/ 安装 cocoapods sudo gem install cocoapods 应该会提示下错误 \/\/ ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - \/usr\/bin\/update_rubygems 试试 gem update -n \/usr\/local\/bin --system \/\/ 安装cocoapods （我用的这个） sudo gem install -n \/usr\/local\/bin cocoapods pod repo list \/\/ 查看repo 列表 pod repo remove master \/\/ 删除master \/\/ 添加master库 新版的 CocoaPods 不允许用pod repo add直接添加master库了，现在一般执行完pod repo add master *** 之后又会提示[!",
+    "description" : "引言\n 安装 flutter 过程中，卡在 pod setup 这里，总是会报错，找了好多文章也没能解决。最后发现这篇博客=\u0026gt; CocoaPods的安装步骤和遇见的问题 按照里面的步骤，一步一步来就OK了。\n安装步骤 \/\/ 建议先更新下gem sudo gem update --system \/\/ 切换镜像 gem sources --remove https:\/\/rubygems.org\/ gem sources -a https:\/\/gems.ruby-china.com\/ gem sources -l \/\/ 安装 cocoapods sudo gem install cocoapods 应该会提示下错误 \/\/ ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - \/usr\/bin\/update_rubygems 试试 gem update -n \/usr\/local\/bin --system \/\/ 安装cocoapods （我用的这个） sudo gem install -n \/usr\/local\/bin cocoapods pod repo list \/\/ 查看repo 列表 pod repo remove master \/\/ 删除master \/\/ 添加master库 新版的 CocoaPods 不允许用pod repo add直接添加master库了，现在一般执行完pod repo add master *** 之后又会提示[!",
     "inLanguage" : "en-us",
     "author" : "lune",
     "creator" : "lune",
@@ -57,8 +57,8 @@
     "accountablePerson" : "lune",
     "copyrightHolder" : "lune",
     "copyrightYear" : "2019",
-    "datePublished": "2019-06-24 16:30:36 \x2b0800 CST",
-    "dateModified" : "2019-06-24 16:30:36 \x2b0800 CST",
+    "datePublished": "2019-06-24 16:30:36 \u002b0800 CST",
+    "dateModified" : "2019-06-24 16:30:36 \u002b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2019\/flutter-install\/",
     "wordCount" : "139",
     "keywords" : [ "flutter", "Luneshao"]
@@ -157,17 +157,12 @@
           
           
 
-          
-
-<blockquote>
+          <blockquote>
 <p>引言</p>
 </blockquote>
-
-<p>安装 flutter 过程中，卡在 <code>pod setup</code> 这里，总是会报错，找了好多文章也没能解决。最后发现这篇博客=&gt; <a href="https://www.jianshu.com/p/3864b302ff90" rel="nofollow noreferrer" target="_blank">CocoaPods的安装步骤和遇见的问题</a> 按照里面的步骤，一步一步来就OK了。</p>
-
+<p>安装 flutter 过程中，卡在 <code>pod setup</code> 这里，总是会报错，找了好多文章也没能解决。最后发现这篇博客=&gt; <a href="https://www.jianshu.com/p/3864b302ff90">CocoaPods的安装步骤和遇见的问题</a> 按照里面的步骤，一步一步来就OK了。</p>
 <h3 id="安装步骤">安装步骤</h3>
-
-<pre><code>// 建议先更新下gem
+<pre tabindex="0"><code>// 建议先更新下gem
 sudo gem update --system
 
 // 切换镜像
@@ -202,14 +197,9 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 // du -sh * 查看下载进度 （此时再次运行 flutter doctor -v ，就可以了。）
 // pod setup手动克隆就不要执行这个了，不然一会又要死循环了
 pod --version
-</code></pre>
-
-<p>操作完以上步骤，我最后的错误也解决了。一篇绿色，舒服啊～～～</p>
-
+</code></pre><p>操作完以上步骤，我最后的错误也解决了。一篇绿色，舒服啊～～～</p>
 <p>虽然目前没深入学习，不知道需不需要都装好，但是全都是绿色就是得劲😎</p>
-
-<p><img alt="flutter doctor -v 运行结果（如果你挂了代理，就看不到图片了～）" height="300" src="http://ww4.sinaimg.cn/large/006tNc79ly1g4d670u7u1j30u0119mz6.jpg" /></p>
-
+<!-- raw HTML omitted -->
 <blockquote>
 <p>以上。🦑</p>
 </blockquote>

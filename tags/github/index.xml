@@ -6,11 +6,7 @@
     <description>Recent content in github on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Jul 2021 10:25:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://luneshao.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 01 Jul 2021 10:25:21 +0800</lastBuildDate><atom:link href="https://luneshao.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>配置多个GitHub账号的ssh</title>
       <link>https://luneshao.github.io/2021/2021-07-01-git-ssh-config/</link>
@@ -18,11 +14,12 @@
       
       <guid>https://luneshao.github.io/2021/2021-07-01-git-ssh-config/</guid>
       <description>前言 “多年前”需要用两个 github 账号，就查了怎么配置两个ssh，配置好了之后，一直不好用，克隆私有库也克隆不下来，后来百度到用https的地址，也就是这篇文章的方法，就一直这么用着😁 一切都很顺利，最近不是GitHub推不上去，然后就***，昨天就一直报403，错误如下：
-remote: Password authentication is temporarily disabled as part of a brownout. Please use a personal access token instead. remote: Please see https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/ for more information. fatal: unable to access &#39;https://github.com/chainland/qlchain.cn.git/&#39;: The requested URL returned error: 403  这就很尴尬，我就开始百度怎么整（ps：昨天什么也没动今天就推上去了。。。。）然后，我今天就想着一定要把ssh给配好，遂又百度了一番，终于。。。
+remote: Password authentication is temporarily disabled as part of a brownout. Please use a personal access token instead. remote: Please see https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/ for more information. fatal: unable to access &#39;https://github.com/chainland/qlchain.cn.git/&#39;: The requested URL returned error: 403 这就很尴尬，我就开始百度怎么整（ps：昨天什么也没动今天就推上去了。。。。）然后，我今天就想着一定要把ssh给配好，遂又百度了一番，终于。。。
 正文 我的问题是，配置两个ssh，但是执行测试句：ssh -T git@**.github.com 和 ssh -T git@github.com出来打招呼的都是同一个名字，就很不对劲。翻到了这篇文章，发现是因为我缺了【密钥添加到SSH agent中】这一步，执行完之后，神清气爽。ssh终于能用了，尴尬 (~_~;)
  引用一下解决方法
  因为默认只读取id_rsa，为了让SSH识别新的私钥，需将其添加到SSH agent中：
- ssh-add ~/.ssh/id_rsa_user2  如果出现Could not open a connection to your authentication agent的错误，就试着用以下命令：</description>
+ssh-add ~/.ssh/id_rsa_user2 如果出现Could not open a connection to your authentication agent的错误，就试着用以下命令：
+ssh-agent bash ssh-add ~/.</description>
     </item>
     
     <item>
@@ -32,8 +29,8 @@ remote: Password authentication is temporarily disabled as part of a brownout. P
       
       <guid>https://luneshao.github.io/2020/2020-11-04-how-push-to-github-private-rep/</guid>
       <description>if you add origin remote,please remove it first:
-git remote rm origin  ant then:
-git remote add origin https://USERNAME:PASSWORD@github.com/username/reponame.git  from: stackoverflow</description>
+git remote rm origin ant then:
+git remote add origin https://USERNAME:PASSWORD@github.com/username/reponame.git from: stackoverflow</description>
     </item>
     
   </channel>

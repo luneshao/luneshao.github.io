@@ -6,11 +6,7 @@
     <description>Recent content in c on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Aug 2020 14:32:02 +0800</lastBuildDate>
-    
-	<atom:link href="https://luneshao.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 07 Aug 2020 14:32:02 +0800</lastBuildDate><atom:link href="https://luneshao.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于 C 语言关系运算符与相等性运算符的优先级的疑惑</title>
       <link>https://luneshao.github.io/2020/2020-08-07-c-ysf/</link>
@@ -19,7 +15,7 @@
       <guid>https://luneshao.github.io/2020/2020-08-07-c-ysf/</guid>
       <description>关系运算符包括一下几个运算符：&amp;gt;、&amp;gt;=、&amp;lt;、&amp;lt;= 它们具有相同的优先级。优先级仅次于相等性运算符：==、!=。 &amp;ndash;摘自《C语言程序设计》
  但是我本机测试的例子：
-printf(&amp;quot;%d\n&amp;quot;, 0 &amp;lt;= 1 == 0); // 0  如果相等性运算符的优先级高的话，运算顺序应为: 1 == 0 =&amp;gt; 0 =&amp;gt; 0 &amp;lt;= 0 =&amp;gt; 1 应该得到结果 1,
+printf(&amp;#34;%d\n&amp;#34;, 0 &amp;lt;= 1 == 0); // 0 如果相等性运算符的优先级高的话，运算顺序应为: 1 == 0 =&amp;gt; 0 =&amp;gt; 0 &amp;lt;= 0 =&amp;gt; 1 应该得到结果 1,
 但是我用 Xcode 跑出来的结果为 0。我猜测，运算顺序为从左向右：0 &amp;lt;= 1 =&amp;gt; 1 =&amp;gt; 1 == 0 =&amp;gt; 0。
 所以，我猜测关系运算符与相等性运算符的优先级是不是相等的？
 还望各位大佬解惑 orz</description>

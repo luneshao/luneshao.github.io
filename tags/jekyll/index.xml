@@ -6,11 +6,7 @@
     <description>Recent content in jekyll on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Mar 2020 10:36:26 +0800</lastBuildDate>
-    
-	<atom:link href="https://luneshao.github.io/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 23 Mar 2020 10:36:26 +0800</lastBuildDate><atom:link href="https://luneshao.github.io/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Jekyll 搭建博客步骤</title>
       <link>https://luneshao.github.io/2020/2020-03-23-jekyll-blog/</link>
@@ -18,12 +14,12 @@
       
       <guid>https://luneshao.github.io/2020/2020-03-23-jekyll-blog/</guid>
       <description>分布教程 1. Setup installation 安装 Jekyll
-gem install jekyll bundler  创建 Gemfile
-bundle init  编辑 Gemfile，添加 Jekyll 作为依赖
-gem &amp;quot;jekyll&amp;quot;  运行 bundle 安装 Jekyll 到项目。
-bundle  现在可以在 Jekyll 的命令前加上 bundle exec，以确保使用 Gemfile 中的 Jekyll 版本。
+gem install jekyll bundler 创建 Gemfile
+bundle init 编辑 Gemfile，添加 Jekyll 作为依赖
+gem &amp;quot;jekyll&amp;quot; 运行 bundle 安装 Jekyll 到项目。
+bundle 现在可以在 Jekyll 的命令前加上 bundle exec，以确保使用 Gemfile 中的 Jekyll 版本。
 Create a site 为网站创建一个目录，名称可以任意起。在教程的其余部分，将称其为 root. 在 root 目录添加第一个文件 index.html。
-&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;utf-8&amp;quot; /&amp;gt; &amp;lt;title&amp;gt;Home&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;h1&amp;gt;Hello World!&amp;lt;/h1&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  build Jekyll 是静态网站生成器，因此我们需要 Jekyll 构建网站才能查看。您可以在网站的根目录中运行以下两个命令来构建它：
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34; /&amp;gt; &amp;lt;title&amp;gt;Home&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;h1&amp;gt;Hello World!&amp;lt;/h1&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; build Jekyll 是静态网站生成器，因此我们需要 Jekyll 构建网站才能查看。您可以在网站的根目录中运行以下两个命令来构建它：
  jekyll build：构建网站输出静态站点到名为 _site 的目录下。 jekyll serve：除了在您进行更改并运行本地 Web 服务器时会重新生成之外，还会运行一个 web 服务在 http://localhost:4000  2.</description>
     </item>
     

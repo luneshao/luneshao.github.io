@@ -57,8 +57,8 @@
     "accountablePerson" : "LuneShao",
     "copyrightHolder" : "LuneShao",
     "copyrightYear" : "2019",
-    "datePublished": "2019-06-10 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-06-10 00:00:00 \x2b0000 UTC",
+    "datePublished": "2019-06-10 00:00:00 \u002b0000 UTC",
+    "dateModified" : "2019-06-10 00:00:00 \u002b0000 UTC",
     "url" : "https:\/\/luneshao.github.io\/2019\/miniprogram\/",
     "wordCount" : "151",
     "keywords" : [ "小程序", "Luneshao"]
@@ -157,118 +157,90 @@
           
           
 
-          
-
-<blockquote>
+          <blockquote>
 <p>引言</p>
 </blockquote>
-
-<p>最近和一个小姐姐在互相监督学习，所以想找一个工具打卡使用。没有找到那种到手即用的，就自己做一个了。结果，审核未通过。为啥呢，因为没好好看限制内容，个人的账号可以做的东西很少，<a href="https://developers.weixin.qq.com/miniprogram/product/material/#%E4%B8%AA%E4%BA%BA%E4%B8%BB%E4%BD%93%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%94%BE%E7%9A%84%E6%9C%8D%E5%8A%A1%E7%B1%BB%E7%9B%AE" rel="nofollow noreferrer" target="_blank">文档</a>敬上。</p>
-
+<p>最近和一个小姐姐在互相监督学习，所以想找一个工具打卡使用。没有找到那种到手即用的，就自己做一个了。结果，审核未通过。为啥呢，因为没好好看限制内容，个人的账号可以做的东西很少，<a href="https://developers.weixin.qq.com/miniprogram/product/material/#%E4%B8%AA%E4%BA%BA%E4%B8%BB%E4%BD%93%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%94%BE%E7%9A%84%E6%9C%8D%E5%8A%A1%E7%B1%BB%E7%9B%AE">文档</a>敬上。</p>
 <p>不过过程中遇到的一些问题，打算记录下来。希望能帮助看到这篇文章的你避免一些坑吧。</p>
-
 <p>文章目录：</p>
-
 <ul>
 <li>页面开发</li>
 <li>组件开发</li>
 <li>字体图标</li>
 <li>云函数</li>
 </ul>
-
 <p>—————————— 一个渣渣前端的独白</p>
-
-<h2 id="1-页面开发">1.页面开发</h2>
-
+<h2 id="1页面开发">1.页面开发</h2>
 <ul>
-<li><p>1.使用 <code>this.setData({})</code> 赋值。</p></li>
-
-<li><p>2.页面向函数传参使用 <code>dataset</code>。<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html#dataset" rel="nofollow noreferrer" target="_blank">请戳官方文档</a></p>
-
-<pre><code class="language-html">&lt;!-- page.html --&gt;
-&lt;view 
-data-index='{{index}}'
-bindtap=&quot;handelItemDel&quot;&gt;
-{{ item }}
-&lt;/view&gt;
-</code></pre>
-
-<pre><code class="language-js">// page.js
-handelItemDel(e) {
-let { selArr } = this.data
-const index = e.target.dataset.index
-selArr.splice(index, 1)
-
-this.setData({
-selArr: selArr
-})
-},
-</code></pre></li>
-
-<li><p>3.在 <code>app.json</code> 中，<code>page</code> 项数组的第一个页面是小程序的主页（即第一个跳转到的页面）。</p></li>
+<li>
+<p>1.使用 <code>this.setData({})</code> 赋值。</p>
+</li>
+<li>
+<p>2.页面向函数传参使用 <code>dataset</code>。<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html#dataset">请戳官方文档</a></p>
+</li>
 </ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- page.html --&gt;</span>
+&lt;<span style="color:#f92672">view</span> 
+  <span style="color:#a6e22e">data-index</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{{index}}&#39;</span>
+  <span style="color:#a6e22e">bindtap</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handelItemDel&#34;</span>&gt;
+  {{ item }}
+&lt;/<span style="color:#f92672">view</span>&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// page.js
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">handelItemDel</span>(<span style="color:#a6e22e">e</span>) {
+  <span style="color:#66d9ef">let</span> { <span style="color:#a6e22e">selArr</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">data</span>
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">index</span>
+  <span style="color:#a6e22e">selArr</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">index</span>, <span style="color:#ae81ff">1</span>)
 
-<h2 id="2-组件开发">2.组件开发</h2>
-
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setData</span>({
+    <span style="color:#a6e22e">selArr</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">selArr</span>
+  })
+},
+</code></pre></div><ul>
+<li>3.在 <code>app.json</code> 中，<code>page</code> 项数组的第一个页面是小程序的主页（即第一个跳转到的页面）。</li>
+</ul>
+<h2 id="2组件开发">2.组件开发</h2>
 <p>在 miniprogram 的目录下新建一个 components 文件夹，在文件夹内创建 <strong>组件</strong>。在页面中引用时，需要在页面的 json 文件中引入组件。key 值就是在页面中引入的标签名。</p>
-
-<pre><code class="language-js">// page.json
-&quot;usingComponents&quot;: {
-  &quot;calendar&quot;: &quot;../../components/calendar/calendar&quot;,
-  &quot;record-list&quot;: &quot;../../components/recordList/recordList&quot;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// page.json
+</span><span style="color:#75715e"></span><span style="color:#e6db74">&#34;usingComponents&#34;</span><span style="color:#f92672">:</span> {
+  <span style="color:#e6db74">&#34;calendar&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;../../components/calendar/calendar&#34;</span>,
+  <span style="color:#e6db74">&#34;record-list&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;../../components/recordList/recordList&#34;</span>
 }
-</code></pre>
-
-<pre><code class="language-html">&lt;!-- page.wxml --&gt;
-&lt;view&gt;
-  &lt;!-- 日历容器 --&gt;
-  &lt;calendar /&gt;
-  &lt;!-- 记录列表 --&gt;
-  &lt;record-list  wx:if=&quot;{{showCom}}&quot;&gt;&lt;/record-list&gt;
-&lt;/view&gt;
-</code></pre>
-
-<h2 id="3-字体图标-阿里-iconfont">3.字体图标 （阿里 iconfont）</h2>
-
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- page.wxml --&gt;</span>
+&lt;<span style="color:#f92672">view</span>&gt;
+  <span style="color:#75715e">&lt;!-- 日历容器 --&gt;</span>
+  &lt;<span style="color:#f92672">calendar</span> /&gt;
+  <span style="color:#75715e">&lt;!-- 记录列表 --&gt;</span>
+  &lt;<span style="color:#f92672">record-list</span>  <span style="color:#a6e22e">wx:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{showCom}}&#34;</span>&gt;&lt;/<span style="color:#f92672">record-list</span>&gt;
+&lt;/<span style="color:#f92672">view</span>&gt;
+</code></pre></div><h2 id="3字体图标-阿里-iconfont">3.字体图标 （阿里 iconfont）</h2>
 <p>在 miniprogram 的目录下新建一个 lib 文件夹（文件名可自定义）。将在阿里图标库下载下来的文件解压，放到 lib 文件夹中，新建一个 icon.wxss （文件名自定义），在 app.wxss 中 <code>@import './lib/icon.wxss';</code> 导入到公共样式表。在页面中使用就可以了。</p>
-
-<pre><code class="language-html">&lt;!-- comp.wxml --&gt;
-&lt;text class=&quot;iconfont iconfenye-shangyiye&quot; bindtap='lastMonth'&gt;&lt;/text&gt;
-</code></pre>
-
-<p>_提示_：如果要在组件中使用全局样式，需要在组件的 js 文件中配置 <code>addGlobalClass: true</code>。</p>
-
-<pre><code class="language-js">// comp.js
-options: {
-  addGlobalClass: true,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- comp.wxml --&gt;</span>
+&lt;<span style="color:#f92672">text</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;iconfont iconfenye-shangyiye&#34;</span> <span style="color:#a6e22e">bindtap</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lastMonth&#39;</span>&gt;&lt;/<span style="color:#f92672">text</span>&gt;
+</code></pre></div><p><em>提示</em>：如果要在组件中使用全局样式，需要在组件的 js 文件中配置 <code>addGlobalClass: true</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// comp.js
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+  <span style="color:#a6e22e">addGlobalClass</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
 }
-</code></pre>
-
-<h2 id="4-云函数">4.云函数</h2>
-
+</code></pre></div><h2 id="4云函数">4.云函数</h2>
 <ul>
 <li>1.npm 安装 wx-server-sdk</li>
 </ul>
-
-<p>云函数中使用 <code>wx-server-sdk</code> 需在对应云函数目录下安装 <code>wx-server-sdk</code> 依赖，如果不安装，云函数就会运行失败。本地调试会不可用。 <a href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/functions/wx-server-sdk.html" rel="nofollow noreferrer" target="_blank">文档</a></p>
-
+<p>云函数中使用 <code>wx-server-sdk</code> 需在对应云函数目录下安装 <code>wx-server-sdk</code> 依赖，如果不安装，云函数就会运行失败。本地调试会不可用。 <a href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/functions/wx-server-sdk.html">文档</a></p>
 <ul>
-<li><p>2.云函数初始化，注意初始化时，env 字段传入环境配置，这里传入的不是环境名称，而是<strong>环境ID</strong>。在云开发平台的环境下拉菜单中可以找到。 <a href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-client-api/init.html" rel="nofollow noreferrer" target="_blank">文档</a></p>
-
-<pre><code class="language-js">// cloudFunc.js
-
-const cloud = require('wx-server-sdk')
-// 默认配置
-cloud.init()
-// 或者传入自定义配置
-cloud.init({
-env: 'some-env-id'
-})
-</code></pre></li>
-
-<li><p>3.上传小程序代码在真机调试时，需要上传云函数代码，否则也会不生效。方法：在云函数右键上传并部署。</p></li>
+<li>2.云函数初始化，注意初始化时，env 字段传入环境配置，这里传入的不是环境名称，而是<strong>环境ID</strong>。在云开发平台的环境下拉菜单中可以找到。 <a href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-client-api/init.html">文档</a></li>
 </ul>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// cloudFunc.js
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloud</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;wx-server-sdk&#39;</span>)
+<span style="color:#75715e">// 默认配置
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">cloud</span>.<span style="color:#a6e22e">init</span>()
+<span style="color:#75715e">// 或者传入自定义配置
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">cloud</span>.<span style="color:#a6e22e">init</span>({
+  <span style="color:#a6e22e">env</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;some-env-id&#39;</span>
+})
+</code></pre></div><ul>
+<li>3.上传小程序代码在真机调试时，需要上传云函数代码，否则也会不生效。方法：在云函数右键上传并部署。</li>
+</ul>
 <blockquote>
 <p>以上。</p>
 </blockquote>

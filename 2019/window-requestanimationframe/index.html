@@ -49,7 +49,7 @@
     "articleSection" : "posts",
     "name" : "window.requestAnimationFrame方法",
     "headline" : "window.requestAnimationFrame方法",
-    "description" : "window.requestAnimationFrame方法可以实现setTimeout的功能，经过测试动画会比setTimeout更稳定，并且运行在后台标签页或者隐藏的`\x3ciframe\x3e` 里时会暂停调用，更加节省性能。",
+    "description" : "window.requestAnimationFrame方法可以实现setTimeout的功能，经过测试动画会比setTimeout更稳定，并且运行在后台标签页或者隐藏的`\u003ciframe\u003e` 里时会暂停调用，更加节省性能。",
     "inLanguage" : "en-us",
     "author" : "LuneShao",
     "creator" : "LuneShao",
@@ -57,8 +57,8 @@
     "accountablePerson" : "LuneShao",
     "copyrightHolder" : "LuneShao",
     "copyrightYear" : "2019",
-    "datePublished": "2019-05-30 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-05-30 00:00:00 \x2b0000 UTC",
+    "datePublished": "2019-05-30 00:00:00 \u002b0000 UTC",
+    "dateModified" : "2019-05-30 00:00:00 \u002b0000 UTC",
     "url" : "https:\/\/luneshao.github.io\/2019\/window-requestanimationframe\/",
     "wordCount" : "177",
     "keywords" : [ "前端", "Luneshao"]
@@ -157,106 +157,85 @@
           
           
 
-          
-
-<p><a href="http://web.jobbole.com/91578/" rel="nofollow noreferrer" target="_blank">原文链接伯乐</a>  <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame" rel="nofollow noreferrer" target="_blank">MDN</a></p>
-
+          <p><a href="http://web.jobbole.com/91578/">原文链接伯乐</a>  <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame">MDN</a></p>
 <h2 id="概念">概念</h2>
-
 <p>告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个<strong>回调函数</strong>作为参数，该回调函数会在浏览器下一次重绘之前执行。</p>
-
 <p>个人理解：<strong>raf</strong> 这个函数可以用来做动画，它需要一个参数，参数的形式是一个<strong>回调函数</strong>，在回调函数里可以写需要执行的动画。</p>
-
 <p>这个回调函数会默认接收一个参数，即执行回调函数时的<strong>时间戳</strong>，回调函数，会在每次浏览器在下次重绘前执行回调函数更新动画，个人认为这样来保证动画的帧率和稳定性。大多数电脑显示器的刷新频率是60Hz，大概相当于每秒钟重绘60次，相当于每帧的执行时间为 16.67ms。</p>
-
 <h2 id="特性">特性</h2>
-
 <ul>
-<li><p>参数中的回调函数执行次数通常是每秒60次，速度大约为 16.67ms 每帧。</p></li>
-
-<li><p>当<code>requestAnimationFrame()</code>运行在后台标签页或者隐藏的<code>&lt;iframe&gt;</code> 里时，requestAnimationFrame() 会被暂停调用。对比 setTimeout ，离开页面依旧会计时，raf 更加节省性能。</p></li>
-
-<li><p><strong>DOMHighResTimeStamp</strong>指示由 <code>RequestAnimationFrame()</code> 排队的回调开始触发的时间。</p></li>
-
-<li><p>它返回一个整数，表示定时器的编号，这个值可以传递给 <code>cancelAnimationFrame</code> 用于取消这个函数的执行。</p></li>
+<li>
+<p>参数中的回调函数执行次数通常是每秒60次，速度大约为 16.67ms 每帧。</p>
+</li>
+<li>
+<p>当<code>requestAnimationFrame()</code>运行在后台标签页或者隐藏的<code>&lt;iframe&gt;</code> 里时，requestAnimationFrame() 会被暂停调用。对比 setTimeout ，离开页面依旧会计时，raf 更加节省性能。</p>
+</li>
+<li>
+<p><strong>DOMHighResTimeStamp</strong>指示由 <code>RequestAnimationFrame()</code> 排队的回调开始触发的时间。</p>
+</li>
+<li>
+<p>它返回一个整数，表示定时器的编号，这个值可以传递给 <code>cancelAnimationFrame</code> 用于取消这个函数的执行。</p>
+</li>
 </ul>
-
 <h2 id="使用方法">使用方法</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">window.<span style="color:#a6e22e">requestAnimationFrame</span>(<span style="color:#a6e22e">callback</span>)
 
-<pre><code class="language-js">window.requestAnimationFrame(callback)
-
-function callback (timeStamp) {
-  // 默认接收参数 timeStamp，表示开始执行回调函数的时刻
-
-  // 若你想在浏览器下次重绘之前继续更新下一帧动画，那么回调函数自身必须再次调用window.requestAnimationFrame()
-  window.requestAnimationFrame(callback)
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callback</span> (<span style="color:#a6e22e">timeStamp</span>) {
+  <span style="color:#75715e">// 默认接收参数 timeStamp，表示开始执行回调函数的时刻
+</span><span style="color:#75715e"></span>
+  <span style="color:#75715e">// 若你想在浏览器下次重绘之前继续更新下一帧动画，那么回调函数自身必须再次调用window.requestAnimationFrame()
+</span><span style="color:#75715e"></span>  window.<span style="color:#a6e22e">requestAnimationFrame</span>(<span style="color:#a6e22e">callback</span>)
 }
-</code></pre>
-
-<h2 id="避免一帧多次调用">避免一帧多次调用</h2>
-
-<pre><code class="language-js">  let ifCurFra = false // 当前帧是否执行
-  function cb (timeStamp) {
-    if (ifCurFra) return 
-    ifCurFra = true
-    window.requestAnimationFrame(timeStamp =&gt; {
-      ifCurFra = false
+</code></pre></div><h2 id="避免一帧多次调用">避免一帧多次调用</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ifCurFra</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span> <span style="color:#75715e">// 当前帧是否执行
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">cb</span> (<span style="color:#a6e22e">timeStamp</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">ifCurFra</span>) <span style="color:#66d9ef">return</span> 
+    <span style="color:#a6e22e">ifCurFra</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+    window.<span style="color:#a6e22e">requestAnimationFrame</span>(<span style="color:#a6e22e">timeStamp</span> =&gt; {
+      <span style="color:#a6e22e">ifCurFra</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
     })
   }
 
-  window.addEventListener('scroll', cb)
-</code></pre>
-
-<h2 id="兼容">兼容</h2>
-
-<p><a href="https://www.cnblogs.com/xiaohuochai/p/5777186.html" rel="nofollow noreferrer" target="_blank">兼容代码</a></p>
-
-<pre><code class="language-js">if(!window.requestAnimationFrame){
-  var lastTime = 0;
-  window.requestAnimationFrame = function(callback){
-      var currTime = new Date().getTime();
-      var timeToCall = Math.max(0,16.7-(currTime - lastTime));
-      var id  = window.setTimeout(function(){
-          callback(currTime + timeToCall);
-      },timeToCall);
-      lastTime = currTime + timeToCall;
-      return id;
+  window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;scroll&#39;</span>, <span style="color:#a6e22e">cb</span>)
+</code></pre></div><h2 id="兼容">兼容</h2>
+<p><a href="https://www.cnblogs.com/xiaohuochai/p/5777186.html">兼容代码</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>window.<span style="color:#a6e22e">requestAnimationFrame</span>){
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">lastTime</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  window.<span style="color:#a6e22e">requestAnimationFrame</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">callback</span>){
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">currTime</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">getTime</span>();
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">timeToCall</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">max</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">16.7</span><span style="color:#f92672">-</span>(<span style="color:#a6e22e">currTime</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">lastTime</span>));
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">id</span>  <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">setTimeout</span>(<span style="color:#66d9ef">function</span>(){
+          <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">currTime</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">timeToCall</span>);
+      },<span style="color:#a6e22e">timeToCall</span>);
+      <span style="color:#a6e22e">lastTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">currTime</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">timeToCall</span>;
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">id</span>;
   }
 }
-</code></pre>
-
-<h2 id="example">example</h2>
-
+</code></pre></div><h2 id="example">example</h2>
 <p>我测试了一下两种方法实现动画，认为 setTimeout() 和 window.requestAnimationFrame ()， raf 的动画更稳定一些,sto 有时平稳有时抖动。</p>
-
 <p>sto 抖动的原因：假设屏幕每隔16.7ms刷新一次，而setTimeout每隔10ms设置图像向左移动1px， 就会引起动画卡顿。</p>
-
-<pre><code class="language-js">// 测试文件相关部分代码
-  const el = document.querySelector('.box1')
-  let start = null
-  let ml = 0
-  const totalTime = 2000
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 测试文件相关部分代码
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;.box1&#39;</span>)
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">start</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ml</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">totalTime</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2000</span>
   
-  function ani (timeStamp) {
-    if (!start) {
-      start = timeStamp
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ani</span> (<span style="color:#a6e22e">timeStamp</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">start</span>) {
+      <span style="color:#a6e22e">start</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">timeStamp</span>
     }
 
-    const progress = timeStamp - start
-    // 判断时间差（时间间隔），是否是规定时间
-    if (progress &lt; totalTime) {
-      el.style.left = `${ml++}px`
-      window.requestAnimationFrame(ani)
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">progress</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">timeStamp</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">start</span>
+    <span style="color:#75715e">// 判断时间差（时间间隔），是否是规定时间
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">progress</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">totalTime</span>) {
+      <span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">ml</span><span style="color:#f92672">++</span><span style="color:#e6db74">}</span><span style="color:#e6db74">px`</span>
+      window.<span style="color:#a6e22e">requestAnimationFrame</span>(<span style="color:#a6e22e">ani</span>)
     }
   }
 
-  window.requestAnimationFrame(ani)
-</code></pre>
-
-<p>附上我的<a href="https://codepen.io/LuneShao/project/editor/XMbnnx" rel="nofollow noreferrer" target="_blank">测试文件</a></p>
-
+  window.<span style="color:#a6e22e">requestAnimationFrame</span>(<span style="color:#a6e22e">ani</span>)
+</code></pre></div><p>附上我的<a href="https://codepen.io/LuneShao/project/editor/XMbnnx">测试文件</a></p>
 <p>文件中存在一个问题，我的定时器是2s，结束时的时间大部分是 1985ms, 可能因为函数执行的速度是每帧 16.7ms，1985 + 16.7 &gt; 2000 最后一次的判断就是 false 了，就没有执行2000ms，在我的例子中实际上就少加了 1px。还请各位大佬多多指教。</p>
-
 <blockquote>
 <p>以上。🧐</p>
 </blockquote>

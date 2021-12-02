@@ -57,8 +57,8 @@
     "accountablePerson" : "LuneShao",
     "copyrightHolder" : "LuneShao",
     "copyrightYear" : "2019",
-    "datePublished": "2019-05-23 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-05-23 00:00:00 \x2b0000 UTC",
+    "datePublished": "2019-05-23 00:00:00 \u002b0000 UTC",
+    "dateModified" : "2019-05-23 00:00:00 \u002b0000 UTC",
     "url" : "https:\/\/luneshao.github.io\/2019\/css-clip\/",
     "wordCount" : "147",
     "keywords" : [ "前端","CSS", "Luneshao"]
@@ -145,8 +145,6 @@
         
 
         
-            
-        
 
         
         
@@ -159,92 +157,70 @@
           
           
 
-          
-
-<p>参考文献：<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip" rel="nofollow noreferrer" target="_blank">MDN</a>&emsp;
-<a href="https://www.zhangxinxu.com/wordpress/2012/07/codepen-jsfiddle/" rel="nofollow noreferrer" target="_blank">张鑫旭前辈的文章</a></p>
-
+          <p>参考文献：<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip">MDN</a> 
+<a href="https://www.zhangxinxu.com/wordpress/2012/07/codepen-jsfiddle/">张鑫旭前辈的文章</a></p>
 <h2 id="介绍">介绍</h2>
-
 <h3 id="定义">定义</h3>
-
 <p>clip 属性剪裁元素，属性仅应用于<strong>绝对定位</strong>元素，例如 <code>position: absolute</code> 或 <code>position: fixed</code>。</p>
-
 <h3 id="属性值">属性值</h3>
-
 <ul>
-<li><p>auto：不剪裁。</p></li>
-
-<li><p><code>&lt;shape&gt;</code>：截取的形状，值的表示方式 <code>rect(&lt;top&gt;, &lt;right&gt;, &lt;bottom&gt;, &lt;left&gt;) 或 rect(&lt;top&gt; &lt;right&gt; &lt;bottom&gt; &lt;left&gt;)</code>。</p></li>
+<li>
+<p>auto：不剪裁。</p>
+</li>
+<li>
+<p><code>&lt;shape&gt;</code>：截取的形状，值的表示方式 <code>rect(&lt;top&gt;, &lt;right&gt;, &lt;bottom&gt;, &lt;left&gt;) 或 rect(&lt;top&gt; &lt;right&gt; &lt;bottom&gt; &lt;left&gt;)</code>。</p>
+</li>
 </ul>
-
 <p>top &amp; bottom 设置的是距离元素上边距的距离。left &amp; right 设置的是距离元素左边距的距离。</p>
-
-<h4 id="左侧使用了clip属性-左右容器和图片的尺寸都是200-200">左侧使用了clip属性，左右容器和图片的尺寸都是200 * 200。</h4>
-
-<p style="text-align: center">
-<img src="/img/0522-css-clip1.png" style=" width: 100%" />
-</p>
-
+<h4 id="左侧使用了clip属性左右容器和图片的尺寸都是200--200">左侧使用了clip属性，左右容器和图片的尺寸都是200 * 200。</h4>
+<!-- raw HTML omitted -->
 <p>top、right、bottom、left 的值可以是 <em>数值</em> 或 <em>auto</em> 。</p>
-
 <p>tips：<strong>auto</strong>表示 <em>If any side&rsquo;s value is auto, the element is clipped to that side&rsquo;s inside border edge.</em> （文档）
 截取到元素该边的内边界。</p>
-
 <ul>
 <li>inherit：从父元素继承 clip 属性的值，不兼容 IE6。</li>
 </ul>
-
 <blockquote>
 <p>实例</p>
 </blockquote>
-
-<p>看到 <a href="https://immutable-js.github.io/immutable-js/" rel="nofollow noreferrer" target="_blank">immutable官网</a> header 部分的划动效果很棒，有一种拉开序幕的感jio。</p>
-
+<p>看到 <a href="https://immutable-js.github.io/immutable-js/">immutable官网</a> header 部分的划动效果很棒，有一种拉开序幕的感jio。</p>
 <p>然后，研究了一下这个属性。这个功能的实现就是依赖的 clip 属性，使得可以剪裁 <code>position： fixed</code> 的子元素。</p>
-
-<p><a href="https://codepen.io/LuneShao/project/editor/XMbnnx" rel="nofollow noreferrer" target="_blank">神秘链接🤪</a></p>
-
+<p><a href="https://codepen.io/LuneShao/project/editor/XMbnnx">神秘链接🤪</a></p>
 <p>下面还是祭一下自己demo相关实现代码，去掉了一些修饰的属性。</p>
-
-<pre><code class="language-html">&lt;!-- html部分 --&gt;
-&lt;div class=&quot;greet&quot;&gt;基础内容&lt;/div&gt;
-&lt;div class=&quot;top-wrap1&quot;&gt;
-  &lt;div class=&quot;top-wrap2&quot;&gt;
-    &lt;div class=&quot;top&quot;&gt;滚动后会消失的内容&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-
-<pre><code class="language-css">/* css部分 */
-.greet {
-  position: fixed;
-  top: 0;
-  width: 100%;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- html部分 --&gt;</span>
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;greet&#34;</span>&gt;基础内容&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;top-wrap1&#34;</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;top-wrap2&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;top&#34;</span>&gt;滚动后会消失的内容&lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#75715e">/* css部分 */</span>
+.<span style="color:#a6e22e">greet</span> {
+  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">fixed</span>;
+  <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
 }
-.top-wrap1{
-  position: relative;
-  top: 0;
-  width: 100%;
-  background-color: #F6B352;
-  overflow: hidden;
-  z-index: 1; /* 这个元素的堆叠顺序高于另一个，向上滚动的时候，默认的header就娓娓道来。 */
+.<span style="color:#a6e22e">top-wrap1</span>{
+  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+  <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#F6B352</span>;
+  <span style="color:#66d9ef">overflow</span>: <span style="color:#66d9ef">hidden</span>;
+  <span style="color:#66d9ef">z-index</span>: <span style="color:#ae81ff">1</span>; <span style="color:#75715e">/* 这个元素的堆叠顺序高于另一个，向上滚动的时候，默认的header就娓娓道来。 */</span>
 }
-.top-wrap2{
-  position: absolute;
-  top: 0;
-  width: 100%;
-  clip: rect(0, auto, auto, 0); /* 这里的 auto 是指截取到边的内边界位置。 */
+.<span style="color:#a6e22e">top-wrap2</span>{
+  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
+  <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+  <span style="color:#66d9ef">clip</span>: rect(<span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">auto</span>, <span style="color:#66d9ef">auto</span>, <span style="color:#ae81ff">0</span>); <span style="color:#75715e">/* 这里的 auto 是指截取到边的内边界位置。 */</span>
 }
-.top {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #fc6;
+.<span style="color:#a6e22e">top</span> {
+  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">fixed</span>;
+  <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#fc6</span>;
 }
-</code></pre>
-
-<blockquote>
+</code></pre></div><blockquote>
 <p>以上。感谢大佬的分享。🤣</p>
 </blockquote>
 
@@ -351,9 +327,8 @@
 
 
     
-     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
-      
-     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
     
   
 

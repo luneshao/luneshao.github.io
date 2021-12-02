@@ -6,19 +6,15 @@
     <description>Recent content in Mac on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Jun 2019 09:24:54 +0800</lastBuildDate>
-    
-	<atom:link href="https://luneshao.github.io/tags/mac/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 24 Jun 2019 09:24:54 +0800</lastBuildDate><atom:link href="https://luneshao.github.io/tags/mac/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>brew update 无响应</title>
       <link>https://luneshao.github.io/2019/brew-noresponse/</link>
       <pubDate>Mon, 24 Jun 2019 09:24:54 +0800</pubDate>
       
       <guid>https://luneshao.github.io/2019/brew-noresponse/</guid>
-      <description> 内容摘自 清华大学开源软件镜像站
-替换现有上游 cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git cd &amp;quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;quot; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git brew update   以上。🐡
+      <description>内容摘自 清华大学开源软件镜像站
+替换现有上游 cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git cd &amp;quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;quot; git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git brew update  以上。🐡
  </description>
     </item>
     

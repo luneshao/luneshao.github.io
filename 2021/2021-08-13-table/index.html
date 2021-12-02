@@ -57,8 +57,8 @@
     "accountablePerson" : "luneShao",
     "copyrightHolder" : "luneShao",
     "copyrightYear" : "2021",
-    "datePublished": "2021-08-13 17:12:49 \x2b0800 CST",
-    "dateModified" : "2021-08-13 17:12:49 \x2b0800 CST",
+    "datePublished": "2021-08-13 17:12:49 \u002b0800 CST",
+    "dateModified" : "2021-08-13 17:12:49 \u002b0800 CST",
     "url" : "https:\/\/luneshao.github.io\/2021\/2021-08-13-table\/",
     "wordCount" : "110",
     "keywords" : [ "前端","table", "Luneshao"]
@@ -158,49 +158,42 @@
           
           
 
-          <p>1、 <a href="https://blog.csdn.net/muguli2008/article/details/103787152" rel="nofollow noreferrer" target="_blank">HTML table表格 固定表头 tbody加滚动条</a></p>
-
+          <p>1、 <a href="https://blog.csdn.net/muguli2008/article/details/103787152">HTML table表格 固定表头 tbody加滚动条</a></p>
 <p>2、 数字、字母文本溢出</p>
-
-<pre><code class="language-html">&lt;table class=&quot;table&quot;&gt;
-  &lt;thead class=&quot;thead&quot;&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">table</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;table&#34;</span>&gt;
+  &lt;<span style="color:#f92672">thead</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;thead&#34;</span>&gt;
     ...
-  &lt;/thead&gt;
-  &lt;tbody class=&quot;tbody&quot;&gt;
-    &lt;tr v-for=&quot;(item, index) in data&quot; :key=&quot;index&quot;&gt;
-      &lt;td&gt;{{ item.account }}&lt;/td&gt;
-      &lt;td width=&quot;46%&quot;&gt;{{ item.option }}&lt;/td&gt;
-      &lt;td width=&quot;24%&quot;&gt;
-        &lt;div class=&quot;link&quot;&gt;
+  &lt;/<span style="color:#f92672">thead</span>&gt;
+  &lt;<span style="color:#f92672">tbody</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tbody&#34;</span>&gt;
+    &lt;<span style="color:#f92672">tr</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(item, index) in data&#34;</span> <span style="color:#a6e22e">:key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;index&#34;</span>&gt;
+      &lt;<span style="color:#f92672">td</span>&gt;{{ item.account }}&lt;/<span style="color:#f92672">td</span>&gt;
+      &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;46%&#34;</span>&gt;{{ item.option }}&lt;/<span style="color:#f92672">td</span>&gt;
+      &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;24%&#34;</span>&gt;
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;link&#34;</span>&gt;
           {{ item.link }}
-        &lt;/div&gt;
-      &lt;/td&gt;
-      &lt;td&gt;{{ item.duration }}&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-</code></pre>
-
-<pre><code class="language-css">.table {
-  .tbody {
-    .link {
-      word-wrap:break-word;
-      word-break:break-all;
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 1; //多行在这里修改数字即可
-      overflow:hidden;
-      /* autoprefixer: ignore next */
-      -webkit-box-orient: vertical;
+        &lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;/<span style="color:#f92672">td</span>&gt;
+      &lt;<span style="color:#f92672">td</span>&gt;{{ item.duration }}&lt;/<span style="color:#f92672">td</span>&gt;
+    &lt;/<span style="color:#f92672">tr</span>&gt;
+  &lt;/<span style="color:#f92672">tbody</span>&gt;
+&lt;/<span style="color:#f92672">table</span>&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">table</span> {
+  <span style="color:#960050;background-color:#1e0010">.tbody</span> <span style="color:#960050;background-color:#1e0010">{</span>
+    <span style="color:#960050;background-color:#1e0010">.link</span> <span style="color:#960050;background-color:#1e0010">{</span>
+      <span style="color:#66d9ef">word-wrap</span>:<span style="color:#66d9ef">break-word</span>;
+      <span style="color:#66d9ef">word-break</span>:break-all;
+      <span style="color:#66d9ef">overflow</span>: <span style="color:#66d9ef">hidden</span>;
+      <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">-webkit-</span>box;
+      <span style="color:#66d9ef">-webkit-</span>line-clamp: <span style="color:#ae81ff">1</span>; <span style="color:#960050;background-color:#1e0010">//多行在这里修改数字即可</span>
+      <span style="color:#66d9ef">overflow</span>:<span style="color:#66d9ef">hidden</span>;
+      <span style="color:#75715e">/* autoprefixer: ignore next */</span>
+      <span style="color:#66d9ef">-webkit-</span>box-orient: <span style="color:#66d9ef">vertical</span>;
     }
-  }
-}
-</code></pre>
-
-<p>3、 flex 布局 overflow 失效
-<a href="https://stackoverflow.com/questions/21515042/scrolling-a-flexbox-with-overflowing-content" rel="nofollow noreferrer" target="_blank">Scrolling a flexbox with overflowing content
+  <span style="color:#960050;background-color:#1e0010">}</span>
+<span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><p>3、 flex 布局 overflow 失效
+<a href="https://stackoverflow.com/questions/21515042/scrolling-a-flexbox-with-overflowing-content">Scrolling a flexbox with overflowing content
 </a></p>
-
 <blockquote>
 <p>Basically, to make a flexbox cell scrollable, you have to make all its parents overflow: hidden;, or it will just ignore your overflow settings and make the parent larger instead.</p>
 </blockquote>

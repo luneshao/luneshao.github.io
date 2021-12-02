@@ -6,18 +6,14 @@
     <description>Recent content in vue on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Dec 2020 09:46:14 +0800</lastBuildDate>
-    
-	<atom:link href="https://luneshao.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 04 Dec 2020 09:46:14 +0800</lastBuildDate><atom:link href="https://luneshao.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>vue创建项目流程记录</title>
       <link>https://luneshao.github.io/2020/2020-12-04-vue-create/</link>
       <pubDate>Fri, 04 Dec 2020 09:46:14 +0800</pubDate>
       
       <guid>https://luneshao.github.io/2020/2020-12-04-vue-create/</guid>
-      <description>step1、创建 $ vue create testProject // 【说明】testProject 是自己的项目名，可自定义。  step2、安装 less、less-loader yarn add less less-loader --dev  step3、配置 vue.config.js // vue.config.js module.exports = { // 这里的配置，就可以部署在服务器非根目录下了 publicPuth: &#39;&#39;, chainWebpack: config =&amp;gt; { // 配置 eslint 保存时自动修复 config.module .rule(&#39;eslint&#39;) .use(&#39;eslink-loader&#39;) .tap(options =&amp;gt; { // 修改它的选项... options.fix = true return options }) // 配置 html 文件 title config .plugin(&#39;html&#39;) .tap(args =&amp;gt; { args[0].title = process.env.VUE_APP_TITLE }) } }  以上这样就完成了我日常需要的简单配置了。 o^o</description>
+      <description>step1、创建 $ vue create testProject // 【说明】testProject 是自己的项目名，可自定义。 step2、安装 less、less-loader yarn add less less-loader --dev step3、配置 vue.config.js // vue.config.js module.exports = { // 这里的配置，就可以部署在服务器非根目录下了  publicPuth: &amp;#39;&amp;#39;, chainWebpack: config =&amp;gt; { // 配置 eslint 保存时自动修复  config.module .rule(&amp;#39;eslint&amp;#39;) .use(&amp;#39;eslink-loader&amp;#39;) .tap(options =&amp;gt; { // 修改它的选项...  options.fix = true return options }) // 配置 html 文件 title  config .plugin(&amp;#39;html&amp;#39;) .tap(args =&amp;gt; { args[0].title = process.env.VUE_APP_TITLE }) } } 以上这样就完成了我日常需要的简单配置了。 o^o</description>
     </item>
     
     <item>
@@ -27,14 +23,14 @@
       
       <guid>https://luneshao.github.io/2020/2020-07-21-vue-loader/</guid>
       <description>Vue Loader 是一个 webpack 的 loader，它允许你以一种名为单文件组件 (SFCs)的格式撰写 Vue 组件。
- 允许为 Vue 组件的每个部分使用其它的 webpack loader；
- 允许在一个 .vue 文件中使用自定义块，并对其运用自定义的 loader 链；
- 使用 webpack loader 将 &amp;lt;style&amp;gt; 和 &amp;lt;template&amp;gt; 中引用的资源当作模块依赖来处理；
- 为每个组件模拟出 scoped CSS；
- 在开发过程中使用热重载来保持状态。
+  允许为 Vue 组件的每个部分使用其它的 webpack loader；
+  允许在一个 .vue 文件中使用自定义块，并对其运用自定义的 loader 链；
+  使用 webpack loader 将 &amp;lt;style&amp;gt; 和 &amp;lt;template&amp;gt; 中引用的资源当作模块依赖来处理；
+  为每个组件模拟出 scoped CSS；
+  在开发过程中使用热重载来保持状态。
   起步 每个 vue 包的新版本发布时，一个相应版本的 vue-template-compiler 也会随之发布。编译器的版本必须和基本的 vue 包保持同步，这样 vue-loader 就会生成兼容运行时的代码。这意味着你每次升级项目中的 vue 包时，也应该匹配升级 vue-template-compiler。
 webpack 配置 除了通过一条规则将 vue-loader 应用到所有扩展名为 .vue 的文件上之外，请确保在你的 webpack 配置中添加 Vue Loader 的插件：
-// webpack.config.js const VueLoaderPlugin = require(&#39;vue-loader/lib/plugin&#39;) module.</description>
+// webpack.config.js const VueLoaderPlugin = require(&amp;#39;vue-loader/lib/plugin&amp;#39;) module.</description>
     </item>
     
     <item>
@@ -46,7 +42,7 @@ webpack 配置 除了通过一条规则将 vue-loader 应用到所有扩展名�
       <description>前言 最近在优化之前写的网站，FP 大概要半分钟才能加载出来，emmm，我写的。。。
 这个也是之前文章优化的一部分，因为我的网页中有用到地图，之前用的 vue-amap 组件，后来觉得这个引用 cdn 不知道怎么下手，就改成了直接用节点渲染，不用组件了。然后又查了异步加载的方式，发现了一个解决方案，但是后期又发现了这个解决方案的一些 bug，一通百度加自己尝试修改了一下。
 正文 先贴一下原文的解决方案:
- 1. 创建一个 AMap.js,路径&amp;rsquo;src/assets/js/AMap.js&amp;rsquo;  // src/assets/js/AMap.js export default function MapLoader() { // &amp;lt;-- 原作者这里使用的是module.exports return new Promise((resolve, reject) =&amp;gt; { if (window.AMap) { resolve(window.AMap) } else { var script = document.createElement(&#39;script&#39;) script.type = &#39;text/javascript&#39; script.async = true script.src = &#39;http://webapi.amap.com/maps?v=1.3&amp;amp;callback=initAMap&amp;amp;key=yourkey&#39; script.onerror = reject document.head.appendChild(script) } window.initAMap = () =&amp;gt; { resolve(window.AMap) } }) }  2. 在任何.vue 文件中使用 // test.</description>
+ 1. 创建一个 AMap.js,路径&amp;rsquo;src/assets/js/AMap.js&#39;  // src/assets/js/AMap.js  export default function MapLoader() { // &amp;lt;-- 原作者这里使用的是module.exports  return new Promise((resolve, reject) =&amp;gt; { if (window.AMap) { resolve(window.AMap) } else { var script = document.createElement(&amp;#39;script&amp;#39;) script.type = &amp;#39;text/javascript&amp;#39; script.async = true script.src = &amp;#39;http://webapi.amap.com/maps?v=1.3&amp;amp;callback=initAMap&amp;amp;key=yourkey&amp;#39; script.onerror = reject document.head.appendChild(script) } window.initAMap = () =&amp;gt; { resolve(window.AMap) } }) } 2. 在任何.vue 文件中使用 // test.</description>
     </item>
     
     <item>
@@ -56,7 +52,7 @@ webpack 配置 除了通过一条规则将 vue-loader 应用到所有扩展名�
       
       <guid>https://luneshao.github.io/2020/2020-05-20-vue-perf/</guid>
       <description>1、字体优化 1.1 字体包压缩 使用 fontmin 这个库压缩字体包。（字体下载地址 字体下载网 ，这个下载的苹方简-常规可以被格式化。）
-const Fontmin = require(&#39;fontmin&#39;) const srcPath = &#39;./path/*.ttf&#39; // 字体源文件 const destPath = &#39;./path&#39; // 输出路径 const text = &#39;text&#39; var fontmin = new Fontmin() .src(srcPath) .dest(destPath) .use( Fontmin.glyph({ text: text, hinting: false // keep ttf hint info (fpgm, prep, cvt). default = true }) ) // 执行 fontmin.run(function (err, files, stream) { if (err) { console.error(err) // 异常捕捉 } console.log(&#39;done&#39;) // 成功 })  1.</description>
+const Fontmin = require(&amp;#39;fontmin&amp;#39;) const srcPath = &amp;#39;./path/*.ttf&amp;#39; // 字体源文件 const destPath = &amp;#39;./path&amp;#39; // 输出路径 const text = &amp;#39;text&amp;#39; var fontmin = new Fontmin() .src(srcPath) .dest(destPath) .use( Fontmin.glyph({ text: text, hinting: false // keep ttf hint info (fpgm, prep, cvt). default = true  }) ) // 执行 fontmin.run(function (err, files, stream) { if (err) { console.error(err) // 异常捕捉  } console.</description>
     </item>
     
     <item>
@@ -67,7 +63,7 @@ const Fontmin = require(&#39;fontmin&#39;) const srcPath = &#39;./path/*.ttf&#39
       <guid>https://luneshao.github.io/2020/2020-03-20-vue/</guid>
       <description> 不要在选项属性或回调上使用箭头函数，比如 created: () =&amp;gt; console.log(this.a) 或 vm.$watch(&amp;lsquo;a&amp;rsquo;, newValue =&amp;gt; this.myMethod())。因为箭头函数并没有 this，this 会作为变量一直向上级词法作用域查找，直至找到为止，经常导致 Uncaught TypeError: Cannot read property of undefined 或 Uncaught TypeError: this.myMethod is not a function 之类的错误。
  可以在二级目录线上部署项目
-// vue.config.js module.exports = { publicPath: &#39;./&#39;, }  </description>
+// vue.config.js module.exports = { publicPath: &amp;#39;./&amp;#39;, } </description>
     </item>
     
     <item>
@@ -80,9 +76,9 @@ const Fontmin = require(&#39;fontmin&#39;) const srcPath = &#39;./path/*.ttf&#39
  鉴于对 Vue CLI 中 webpack 的链式配置一直不熟悉，mock 也没有用过。最近项目需要 mock 数据，所以新建了一个测试项目配置了一下。下面我会介绍配置流程。👇👇👇 (webpack 没理解透彻T_T)
 参考文献：
  Vue CLI 文档 webpack-chain 文档 webpack 配置文档 http-proxy-middleware 文档 mockjs-webpack-plugin 文档  文章结构：
-+ 配置流程 + Step 1. 安装插件 mockjs-webpack-plugin + Step 2. 配置 webpack 配置项 + Step 3. Mock 数据  配置流程 这里我就默认民那桑已经用 Vue CLI 安装了一个项目。我使用的 Vue CLI 3。
-Step 1. 安装插件 mockjs-webpack-plugin  这个插件通过 webpack 插件的方式，快速搭建项目的 mock 服务，用于前后端分离模式下的并行开发。emmm，是公司大佬用的这个，至于为什么我还没敢问 -_-
-yarn add mockjs-webpack-plugin --dev 或 cnpm install --save-dev mockjs-webpack-plugin  安装完成后，新建存放 mock 数据的文件夹及文件。文档</description>
++ 配置流程 + Step 1. 安装插件 mockjs-webpack-plugin + Step 2. 配置 webpack 配置项 + Step 3. Mock 数据 配置流程 这里我就默认民那桑已经用 Vue CLI 安装了一个项目。我使用的 Vue CLI 3。
+Step 1. 安装插件 mockjs-webpack-plugin   这个插件通过 webpack 插件的方式，快速搭建项目的 mock 服务，用于前后端分离模式下的并行开发。emmm，是公司大佬用的这个，至于为什么我还没敢问 -_-
+yarn add mockjs-webpack-plugin --dev 或 cnpm install --save-dev mockjs-webpack-plugin   安装完成后，新建存放 mock 数据的文件夹及文件。文档</description>
     </item>
     
   </channel>
