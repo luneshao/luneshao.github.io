@@ -10,9 +10,9 @@
   <meta name="description" content="这里是 LuneShao 的个人博客，主要记录了前端开发过程中遇到的问题，欢迎各位大佬进来喝茶。如果文章中有错误的地方，还请各位大佬不吝赐教，万分感谢。">
   <meta name="keywords" content="LuneShao, 一瓶肥宅快乐水, 博客, 前端, 小骨鱼">
   <meta name="google-site-verification" content="Gu27F60AgLNf8h9KCAXsLXjKd7O-e1oZpSGeblt5w70" />
-  <link rel="prev" href="https://luneshao.github.io/2019/google-console/" />
-  <link rel="next" href="https://luneshao.github.io/2019/brew-noresponse/" />
-  <link rel="canonical" href="https://luneshao.github.io/2019/costom-url-protocol/" />
+  <link rel="prev" href="https://luneshao.github.io/2021/2021-12-02-vue-router-history-config/" />
+  
+  <link rel="canonical" href="https://luneshao.github.io/2022/2022-06-17-open-graph-meta-tags/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -25,10 +25,10 @@
   <title>
        
        
-           windows 添加自定义协议，实现浏览器打开软件 | Luneshao
+           开放图元标签 | Luneshao
        
   </title>
-  <meta name="title" content="windows 添加自定义协议，实现浏览器打开软件 | Luneshao">
+  <meta name="title" content="开放图元标签 | Luneshao">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -47,21 +47,21 @@
          "@id": "https:\/\/luneshao.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : "windows 添加自定义协议，实现浏览器打开软件",
-    "headline" : "windows 添加自定义协议，实现浏览器打开软件",
-    "description" : "实现在浏览器中点击一个链接，打开另一个软件的功能。",
+    "name" : "开放图元标签",
+    "headline" : "开放图元标签",
+    "description" : "分享一篇文章介绍如何配置开放图元标签 开放图元标签：您需要知道的一切",
     "inLanguage" : "en-us",
-    "author" : "Author Name",
-    "creator" : "Author Name",
-    "publisher": "Author Name",
-    "accountablePerson" : "Author Name",
-    "copyrightHolder" : "Author Name",
-    "copyrightYear" : "2019",
-    "datePublished": "2019-06-20 14:43:42 \u002b0800 CST",
-    "dateModified" : "2019-06-20 14:43:42 \u002b0800 CST",
-    "url" : "https:\/\/luneshao.github.io\/2019\/costom-url-protocol\/",
-    "wordCount" : "41",
-    "keywords" : [ "URL Protocol","Costom", "Luneshao"]
+    "author" : "luneShao",
+    "creator" : "luneShao",
+    "publisher": "luneShao",
+    "accountablePerson" : "luneShao",
+    "copyrightHolder" : "luneShao",
+    "copyrightYear" : "2022",
+    "datePublished": "2022-06-17 09:17:40 \u002b0800 CST",
+    "dateModified" : "2022-06-17 09:17:40 \u002b0800 CST",
+    "url" : "https:\/\/luneshao.github.io\/2022\/2022-06-17-open-graph-meta-tags\/",
+    "wordCount" : "2",
+    "keywords" : [ "perf", "Luneshao"]
 }
 </script>
 
@@ -128,15 +128,15 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">windows 添加自定义协议，实现浏览器打开软件</h1>
+        <h1 class="post-title" itemprop="name headline">开放图元标签</h1>
         <div class="post-meta">
-                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">Author Name</a> with ♥ 
+                Written by <a itemprop="name" href="https://luneshao.github.io/" rel="author">luneShao</a> with ♥ 
                 <span class="post-time">
-                on <time datetime=2019-06-20 itemprop="datePublished">June 20, 2019</time>
+                on <time datetime=2022-06-17 itemprop="datePublished">June 17, 2022</time>
                 </span>
                 in
                 
-                <span id="/2019/costom-url-protocol/" class="leancloud_visitors post-meta" data-flag-title="windows 添加自定义协议，实现浏览器打开软件">
+                <span id="/2022/2022-06-17-open-graph-meta-tags/" class="leancloud_visitors post-meta" data-flag-title="开放图元标签">
                     <span style="font-size: 14px;margin-left: 20px;">本文累计被阅读 <i class="leancloud-visitors-count"></i> 次</span>
                 </span>
         </div>
@@ -146,6 +146,7 @@
 
         
 
+        <img src="/img/cover.jpg" class="featured_image">
         
         
      
@@ -157,41 +158,8 @@
           
           
 
-          <p>我参考了这篇<a href="http://baimoz.me/1429/">博客</a>，我使用了原博中 windows 系统的方式，亲测有效。下面贴一下操作步骤：</p>
-<h3 id="操作步骤">操作步骤</h3>
-<ol>
-<li>添加注册表</li>
-</ol>
-<p>（1）新建一个 <code>.reg</code> 的文件，填充如下内容。例如我新建一个自定义协议，名称为 lune。请注意，将下面所有的路径（也就是方括号内的内容）中的名称要 <strong>全部替换为自定义的名称</strong> ，且名称一定要 <strong>全部是小写字母</strong> 。</p>
-<pre tabindex="0"><code>Windows Registry Editor Version 5.00
-[HKEY_CLASSES_ROOT\lune]
-&quot;URL Protocol&quot;=&quot;C:\\WINDOWS\\system32\\calc.exe&quot;
-@=&quot;LuneProtocol&quot;
-[HKEY_CLASSES_ROOT\lune\DefaultIcon]
-@=&quot;C:\\WINDOWS\\system32\\calc.exe,1&quot;
-[HKEY_CLASSES_ROOT\lune\shell]
-[HKEY_CLASSES_ROOT\lune\shell\open]
-[HKEY_CLASSES_ROOT\lune\shell\open\command]
-@=&quot;\&quot;C:\\WINDOWS\\system32\\calc.exe\&quot; \&quot;%1\&quot;&quot;
-</code></pre><p>（2）双击添加到注册表。</p>
-<ol start="2">
-<li>调用方式</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lune://123&#34;</span>&gt;click&lt;/<span style="color:#f92672">a</span>&gt;
-</code></pre></div><h4 id="注意">注意</h4>
-<ol>
-<li>
-<p><code>[HKEY_CLASSES_ROOT\lune\shell]</code>方括号内的路径（即 lune）要改成自定义的名字。</p>
-</li>
-<li>
-<p>自定义的key值，也就是名称，要小写。（都是血与泪&hellip;</p>
-</li>
-</ol>
-<h4 id="mark">mark</h4>
-<p><a href="https://blog.csdn.net/evanxuhe/article/details/79240051">实现浏览器判断本地是否安装程序，并下载与启动 Chrome,IE,360可用</a></p>
-<blockquote>
-<p>以上。🐳</p>
-</blockquote>
+          <h1 id="分享一篇文章介绍如何配置开放图元标签">分享一篇文章介绍如何配置开放图元标签</h1>
+<p><a href="https://ahrefs.com/blog/open-graph-meta-tags/">开放图元标签：您需要知道的一切</a></p>
 
     </div>
 
@@ -206,7 +174,7 @@
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://luneshao.github.io/2019/costom-url-protocol/>https://luneshao.github.io/2019/costom-url-protocol/</span>
+                    <a href=https://luneshao.github.io/2022/2022-06-17-open-graph-meta-tags/>https://luneshao.github.io/2022/2022-06-17-open-graph-meta-tags/</span>
             </p>
             
              
@@ -221,11 +189,8 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://luneshao.github.io/tags/url-protocol/">
-                    #URL Protocol</a></span>
-            
-            <span class="tag"><a href="https://luneshao.github.io/tags/costom/">
-                    #Costom</a></span>
+            <span class="tag"><a href="https://luneshao.github.io/tags/perf/">
+                    #perf</a></span>
             
             </section>
         
@@ -237,10 +202,8 @@
 
     <div class="post-nav">
         
-        <a href="https://luneshao.github.io/2019/google-console/" class="prev" rel="prev" title="如何让自己网站被google收录？"><i class="iconfont icon-left"></i>&nbsp;如何让自己网站被google收录？</a>
+        <a href="https://luneshao.github.io/2021/2021-12-02-vue-router-history-config/" class="prev" rel="prev" title="vue-router在history模式下的相关配置"><i class="iconfont icon-left"></i>&nbsp;vue-router在history模式下的相关配置</a>
          
-        
-        <a href="https://luneshao.github.io/2019/brew-noresponse/" class="next" rel="next" title="brew update 无响应">brew update 无响应&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Luneshao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Dec 2021 10:52:26 +0800</lastBuildDate><atom:link href="https://luneshao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Jun 2022 09:17:40 +0800</lastBuildDate><atom:link href="https://luneshao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>开放图元标签</title>
+      <link>https://luneshao.github.io/2022/2022-06-17-open-graph-meta-tags/</link>
+      <pubDate>Fri, 17 Jun 2022 09:17:40 +0800</pubDate>
+      
+      <guid>https://luneshao.github.io/2022/2022-06-17-open-graph-meta-tags/</guid>
+      <description>分享一篇文章介绍如何配置开放图元标签 开放图元标签：您需要知道的一切</description>
+    </item>
+    
     <item>
       <title>vue-router在history模式下的相关配置</title>
       <link>https://luneshao.github.io/2021/2021-12-02-vue-router-history-config/</link>
